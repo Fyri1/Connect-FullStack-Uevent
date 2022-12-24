@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.authButtons {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+.center {
+  top: 100px;
+  width: 180px;
+  height: 60px;
+}
+.container-left-button {
+  /* margin-left: 35%; */
+  /* margin-right: 35%; */
+  /* width: 2em; */
+  position: relative;
+}
+
+.container-right-button {
+  margin-left: 2%;
+  /* margin-right: 55%; */
+  /* width: 2em; */
+  position: relative;
+}
+.btn-login, .btn-register {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #f7e08c;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+.border {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn-login:hover {
+  transition: 0.5s ease-in-out;
+  background: #3ec93e;
+}
+
+.btn-register:hover {
+  transition: 0.5s ease-in-out;
+  background: #3e7ac9;
+}
+
+.btn-login:hover > svg, .btn-register:hover > svg {
+  stroke-dashoffset: -480;
+}
+
+.btn-login:hover > p, .btn-register:hover > p {
+  color: black;
+  font-size: 16px;
+  font-weight: 100;
+}
