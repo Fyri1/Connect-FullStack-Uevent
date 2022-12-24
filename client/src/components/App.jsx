@@ -61,6 +61,7 @@ const App = () => {
 
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
+                  <Route path="/pass-reset" element={<EmailConfirm />} />
                   <Route path="/comfirm-email" element={<EmailConfirm />} />
 
                   <Route path="/user" element={<Profile />} />

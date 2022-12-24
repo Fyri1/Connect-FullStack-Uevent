@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import apiRoutes from '../../routes/apiRoutes.js';
 import clientRoutes from '../../routes/clientRoutes.js';
 import "../css/header.css"
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
@@ -46,7 +48,7 @@ const Header = () => {
                 <div className="container-left-button">
                   <div className="center">
                     <div className="rightButton">
-                      <button type="submit" className="btn-login">
+                      <button onClick={() => { navigate(clientRoutes.loginPath()); }} type="submit" className="btn-login">
                         <svg width="150px" height="60px" viewBox="0 0 150 60" className="border-login">
                           <polyline points="149,1 149,59 1,59 1,1 149,1" className="bg-line"/>
                           <polyline points="149,1 149,59 1,59 1,1 149,1" className="hl-line"/>
@@ -60,7 +62,7 @@ const Header = () => {
                 <div className="container-right-button">
                   <div className="center">
                     <div className="rightButton">
-                      <button type="submit" className="btn-register">
+                      <button onClick={() => { navigate(clientRoutes.registerPath()); }} type="submit" className="btn-register">
                         <svg width="150px" height="60px" viewBox="0 0 150 60" className="border-register">
                           <polyline points="149,1 149,59 1,59 1,1 149,1" className="bg-line"/>
                           <polyline points="149,1 149,59 1,59 1,1 149,1" className="hl-line"/>
@@ -87,10 +89,10 @@ const Header = () => {
                   </div>
                   <ul className="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                     <li>
-                      <a href={clientRoutes.userTicketsPath('1234')} className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My tickets</a>
+                      <a href={clientRoutes.fullUserTicketsPath('1234')} className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My tickets</a>
                     </li>
                     <li>
-                      <a href={clientRoutes.profilePath()} className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+                      <a href={clientRoutes.fullProfilePath()} className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                     </li>
                   </ul>
                   <div className="py-1">

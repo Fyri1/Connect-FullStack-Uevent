@@ -1,11 +1,22 @@
-const clientPath = 'http://127.0.0.1:5173/';
+const clientPath = 'http://127.0.0.1:5173';
 
 export default {
   mainPagePath: () => clientPath,
-  loginPath: () => [clientPath, 'login'].join('/'),
-  registerPath: () => [clientPath, 'register'].join('/'),
-  confirmEmail: () => [clientPath, 'comfirm-email'].join('/'),
-  profilePath: () => [clientPath, 'user'].join('/'),
-  userTicketsPath: () => [clientPath, 'user', 'tickets'].join('/'),
-  eventPath: (eventId) => [clientPath, 'event', eventId].join('/'),
+  fullLoginPath: () => [clientPath, 'login'].join('/'),
+  loginPath: () => '/login',
+
+  fullRegisterPath: () => [clientPath, 'register'].join('/'),
+  registerPath: () => '/register',
+
+  fullPassResetPath: () => [clientPath, 'pass-reset'].join('/'),
+  PassResetPath: () => '/pass-reset',
+
+  fullConfirmEmail: () => [clientPath, 'comfirm-email'].join('/'),
+
+  fullProfilePath: () => [clientPath, 'user'].join('/'),
+
+  fullUserTicketsPath: () => [clientPath, 'user', 'tickets'].join('/'),
+
+  fullEventPath: (eventId) => [clientPath, 'event', eventId].join('/'),
+
 };
