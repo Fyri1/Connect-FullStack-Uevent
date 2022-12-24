@@ -4,18 +4,18 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
-import routes from '../routes.js';
+import apiRoutes from '../routes/apiRoutes.js';
 
 export const fetchUserInfo = createAsyncThunk(
   'users/getUserById',
   async (id) => {
-    const response = await axios.get(routes.getUserById(id));
+    const response = await axios.get(apiRoutes.getUserById(id));
     return response.data;
   }
 );
 
 export const fetchUsers = createAsyncThunk('users/getAllUsers', async () => {
-  const response = await axios.get(routes.getAllUsers());
+  const response = await axios.get(apiRoutes.getAllUsers());
   return response.data;
 });
 
