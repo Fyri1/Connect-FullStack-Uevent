@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageContext from '../context/languageContext.js';
 
-import Header from './common/Header.jsx';
+import Header from './common/header/Header.jsx';
 import Spinner from './common/Spinner.jsx';
 import PageNotFound from './common/PageNotFound.jsx';
 import MainPage from './main-page/MainPage.jsx';
