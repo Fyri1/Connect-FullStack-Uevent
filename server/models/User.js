@@ -39,7 +39,7 @@ class User {
         login,
         password,
         email,
-        link_event: link,
+        event_link: link,
         active,
       });
     } catch (err) {

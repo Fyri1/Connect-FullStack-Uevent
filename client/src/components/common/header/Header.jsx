@@ -26,7 +26,7 @@ const Header = () => {
           <div className="flex items-center lg:order-2">
             {
               // check whether user is logged in
-              false
+              true
               ?
               <div className="authButtons">
                 <div className="container-left-button">

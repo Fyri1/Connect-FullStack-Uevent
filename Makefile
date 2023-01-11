@@ -7,4 +7,3 @@ start-frontend:
 
 start-backend:
 	make -C ./server start
-

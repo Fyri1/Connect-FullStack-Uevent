@@ -1,17 +1,52 @@
 import React from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import AuthForm from "./AuthForm.jsx";
 import InputField from "./InputField.jsx";
 import clientRoutes from '../../routes/clientRoutes.js';
+import apiRoutes from "../../routes/apiRoutes.js";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const [userData, setUserData] = React.useState({
+    login:'',
+    password:'',
+  });
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+      
+    try {
+      const response = await axios.post(apiRoutes.loginPath(), userData);
+      console.log(response);
+      if (response.status === 200) {
+        localStorage.setItem('token', response.data.accessToken);
+        navigate(clientRoutes.mainPagePath());
+      }
+      
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
-    <div>
+    <form onSubmit={handleLoginSubmit}>
       <section className="bg-gray-50 dark:bg-gray-900">
         <AuthForm formMessage='Sign in'>
-          <InputField inputName='Your login or email' inputType="text" inputPlaceholder='email@email.com'/>
-          <InputField inputName='Password' inputType="password" inputPlaceholder='••••••••'/>
+          <InputField id='login' name='Your login or email' type="text" placeholder='email@email.com' userData={userData} setUserData={setUserData}>
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+            </div>
+          </InputField>
 
+          <InputField id='password' name='Password' type="password" placeholder='••••••••' userData={userData} setUserData={setUserData}>
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"></path></svg>
+            </div>
+          </InputField>
+          
           <div className="flex items-center justify-between">
             <div className="flex items-start">
               <div className="flex items-center h-5">
@@ -31,7 +66,7 @@ const Login = () => {
           </p>
         </AuthForm>
       </section>
-    </div>
+    </form>
   );
 }
 

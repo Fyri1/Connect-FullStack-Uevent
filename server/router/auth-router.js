@@ -16,25 +16,31 @@ router.post(
   checkValidation,
   Authorization.authRegister
 );
+
 router.post(
   '/login/',
   body('login').isLength({ min: 3, max: 30 }).trim(),
   body('password').not().isEmpty().trim(),
   Authorization.authLogin
 );
+
 router.post('/logout/', Authorization.authLogout);
+
 router.post(
   '/password-reset',
   body('email').isEmail().normalizeEmail().trim(),
   Authorization.authSendPasswordReset
 );
+
 router.post(
   '/password-reset/:link',
   body('resetPassword').not().isEmpty().trim(),
   body('resetConfirmPassword').not().isEmpty().trim(),
   Authorization.authPasswordReset
 );
+
 router.get('/refresh', Authorization.refreshToken);
+
 router.get('/confirm-email/:link', Authorization.authActiveEmail);
 
 export default router;

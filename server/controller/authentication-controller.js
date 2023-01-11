@@ -36,7 +36,7 @@ class Authorization {
         login,
         password: enpryptPassword,
         link,
-        active: false,
+        active: true, // false <--------------------------
       });
       sendMassege.send(email, link, 'activate').then(() => {
         res.json({ massage: 'Confirm mail' });
@@ -62,7 +62,7 @@ class Authorization {
       const { accessToken, refreshToken } = TokenService.generateTokens({
         ...userDto,
       });
-      await Token.saveToken(userData.id, refreshToken);
+
       res.cookie('refreshToken', refreshToken, {
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
