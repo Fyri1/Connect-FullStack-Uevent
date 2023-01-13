@@ -1,7 +1,6 @@
 install: 
 	make -C server setup
 	make -C client install
-
 start-frontend:
 	make -C ./client start
 
