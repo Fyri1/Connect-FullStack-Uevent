@@ -3,6 +3,7 @@ import React from "react";
 import Spinner from '../common/Spinner.jsx';
 import apiRoutes from '../../routes/apiRoutes.js';
 import clientRoutes from '../../routes/clientRoutes.js';
+import MainContent from '../common/MainContent.jsx';
 
 const MainPage = () => {
   const [eventsList, setEventsList] = React.useState([]);
@@ -34,9 +35,11 @@ const MainPage = () => {
       {
         isLoading
         ?
-        <Spinner />
+          <Spinner />
         :
-        <p>This is MainPage</p>
+        <div>
+          <MainContent /> 
+        </div>
       }
     </div>
   );
