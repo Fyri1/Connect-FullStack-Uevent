@@ -1,8 +1,14 @@
 import React from "react";
 
 import Spinner from '../common/Spinner.jsx';
+import Sidebar from "./Sidebar.jsx";
+import EventElement from "./EventElement.jsx";
+
 import apiRoutes from '../../routes/apiRoutes.js';
 import clientRoutes from '../../routes/clientRoutes.js';
+import '../css/event-card.css';
+import '../css/main-page.css';
+import data from '../../temp/events_data.json';
 
 const MainPage = () => {
   const [eventsList, setEventsList] = React.useState([]);
@@ -13,7 +19,7 @@ const MainPage = () => {
     try {
       // Throw request on api for events and logged user info if any
       console.log('sasi zagryzka: ' + isLoading);
-      setEventsList([]);
+      setEventsList(data);
       setUserData({
         fullname: "dayn",
         login: "dayn_login",
@@ -29,6 +35,10 @@ const MainPage = () => {
     onLoad();
   }, []);
 
+  const eventsElements = eventsList.map((event, i) => {
+    return <EventElement key={event.id} event={event} />
+  })
+
   return (
     <div>
       {
@@ -36,7 +46,13 @@ const MainPage = () => {
         ?
         <Spinner />
         :
-        <p>This is MainPage</p>
+        <div>
+          <p>This is MainPage</p>
+          <Sidebar/>
+          <div className="main-content">
+            { eventsElements }
+          </div>
+        </div>
       }
     </div>
   );
