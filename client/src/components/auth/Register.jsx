@@ -1,11 +1,12 @@
-import React from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-import AuthForm from "./AuthForm.jsx";
-import InputField from "./InputField.jsx";
-import clientRoutes from '../../routes/clientRoutes.js';
-import apiRoutes from "../../routes/apiRoutes.js";
+import AuthForm from './AuthForm.jsx';
+import InputField from './InputField.jsx';
+
+import clientRoutes from '../../routes/client/clientRoutes.js';
+import apiRoutes from '../../routes/api/apiClientRoutes.js';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -30,6 +31,8 @@ const Register = () => {
 
   React.useEffect(() => {
     // console.log(userData);
+
+    //// Prevent setErrors in case if there is no errors
     setErrors({
       login: '',
       email: '',
@@ -76,19 +79,19 @@ const Register = () => {
 
           <InputField id='password' name='Password' type="password" placeholder='••••••••' userData={userData} setUserData={setUserData}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"></path></svg>
+              <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clipRule="evenodd" fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"></path></svg>
             </div>
           </InputField>
 
           <InputField id='passwordConfirm' name='Password Confirm' type="password" placeholder='' userData={userData} setUserData={setUserData}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"></path></svg>
+              <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clipRule="evenodd" fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"></path></svg>
             </div>
           </InputField>
 
           <button onClick={() => { console.log(userData) }} type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign up</button>
           <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-            Already have an account? <a href={clientRoutes.fullLoginPath()} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in</a>
+            Already have an account? <a href={clientRoutes.fullLoginPagePath()} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign in</a>
           </p>
         </AuthForm>
       </section>

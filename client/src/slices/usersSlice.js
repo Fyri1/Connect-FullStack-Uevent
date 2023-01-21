@@ -4,7 +4,7 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
-import apiRoutes from '../routes/apiRoutes.js';
+import apiRoutes from '../routes/api/apiClientRoutes.js';
 
 export const fetchUserInfo = createAsyncThunk(
   'users/getUserById',

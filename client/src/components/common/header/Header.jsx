@@ -3,8 +3,9 @@ import React from 'react';
 import Navbar from './Navbar.jsx';
 import AuthButton from './AuthButton.jsx';
 import UserDropdownMenu from './UserDropdownMenu.jsx';
-import clientRoutes from '../../../routes/clientRoutes.js';
-import "../../css/header.css";
+
+import clientRoutes from '../../../routes/client/clientRoutes.js';
+import '../../css/header.css';
 
 const Header = () => {
   const tempUserDetails = {
@@ -32,10 +33,10 @@ const Header = () => {
               :
               <div className="authButtons">
                 <div className="container-left-button">
-                  <AuthButton name="Sign in" path={clientRoutes.loginPath()} type="login" />
+                  <AuthButton name="Sign in" path={clientRoutes.loginPagePath()} type="login" />
                 </div>
                 <div className="container-right-button">
-                  <AuthButton name="Sign up" path={clientRoutes.registerPath()} type="register" />
+                  <AuthButton name="Sign up" path={clientRoutes.registerPagePath()} type="register" />
                 </div>
               </div>
             }

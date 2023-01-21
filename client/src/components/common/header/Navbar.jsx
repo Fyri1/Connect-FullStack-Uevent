@@ -1,7 +1,8 @@
 import React from "react";
 
 import NavbarElement from "./NavbarElement.jsx";
-import clientRoutes from '../../../routes/clientRoutes.js';
+
+import clientRoutes from '../../../routes/client/clientRoutes.js';
 
 const Navbar = () => {
   return (

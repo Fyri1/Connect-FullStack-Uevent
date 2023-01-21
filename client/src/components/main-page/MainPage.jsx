@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 import Spinner from '../common/Spinner.jsx';
-import Sidebar from "./Sidebar.jsx";
-import EventElement from "./EventElement.jsx";
+import Sidebar from './Sidebar.jsx';
+import EventElement from './EventElement.jsx';
 
-import apiRoutes from '../../routes/apiRoutes.js';
-import clientRoutes from '../../routes/clientRoutes.js';
+import apiRoutes from '../../routes/api/apiClientRoutes.js';
+import clientRoutes from '../../routes/client/clientRoutes.js';
 import '../css/event-card.css';
 import '../css/main-page.css';
 import data from '../../temp/events_data.json';

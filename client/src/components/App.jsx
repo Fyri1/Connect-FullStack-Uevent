@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import LanguageContext from '../context/languageContext.js';
 
 import Header from './common/header/Header.jsx';
 import Spinner from './common/Spinner.jsx';
@@ -10,7 +9,14 @@ import MainPage from './main-page/MainPage.jsx';
 import Login from './auth/Login.jsx';
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
+import PassReset from './auth/PassReset.jsx';
 import Profile from './user/Profile.jsx'
+
+import clientRoutes from '../routes/client/clientRoutes.js';
+import adminRoutes from '../routes/client/adminRoutes.js';
+import moderatorRoutes from '../routes/client/moderatorRoutes.js';
+import organizationRoutes from '../routes/client/organizationRoutes.js';
+import LanguageContext from '../context/languageContext.js';
 
 const lngs = {
   en: {
@@ -55,16 +61,25 @@ const App = () => {
           <BrowserRouter>
             <Header />
             <Routes>
+              {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
               {/* {isGuest ? ( */}
                 <>
-                  <Route path="/" element={<MainPage />} />
+                  {/* User routes */}
+                  <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
+                  <Route path={clientRoutes.loginPagePath()} element={<Login />} />
+                  <Route path={clientRoutes.registerPagePath()} element={<Register />} />
+                  <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
+                  <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
+                  <Route path={clientRoutes.profilePagePath()} element={<Profile />} />
 
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/pass-reset" element={<EmailConfirm />} />
-                  <Route path="/comfirm-email" element={<EmailConfirm />} />
+                  {/* Admin routes */}
+                  <Route path={adminRoutes.mainPagePath()} element={<MainPage />} />
 
-                  <Route path="/user" element={<Profile />} />
+                  {/* Moderator routes */}
+                  <Route path={moderatorRoutes.mainPagePath()} element={<MainPage />} />
+
+                  {/* Organization routes */}
+                  <Route path={organizationRoutes.mainPagePath()} element={<MainPage />} />
 
                   <Route path="*" element={<PageNotFound />} />
                 </>
