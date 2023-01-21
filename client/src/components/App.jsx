@@ -12,6 +12,10 @@ import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
 import Profile from './user/Profile.jsx'
 
+import AdminPage from './admin-panel/AdminPage.jsx';
+import OrganizationPage from './admin-panel/OrganizationPage.jsx';
+import ModeratorPage from './admin-panel/ModeratorPage.jsx';
+
 import clientRoutes from '../routes/client/clientRoutes.js';
 import adminRoutes from '../routes/client/adminRoutes.js';
 import moderatorRoutes from '../routes/client/moderatorRoutes.js';
@@ -73,13 +77,18 @@ const App = () => {
                   <Route path={clientRoutes.profilePagePath()} element={<Profile />} />
 
                   {/* Admin routes */}
-                  <Route path={adminRoutes.mainPagePath()} element={<MainPage />} />
+                  <Route path={adminRoutes.mainPagePath()} element={<AdminPage />} />
+                  <Route path={adminRoutes.usersPagePath()} element={<AdminPage />} />
+                  <Route path={adminRoutes.rolesPagePath()} element={<AdminPage />} />
+                  <Route path={adminRoutes.eventsPagePath()} element={<AdminPage />} />
+                  <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage />} />
+                  <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage />} />
 
                   {/* Moderator routes */}
-                  <Route path={moderatorRoutes.mainPagePath()} element={<MainPage />} />
+                  <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
 
                   {/* Organization routes */}
-                  <Route path={organizationRoutes.mainPagePath()} element={<MainPage />} />
+                  <Route path={organizationRoutes.mainPagePath()} element={<OrganizationPage />} />
 
                   <Route path="*" element={<PageNotFound />} />
                 </>

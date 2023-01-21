@@ -1,11 +1,8 @@
 import React from "react";
 
 import Spinner from "../common/Spinner.jsx";
-import NavbarElement from "./NavbarElement.jsx";
 
-import adminRoutes from "../../routes/client/adminRoutes.js";
-
-const AdminPage = () => {
+const OrganizationPage = () => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   const onLoad = () => {
@@ -29,12 +26,11 @@ const AdminPage = () => {
         <Spinner />
         :
         <div>
-          <h1>Welcome to Admin control panel</h1>
-          <NavbarElement />
+          <p>This is OrganizationPage</p>
         </div>
       }
     </div>
   )
 }
 
-export default AdminPage;
+export default OrganizationPage;
