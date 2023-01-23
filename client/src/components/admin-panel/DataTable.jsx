@@ -2,7 +2,7 @@ import React from "react";
 
 import adminRoutes from "../../routes/client/adminRoutes.js";
 
-const NavbarElement = ({ data }) => {
+const DataTable = ({ data }) => {
 
   const tableRows = data.map((element, i) => {
     return (
@@ -19,23 +19,23 @@ const NavbarElement = ({ data }) => {
           {
             element.active
             ?
-            <a class="fa-check-circle fa-2x icon-green"></a>
+            <a className="fa-check-circle fa-2x icon-green"></a>
             :
-            <a class="fa-check-circle fa-2x icon-red"></a>
+            <a className="fa-check-circle fa-2x icon-red"></a>
           }
         </td>
         <td>{element.created_at}</td>
         <td>
-          <a class="fas fa-edit fa-2x icon-green" href="#"></a>
-          <a class="fas fa-trash fa-2x icon-red" href="#"></a>
+          <a className="fas fa-edit fa-2x icon-green" href="#"></a>
+          <a className="fas fa-trash fa-2x icon-red" href="#"></a>
         </td>
       </tr>
     )
   })
 
   return (
-    <table class="table table-responsive-xl table-bordered table-striped table-hover">
-      <thead class="thead-dark">
+    <table className="table table-responsive-xl table-bordered table-striped table-hover">
+      <thead className="thead-dark">
         <tr>
           <th>User ID</th>
           <th>Login</th>
@@ -59,4 +59,4 @@ const NavbarElement = ({ data }) => {
   )
 }
 
-export default NavbarElement;
+export default DataTable;

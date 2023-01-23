@@ -1,6 +1,6 @@
 const clientPath = 'http://127.0.0.1:5173';
 
-//  control panel routes
+// Admin control panel routes
 export default {
   fullMainPagePath: () => [clientPath, 'admin'].join('/'),
   mainPagePath: () => '/admin/',

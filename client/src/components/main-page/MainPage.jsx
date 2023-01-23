@@ -8,6 +8,7 @@ import apiRoutes from '../../routes/api/apiClientRoutes.js';
 import clientRoutes from '../../routes/client/clientRoutes.js';
 import '../css/event-card.css';
 import '../css/main-page.css';
+
 import data from '../../temp/events_data.json';
 
 const MainPage = () => {
