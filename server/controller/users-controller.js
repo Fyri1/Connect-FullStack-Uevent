@@ -3,10 +3,11 @@ import encrypt from '../encrypt.js';
 
 class Users {
   async getAllUsers(_req, res) {
-    const user = await User.getAllUsers();
+    const users = await User.getAllUsers();
     res.status(200);
-    res.json({ user });
+    res.json({ users });
   }
+  
   async getUserById(req, res, next) {
     try {
       const { id } = req.params;

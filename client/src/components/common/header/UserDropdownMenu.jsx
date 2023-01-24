@@ -1,7 +1,8 @@
 import React from "react";
 
 import DropdownElement from "./DropdownElement.jsx";
-import clientRoutes from '../../../routes/clientRoutes.js';
+
+import clientRoutes from '../../../routes/client/clientRoutes.js';
 
 const UserDropdownMenu = ({ userDetails }) => {
   return (
@@ -19,8 +20,8 @@ const UserDropdownMenu = ({ userDetails }) => {
           <div className="truncate">{userDetails.email}</div>
         </div>
         <ul className="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-          <DropdownElement name='Profile' path={clientRoutes.fullProfilePath()} />
-          <DropdownElement name='My tickets' path={clientRoutes.fullUserTicketsPath('1234')} />
+          <DropdownElement name='Profile' path={clientRoutes.fullProfilePagePath()} />
+          <DropdownElement name='My tickets' path={clientRoutes.fullUserTicketsPagePath('1234')} />
         </ul>
         <div className="py-1">
           <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</a>
