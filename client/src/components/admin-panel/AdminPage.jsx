@@ -14,12 +14,10 @@ const AdminPage = () => {
   const onLoad = async () => {
     try {
       console.log('sasi zagryzka: ' + isLoading);
-      
-      //// VSE PIZDEC MNE NADO ENDPOINT!
       const response = await axios.get(apiAdminRoutes.usersGetPath());
       // console.log(response);
+      
       setData(response.data.users);
-
       setIsLoading(false);
     } catch (error) {
       console.log('error pizdec! ' + error);
