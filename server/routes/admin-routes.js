@@ -9,6 +9,5 @@ export default {
   userIdPostPath: (userId) => [apiPath, 'users', userId].join('/'),
   userIdUpdatePath: (userId) => [apiPath, 'users', userId].join('/'),
   userIdDeletePath: (userId) => [apiPath, 'users', userId].join('/'),
-
-
+  eventCreatePath: () => [apiPath, 'event', 'create'].join('/'),
 };

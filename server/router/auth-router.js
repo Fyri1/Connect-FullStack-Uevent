@@ -1,7 +1,7 @@
 import Express from 'express';
 import { body } from 'express-validator';
 import Authorization from '../controller/authentication-controller.js';
-import checkValidation from '../middlewares/check-validation.js';
+import checkValidation from '../middlewares/auth-validation.js';
 
 const router = Express.Router();
 
