@@ -1,4 +1,24 @@
 .event-card-element {
-    height: 100%;
-    background-color: red;
+    height: 350px;
+    width: 100%;
+    background-color: rgb(255, 106, 0);
+    border: 2px solid darkblue;
+    margin: 0 auto;
+    transition: opacity 1s ease-in;
+    position: left
+    ;
+
+ 
+
+    display: block;
+
+}
+/* .img-width {
+    width: 250px;
+    height: 450px;
+} */
+
+#indicators-carousel{
+    width: 300px;
+
 }
