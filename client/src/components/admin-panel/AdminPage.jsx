@@ -2,19 +2,23 @@ import React from "react";
 
 import Spinner from "../common/Spinner.jsx";
 import NavbarElement from "./NavbarElement.jsx";
-import DataTable from "./DataTable.jsx";
+import DataTable from "./table/DataTable.jsx";
 
-import adminRoutes from "../../routes/client/adminRoutes.js";
+import apiAdminRoutes from "../../routes/api/apiAdminRoutes.js";
+import axios from "axios";
 
 const AdminPage = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [data, setData] = React.useState([]);
 
-  const onLoad = () => {
+  const onLoad = async () => {
     try {
       console.log('sasi zagryzka: ' + isLoading);
       
       //// VSE PIZDEC MNE NADO ENDPOINT!
+      const response = await axios.get(apiAdminRoutes.usersGetPath());
+      // console.log(response);
+      setData(response.data.users);
 
       setIsLoading(false);
     } catch (error) {

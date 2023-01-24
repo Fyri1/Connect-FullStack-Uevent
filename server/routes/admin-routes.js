@@ -1,4 +1,4 @@
-const apiPath = 'http://localhost:8080/api/admin';
+const apiPath = '';
 
 // Admin DB data access points
 export default {
@@ -9,5 +9,6 @@ export default {
   userIdPostPath: (userId) => [apiPath, 'users', userId].join('/'),
   userIdUpdatePath: (userId) => [apiPath, 'users', userId].join('/'),
   userIdDeletePath: (userId) => [apiPath, 'users', userId].join('/'),
+
 
 };
