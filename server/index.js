@@ -7,6 +7,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 import authRouter from './router/auth-router.js';
+import eventRouter from './router/event-router.js';
 import adminRouter from './router/admin-router.js';
 import errorMiddleware from './middlewares/error-middleware.js';
 
@@ -23,6 +24,7 @@ export default () => {
   // app.use('/avatars', Express.static(`${path.resolve()}/avatars`));
   // app.use('/picture-post', Express.static(`${path.resolve()}/picture-post`));
   app.use('/api/auth', authRouter);
+  app.use('/api/event', eventRouter);
   app.use('/api/admin', adminRouter);
   app.use(errorMiddleware);
   return app;

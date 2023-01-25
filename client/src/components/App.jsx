@@ -15,6 +15,9 @@ import Profile from './user/Profile.jsx'
 import AdminPage from './admin-panel/AdminPage.jsx';
 import OrganizationPage from './admin-panel/OrganizationPage.jsx';
 import ModeratorPage from './admin-panel/ModeratorPage.jsx';
+import EditPage from './admin-panel/edit/EditPage.jsx';
+import UserEditPage from './admin-panel/edit/UserEditPage.jsx';
+import EventEditPage from './admin-panel/edit/EventEditPage.jsx';
 
 import clientRoutes from '../routes/client/clientRoutes.js';
 import adminRoutes from '../routes/client/adminRoutes.js';
@@ -81,6 +84,7 @@ const App = () => {
                   <Route path={adminRoutes.usersPagePath()} element={<AdminPage />} />
                   <Route path={adminRoutes.rolesPagePath()} element={<AdminPage />} />
                   <Route path={adminRoutes.eventsPagePath()} element={<AdminPage />} />
+                  <Route path={adminRoutes.eventCreatePagePath()} element={<EventEditPage />} />
                   <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage />} />
                   <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage />} />
 
