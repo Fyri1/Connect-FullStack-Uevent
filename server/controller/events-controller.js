@@ -5,8 +5,7 @@ import Event from '../models/Event.js';
 class Events {
   getAllEvents() {}
   getEventsById(id) {}
-  async createEvent(req, res) {
-    await Event.save(req.data);
+  async createEvent(_, res) {
     res.json({
       massage: 'create event',
     });
