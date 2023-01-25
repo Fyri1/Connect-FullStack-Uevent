@@ -81,12 +81,12 @@ const App = () => {
 
                   {/* Admin routes */}
                   <Route path={adminRoutes.mainPagePath()} element={<AdminPage />} />
-                  <Route path={adminRoutes.usersPagePath()} element={<AdminPage />} />
-                  <Route path={adminRoutes.rolesPagePath()} element={<AdminPage />} />
-                  <Route path={adminRoutes.eventsPagePath()} element={<AdminPage />} />
+                  <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
+                  <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
+                  <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
                   <Route path={adminRoutes.eventCreatePagePath()} element={<EventEditPage />} />
-                  <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage />} />
-                  <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage />} />
+                  <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
+                  <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
 
                   {/* Moderator routes */}
                   <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
