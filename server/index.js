@@ -7,6 +7,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 import authRouter from './router/auth-router.js';
+import eventRouter from './router/event-router.js';
 import adminRouter from './router/admin-router.js';
 import eventRouter from './router/event-router.js';
 import errorMiddleware from './middlewares/error-middleware.js';
