@@ -5,34 +5,35 @@ import { useNavigate } from 'react-router-dom';
 import InputField from '../../common/form/InputField.jsx';
 import EditForm from '../../common/form/EditForm.jsx';
 
+import adminRoutes from '../../../routes/client/adminRoutes.js';
 import apiAdminRoutes from '../../../routes/api/apiAdminRoutes.js';
 
 
-const EditPage = () => {
-  // const keys = Object.keys(data[0]);
-
+const UserEditPage = () => {
   const navigate = useNavigate();
 
   const [data, setData] = React.useState({
-    title: "",
-    description: "",
-    category: "",
-    city: "",
-    address: "",
-    poster: "",
-    eventStart: "",
-    eventEnd: "",
+    login: "",
+    email: "",
+    first_name: "",
+    second_name: "",
+    last_name: "",
+    password: "",
+    company: "",
+    phone_number: "",
+    active: false
   });
 
   const [errors, setErrors] = React.useState({
-    title: "",
-    description: "",
-    category: "",
-    city: "",
-    address: "",
-    poster: "",
-    eventStart: "",
-    eventEnd: "",
+    login: "",
+    email: "",
+    first_name: "",
+    second_name: "",
+    last_name: "",
+    password: "",
+    company: "",
+    phone_number: "",
+    active: false
   });
 
   const handleDataSubmit = async (e) => {
@@ -41,7 +42,7 @@ const EditPage = () => {
     try {
       const response = await axios.post(apiAdminRoutes.eventPostPath(), data);
       console.log(response);
-      navigate(clientRoutes.mainPagePath());
+      navigate(adminRoutes.mainPagePath());
     } catch (e) {
       console.log(e);
       setErrors({
@@ -150,4 +151,4 @@ const EditPage = () => {
   eventEnd,
 */
 
-export default EditPage;
+export default UserEditPage;

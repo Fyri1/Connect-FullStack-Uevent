@@ -50,9 +50,9 @@ const MainPage = () => {
         <div>
           <p>This is MainPage</p>
           <Sidebar/>
-          <div className="main-content">
+          {/* <div className="main-content">
             { eventsElements }
-          </div>
+          </div> */}
         </div>
       }
     </div>

@@ -1,11 +1,17 @@
 import Express from 'express';
 import { body } from 'express-validator';
+
 import Events from '../controller/events-controller.js';
+import adminRoutes from '../routes/admin-routes.js';
 
 const router = Express.Router();
 
+router.get(
+  adminRoutes.eventsGetPath(),
+  Events.getAllEvents
+);
 router.post(
-  '/create',
+  adminRoutes.eventPostPath(),
   body('title').isEmpty().isLength({ min: 3, max: 30 }).trim(),
   body('description').isEmpty().isLength({ min: 10, max: 150 }).trim(),
   body('category').isEmpty(),
