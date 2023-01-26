@@ -4,12 +4,11 @@ const tryCatch = (controller) => async (req, res, next) => {
   try {
     const result = await controller(req, res);
     res.status(200).json({ values: result || 'Ok' });
-  }
-  catch (error) {
+  } catch (error) {
     if (error.code === 11000)
       return res.json(ApiError.BadRequest('Validation error', errors.array()));
+    return next(error);
   }
-  return next(error);
-}
+};
 
 export default tryCatch;
