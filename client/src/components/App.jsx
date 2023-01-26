@@ -10,7 +10,7 @@ import Login from './auth/Login.jsx';
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
-import Profile from './user/Profile.jsx'
+import Profile from './user/Profile.jsx';
 
 import AdminPage from './admin-panel/AdminPage.jsx';
 import OrganizationPage from './admin-panel/OrganizationPage.jsx';
@@ -43,7 +43,7 @@ const App = () => {
     // !localStorage.getItem('jwt') ? setGuest(true) : setGuest(false);
     setSocketConnected(false);
   }, []);
-  
+
   // const buttonTranslate = Object.keys(lngs).map((lng) => {
   //   return (
   //     <button
@@ -63,46 +63,82 @@ const App = () => {
   return socketConnected ? (
     <Spinner />
   ) : (
-      <LanguageContext.Provider value={{ t }}>
-        {/* <SocketContext.Provider value={{ socket }}> */}
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
-              {/* {isGuest ? ( */}
-                <>
-                  {/* User routes */}
-                  <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
-                  <Route path={clientRoutes.loginPagePath()} element={<Login />} />
-                  <Route path={clientRoutes.registerPagePath()} element={<Register />} />
-                  <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
-                  <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
-                  <Route path={clientRoutes.profilePagePath()} element={<Profile />} />
+    <LanguageContext.Provider value={{ t }}>
+      {/* <SocketContext.Provider value={{ socket }}> */}
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
+          {/* {isGuest ? ( */}
+          <>
+            {/* User routes */}
+            <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
+            <Route path={clientRoutes.loginPagePath()} element={<Login />} />
+            <Route
+              path={clientRoutes.registerPagePath()}
+              element={<Register />}
+            />
+            <Route
+              path={clientRoutes.confirmEmailPagePath()}
+              element={<EmailConfirm />}
+            />
+            <Route
+              path={clientRoutes.passResetPagePath()}
+              element={<PassReset />}
+            />
+            <Route
+              path={clientRoutes.profilePagePath()}
+              element={<Profile />}
+            />
 
-                  {/* Admin routes */}
-                  <Route path={adminRoutes.mainPagePath()} element={<AdminPage />} />
-                  <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
-                  <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
-                  <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
-                  <Route path={adminRoutes.eventCreatePagePath()} element={<EventEditPage />} />
-                  <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
-                  <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
+            {/* Admin routes */}
+            <Route path={adminRoutes.mainPagePath()} element={<AdminPage />} />
+            <Route
+              path={adminRoutes.usersPagePath()}
+              element={<AdminPage dataCategory="users" />}
+            />
+            <Route
+              path={adminRoutes.rolesPagePath()}
+              element={<AdminPage dataCategory="roles" />}
+            />
+            <Route
+              path={adminRoutes.eventsPagePath()}
+              element={<AdminPage dataCategory="events" />}
+            />
+            <Route
+              path={adminRoutes.eventCreatePagePath()}
+              element={<EventEditPage />}
+            />
+            <Route
+              path={adminRoutes.categoriesPagePath()}
+              element={<AdminPage dataCategory="categories" />}
+            />
+            <Route
+              path={adminRoutes.ticketsPagePath()}
+              element={<AdminPage dataCategory="tickets" />}
+            />
 
-                  {/* Moderator routes */}
-                  <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
+            {/* Moderator routes */}
+            <Route
+              path={moderatorRoutes.mainPagePath()}
+              element={<ModeratorPage />}
+            />
 
-                  {/* Organization routes */}
-                  <Route path={organizationRoutes.mainPagePath()} element={<OrganizationPage />} />
+            {/* Organization routes */}
+            <Route
+              path={organizationRoutes.mainPagePath()}
+              element={<OrganizationPage />}
+            />
 
-                  <Route path="*" element={<PageNotFound />} />
-                </>
-              {/* ) : (
+            <Route path="*" element={<PageNotFound />} />
+          </>
+          {/* ) : (
                 <Route path="/" element={<Calendar />} />
               )} */}
-            </Routes>
-          </BrowserRouter>
-        {/* </SocketContext.Provider> */}
-      </LanguageContext.Provider>
+        </Routes>
+      </BrowserRouter>
+      {/* </SocketContext.Provider> */}
+    </LanguageContext.Provider>
   );
 };
 
