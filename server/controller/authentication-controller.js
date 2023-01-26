@@ -1,10 +1,10 @@
 import User from '../models/User.js';
 import encrypt from '../encrypt.js';
-import SendMail from '../service/send-mail.js';
+import SendMail from '../services/send-mail.js';
 import { validationResult } from 'express-validator';
 import ApiError from '../exceptions/api-error.js';
 import UserDto from '../dtos/user-dto.js';
-import TokenService from '../service/token-service.js';
+import TokenService from '../services/token-service.js';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 import bcrypt from 'bcrypt';
