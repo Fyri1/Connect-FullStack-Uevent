@@ -19,32 +19,35 @@ const AdminPage = ({ dataCategory }) => {
       switch (dataCategory) {
         case "users":
           response = await axios.get(apiAdminRoutes.usersGetPath());
+          setData(response.data.users);
           break;
 
         case "roles":
           response = await axios.get(apiAdminRoutes.rolesGetPath());
+          setData(response.data.roles);
           break;
 
         case "events":
           response = await axios.get(apiAdminRoutes.eventsGetPath());
+          setData(response.data.events);
           break;
 
         case "categories":
           response = await axios.get(apiAdminRoutes.categoriesGetPath());
+          setData(response.data.categories);
           break;
 
         case "tickets":
           response = await axios.get(apiAdminRoutes.ticketsGetPath());
+          setData(response.data.tickets);
           break;
       
         default:
           response = await axios.get(apiAdminRoutes.usersGetPath());
+          setData(response.data.users);
           break;
       }
-      
-      // console.log(response);
-      
-      setData(response.data.users);
+
       setIsLoading(false);
     } catch (error) {
       console.log('error pizdec! ' + error);

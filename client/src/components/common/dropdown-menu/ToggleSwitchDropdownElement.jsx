@@ -1,6 +1,6 @@
 import React from "react";
 
-const CategoryDropdownElement = ({ id, name,  selectedCategories, setSelectedCategories }) => {
+const ToggleSwitchDropdownElement = ({ id, name, selectedElements, setSelectedElements }) => {
 
 
   return (
@@ -8,9 +8,9 @@ const CategoryDropdownElement = ({ id, name,  selectedCategories, setSelectedCat
       <li>
         <div className="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
           <label className="relative inline-flex items-center w-full cursor-pointer">
-            <input id={ id } type="checkbox" value="" className="sr-only peer" onChange={(e) => {
-              setSelectedCategories({
-                ...selectedCategories,
+            <input id={id} type="checkbox" value="" className="sr-only peer" onChange={(e) => {
+              setSelectedElements({
+                ...selectedElements,
                 [id]: e.target.checked,
               });
             }}></input>
@@ -23,4 +23,4 @@ const CategoryDropdownElement = ({ id, name,  selectedCategories, setSelectedCat
   );
 }
 
-export default CategoryDropdownElement;
+export default ToggleSwitchDropdownElement;

@@ -5,19 +5,27 @@ const TableRows = ({ data }) => {
   
   const rowsElements = data.map((dataElement, i) => {
     const keys = Object.keys(dataElement);
-    const dataElementValues = keys.map((key, i) => {
+    const dataElementValues = [];
+    dataElementValues.push(
+      <td key={-1} className="w-4 p-4">
+        <div className="flex items-center">
+            <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"></input>
+            <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
+        </div>
+      </td>
+    );
+
+    dataElementValues.push(keys.map((key, i) => {
       if (key === 'active') {
         if (dataElement[key]) {
-          // return <a className="fa-check-circle fa-2x icon-green"></a>
-          return <td key={i}>active</td>;
+          return <td key={i} className="px-6 py-4">active</td>;
         } else {
-          // <a className="fa-check-circle fa-2x icon-red"></a>
-          return <td key={i}>inactive</td>
+          return <td key={i} className="px-6 py-4">inactive</td>
         }
       } else {
-        return <td key={i}>{dataElement[key]}</td>
+        return <td key={i} className="px-6 py-4">{dataElement[key]}</td>
       }
-    })
+    }));
 
     dataElementValues.push(
       <td key={dataElementValues.length}>
@@ -27,7 +35,7 @@ const TableRows = ({ data }) => {
     );
 
     return (
-      <tr key={i}>{dataElementValues}</tr>
+      <tr key={i} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">{dataElementValues}</tr>
     );
   })
 
