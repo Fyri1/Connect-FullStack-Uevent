@@ -85,14 +85,12 @@ class Authorization {
     }
     try {
       const user = TokenService.validateRefreshToken(refreshToken);
-      await Token.deleteToken('user_id', user.id);
       res.clearCookie('refreshToken');
       res.status(200);
       res.json({
         massage: `${user.login} logout, see you later`,
       });
     } catch (err) {
-      await Token.deleteToken('refresh_token', refreshToken);
       res.clearCookie('refreshToken');
       next(err);
     }
@@ -176,7 +174,6 @@ class Authorization {
       const tokenData = TokenService.validateRefreshToken(refreshToken);
       const userDto = new UserDto(tokenData);
       const newTokens = TokenService.generateTokens({ ...userDto });
-      await Token.updateToken(tokenData.id, newTokens.refreshToken);
       res.cookie('refreshToken', newTokens.refreshToken, {
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
@@ -184,7 +181,6 @@ class Authorization {
       res.status(200);
       res.json({ accessToken: refreshToken });
     } catch (err) {
-      await Token.deleteToken('refresh_token', refreshToken);
       res.clearCookie('refreshToken');
       next(err);
     }

@@ -1,20 +1,15 @@
 import EventService from '../services/event.service.js';
 
 class Events {
-  constructor() {
-    this.eventService = new EventService();
-  }
-
-  async getAllEvents(req, res) {
-    const events = await Event.getAllEvents();
-    res.status(200);
-    res.json({ events });
+  async getAllEvents(_req, _res) {
+    const result = await EventService.getAllEvents();
+    return result;
   }
 
   async getEventsById(req, res) {}
 
   async createEvent(req, _res) {
-    const result = await this.eventService.createEvent(req.body);
+    const result = await EventService.createEvent(req.body);
     return result;
   }
 
