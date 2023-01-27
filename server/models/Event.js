@@ -9,7 +9,7 @@ class Event {
     return data[0];
   }
 
-  async getAllEvents() {
+  async getAll() {
     const data = await client('events').select('*');
     return data;
   }

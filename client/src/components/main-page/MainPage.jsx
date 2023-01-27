@@ -10,53 +10,55 @@ import '../css/event-card.css';
 import '../css/main-page.css';
 
 import data from '../../temp/events_data.json';
+import { useEvents } from '../../../hooks/useEvents.js';
 
 const MainPage = () => {
-  const [eventsList, setEventsList] = React.useState([]);
-  const [userData, setUserData] = React.useState({});
-  const [isLoading, setIsLoading] = React.useState(true);
+  // const [eventsList, setEventsList] = React.useState([]);
 
-  const onLoad = () => {
-    try {
-      // Throw request on api for events and logged user info if any
-      console.log('sasi zagryzka: ' + isLoading);
-      setEventsList(data);
-      setUserData({
-        fullname: "dayn",
-        login: "dayn_login",
-        email: "dayn_email"
-      });
-      setIsLoading(false);
-    } catch (error) {
-      console.log('error pizdec! ' + error);
-    }
-  }
+  // const [userData, setUserData] = React.useState({});
+  // const [isLoading, setIsLoading] = React.useState(true);
 
-  React.useState(() => {
-    onLoad();
-  }, []);
+  // const onLoad = () => {
+  //   try {
+  //     // Throw request on api for events and logged user info if any
+  //     console.log('sasi zagryzka: ' + isLoading);
+  //     setEventsList(data);
+  //     setUserData({
+  //       fullname: 'dayn',
+  //       login: 'dayn_login',
+  //       email: 'dayn_email',
+  //     });
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     console.log('error pizdec! ' + error);
+  //   }
+  // };
 
-  const eventsElements = eventsList.map((event, i) => {
-    return <EventElement key={event.id} event={event} />
-  })
+  // React.useState(() => {
+  //   onLoad();
+  // }, []);
+  const { isLoading, events } = useEvents();
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : events ? (
     <div>
-      {
-        isLoading
-        ?
-        <Spinner />
-        :
-        <div>
-          <p>This is MainPage</p>
-          <Sidebar/>
-          {/* <div className="main-content">
-            { eventsElements }
-          </div> */}
+      <p>This is MainPage</p>
+      <Sidebar />
+      <div className="main-content">
+        <div class="col-sm-9 padding-right">
+          <div class="features_items">
+            <h2 class="title text-center">Features Items</h2>
+            {events.map((event, i) => {
+              return <EventElement key={event.i} event={event} />;
+            })}
+          </div>
         </div>
-      }
+      </div>
     </div>
+  ) : (
+    <div>No content</div>
   );
-}
+};
 
 export default MainPage;

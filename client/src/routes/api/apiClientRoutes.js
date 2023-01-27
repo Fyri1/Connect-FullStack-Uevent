@@ -5,6 +5,8 @@ export default {
   registerPath: () => [apiPath, 'auth', 'register'].join('/'),
   logoutPath: () => [apiPath, 'auth', 'logout'].join('/'),
   sendMailResetPassword: () => [apiPath, 'auth', 'password-reset'].join('/'),
-  resetPassword: (token) => [apiPath, 'auth', 'password-reset', token].join('/'),
+  resetPassword: (token) =>
+    [apiPath, 'auth', 'password-reset', token].join('/'),
   confirmEmail: (token) => [apiPath, 'auth', 'active', token].join('/'),
+  getAllEvent: () => [apiPath, 'event'].join('/'),
 };
