@@ -8,39 +8,20 @@
 
 
 
-
-
-
-
-
-
-.btn:hover, 
-.btn:focus{
-  outline: none;
-  box-shadow: none;
+.features_items {
+    overflow:hidden;
+ 
+  
 }
 
 
-.search_box input {
-  background: #F0F0E9;
-  border: medium none;
-  color: #B2B2B2;
-  font-family: 'roboto';
-  font-size: 12px;
-  font-weight: 300;
-  height: 35px;
-  outline: medium none;
-  padding-left: 10px;
-  width: 155px;
-  background-image: url(../images/home/searchicon.png);
-  background-repeat: no-repeat;
-  background-position: 130px;
+.col-sm-4{
+  float: left;
+  width: 20%;
+  height: 20%;
 }
-
-
+  
 /*  Dropdown menu*/
-
-
 
 
 .price-range{
@@ -77,13 +58,6 @@
 }
 
 
-.padding-right {
-  padding-right: 0;
-}
-
-.features_items{
-	overflow:hidden;
-}
 
 
 h2.title {
