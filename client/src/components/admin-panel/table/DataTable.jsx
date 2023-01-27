@@ -3,8 +3,8 @@ import React from 'react';
 import TableHead from './TableHead.jsx';
 import TableRows from './TableRow.jsx';
 import DropdownButton from '../../common/dropdown-menu/DropdownButton.jsx';
-// import ToggleSwitchDropdownElement from '../../common/dropdown-menu/ToggleSwitchDropdownElement.jsx';
 import ToggleSwitchDropdownElement from '../../common/dropdown-menu/ToggleSwitchDropdownElement.jsx';
+import RadioDropdownElement from '../../common/dropdown-menu/RadioDropdownElement.jsx';
 
 
 const DataTable = ({ data }) => {
@@ -35,10 +35,10 @@ const DataTable = ({ data }) => {
         {/* <!-- Dropdown menu PIDORASINA EBANAYA HYLI TI BLYAT NE RABOTAESH --> */}
         <div>
           <DropdownButton name={selectedTimePeriod.name}>
-            <ToggleSwitchDropdownElement id="eblannn1" name={timePeriods.day.name} selectedElements={selectedTimePeriod} setSelectedElements={setSelectedTimePeriod}/>
-            <ToggleSwitchDropdownElement id="eblannn2" name={timePeriods.week.name} selectedElements={selectedTimePeriod} setSelectedElements={setSelectedTimePeriod}/>
-            <ToggleSwitchDropdownElement id="eblannn3" name={timePeriods.month.name} selectedElements={selectedTimePeriod} setSelectedElements={setSelectedTimePeriod}/>
-            <ToggleSwitchDropdownElement id="eblannn4" name={timePeriods.year.name} selectedElements={selectedTimePeriod} setSelectedElements={setSelectedTimePeriod}/>
+            <RadioDropdownElement key="eblannn1" id="eblannn1" name={timePeriods.day.name} selectedElement={selectedTimePeriod} setSelectedElement={setSelectedTimePeriod}/>
+            <RadioDropdownElement key="eblannn2" id="eblannn2" name={timePeriods.week.name} selectedElement={selectedTimePeriod} setSelectedElement={setSelectedTimePeriod}/>
+            <RadioDropdownElement key="eblannn3" id="eblannn3" name={timePeriods.month.name} selectedElement={selectedTimePeriod} setSelectedElement={setSelectedTimePeriod}/>
+            <RadioDropdownElement key="eblannn4" id="eblannn4" name={timePeriods.year.name} selectedElement={selectedTimePeriod} setSelectedElement={setSelectedTimePeriod}/>
           </DropdownButton>
         </div>
         <label htmlFor="table-search" className="sr-only">Search</label>
