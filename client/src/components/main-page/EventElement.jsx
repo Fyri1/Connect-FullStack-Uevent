@@ -67,9 +67,9 @@ const EventElement = ({ event }) => {
           <div class="productinfo text-center">
             <img src="/1.jpg" alt="" />
             <h2>$56</h2>
-            <p>NAME</p>
+            <p>Kokon_name</p>
             <a href="#" class="btn btn-default add-to-cart">
-              <i class="fa fa-shopping-cart"></i>Add to cart
+              <i class="fa fa-shopping-cart"></i>Buy Ticket
             </a>
           </div>
           {/* <div class="product-overlay">
