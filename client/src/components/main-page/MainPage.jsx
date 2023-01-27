@@ -22,41 +22,45 @@ const MainPage = () => {
       console.log('sasi zagryzka: ' + isLoading);
       setEventsList(data);
       setUserData({
-        fullname: "dayn",
-        login: "dayn_login",
-        email: "dayn_email"
+        fullname: 'dayn',
+        login: 'dayn_login',
+        email: 'dayn_email',
       });
       setIsLoading(false);
     } catch (error) {
       console.log('error pizdec! ' + error);
     }
-  }
+  };
 
   React.useState(() => {
     onLoad();
   }, []);
-
   const eventsElements = eventsList.map((event, i) => {
-    return <EventElement key={event.id} event={event} />
-  })
+    return <EventElement key={event.i} event={event} />;
+  });
+
+  console.log(eventsElements);
 
   return (
     <div>
-      {
-        isLoading
-        ?
+      {isLoading ? (
         <Spinner />
-        :
+      ) : (
         <div>
           <p>This is MainPage</p>
-          <Sidebar/>
-          {/* <div className="main-content">
-            { eventsElements }
-          </div> */}
+          {/* <Sidebar /> */}
+          <div className="main-content">
+            <div class="col-sm-9 padding-right">
+              <div class="features_items">
+                <h2 class="title text-center">Features Items</h2>
+                {eventsElements}
+              </div>
+            </div>
+          </div>
         </div>
-      }
+      )}
     </div>
   );
-}
+};
 
 export default MainPage;
