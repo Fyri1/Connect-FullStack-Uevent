@@ -39,9 +39,13 @@ const TableRows = ({ data }) => {
         <a className="fas fa-trash fa-2x icon-red" href="#"></a>
       </td>
     );
+    
+    const rowClickHandle = () => {
+      console.log(dataElement);
+    }
 
     return (
-      <tr key={i} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">{dataElementValues}</tr>
+      <tr onClick={rowClickHandle} key={i} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">{dataElementValues}</tr>
     );
   })
 
