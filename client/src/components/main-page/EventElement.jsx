@@ -67,10 +67,12 @@ const EventElement = ({ event }) => {
           <div class="productinfo text-center">
             <img src="/1.jpg" alt="" />
             <h2>$56</h2>
-            <p>Kokon_name</p>
-            <a href="#" class="btn btn-default add-to-cart">
-              <i class="fa fa-shopping-cart"></i>Buy Ticket
-            </a>
+            <p className='Name'>Kokon_name</p>
+            <div className='button-buy'>
+              <a href="#" class="btn btn-default add-to-cart">
+                <i class="fa fa-shopping-cart"></i>Buy Ticket
+              </a>
+            </div>
           </div>
           {/* <div class="product-overlay">
                     <div class="overlay-content">
@@ -84,12 +86,13 @@ const EventElement = ({ event }) => {
           <ul class="nav nav-pills nav-justified">
             <li>
               <a href="#">
-                <i class="fa fa-plus-square"></i>Add to wishlist
+                <i class="fa fa-mercury"></i>from 24 to 44
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="fa fa-plus-square"></i>Add to compare
+                <i class="fa fa-map-marker "></i>we Łwowie
+!
               </a>
             </li>
           </ul>
