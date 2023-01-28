@@ -1,13 +1,11 @@
 import ticketService from '../services/ticket.service.js';
-import encrypt from '../encrypt.js';
+import tokenService from '../services/token-service.js'
 import { v4 as uuidv4 } from 'uuid';
 
 class Tickets {
-  // async getAllTikets(_req, res) {
-  //   const users = await User.getAllUsers();
-  //   res.status(200);
-  //   res.json({ values: users });
-  // }
+  async getAllTikets(_req, _res) {
+    return await ticketService.getAllTickets();
+  }
 
   // async getUserById(req, res, next) {
   //   try {
@@ -27,10 +25,11 @@ class Tickets {
   async returnTicketEvent(req, _res, _next) {
     const {
       params: { id },
-      headers,
+      headers: { authorization },
     } = req;
-    console.log(id, headers);
-    // return ticketService.returnTicket(req.body, req.headers);
+    const token = authorization.split(' ')[1];
+    const data = tokenService.validateAccessToken(token);
+    return ticketService.returnTicket({ ticketId: id, userId: data.id });
   }
   // async updateUserData(req, res) {
   //   try {

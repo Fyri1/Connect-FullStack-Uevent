@@ -8,4 +8,4 @@ export const up = (knex) =>
     table.integer('code').notNullable();
   });
 
-export const down = (knex) => knex.schema.dropTable('users');
+export const down = (knex) => knex.schema.dropTable('promo_codes');

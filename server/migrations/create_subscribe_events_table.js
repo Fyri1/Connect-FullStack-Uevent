@@ -7,4 +7,4 @@ export const up = (knex) =>
     table.string('event_id').unsigned().index().references('events.id');
   });
 
-export const down = (knex) => knex.schema.dropTable('users');
+export const down = (knex) => knex.schema.dropTable('subscribe_events');

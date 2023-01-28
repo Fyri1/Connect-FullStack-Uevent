@@ -4,19 +4,21 @@ import Spinner from "../common/Spinner.jsx";
 import NavbarElement from "./NavbarElement.jsx";
 import DataTable from "./table/DataTable.jsx";
 
-import apiAdminRoutes from "../../routes/api/apiAdminRoutes.js";
-import axios from "axios";
+// import apiAdminRoutes from "../../routes/api/apiAdminRoutes.js";
+// import axios from "axios";
 
 import { useUsers } from "../../../hooks/useUsers.js";
 import { useEvents } from "../../../hooks/useEvents.js";
+import { useTickets } from "../../../hooks/useTickets.js";
 
 const AdminPage = ({ dataCategory }) => {
   const dataHook = {
-    users: useUsers(),
-    events: useEvents(),
+    users: useUsers,
+    events: useEvents,
+    tickets: useTickets,
   }
-  const displayData = dataHook[dataCategory];
-  // console.log(displayData);
+  const displayData = dataHook[dataCategory]();
+  console.log(displayData);
 
   return (
     <div>

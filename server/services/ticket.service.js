@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
-import Ticket from '../models/Event.js';
+import Ticket from '../models/Ticket.js';
 
 class TicketService {
-  // async getAllEvents() {
-  //   return await Event.getAll();
-  // }
+  async getAllTickets() {
+    return await Ticket.getAll();
+  }
 
   // async getAllEventTickets(eventId) {
   //   return await Event.getAllTickets(eventId);
@@ -24,8 +24,8 @@ class TicketService {
     }
   }
 
-  async returnTicket(ticketId) {
-    return await Event.ticketReturn(ticketId);
+  async returnTicket({ ticketId, userId }) {
+    return await Ticket.ticketReturn(ticketId, userId);
   }
 
   // async createEvent(body) {

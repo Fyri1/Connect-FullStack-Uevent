@@ -8,4 +8,4 @@ export const up = (knex) =>
     table.boolean('is_sold').notNullable().defaultTo(false);
   });
 
-export const down = (knex) => knex.schema.dropTable('users');
+export const down = (knex) => knex.schema.dropTable('ticket');

@@ -1,5 +1,6 @@
 import client from '../client.js';
 import Ticket from './Ticket.js';
+import ApiError from '../exceptions/api-error.js';
 
 class Event {
   async getAll() {
@@ -7,6 +8,7 @@ class Event {
       const data = await client('events').select('*');
       return data;
     } catch (err) {
+      console.log(err);
       throw err;
     }
   }
@@ -18,6 +20,7 @@ class Event {
         .where('event_id', '=', id);
       return data;
     } catch (err) {
+      console.log(err);
       throw err;
     }
   }
@@ -35,7 +38,7 @@ class Event {
       const allTicketEvent = await this.getAllTickets(eventId);
       const filterNotSoldTicket = allTicketEvent.filter((i) => !i.is_sold);
       if (filterNotSoldTicket.length === 0) {
-        throw 'Empty';
+        return 'Emptu';
       }
       await Ticket.soldTicket(filterNotSoldTicket[0].id);
       await client('user_tickets').insert({
@@ -43,21 +46,11 @@ class Event {
         user_id: userId,
       });
     } catch (err) {
+      console.log(err);
       throw err;
     }
   }
 
-  async ticketReturn(ticketId) {
-    try {
-      await Ticket.returnTicket(ticketId);
-      await client('user_tickets')
-        .select('*')
-        .where('ticket_id', '=', ticketId)
-        .del();
-    } catch (err) {
-      throw err;
-    }
-  }
 
   async save({
     id,
@@ -85,6 +78,7 @@ class Event {
         event_end: eventEnd,
       });
     } catch (err) {
+      console.log(err);
       throw err;
     }
   }
@@ -100,35 +94,22 @@ class Event {
     }
   }
 
-  async update(id, date) {
-    try {
-      await client('events').where('id', '=', id).update({
-        login: date.login,
-        // password: date.password,
-        full_name: date.fullName,
-        email: date.email,
-        profile_pic: date.avatar,
-      });
-    } catch (err) {
-      throw err;
-    }
-  }
+  // async update(id, date) {
+  //   try {
+  //     await client('events').where('id', '=', id).update({
+  //       login: date.login,
+  //       // password: date.password,
+  //       full_name: date.fullName,
+  //       email: date.email,
+  //       profile_pic: date.avatar,
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //     throw err;
+  //   }
+  // }
 
-  async drop(id) {
-    try {
-      await client('users').where('id', '=', id).del();
-    } catch (err) {
-      throw err;
-    }
-  }
 
-  async logout(id) {
-    try {
-      await client('users').where('id', '=', id).update('token', null);
-    } catch (err) {
-      throw err;
-    }
-  }
 }
 
 export default new Event();

@@ -7,4 +7,4 @@ export const up = (knex) =>
     table.string('role').notNullable();
   });
 
-export const down = (knex) => knex.schema.dropTable('users');
+export const down = (knex) => knex.schema.dropTable('roles');

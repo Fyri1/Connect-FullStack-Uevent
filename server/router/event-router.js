@@ -4,7 +4,7 @@ import { body } from 'express-validator';
 import Events from '../controller/events-controller.js';
 import adminRoutes from '../routes/admin-routes.js';
 import validationErrorEvent from '../middlewares/validationError.event.js';
-import tryCatch from '../utils/try-сatch.event.js';
+import tryCatch from '../utils/try-catch.event.js';
 
 const router = Express.Router();
 
