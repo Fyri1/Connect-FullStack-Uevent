@@ -5,10 +5,22 @@ class EventService {
   async getAllEvents() {
     return await Event.getAll();
   }
+
+  async getAllEventTickets(eventId) {
+    return await Event.getAllTickets(eventId);
+  }
+
+  async sellTicket(userId, eventId) {
+    return await Event.sellTicket(userId, eventId);
+  }
+
+  async ticketReturn(ticketId) {
+    return await Event.ticketReturn(ticketId);
+  }
+
   async createEvent(body) {
     const id = uuidv4();
-    const userId = uuidv4();
-    await Event.save({ id, userId, ...body });
+    await Event.save({ id, ...body });
     return `create event ${body.title}`;
   }
 }
