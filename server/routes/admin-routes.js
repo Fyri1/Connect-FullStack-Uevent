@@ -21,7 +21,7 @@ export default {
   eventIdGetPath: (eventId) => [apiPath, 'get', eventId].join('/'),
   eventPostPath: () => [apiPath, 'create'].join('/'),
   eventTicketsGetPath: (id) => [apiPath, ':id', 'tickets'].join('/'),
-  eventSellTicketEvent: () => [apiPath, ':id', 'ticket', 'sell'].join('/'),
+  eventSellTicketPath: () => [apiPath, ':id', 'ticket', 'sell'].join('/'),
   eventIdUpdatePath: (eventId) => [apiPath, 'update', eventId].join('/'),
   eventIdDeletePath: (eventId) => [apiPath, 'delete', eventId].join('/'),
 
@@ -38,6 +38,7 @@ export default {
   ticketsGetPath: () => [apiPath].join('/'),
   ticketIdGetPath: (ticketId) => [apiPath, 'get', ticketId].join('/'),
   ticketPostPath: () => [apiPath, 'create'].join('/'),
+  ticketReturnPath: () => [apiPath, ':id', 'return'].join('/'),
   ticketIdUpdatePath: (ticketId) => [apiPath, 'update', ticketId].join('/'),
   ticketIdDeletePath: (ticketId) => [apiPath, 'delete', ticketId].join('/'),
 };

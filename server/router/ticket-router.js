@@ -17,4 +17,10 @@ router.post(
   ticketsController.createTickets
 );
 
+router.post(
+  adminRoutes.ticketReturnPath(),
+  tryCatch(ticketsController.returnTicketEvent),
+  ticketsController.returnTicketEvent
+);
+
 export default router;

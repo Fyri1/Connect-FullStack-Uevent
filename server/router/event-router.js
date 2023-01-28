@@ -35,13 +35,7 @@ router.post(
 );
 
 router.post(
-  adminRoutes.eventSellTicketEvent(),
-  tryCatch(Events.sellTicketEvent),
-  Events.sellTicketEvent
-);
-
-router.post(
-  adminRoutes.eventSellTicketEvent(),
+  adminRoutes.eventSellTicketPath(),
   tryCatch(Events.sellTicketEvent),
   Events.sellTicketEvent
 );
