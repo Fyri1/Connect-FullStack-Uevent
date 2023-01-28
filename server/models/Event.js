@@ -1,6 +1,27 @@
 import client from '../client.js';
+import Ticket from './Ticket.js';
 
 class Event {
+  async getAll() {
+    try {
+      const data = await client('events').select('*');
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async getAllTickets(id) {
+    try {
+      const data = await client('ticket')
+        .select('*')
+        .where('event_id', '=', id);
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async findId(id) {
     const data = await client('events').select('*').where('id', '=', id);
     if (data.length === 0) {
@@ -9,9 +30,33 @@ class Event {
     return data[0];
   }
 
-  async getAll() {
-    const data = await client('events').select('*');
-    return data;
+  async sellTicket(userId, eventId) {
+    try {
+      const allTicketEvent = await this.getAllTickets(eventId);
+      const filterNotSoldTicket = allTicketEvent.filter((i) => !i.is_sold);
+      if (filterNotSoldTicket.length === 0) {
+        throw 'Empty';
+      }
+      await Ticket.soldTicket(filterNotSoldTicket[0].id);
+      await client('user_tickets').insert({
+        ticket_id: filterNotSoldTicket[0].id,
+        user_id: userId,
+      });
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async ticketReturn(ticketId) {
+    try {
+      await Ticket.returnTicket(ticketId);
+      await client('user_tickets')
+        .select('*')
+        .where('ticket_id', '=', ticketId)
+        .del();
+    } catch (err) {
+      throw err;
+    }
   }
 
   async save({
