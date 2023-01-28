@@ -1,4 +1,4 @@
-import Ticket from '../models/Ticket.js';
+import ticketService from '../services/ticket.service.js';
 import encrypt from '../encrypt.js';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -21,18 +21,17 @@ class Tickets {
   //     next(err);
   //   }
   // }
-  async createTickets(req, _res, next) {
-    try {
-      const { eventId, count, price } = req.body;
-      for (let i = 0; i < count; i += 1) {
-        const ticket_id = uuidv4();
-        await Ticket.saveTickets({ id: ticket_id, eventId, price });
-      }
-    } catch (err) {
-      next(err);
-    }
+  async createTickets(req, _res, _next) {
+    return ticketService.createTicket(req.body);
   }
-
+  async returnTicketEvent(req, _res, _next) {
+    const {
+      params: { id },
+      headers,
+    } = req;
+    console.log(id, headers);
+    // return ticketService.returnTicket(req.body, req.headers);
+  }
   // async updateUserData(req, res) {
   //   try {
   //     const updateData = req.body;
