@@ -13,51 +13,31 @@ import data from '../../temp/events_data.json';
 import { useEvents } from '../../../hooks/useEvents.js';
 
 const MainPage = () => {
-  // const [eventsList, setEventsList] = React.useState([]);
-
-  // const [userData, setUserData] = React.useState({});
-  // const [isLoading, setIsLoading] = React.useState(true);
-
-  // const onLoad = () => {
-  //   try {
-  //     // Throw request on api for events and logged user info if any
-  //     console.log('sasi zagryzka: ' + isLoading);
-  //     setEventsList(data);
-  //     setUserData({
-  //       fullname: 'dayn',
-  //       login: 'dayn_login',
-  //       email: 'dayn_email',
-  //     });
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     console.log('error pizdec! ' + error);
-  //   }
-  // };
-
-  // React.useState(() => {
-  //   onLoad();
-  // }, []);
   const { isLoading, events } = useEvents();
 
   return isLoading ? (
     <Spinner />
-  ) : events ? (
+  ) : (
     <div>
       <p>This is MainPage</p>
       <Sidebar />
       <div className="main-content">
-        <div class="col-sm-9 padding-right">
-          <div class="features_items">
-            <h2 class="title text-center">Features Items</h2>
-            {events.map((event, i) => {
-              return <EventElement key={event.i} event={event} />;
-            })}
+        <div className="col-sm-9 padding-right">
+          <div className="features_items">
+            <h2 className="title text-center">Features Items</h2>
+            {
+              events?.data
+              ?
+              events.data.values.map((event, i) => {
+                return <EventElement key={event.i} event={event} />
+              })
+              :
+              <div>No content</div>
+            }
           </div>
         </div>
       </div>
     </div>
-  ) : (
-    <div>No content</div>
   );
 };
 

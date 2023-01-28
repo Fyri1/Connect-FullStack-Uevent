@@ -6,7 +6,7 @@ const BASE_URL = 'http://localhost:8080';
 // Создать инстанс axios
 const $api = axios.create({
   baseURL: `${BASE_URL}/api`,
-  withCredentials: true,
+  // withCredentials: true,
 });
 
 function apiSetHeader(name, value) {

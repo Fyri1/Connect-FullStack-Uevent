@@ -74,61 +74,25 @@ const App = () => {
             {/* User routes */}
             <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
             <Route path={clientRoutes.loginPagePath()} element={<Login />} />
-            <Route
-              path={clientRoutes.registerPagePath()}
-              element={<Register />}
-            />
-            <Route
-              path={clientRoutes.confirmEmailPagePath()}
-              element={<EmailConfirm />}
-            />
-            <Route
-              path={clientRoutes.passResetPagePath()}
-              element={<PassReset />}
-            />
-            <Route
-              path={clientRoutes.profilePagePath()}
-              element={<Profile />}
-            />
+            <Route path={clientRoutes.registerPagePath()} element={<Register />} />
+            <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
+            <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
+            <Route path={clientRoutes.profilePagePath()} element={<Profile />} />
 
             {/* Admin routes */}
-            <Route path={adminRoutes.mainPagePath()} element={<AdminPage />} />
-            <Route
-              path={adminRoutes.usersPagePath()}
-              element={<AdminPage dataCategory="users" />}
-            />
-            <Route
-              path={adminRoutes.rolesPagePath()}
-              element={<AdminPage dataCategory="roles" />}
-            />
-            <Route
-              path={adminRoutes.eventsPagePath()}
-              element={<AdminPage dataCategory="events" />}
-            />
-            <Route
-              path={adminRoutes.eventCreatePagePath()}
-              element={<EventEditPage />}
-            />
-            <Route
-              path={adminRoutes.categoriesPagePath()}
-              element={<AdminPage dataCategory="categories" />}
-            />
-            <Route
-              path={adminRoutes.ticketsPagePath()}
-              element={<AdminPage dataCategory="tickets" />}
-            />
+            <Route path={adminRoutes.mainPagePath()} element={<AdminPage dataCategory="users" />} />
+            <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
+            <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
+            <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
+            <Route path={adminRoutes.eventCreatePagePath()} element={<EventEditPage />} />
+            <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
+            <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
 
             {/* Moderator routes */}
-            <Route
-              path={moderatorRoutes.mainPagePath()}
-              element={<ModeratorPage />}
-            />
+            <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
 
             {/* Organization routes */}
-            <Route
-              path={organizationRoutes.mainPagePath()}
-              element={<OrganizationPage />}
-            />
+            <Route path={organizationRoutes.mainPagePath()} element={<OrganizationPage />} />
 
             <Route path="*" element={<PageNotFound />} />
           </>

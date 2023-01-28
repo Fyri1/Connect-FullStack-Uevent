@@ -103,7 +103,7 @@ const EventEditPage = () => {
 
           <FileUpload name={"Upload poster image"} />
 
-          <div class="grid md:grid-cols-2 md:gap-6">
+          <div className="grid md:grid-cols-2 md:gap-6">
             <InputField id="eventStart" name="Start of event:" type="text" placeholder="" data={data} setData={setData} errors={errors} setErrors={setErrors}>
               <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
                 <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

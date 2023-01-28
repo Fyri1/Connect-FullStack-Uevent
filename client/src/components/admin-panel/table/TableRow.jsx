@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const TableRows = ({ data }) => {
+const TableRows = ({ data, setPopupActive }) => {
   
   const rowsElements = data.map((dataElement, i) => {
     const keys = Object.keys(dataElement);
@@ -23,7 +23,7 @@ const TableRows = ({ data }) => {
           return <td key={i} className="px-6 py-4">inactive</td>
         }
       } else if (dataElement[key]) {
-        if (dataElement[key].length < 15) {
+        if (String(dataElement[key]).length < 15) {
           return <td key={i} className="px-6 py-4">{dataElement[key]}</td>
         } else {
           return <td key={i} className="px-6 py-4">{dataElement[key].slice(0, 8) + "..."}</td>
@@ -42,6 +42,7 @@ const TableRows = ({ data }) => {
     
     const rowClickHandle = () => {
       console.log(dataElement);
+      setPopupActive(true);
     }
 
     return (

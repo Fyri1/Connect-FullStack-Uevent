@@ -5,7 +5,7 @@ class Users {
   async getAllUsers(_req, res) {
     const users = await User.getAllUsers();
     res.status(200);
-    res.json({ users });
+    res.json({ values: users });
   }
   
   async getUserById(req, res, next) {
