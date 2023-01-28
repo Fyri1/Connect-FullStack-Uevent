@@ -18,21 +18,20 @@ class User {
 
   async getAllUsers() {
     // ya tak ponimau ti eto spizdil iz usofa ibo zapros hyinya
-    const data = await client('users')
-      .select(
-        'users.id',
-        'users.login',
-        'users.email',
-        'users.first_name',
-        'users.second_name',
-        'users.last_name',
-        'users.password',
-        'users.company',
-        'users.phone_number',
-        'users.active',
-        'users.created_at',
-        'users.active'
-      );
+    const data = await client('users').select(
+      'users.id',
+      'users.login',
+      'users.email',
+      'users.first_name',
+      'users.second_name',
+      'users.last_name',
+      'users.password',
+      'users.company',
+      'users.phone_number',
+      'users.active',
+      'users.created_at',
+      'users.active'
+    );
     return data;
   }
 
