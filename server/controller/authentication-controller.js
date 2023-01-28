@@ -10,18 +10,18 @@ import moment from 'moment';
 import bcrypt from 'bcrypt';
 
 class Authorization {
-  async testQR(req, res, next) {
-    try {
-      const sendMassege = new SendMail();
-      sendMassege
-        .send('progerman10@gmail.com', 'google.com', 'ticket')
-        .then(() => {
-          res.json({ massage: 'Confirm mail' });
-        });
-    } catch (err) {
-      next(err);
-    }
-  }
+  // async testQR(req, res, next) {
+  //   try {
+  //     const sendMassege = new SendMail();
+  //     sendMassege
+  //       .send('progerman10@gmail.com', 'google.com', 'ticket')
+  //       .then(() => {
+  //         res.json({ massage: 'Confirm mail' });
+  //       });
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // }
 
   async authRegister(req, res, next) {
     try {
@@ -179,7 +179,7 @@ class Authorization {
         httpOnly: true,
       });
       res.status(200);
-      res.json({ accessToken: refreshToken });
+      res.json({ accessToken: newTokens.accessToken });
     } catch (err) {
       res.clearCookie('refreshToken');
       next(err);

@@ -3,12 +3,20 @@ import ApiError from '../exceptions/api-error.js';
 
 class TokenService {
   generateTokens(payload) {
-    const accessToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {
-      expiresIn: '15m',
-    });
-    const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {
-      expiresIn: '30d',
-    });
+    const accessToken = jwt.sign(
+      { ...payload, access: 1 },
+      process.env.JWT_ACCESS_SECRET,
+      {
+        expiresIn: '15m',
+      }
+    );
+    const refreshToken = jwt.sign(
+      { ...payload, resresh: 1 },
+      process.env.JWT_REFRESH_SECRET,
+      {
+        expiresIn: '30d',
+      }
+    );
     return { accessToken, refreshToken };
   }
 
