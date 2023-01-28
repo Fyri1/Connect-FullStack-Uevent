@@ -7,6 +7,11 @@ import Spinner from './common/Spinner.jsx';
 import PageNotFound from './common/PageNotFound.jsx';
 import MainPage from './main-page/MainPage.jsx';
 import Login from './auth/Login.jsx';
+
+// FullMainItemPage
+import MainItem from './main-page/MainItem.jsx';
+// 
+
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
@@ -74,6 +79,11 @@ const App = () => {
             {/* User routes */}
             <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
             <Route path={clientRoutes.loginPagePath()} element={<Login />} />
+
+
+            <Route path="/MainItem" element={<MainItem />} />
+
+
             <Route
               path={clientRoutes.registerPagePath()}
               element={<Register />}
