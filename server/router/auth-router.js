@@ -5,7 +5,7 @@ import checkValidation from '../middlewares/auth-validation.js';
 
 const router = Express.Router();
 
-router.get('/test-qr/', Authorization.testQR);
+// router.get('/test-qr/', Authorization.testQR);
 
 router.post(
   '/register/',
