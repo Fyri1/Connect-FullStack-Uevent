@@ -5,7 +5,9 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
-
+/* body{
+  background-color: var(--bs-gray-100);
+} */
 .features_items {
     overflow:hidden;
 }
@@ -284,5 +286,16 @@ a.btn {
 .end{
 
   padding: 8px 80px;
+
+}
+.recommend{
+  border-radius: 5px;
+}
+.item-recommend{
+  border: 5px solid darkblue;
+
+}
+.text-recommend{
+  text-align: center;
 
 }
