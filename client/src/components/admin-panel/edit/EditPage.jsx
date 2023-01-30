@@ -8,32 +8,16 @@ import EditForm from '../../common/form/EditForm.jsx';
 import apiAdminRoutes from '../../../routes/api/apiAdminRoutes.js';
 
 
-const EditPage = () => {
-  // const keys = Object.keys(data[0]);
-
+const EditPage = ({ originData }) => {
   const navigate = useNavigate();
+  const keys = Object.keys(originData);
 
-  const [data, setData] = React.useState({
-    title: "",
-    description: "",
-    category: "",
-    city: "",
-    address: "",
-    poster: "",
-    eventStart: "",
-    eventEnd: "",
+  let temp = {};
+  keys.forEach((key, i) => {
+    temp[key] = "";
   });
-
-  const [errors, setErrors] = React.useState({
-    title: "",
-    description: "",
-    category: "",
-    city: "",
-    address: "",
-    poster: "",
-    eventStart: "",
-    eventEnd: "",
-  });
+  const [errors, setErrors] = React.useState(temp);
+  const [data, setData] = React.useState(originData);
 
   const handleDataSubmit = async (e) => {
     e.preventDefault();
@@ -56,10 +40,25 @@ const EditPage = () => {
     }
   };
 
+  const dataElements = data.map((dataElement, i) => {
+    return (
+      <InputField
+        key={dataElement.id}
+        id={keys[i]}
+        name={keys[i]}
+        type="text"
+        data={data}
+        setData={setData}
+        errors={errors}
+        setErrors={setErrors}>
+      </InputField>
+    );
+  });
+
   return (
     <form onSubmit={handleDataSubmit}>
       <section className="bg-gray-50 dark:bg-gray-900">
-        <EditForm formMessage="Create event">
+        <EditForm formMessage="Edit event">
           <InputField id="title" name="Title:" type="text" placeholder="new event" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -138,16 +137,5 @@ const EditPage = () => {
     </form>
   );
 };
-
-/*
-  title,
-  description,
-  category,
-  city,
-  address,
-  poster,
-  eventStart,
-  eventEnd,
-*/
 
 export default EditPage;

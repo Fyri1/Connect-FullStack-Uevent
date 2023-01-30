@@ -10,30 +10,16 @@ import adminRoutes from '../../../routes/client/adminRoutes.js';
 import apiAdminRoutes from '../../../routes/api/apiAdminRoutes.js';
 
 
-const EventEditPage = () => {
+const EventEditPage = ({ originData, formMessage }) => {
   const navigate = useNavigate();
+  const keys = Object.keys(originData);
 
-  const [data, setData] = React.useState({
-    title: "",
-    description: "",
-    category: "",
-    city: "",
-    address: "",
-    poster: "",
-    eventStart: "",
-    eventEnd: "",
+  let temp = {};
+  keys.forEach((key, i) => {
+    temp[key] = "";
   });
-
-  const [errors, setErrors] = React.useState({
-    title: "",
-    description: "",
-    category: "",
-    city: "",
-    address: "",
-    poster: "",
-    eventStart: "",
-    eventEnd: "",
-  });
+  const [errors, setErrors] = React.useState(temp);
+  const [data, setData] = React.useState(originData);
 
   const handleDataSubmit = async (e) => {
     e.preventDefault();
@@ -59,7 +45,7 @@ const EventEditPage = () => {
   return (
     <form onSubmit={handleDataSubmit}>
       <section className="bg-gray-50 dark:bg-gray-900">
-        <EditForm formMessage="Create event">
+        <EditForm formMessage={formMessage}>
           <InputField id="title" name="Title:" type="text" placeholder="new event" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -104,7 +90,7 @@ const EventEditPage = () => {
           <FileUpload name={"Upload poster image"} />
 
           <div className="grid md:grid-cols-2 md:gap-6">
-            <InputField id="eventStart" name="Start of event:" type="text" placeholder="" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+            <InputField id="event_start" name="Start of event:" type="text" placeholder="" data={data} setData={setData} errors={errors} setErrors={setErrors}>
               <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
                 <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H6a.75.75 0 01-.75-.75V12zM6 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H6zM7.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H8a.75.75 0 01-.75-.75V12zM8 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H8zM9.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V10zM10 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H10zM9.25 14a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V14zM12 9.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V10a.75.75 0 00-.75-.75H12zM11.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75V12zM12 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H12zM13.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H14a.75.75 0 01-.75-.75V10zM14 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H14z"></path>
@@ -113,7 +99,7 @@ const EventEditPage = () => {
               </div>
             </InputField>
 
-            <InputField id="eventEnd" name="End of event:" type="text" placeholder="" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+            <InputField id="event_end" name="End of event:" type="text" placeholder="" data={data} setData={setData} errors={errors} setErrors={setErrors}>
               <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
                 <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H6a.75.75 0 01-.75-.75V12zM6 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H6zM7.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H8a.75.75 0 01-.75-.75V12zM8 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H8zM9.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V10zM10 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H10zM9.25 14a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V14zM12 9.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V10a.75.75 0 00-.75-.75H12zM11.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75V12zM12 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H12zM13.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H14a.75.75 0 01-.75-.75V10zM14 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H14z"></path>

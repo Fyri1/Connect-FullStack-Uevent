@@ -3,7 +3,6 @@ import React from 'react';
 import TableHead from './TableHead.jsx';
 import TableRows from './TableRow.jsx';
 import Popup from '../../common/popup/Popup.jsx';
-import EventEditPage from '../edit/EventEditPage.jsx';
 import DropdownButton from '../../common/dropdown-menu/DropdownButton.jsx';
 import ToggleSwitchDropdownElement from '../../common/dropdown-menu/ToggleSwitchDropdownElement.jsx';
 import RadioDropdownElement from '../../common/dropdown-menu/RadioDropdownElement.jsx';
@@ -30,16 +29,14 @@ const DataTable = ({ data }) => {
   }
   const [selectedTimePeriod, setSelectedTimePeriod] = React.useState(timePeriods.week);
   const [dataReviewPopupActive, setDataReviewPopupActive] = React.useState();
+  const [popupContent, setPopupContent] = React.useState();
 
   return (
     <div>
       {/* Data review Popup */}
       <Popup active={dataReviewPopupActive} setActive={setDataReviewPopupActive}>
-        {/* <CreateCalendar
-          setPopupActive={setDataReviewPopupActive}
-          active={dataReviewPopupActive}
-        /> */}
-        <EventEditPage />
+        {/* <EventEditPage /> */}
+        { popupContent }
       </Popup>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -64,7 +61,7 @@ const DataTable = ({ data }) => {
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <TableHead data={data} />
           <tbody>
-            <TableRows data={data} setPopupActive={setDataReviewPopupActive} />
+            <TableRows data={data} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
           </tbody>
         </table>
       </div>
