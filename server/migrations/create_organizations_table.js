@@ -7,7 +7,7 @@ export const up = (knex) =>
     table.string('name_organization').notNullable();
     table.string('phone_organization').notNullable();
     table.string('phone_staff').notNullable();
-    table.string('addres').notNullable();
+    table.string('address').notNullable();
     table.string('email').notNullable();
     table.string('description').notNullable();
     table.string('link_organization');
