@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import Ticket from '../models/Ticket.js';
+import Event from '../models/Event.js';
+import ApiError from '../exceptions/api-error.js';
 
 class TicketService {
   async getAllTickets() {
@@ -13,14 +15,18 @@ class TicketService {
   // async sellTicket(userId, eventId) {
   //   return await Event.sellTicket(userId, eventId);
   // }
-  async createTicket(eventId, count, price) {
+  async createTicket({ eventId, count, price }) {
     try {
+      const isEmpty = await Event.findId(eventId);
+      if (isEmpty.length === 0) {
+        throw ApiError.NotFound();
+      }
       for (let i = 0; i < count; i += 1) {
         const ticket_id = uuidv4();
         await Ticket.saveTickets({ id: ticket_id, eventId, price });
       }
     } catch (err) {
-      next(err);
+      throw err;
     }
   }
 
