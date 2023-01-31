@@ -1,18 +1,22 @@
 import React from "react";
 
-import UserEditPage from "../edit/UserEditPage.jsx";
-import EventEditPage from '../edit/EventEditPage.jsx';
+import UserEditForm from '../edit/UserEditForm.jsx';
+import RoleEditForm from '../edit/RoleEditForm.jsx';
+import EventEditForm from '../edit/EventEditForm.jsx';
+import CategoryEditForm from '../edit/CategoryEditForm.jsx';
+import TicketEditForm from '../edit/TicketEditForm.jsx';
+import OrganizationEditForm from '../edit/OrganizationEditForm.jsx';
 
 
 const TableRows = ({ data, dataCategory, setPopupActive, setPopupContent }) => {
   
   const rowsElements = data.map((dataElement, i) => {
     const editPages = {
-      users: <UserEditPage originData={dataElement} formMessage={"Edit user"} />,
-      roles: <UserEditPage originData={dataElement} formMessage={"Edit user"} />,
-      events: <EventEditPage originData={dataElement} formMessage={"Edit event"} />,
-      categories: <UserEditPage originData={dataElement} formMessage={"Edit user"} />,
-      tickets: <EventEditPage originData={dataElement} formMessage={"Edit event"} />,
+      users: <UserEditForm originData={dataElement} formMessage={"Edit user"} />,
+      roles: <UserEditForm originData={dataElement} formMessage={"Edit role"} />,
+      events: <EventEditForm originData={dataElement} formMessage={"Edit event"} />,
+      categories: <UserEditForm originData={dataElement} formMessage={"Edit category"} />,
+      tickets: <EventEditForm originData={dataElement} formMessage={"Edit ticket"} />,
     }
 
     const keys = Object.keys(dataElement);
