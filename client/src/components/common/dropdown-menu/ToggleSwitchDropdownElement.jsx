@@ -1,8 +1,6 @@
 import React from "react";
 
 const ToggleSwitchDropdownElement = ({ id, name, selectedElements, setSelectedElements }) => {
-
-
   return (
     <div>
       <li>

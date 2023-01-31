@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputField = ({ id, name, type, placeholder, data, setData, errors, setErrors, children }) => {
+const InputField = ({ id, name, type, data, setData, errors, setErrors, children }) => {
   const [errorMessageElement, setErrorMessageElement] = React.useState();
   const [inputColor, setInputColor] = React.useState('bg-gray-50 border-1 border-gray-600 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full pl-10 p-2.5 dark:bg-gray-700 dark: border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500');
 

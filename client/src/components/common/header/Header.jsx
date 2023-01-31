@@ -9,6 +9,7 @@ import '../../css/header.css';
 
 const Header = () => {
   const tempUserDetails = {
+    id: "temp_user_id",
     fullname: "USER NAME", 
     login: "login", 
     email: "email@email.com", 

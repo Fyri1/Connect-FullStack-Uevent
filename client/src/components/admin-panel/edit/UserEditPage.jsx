@@ -3,38 +3,23 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 import InputField from '../../common/form/InputField.jsx';
+import ToggleSwitchInputField from '../../common/form/ToggleSwitchInputField.jsx';
 import EditForm from '../../common/form/EditForm.jsx';
 
 import adminRoutes from '../../../routes/client/adminRoutes.js';
 import apiAdminRoutes from '../../../routes/api/apiAdminRoutes.js';
 
 
-const UserEditPage = () => {
+const UserEditPage = ({ originData, formMessage }) => {
   const navigate = useNavigate();
+  const keys = Object.keys(originData);
 
-  const [data, setData] = React.useState({
-    login: "",
-    email: "",
-    first_name: "",
-    second_name: "",
-    last_name: "",
-    password: "",
-    company: "",
-    phone_number: "",
-    active: false
+  let temp = {};
+  keys.forEach((key, i) => {
+    temp[key] = "";
   });
-
-  const [errors, setErrors] = React.useState({
-    login: "",
-    email: "",
-    first_name: "",
-    second_name: "",
-    last_name: "",
-    password: "",
-    company: "",
-    phone_number: "",
-    active: false
-  });
+  const [errors, setErrors] = React.useState(temp);
+  const [data, setData] = React.useState(originData);
 
   const handleDataSubmit = async (e) => {
     e.preventDefault();
@@ -60,8 +45,8 @@ const UserEditPage = () => {
   return (
     <form onSubmit={handleDataSubmit}>
       <section className="bg-gray-50 dark:bg-gray-900">
-        <EditForm formMessage="Create event">
-          <InputField id="title" name="Title:" type="text" placeholder="new event" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+        <EditForm formMessage={formMessage}>
+          <InputField id="id" name="ID" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -70,7 +55,7 @@ const UserEditPage = () => {
             </div>
           </InputField>
 
-          <InputField id="login" name="Your login" type="text" placeholder="my_login123" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+          <InputField id="login" name="Login" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path clipRule="evenodd" fillRule="evenodd"  d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"></path>
@@ -78,7 +63,7 @@ const UserEditPage = () => {
             </div>
           </InputField>
 
-          <InputField id="login" name="Your login" type="text" placeholder="my_login123" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+          <InputField id="email" name="Email" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -87,7 +72,7 @@ const UserEditPage = () => {
             </div>
           </InputField>
 
-          <InputField id="login" name="Your login" type="text" placeholder="my_login123" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+          <InputField id="first_name" name="First name" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -96,7 +81,7 @@ const UserEditPage = () => {
             </div>
           </InputField>
 
-          <InputField id="login" name="Your login" type="text" placeholder="my_login123" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+          <InputField id="second_name" name="Second name" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -105,7 +90,7 @@ const UserEditPage = () => {
             </div>
           </InputField>
 
-          <InputField id="login" name="Your login" type="text" placeholder="my_login123" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+          <InputField id="last_name" name="Last name" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -114,7 +99,7 @@ const UserEditPage = () => {
             </div>
           </InputField>
 
-          <InputField id="login" name="Your login" type="text" placeholder="my_login123" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+          <InputField id="company" name="Company" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -123,7 +108,7 @@ const UserEditPage = () => {
             </div>
           </InputField>
 
-          <InputField id="login" name="Your login" type="text" placeholder="my_login123" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+          <InputField id="phone_number" name="Phone number" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -131,6 +116,8 @@ const UserEditPage = () => {
               </svg>
             </div>
           </InputField>
+
+          <ToggleSwitchInputField id="active" data={data} setData={setData} />
 
           <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save</button>
 

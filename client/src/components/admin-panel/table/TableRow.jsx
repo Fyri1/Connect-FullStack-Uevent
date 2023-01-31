@@ -1,11 +1,20 @@
 import React from "react";
 
+import UserEditPage from "../edit/UserEditPage.jsx";
 import EventEditPage from '../edit/EventEditPage.jsx';
 
 
-const TableRows = ({ data, setPopupActive, setPopupContent }) => {
+const TableRows = ({ data, dataCategory, setPopupActive, setPopupContent }) => {
   
   const rowsElements = data.map((dataElement, i) => {
+    const editPages = {
+      users: <UserEditPage originData={dataElement} formMessage={"Edit user"} />,
+      roles: <UserEditPage originData={dataElement} formMessage={"Edit user"} />,
+      events: <EventEditPage originData={dataElement} formMessage={"Edit event"} />,
+      categories: <UserEditPage originData={dataElement} formMessage={"Edit user"} />,
+      tickets: <EventEditPage originData={dataElement} formMessage={"Edit event"} />,
+    }
+
     const keys = Object.keys(dataElement);
     const dataElementValues = [];
 
@@ -17,7 +26,7 @@ const TableRows = ({ data, setPopupActive, setPopupContent }) => {
     const editButtonClick = () => {
       console.log("edit");
       console.log(dataElement);
-      setPopupContent(<EventEditPage originData={dataElement} formMessage={"Edit event"} />)
+      setPopupContent(editPages[dataCategory]);
       setPopupActive(true);
     }
 

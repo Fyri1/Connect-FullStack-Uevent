@@ -8,7 +8,7 @@ import ToggleSwitchDropdownElement from '../../common/dropdown-menu/ToggleSwitch
 import RadioDropdownElement from '../../common/dropdown-menu/RadioDropdownElement.jsx';
 
 
-const DataTable = ({ data }) => {
+const DataTable = ({ data, dataCategory }) => {
   const timePeriods = {
     day: {
       name: "Last day",
@@ -35,7 +35,6 @@ const DataTable = ({ data }) => {
     <div>
       {/* Data review Popup */}
       <Popup active={dataReviewPopupActive} setActive={setDataReviewPopupActive}>
-        {/* <EventEditPage /> */}
         { popupContent }
       </Popup>
 
@@ -43,7 +42,7 @@ const DataTable = ({ data }) => {
         <div className="flex items-center justify-between pb-4">
           {/* <!-- Dropdown menu PIDORASINA EBANAYA HYLI TI BLYAT NE RABOTAESH --> */}
           <div>
-            <DropdownButton name={selectedTimePeriod.name}>
+            <DropdownButton name={selectedTimePeriod.name} id="eblan">
               <RadioDropdownElement key="eblannn1" id="eblannn1" name={timePeriods.day.name} selectedElement={selectedTimePeriod} setSelectedElement={setSelectedTimePeriod}/>
               <RadioDropdownElement key="eblannn2" id="eblannn2" name={timePeriods.week.name} selectedElement={selectedTimePeriod} setSelectedElement={setSelectedTimePeriod}/>
               <RadioDropdownElement key="eblannn3" id="eblannn3" name={timePeriods.month.name} selectedElement={selectedTimePeriod} setSelectedElement={setSelectedTimePeriod}/>
@@ -61,7 +60,7 @@ const DataTable = ({ data }) => {
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <TableHead data={data} />
           <tbody>
-            <TableRows data={data} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
+            <TableRows data={data} dataCategory={dataCategory} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
           </tbody>
         </table>
       </div>

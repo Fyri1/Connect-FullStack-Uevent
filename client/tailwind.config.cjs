@@ -21,6 +21,6 @@ module.exports = {
     ]
   }},
   plugins: [
-    require('flowbite/plugin')
+    require('./node_modules/flowbite/plugin')
   ],
 }
