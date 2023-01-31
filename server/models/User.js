@@ -18,20 +18,7 @@ class User {
 
   async getAllUsers() {
     // ya tak ponimau ti eto spizdil iz usofa ibo zapros hyinya
-    const data = await client('users').select(
-      'users.id',
-      'users.login',
-      'users.email',
-      'users.first_name',
-      'users.second_name',
-      'users.last_name',
-      'users.password',
-      'users.company',
-      'users.phone_number',
-      'users.active',
-      'users.created_at',
-      'users.active'
-    );
+    const data = await client('users').select('*');
     return data;
   }
 
@@ -52,12 +39,51 @@ class User {
       }
     }
   }
+
+  // ___________________________________________ //
+
+  async findOrganizationId(id) {
+    try {
+      const data = await client('organization')
+        .select('*')
+        .where('id', '=', id);
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async isEqualNameOrganization(name) {
+    try {
+      const data = await client('organization')
+        .select('*')
+        .where('name_organization', '=', name);
+      return data.length !== 0;
+    } catch (err) {
+      if (!err.toString().match(/ignore/)) {
+        throw new Error(err.code + ': ' + err.message);
+      }
+    }
+  }
+
+  async saveOrganization(data) {
+    try {
+      await client('organization').insert(data);
+    } catch (err) {
+      if (!err.toString().match(/ignore/)) {
+        console.log(err);
+        throw err;
+      }
+    }
+  }
+
+  // ___________________________________________ //
+
   async isEqualLogin(login) {
     try {
       const data = await client('users')
         .select({
           name: 'login',
-          email: 'email',
         })
         .where('login', '=', login);
       return data.length !== 0;

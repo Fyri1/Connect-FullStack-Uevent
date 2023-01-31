@@ -11,6 +11,7 @@ import eventRouter from './router/event-router.js';
 import ticketsRouter from './router/ticket-router.js';
 import adminRouter from './router/admin-router.js';
 import errorMiddleware from './middlewares/error-middleware.js';
+import ApiError from './exceptions/api-error.js';
 
 export default () => {
   dotenv.config();
@@ -33,6 +34,9 @@ export default () => {
   app.use('/api/event', eventRouter);
   app.use('/api/ticket', ticketsRouter);
   app.use('/api/user', adminRouter);
+  app.use('*', () => {
+    throw ApiError.NotFound();
+  });
   app.use(errorMiddleware);
   return app;
 };
