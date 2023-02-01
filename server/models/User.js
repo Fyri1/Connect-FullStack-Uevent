@@ -1,5 +1,6 @@
 import client from '../client.js';
 import ApiError from '../exceptions/api-error.js';
+import { v4 as uuidv4 } from 'uuid';
 
 class User {
   constructor() {
@@ -37,6 +38,19 @@ class User {
         console.log(err);
         throw err;
       }
+    }
+  }
+
+  async setRole(userId, role) {
+    try {
+      const id = uuid4();
+      await client('role').insert({
+        id,
+        user_id: userId,
+        role,
+      });
+    } catch(err) {
+
     }
   }
 

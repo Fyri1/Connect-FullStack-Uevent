@@ -10,10 +10,10 @@ const router = Express.Router();
 // console.log(adminRoutes.usersGetPath());
 router.get(adminRoutes.usersGetPath(), Users.getAllUsers);
 
-router.get(adminRoutes.userIdGetPath(), Users.getAllUsers);
-router.post(adminRoutes.userPostPath(), Users.getAllUsers);
-router.put(adminRoutes.userIdUpdatePath(), Users.getAllUsers);
-router.delete(adminRoutes.userIdDeletePath(), Users.getAllUsers);
+router.get(adminRoutes.userIdGetPath(), Users.getUserById);
+router.post(adminRoutes.userPostPath(), Users.createUser);
+router.put(adminRoutes.userIdUpdatePath(), Users.updateUserData);
+router.delete(adminRoutes.userIdDeletePath(), Users.deleteUser);
 
 
 export default router;

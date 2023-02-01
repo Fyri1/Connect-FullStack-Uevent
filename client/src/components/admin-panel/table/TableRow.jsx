@@ -13,10 +13,11 @@ const TableRows = ({ data, dataCategory, setPopupActive, setPopupContent }) => {
   const rowsElements = data.map((dataElement, i) => {
     const editPages = {
       users: <UserEditForm originData={dataElement} formMessage={"Edit user"} />,
-      roles: <UserEditForm originData={dataElement} formMessage={"Edit role"} />,
+      roles: <RoleEditForm originData={dataElement} formMessage={"Edit role"} />,
       events: <EventEditForm originData={dataElement} formMessage={"Edit event"} />,
-      categories: <UserEditForm originData={dataElement} formMessage={"Edit category"} />,
-      tickets: <EventEditForm originData={dataElement} formMessage={"Edit ticket"} />,
+      categories: <CategoryEditForm originData={dataElement} formMessage={"Edit category"} />,
+      tickets: <TicketEditForm originData={dataElement} formMessage={"Edit ticket"} />,
+      organization: <OrganizationEditForm originData={dataElement} formMessage={"Edit organization"} />,
     }
 
     const keys = Object.keys(dataElement);

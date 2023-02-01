@@ -1,7 +1,7 @@
 // @ts-check
 
 export const up = (knex) =>
-  knex.schema.createTable('ticket', (table) => {
+  knex.schema.createTable('tickets', (table) => {
     table.string('id').primary().notNullable();
     table.string('event_id').unsigned().index().references('event.id');
     table.decimal('price').notNullable();

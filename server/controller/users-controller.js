@@ -1,5 +1,6 @@
 import User from '../models/User.js';
 import encrypt from '../encrypt.js';
+import { v4 as uuidv4 } from 'uuid';
 
 class Users {
   async getAllUsers(_req, res) {
@@ -22,10 +23,11 @@ class Users {
   }
   async createUser(req, res, next) {
     try {
+      const id = uuidv4();
       const dataUser = req.body;
       const enpryptPassword = encrypt(dataUser.password);
-
-      User.saveUser({ ...dataUser, password: enpryptPassword });
+      console.log({ ...dataUser, id, password: enpryptPassword });
+      // User.saveUser({ ...dataUser, id, password: enpryptPassword });
       res.status(201);
       res.json({ massage: `User ${dataUser.login} create` });
     } catch (err) {

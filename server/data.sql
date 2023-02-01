@@ -1,0 +1,1 @@
+INSERT user (id, login, email, first_name, seconde_name, last_name, password, active, create_at)

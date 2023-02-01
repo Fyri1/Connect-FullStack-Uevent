@@ -1,13 +1,13 @@
 import { useQuery } from 'react-query';
 import { UsersService } from '../services/users.service';
 
-const useUsers = () => {
-  const { isLoading, data: users } = useQuery('users', () => UsersService.getAll(), {
+const useRoles = () => {
+  const { isLoading, data: roles } = useQuery('roles', () => UsersService.getAll(), {
     onError: (error) => {
       console.log(error);
     },
   });
-  return { isLoading, users };
+  return { isLoading, roles };
 };
 
-export { useUsers };
+export { useRoles };
