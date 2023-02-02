@@ -10,6 +10,10 @@ class EventService {
     return await Event.getAllTickets(eventId);
   }
 
+  async getAllCategoriesByEventId({ id }) {
+    return await Event.getAllCategories(id);
+  }
+
   async sellTicket(userId, eventId) {
     return await Event.sellTicket(userId, eventId);
   }
@@ -22,6 +26,15 @@ class EventService {
     const id = uuidv4();
     await Event.save({ id, ...body });
     return `create event ${body.title}`;
+  }
+
+  async updateEvent({ body, params: { id } }) {
+    await Event.updateEvent({ id, ...body });
+    return `create event ${body.title}`;
+  }
+
+  async deleteEvent(id) {
+    await Event.deleteEvent(id);
   }
 }
 
