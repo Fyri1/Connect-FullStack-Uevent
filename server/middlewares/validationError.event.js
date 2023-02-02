@@ -5,7 +5,7 @@ import Event from '../models/Event.js';
 export default async (req, _res, next) => {
   const errors = validationResult(req);
 
-  if (await Event.isEqualTitle(req.body.title)) {
+  if (await Event.isEqualTitle(req.body.title, req.params)) {
     errors.errors.push({
       value: req.body.title,
       msg: 'Already exist',
