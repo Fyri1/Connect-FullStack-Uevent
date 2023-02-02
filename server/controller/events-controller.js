@@ -17,6 +17,10 @@ class Events {
     };
   }
 
+  async getAllCategoriesByEventId(req, _res) {
+    return await EventService.getAllCategoriesByEventId(req.params);
+  }
+
   async sellTicketEvent(req, _res) {
     const { id: eventId } = req.params;
     const token = req.headers.authorization.split(' ')[1];
@@ -42,8 +46,12 @@ class Events {
     return result;
   }
 
-  async updateEvent(data) {}
-  async deleteEvent(data) {}
+  async updateEvent(req, _res) {
+    return await EventService.updateEvent(req);
+  }
+  async deleteEvent(req, _res) {
+    return await EventService.deleteEvent(req.params.id);
+  }
 }
 
 export default new Events();
