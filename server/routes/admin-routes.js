@@ -27,12 +27,11 @@ export default {
 
   // Categories
   categoriesGetPath: () => [apiPath].join('/'),
-  categoryIdGetPath: (categoryId) => [apiPath, 'get', categoryId].join('/'),
+  categoryIdGetPath: () => [apiPath, ':id'].join('/'),
+  categoryIdGetAllEventPath: () => [apiPath, ':id', 'posts'].join('/'),
   categoryPostPath: () => [apiPath, 'create'].join('/'),
-  categoryIdUpdatePath: (categoryId) =>
-    [apiPath, 'update', categoryId].join('/'),
-  categoryIdDeletePath: (categoryId) =>
-    [apiPath, 'delete', categoryId].join('/'),
+  categoryIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
+  categoryIdDeletePath: () => [apiPath, ':id', 'delete'].join('/'),
 
   // Tickets
   ticketsGetPath: () => [apiPath].join('/'),

@@ -1,9 +1,10 @@
 // @ts-check
 
 export const up = (knex) =>
-  knex.schema.createTable('event_categories', (table) => {
-    table.string('category_id').unsigned().index().references('categories.id');
-    table.string('event_id').unsigned().index().references('event.id');
+  knex.schema.createTable('categories', (table) => {
+    table.string('id').primary().notNullable();
+    table.string('title').notNullable();
+    table.string('description').notNullable();
   });
 
-export const down = (knex) => knex.schema.dropTable('event_categories');
+export const down = (knex) => knex.schema.dropTable('categories');

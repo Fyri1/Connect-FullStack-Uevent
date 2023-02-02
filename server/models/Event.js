@@ -51,18 +51,17 @@ class Event {
     }
   }
 
-
   async save({
     id,
     userId,
     title,
     description,
-    category,
     city,
     address,
     poster,
     eventStart,
     eventEnd,
+    ...category
   }) {
     try {
       await client('events').insert({
@@ -70,13 +69,16 @@ class Event {
         user_id: userId,
         title,
         description,
-        category,
         city,
         address,
         poster,
         event_start: eventStart,
         event_end: eventEnd,
       });
+      const promises = Object.values(category).map((i) =>
+        client('event_categories').insert({ event_id: id, category_id: i })
+      );
+      await Promise.all(promises);
     } catch (err) {
       console.log(err);
       throw err;
@@ -108,8 +110,6 @@ class Event {
   //     throw err;
   //   }
   // }
-
-
 }
 
 export default new Event();

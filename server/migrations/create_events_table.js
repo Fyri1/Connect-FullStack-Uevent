@@ -6,7 +6,6 @@ export const up = (knex) =>
     table.string('user_id').unsigned().index().references('users.id');
     table.string('title').notNullable();
     table.string('description').notNullable();
-    table.string('category').notNullable();
     table.string('city').notNullable();
     table.string('address').notNullable();
     table.string('poster');
