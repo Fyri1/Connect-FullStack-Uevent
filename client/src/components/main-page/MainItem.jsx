@@ -7,10 +7,24 @@ import '../css/event-card.css';
 const MainItem = () => {
   return (
     
-<div сlass=" py-6 px-4 sm:p-6 md:py-10 md:px-8">
+<div сlass=" main-div-MainItem py-6 px-4 sm:p-6 md:py-10 md:px-8">
+
+
+
+
     <div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
-      <div class="relative p-3 col-start-1 row-start-1 flex flex-col-reverse rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
-        <h1 class="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">Ticket to Poland</h1>
+      
+      <div class="relative p-3 col-start-1 row-start-1  rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
+        
+        <div class="followin-button ">
+          <input type="checkbox" id="choose-me" class=" peer hidden" />
+          <label for="choose-me" class=" bg-gray-900 select-none cursor-pointer rounded-lg border-2 border-gray-200
+          py-3 px-6 font-bold text-gray-200 transition-colors duration-200 ease-in-out peer-checked:bg-gray-200 peer-checked:text-gray-900 peer-checked:border-gray-200 "> Following </label>
+        </div>
+
+
+        <h1 class="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">Ticket to Poland </h1>
+      
         {/* <p class="text-sm leading-4 font-medium text-white sm:text-slate-500 dark:sm:text-slate-400">Весь дом</p> */}
       </div>
       {/* Основная часть */}
@@ -164,19 +178,20 @@ const MainItem = () => {
       </dl>
 
       {/* то что идет после описания */}
-      <div class="mt-5 text-xs font-medium flex items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-5">
-        <svg width="2" height="2" aria-hidden="true" fill="currentColor" class="mx-0 text-slate-300">
-            <circle cx="1" cy="1" r="1" />
-        </svg>
-          {/* иконка локации */}
-        <svg width="24" height="24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
-          <path d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z" />
-          <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-        </svg>
-        <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >Łwow</a>
-        
+      <div class=" mt-5 text-xs font-medium  items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-5">
+
+        {/* иконка локации */}
+        <div class=" bl1 start flex   ">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6 text-gray-500">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+          
+          <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Łwow </a>
+        </div>
+        <a>&nbsp;</a>
         {/* Start  time*/}
-        <dd class="start flex items-center">
+        <div class=" bl1 start flex   ">
           <svg width="2" height="2" aria-hidden="true" fill="currentColor" class="mx-0 text-slate-300">
             <circle cx="1" cy="1" r="1" />
           </svg>
@@ -190,7 +205,7 @@ const MainItem = () => {
           
           <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Time :<a>  12:88</a></a>
           <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; - &nbsp;<a>16:88</a></a>
-        </dd>
+        </div>
         {/* END  */}
         {/* <div class="end flex items-center">
           <svg width="2" height="2" aria-hidden="true" fill="currentColor" class="mx-0 text-slate-300">
@@ -211,7 +226,7 @@ const MainItem = () => {
   </div>
   {/* Start recommend */}
   <div className="recommend ">
-    <h1 class=" text-recommend mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">RECOMMENDую тебе начать учить гимн ПОЛЬШИ!</h1>
+    <h1 class=" text-center  bg-white rounded-md  py-5 max-w-2xl mx-auto text-2xl font-bold text-gray-500  ">RECOMMEND</h1>
     
        {/* class="py-3 bg-gray-100  это был приятный фон */}
       <section >
@@ -360,8 +375,8 @@ const MainItem = () => {
   </div>
 
   {/* начало Комментариев */}
-  <div class="bg-indigo-50 min-h-screen md:px-20 pt-6">   {/* отвечате за цвет*/}
-    <div class=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
+  <div class="">   {/* отвечате за цвет*/}
+    <div class="comment-down bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
       <h1 class="text-center text-2xl font-bold text-gray-500 mb-5">ADD POST</h1>
       <div class="space-y-4">
         <div>
