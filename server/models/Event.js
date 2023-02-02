@@ -1,6 +1,8 @@
 import client from '../client.js';
 import Ticket from './Ticket.js';
+import Category from './Category.js';
 import ApiError from '../exceptions/api-error.js';
+import _ from 'lodash';
 
 class Event {
   async getAll() {
@@ -21,6 +23,20 @@ class Event {
       return data;
     } catch (err) {
       console.log(err);
+      throw err;
+    }
+  }
+
+  async getAllCategories(id) {
+    try {
+      const data = await client('event_categories')
+        .select('category_id')
+        .where('event_id', '=', id);
+      const promisesCategoriesEvent = data.map(({ category_id }) =>
+        Category.findCategoryId(category_id)
+      );
+      return await Promise.all(promisesCategoriesEvent);
+    } catch (err) {
       throw err;
     }
   }
@@ -75,8 +91,11 @@ class Event {
         event_start: eventStart,
         event_end: eventEnd,
       });
-      const promises = Object.values(category).map((i) =>
-        client('event_categories').insert({ event_id: id, category_id: i })
+      const promises = Object.values(category).map((categoryId) =>
+        client('event_categories').insert({
+          event_id: id,
+          category_id: categoryId,
+        })
       );
       await Promise.all(promises);
     } catch (err) {
@@ -85,31 +104,82 @@ class Event {
     }
   }
 
-  async isEqualTitle(title) {
+  async updateEvent({
+    id,
+    title,
+    description,
+    city,
+    address,
+    poster,
+    eventStart,
+    eventEnd,
+    ...categories
+  }) {
     try {
-      const data = await client('events')
-        .select('*')
-        .where('title', '=', title);
-      return data.length !== 0;
+      await client('events')
+        .update({
+          title,
+          description,
+          city,
+          address,
+          poster,
+          event_start: eventStart,
+          event_end: eventEnd,
+        })
+        .where('id', '=', id);
+      await updateCategories(id, categories);
     } catch (err) {
       throw err;
     }
   }
 
-  // async update(id, date) {
-  //   try {
-  //     await client('events').where('id', '=', id).update({
-  //       login: date.login,
-  //       // password: date.password,
-  //       full_name: date.fullName,
-  //       email: date.email,
-  //       profile_pic: date.avatar,
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //     throw err;
-  //   }
-  // }
+  async updateCategories(id, categories = []) {
+    try {
+      const eventCategories = await this.getAllCategories(id);
+      const idOldCategory = eventCategories.map(({ id }) => id);
+      const idNewCategories = Object.values(categories);
+
+      if (_.isEqual(idOldCategory, idNewCategories)) {
+        return;
+      }
+      await client('event_categories').where('event_id', '=', id).del();
+      const promises = idNewCategories.map(
+        async (category_id) =>
+          await client('event_categories').insert({
+            event_id: id,
+            category_id: category_id,
+          })
+      );
+      await Promise.all(promises);
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async isEqualTitle(title, { id = '' }) {
+    try {
+      const data = await client('events')
+        .select('*')
+        .where('title', '=', title);
+      if (data[0].id === id) {
+        return false;
+      }
+      return data.length !== 0;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async deleteEvent(id) {
+    try {
+      console.log(id);
+      await client('events').where('id', '=', id).del();
+      await this.updateCategories(id);
+      await Ticket.daleteTickets(id);
+      return 'delete event';
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 export default new Event();
