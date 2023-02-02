@@ -7,7 +7,7 @@ import '../css/event-card.css';
 const MainItem = () => {
   return (
     
-<div сlass="py-6 px-4 sm:p-6 md:py-10 md:px-8">
+<div сlass=" py-6 px-4 sm:p-6 md:py-10 md:px-8">
     <div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
       <div class="relative p-3 col-start-1 row-start-1 flex flex-col-reverse rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
         <h1 class="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">Ticket to Poland</h1>
@@ -16,10 +16,15 @@ const MainItem = () => {
       {/* Основная часть */}
       <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
         <h4 class="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">Prise:<a>  56$</a></h4>
+        <p>&nbsp;</p>
         <button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button>
       </div>
       <p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 dark:text-slate-400">
-        Этот солнечный и просторный номер предназначен для тех, кто путешествует налегке и ищет удобное и уютное место, чтобы прилечь на ночь или две. Этот пляжный дом расположен в оживленном районе со множеством кафе, пабов, ресторанов и супермаркетов, недалеко от всех основных достопримечательностей, таких как Эдинбургский замок и Артурс-Сит.
+        ЭBilety na spektakle naszego teatru można również kupić w kasie znajdującej się w budynku teatru. 
+        Kasa czynna codziennie od 10.00 do 20.00, przerwa od 14.00 do 14.30, przerwy techniczne od 12:00 do 12:15, od 17:00 do 17:15.
+        Kiosk biletowy teatru działa na Ekobazaar-Mytishchi pod adresem: Veteranov blvd., 6
+        Bilety można rezerwować wcześniej telefonicznie. +7 (495) 582-81-81.
+        Kasa teatru akceptuje zarówno gotówkę, jak i karty kredytowe.
       </p>  
 
       <div class="col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2  lg:row-span-6 lg:mb-0">
@@ -114,7 +119,9 @@ const MainItem = () => {
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full px-6">
                     <p class="mb-4 font-light leading-relaxed text-gray-600 dark:text-gray-400">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin turpis orci, maximus sed purus a, cursus scelerisque purus. Morbi molestie, odio at sagittis rhoncus, felis massa iaculis mi, quis molestie erat ipsum vel risus.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin turpis orci, maximus sed purus a, 
+                      cursus scelerisque purus. Morbi molestie, odio at sagittis rhoncus, felis massa iaculis mi, quis 
+                      molestie erat ipsum vel risus.
                     </p>
                     <button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Learn More</button>
                   </div>
@@ -151,20 +158,23 @@ const MainItem = () => {
 
         {/* Место положение */}
         <div class="flex items-center ">
-          <svg width="2" height="2" aria-hidden="true" fill="currentColor" class="mx-3 text-slate-300">
-            <circle cx="1" cy="1" r="1" />
-          </svg>
-          {/* иконка локации */}
-          <svg width="24" height="24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
-            <path d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z" />
-            <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-          </svg>
-          <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >Łwow</a>
+
         </div>
 
       </dl>
+
       {/* то что идет после описания */}
       <div class="mt-5 text-xs font-medium flex items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-5">
+        <svg width="2" height="2" aria-hidden="true" fill="currentColor" class="mx-0 text-slate-300">
+            <circle cx="1" cy="1" r="1" />
+        </svg>
+          {/* иконка локации */}
+        <svg width="24" height="24" fill="none"  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
+          <path d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z" />
+          <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+        </svg>
+        <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >Łwow</a>
+        
         {/* Start  time*/}
         <dd class="start flex items-center">
           <svg width="2" height="2" aria-hidden="true" fill="currentColor" class="mx-0 text-slate-300">
@@ -177,6 +187,7 @@ const MainItem = () => {
             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>  
+          
           <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Time :<a>  12:88</a></a>
           <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; - &nbsp;<a>16:88</a></a>
         </dd>
@@ -349,33 +360,24 @@ const MainItem = () => {
   </div>
 
   {/* начало Комментариев */}
-  <div class="max-w-2xl mx-auto">
-
-
-    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-      <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
-
-    <p class="mt-5">This textarea bar component is part of a larger, open-source library of Tailwind CSS components. Learn
-      more
-      by going to the official 
-    </p>
-      <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+  <div class="bg-indigo-50 min-h-screen md:px-20 pt-6">   {/* отвечате за цвет*/}
+    <div class=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
+      <h1 class="text-center text-2xl font-bold text-gray-500 mb-5">ADD POST</h1>
+      <div class="space-y-4">
+        <div>
+          {/* можно добавить в инпут сразу имя юзера */}
+          <label for="title" class="text-lx font-serif">Name:</label> 
+          <input type="text" placeholder="title" id="title" class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
+        </div>
+        <div>
+          <label for="description" class="block mb-2 text-lg font-serif">Description:</label>
+          <textarea id="description" cols="30" rows="8" placeholder="whrite here.." class="w-full font-serif  p-1 text-gray-600 bg-indigo-50 outline-none rounded-md"></textarea>
+        </div>
+        <button class=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  ">ADD POST</button>
+      </div>
+    </div>
   </div>
-  <p class="text-center p-4 text-gray-600 pt-10">
-      Created by
-      <a
-        class="border-b text-blue-500"
-        href="https://github.com/Fyri1"
-        target="_blank"
-        >@Vilsan</a
-      >. Inspired by dribble shot
-      <a
-        href="https://github.com/Fyri1"
-        target="_blank"
-        class="border-b text-blue-500"
-        >https://github.com/Fyri1</a
-      >
-  </p>
+
 </div>
   );
 }
