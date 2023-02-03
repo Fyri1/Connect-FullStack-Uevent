@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../css/event-card.css';
-import MainItem from './MainItem.jsx';
+// import MainItem from './MainItem.jsx';
 
 const EventElement = ({ event }) => {
   return (
@@ -12,7 +12,8 @@ const EventElement = ({ event }) => {
             <img src="/1.jpg" alt="" />
             <h2>$56</h2>
             <p className='Name'>Kokon_name</p>
-          
+
+            {/* button buy */}
             <div className='button-buy'>
               <a href="/MainItem" class="">
                 {/* <i class=""></i>Buy Ticket */}
@@ -30,11 +31,21 @@ const EventElement = ({ event }) => {
                 <i class="fa fa-mercury"></i>from 24 to 44
               </a>
             </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-map-marker "></i>we Łwowie
-              </a>
-            </li>
+          
+            <div class="  ">
+              <div class=" bl1 start flex   ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 27 27" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6 text-gray-500">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                
+                <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Łwow </a>
+              </div>
+            
+            </div>
+                
+             
+
           </ul>
         </div>
       </div>
