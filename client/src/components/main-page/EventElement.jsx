@@ -5,6 +5,7 @@ import '../css/event-card.css';
 
 const EventElement = ({ event }) => {
   return (
+  <div>
     <div class="col-sm-4">
       <div class="product-image-wrapper">
         <div class="single-products">
@@ -38,12 +39,12 @@ const EventElement = ({ event }) => {
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg> 
-                    <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Time :<a>  12:88</a></a>
+                    <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp;Time :<a>  12:88</a></a>
                     <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; - &nbsp;<a>16:88</a></a>
                   </div>
                 </div>
               
-                <div class=" ">
+              
                   <div class=" bl1 start flex   ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 27 27" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6 text-gray-500">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -52,12 +53,21 @@ const EventElement = ({ event }) => {
                     
                     <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Łwow </a>
                   </div>
-                
-                </div>
+                  <div class=" bl1 start flex   ">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 27 27" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Users: 69 </a>
+
+
+                  </div>
+                  
+          
             </ul>
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
