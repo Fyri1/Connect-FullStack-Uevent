@@ -12,13 +12,14 @@ const EventElement = ({ event }) => {
             <img src="/1.jpg" alt="" />
             <h2>$56</h2>
             <p className='Name'>Kokon_name</p>
+          
             <div className='button-buy'>
-              <a href="/MainItem" class="btn btn-default add-to-cart">
-                <i class="fa fa-shopping-cart"></i>Buy Ticket
-            
-                
+              <a href="/MainItem" class="">
+                {/* <i class=""></i>Buy Ticket */}
+                <button class=" fa fa-shopping-cart p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">Button</button>
               </a>
             </div>
+
           </div>
 
         </div>
