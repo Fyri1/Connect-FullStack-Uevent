@@ -10,7 +10,7 @@ const Navbar = () => {
       <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
         <NavbarElement name='Home' path={clientRoutes.mainPagePath()}/>
         <NavbarElement name='Company' path={clientRoutes.mainPagePath()}/>
-        <NavbarElement name='Marketplace' path={clientRoutes.mainPagePath()}/>
+        <NavbarElement name='Partnership' path={clientRoutes.mainPagePath()}/>
         <NavbarElement name='Team' path={clientRoutes.mainPagePath()}/>
         <NavbarElement name='Contact' path={clientRoutes.mainPagePath()}/>
       </ul>

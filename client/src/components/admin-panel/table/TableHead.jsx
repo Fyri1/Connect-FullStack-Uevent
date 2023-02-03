@@ -7,6 +7,7 @@ import editForms from '../../../../utils/editForms.jsx';
 
 
 const TableHead = ({ data, dataCategory, setPopupContent, setPopupActive }) => {
+  // Vinesti hyeben v otdelnii file
   const timePeriods = {
     day: {
       name: "Last day",
@@ -47,7 +48,7 @@ const TableHead = ({ data, dataCategory, setPopupContent, setPopupActive }) => {
   return (
     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
-        <th scope="col" colspan="100%" className="p-2 ">
+        <th scope="col" colSpan="100%" className="p-2 ">
         <div className="flex items-center justify-between pb-4">
           {/* <!-- Dropdown menu PIDORASINA EBANAYA HYLI TI BLYAT NE RABOTAESH --> */}
           <div>

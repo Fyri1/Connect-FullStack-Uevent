@@ -4,6 +4,7 @@ export default {
   fullMainPagePath: () => clientPath,
   mainPagePath: () => '/',
 
+  // Auth
   fullLoginPagePath: () => [clientPath, 'login'].join('/'),
   loginPagePath: () => '/login',
 
@@ -15,6 +16,10 @@ export default {
 
   fullConfirmEmailPagePath: () => [clientPath, 'comfirm-email'].join('/'),
   confirmEmailPagePath: () => '/comfirm-email',
+
+  fullPartnershipRegisterPagePath: () => [clientPath, 'comfirm-email'].join('/'),
+  partnershipRegisterPagePath: () => '/comfirm-email',
+  // Auth
 
   fullProfilePagePath: (userId) => [clientPath, 'user', userId].join('/'),
   profilePagePath: (userId) => '/user/' + userId,

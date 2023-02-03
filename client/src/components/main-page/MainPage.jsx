@@ -3,10 +3,11 @@ import React from 'react';
 import Spinner from '../common/Spinner.jsx';
 import Sidebar from './Sidebar.jsx';
 import EventElement from './EventElement.jsx';
+
+import { useEvents } from '../../../hooks/useEvents.js';
 import '../css/event-card.css';
 import '../css/main-page.css';
 
-import { useEvents } from '../../../hooks/useEvents.js';
 
 const MainPage = () => {
   const { isLoading, events } = useEvents();
