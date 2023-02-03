@@ -9,6 +9,7 @@ import { useRoles } from "../../../hooks/useRoles.js";
 import { useEvents } from "../../../hooks/useEvents.js";
 import { useCategories } from "../../../hooks/useCategories.js";
 import { useTickets } from "../../../hooks/useTickets.js";
+import { useOrganization } from "../../../hooks/useOrganization.js";
 
 const AdminPage = ({ dataCategory }) => {
   const dataHook = {
@@ -17,6 +18,7 @@ const AdminPage = ({ dataCategory }) => {
     events: useEvents,
     categories: useCategories,
     tickets: useTickets,
+    organizations: useOrganization,
   }
   const displayData = dataHook[dataCategory]();
 

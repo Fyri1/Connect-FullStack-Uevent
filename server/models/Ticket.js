@@ -3,7 +3,7 @@ import ApiError from '../exceptions/api-error.js';
 
 class Ticket {
   async getAll() {
-    const data = await client('ticket').select('*');
+    const data = await client('tickets').select('*');
     return data;
   }
   // async findTiketId(id) {

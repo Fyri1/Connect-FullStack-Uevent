@@ -1,24 +1,10 @@
 import React from "react";
 
-import UserEditForm from '../edit/UserEditForm.jsx';
-import RoleEditForm from '../edit/RoleEditForm.jsx';
-import EventEditForm from '../edit/EventEditForm.jsx';
-import CategoryEditForm from '../edit/CategoryEditForm.jsx';
-import TicketEditForm from '../edit/TicketEditForm.jsx';
-import OrganizationEditForm from '../edit/OrganizationEditForm.jsx';
+import editForms from "../../../../utils/editForms.jsx";
 
 
-const TableRows = ({ data, dataCategory, setPopupActive, setPopupContent }) => {
-  
+const TableRows = ({ data, dataCategory, setPopupActive, setPopupContent }) => {  
   const rowsElements = data.map((dataElement, i) => {
-    const editPages = {
-      users: <UserEditForm originData={dataElement} formMessage={"Edit user"} />,
-      roles: <RoleEditForm originData={dataElement} formMessage={"Edit role"} />,
-      events: <EventEditForm originData={dataElement} formMessage={"Edit event"} />,
-      categories: <CategoryEditForm originData={dataElement} formMessage={"Edit category"} />,
-      tickets: <TicketEditForm originData={dataElement} formMessage={"Edit ticket"} />,
-      organization: <OrganizationEditForm originData={dataElement} formMessage={"Edit organization"} />,
-    }
 
     const keys = Object.keys(dataElement);
     const dataElementValues = [];
@@ -30,8 +16,7 @@ const TableRows = ({ data, dataCategory, setPopupActive, setPopupContent }) => {
     
     const editButtonClick = () => {
       console.log("edit");
-      console.log(dataElement);
-      setPopupContent(editPages[dataCategory]);
+      setPopupContent(editForms(dataElement)[dataCategory]);
       setPopupActive(true);
     }
 

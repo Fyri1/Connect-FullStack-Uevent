@@ -75,15 +75,15 @@ const App = () => {
             <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
             <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
             <Route path={clientRoutes.profilePagePath()} element={<Profile />} />
-
+            
             {/* Admin routes */}
             <Route path={adminRoutes.mainPagePath()} element={<AdminPage dataCategory="users" />} />
             <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
             <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
             <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
-            {/* <Route path={adminRoutes.eventCreatePagePath()} element={<EventEditPage />} /> */}
             <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
             <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
+            <Route path={adminRoutes.organizationsPagePath()} element={<AdminPage dataCategory="organizations" />} />
 
             {/* Moderator routes */}
             <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
