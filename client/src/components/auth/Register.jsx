@@ -92,7 +92,7 @@ const Register = () => {
           </InputField>
           {/* <!-- Button Google --> */}
           <button type='button'
-            class='flex break-inside bg-white text-black border-2 border-black rounded-3xl px-6 py-3 mb-4 w-full blue:bg-slate-800 dark:text-white'>
+            class='flex break-inside bg-white text-black border-2 border-black rounded-3xl px-6 py-3 mb-4 w-full  :bg-slate-800 dark:text-white'>
             <div class='m-auto'>
               <div class='flex items-center justify-start flex-1 space-x-4'>
                 <svg width='25' height='25' viewBox='0 0 24 24'>

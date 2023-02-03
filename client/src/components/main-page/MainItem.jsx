@@ -9,15 +9,12 @@ const MainItem = () => {
     
 <div сlass=" main-div-MainItem py-6 px-4 sm:p-6 md:py-10 md:px-8">
 
-
-
-
     <div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
       
       <div class="relative p-3 col-start-1 row-start-1  rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
         
         <div class="followin-button ">
-        <button> {/*class="inline-block relative"*/}
+        <button class="inline-block relative"> 
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
             </svg>
@@ -31,7 +28,8 @@ const MainItem = () => {
         {/* <p class="text-sm leading-4 font-medium text-white sm:text-slate-500 dark:sm:text-slate-400">Весь дом</p> */}
       </div>
       {/* Основная часть */}
-      <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
+      <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2
+        lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
         <h4 class="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">Prise:<a>  56$</a></h4>
         <p>&nbsp;</p>
         <button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button>
@@ -48,12 +46,14 @@ const MainItem = () => {
 
         {/* start biographies  */}
         <div class='flex items-center justify-center min-h-screen from-gray-500 via-blue-300 to-blue-800 bg-gradient-to-br'>
-          <div class="relative w-full group max-w-md min-w-0 mx-auto mt-6 mb-6 break-words bg-white border shadow-2xl dark:bg-gray-800 dark:border-gray-700 md:max-w-sm rounded-xl">
+          <div class="relative w-full group max-w-md min-w-0 mx-auto mt-6 mb-6 break-words bg-white 
+            border shadow-2xl dark:bg-gray-800 dark:border-gray-700 md:max-w-sm rounded-xl">
             <div class="pb-6">
               <div class="flex flex-wrap justify-center">
                 <div class="flex justify-center w-full">
                   <div class="relative">
-                    <img src="https://source.unsplash.com/jmURdhtm7Ng/120x120" class="dark:shadow-xl border-white dark:border-gray-800 rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" />
+                    <img src="https://source.unsplash.com/jmURdhtm7Ng/120x120" class="dark:shadow-xl border-white 
+                    dark:border-gray-800 rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" />
                   </div>
                 </div>
               </div>
@@ -64,7 +64,9 @@ const MainItem = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
                   </svg>
-                  <div class="text-sm font-bold tracking-wide text-gray-600 dark:text-gray-300 font-mono text-xl">Diseñador UI / Front-end</div>
+                  <div class="text-sm font-bold tracking-wide text-gray-600 dark:text-gray-300 font-mono text-xl">
+                    Diseñador UI / Front-end
+                  </div>
                 </div>
                 <div class="w-full text-center">
                   <div class="flex justify-center pt-8 pb-0 lg:pt-4">
