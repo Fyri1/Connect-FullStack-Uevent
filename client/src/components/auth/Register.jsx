@@ -44,7 +44,7 @@ const Register = () => {
       console.log(e);
       setErrors({
         ...errors,
-        ...e.response.userData.errors.errors.reduce((acc, i) => {
+        ...e.response.data.errors.errors.reduce((acc, i) => {
           return {
             ...acc,
             [i.param]: i.msg,

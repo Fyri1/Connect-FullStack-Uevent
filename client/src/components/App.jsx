@@ -10,6 +10,7 @@ import Login from './auth/Login.jsx';
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
+import PartnerRegister from './auth/PartnerRegister.jsx';
 import Profile from './user/Profile.jsx';
 
 import AdminPage from './admin-panel/AdminPage.jsx';
@@ -74,6 +75,7 @@ const App = () => {
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />
             <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
             <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
+            <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />
             <Route path={clientRoutes.profilePagePath()} element={<Profile />} />
             
             {/* Admin routes */}

@@ -18,7 +18,7 @@ export default {
   confirmEmailPagePath: () => '/comfirm-email',
 
   fullPartnershipRegisterPagePath: () => [clientPath, 'comfirm-email'].join('/'),
-  partnershipRegisterPagePath: () => '/comfirm-email',
+  partnershipRegisterPagePath: () => '/partner-register',
   // Auth
 
   fullProfilePagePath: (userId) => [clientPath, 'user', userId].join('/'),
