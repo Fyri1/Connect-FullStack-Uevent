@@ -30,4 +30,8 @@ export default {
   fullEventPagePath: (eventId) => [clientPath, 'event', eventId].join('/'),
   eventPagePath: (eventId) => '/event/' + eventId,
 
+  // хуйня Vilsak для итемов. Я понимаю шо у вас его нет в бд.
+  // fullLoginPagePath: () => [clientPath, 'item'].join('/'),
+  // loginPagePath: () => '/item',
+
 };
