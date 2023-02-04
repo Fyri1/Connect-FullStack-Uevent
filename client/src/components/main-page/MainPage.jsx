@@ -104,8 +104,9 @@ const MainPage = () => {
                     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script> */}
                 </div>
 
-                
+                <div className='Kokon-na-mazy'>
                 {eventsElements}
+                </div>
               </div>
             </div>
           </div>

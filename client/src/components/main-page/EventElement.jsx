@@ -5,9 +5,9 @@ import '../css/event-card.css';
 
 const EventElement = ({ event }) => {
   return (
-  <div>
-    <div class="col-sm-4">
-      <div class="product-image-wrapper">
+  <div class="Prasak" >
+    <div class=" col-sm-4">
+      <div class=" product-image-wrapper">
         <div class="single-products">
           <div class="productinfo text-center">
             <img src="/1.jpg" alt="" />
@@ -15,10 +15,10 @@ const EventElement = ({ event }) => {
             <p className='Name'>Kokon_name</p>
 
             {/* button buy */}
-            <div className='button-buy'>
+            <div className=''>
               <a href="/MainItem" class="">
                 {/* <i class=""></i>Buy Ticket */}
-                <button class=" fa fa-shopping-cart p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">Button</button>
+                <button class="fa fa-shopping-cart p-2 pl-5 pr-5 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">Button</button>
               </a>
             </div>
 
