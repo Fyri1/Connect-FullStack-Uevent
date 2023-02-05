@@ -10,6 +10,7 @@ import Login from './auth/Login.jsx';
 
 // FullMainItemPage
 import MainItem from './main-page/MainItem.jsx';
+import Profile2 from './user/Profile2.jsx';
 // 
 
 import Register from './auth/Register.jsx';
@@ -77,7 +78,12 @@ const App = () => {
             {/* User routes */}
             <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
             <Route path={clientRoutes.loginPagePath()} element={<Login />} />
+
+            {/* Sral Vilsan */}
             <Route path="/MainItem" element={<MainItem />} />
+            <Route path="/Profile2" element={<Profile2 />} />
+            {/* neSral Vilsan */}
+
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />
             <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
             <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />

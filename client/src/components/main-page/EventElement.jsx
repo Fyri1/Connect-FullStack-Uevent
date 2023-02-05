@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../css/event-card.css';
-// import MainItem from './MainItem.jsx';
+
 
 const EventElement = ({ event }) => {
   return (
