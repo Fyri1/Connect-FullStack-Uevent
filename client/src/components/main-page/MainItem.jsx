@@ -301,20 +301,20 @@ const MainItem = () => {
 
   {/* начало Комментариев */}
   <div class="">   {/* отвечате за цвет*/}
-    <div class="comment-down bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
-      <h1 class="text-center text-2xl font-bold text-gray-500 mb-5">ADD POST</h1>
-      <div class="space-y-4">
-        <div>
-          {/* можно добавить в инпут сразу имя юзера */}
-          <label for="title" class="text-lx font-serif">Name:</label> 
-          <input type="text" placeholder="title" id="title" class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
-        </div>
-        <div>
-          <label for="description" class="block mb-2 text-lg font-serif">Description:</label>
-          <textarea id="description" cols="30" rows="8" placeholder="whrite here.." class="w-full font-serif  p-1 text-gray-600 bg-indigo-50 outline-none rounded-md"></textarea>
-        </div>
-        <button class=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  ">ADD POST</button>
-      </div>
+    <div class="flex justify-center  min-h-screen">
+      <div class="h-80 px-7 w-[700px] rounded-[12px] bg-white p-4 shadow-md border">
+          <p class="text-xl font-semibold text-blue-900 cursor-pointer transition-all hover:text-black">
+              Add Comment
+          </p> 
+          <textarea class="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here"></textarea>  
+          
+          <div class="flex justify-between mt-2"> 
+              <p class="text-sm text-blue-900 ">Enter atleast 15 characters</p>
+              <button class="h-12 w-[150px] bg-blue-400 text-sm text-white rounded-lg transition-all cursor-pointer hover:bg-blue-600">
+                  Submit comment
+              </button>
+          </div>   
+      </div>   
     </div>
   </div>
 
