@@ -18,6 +18,7 @@ const Profile2 = () => {
                 </img>
             </div>
             <div class="flex flex-col items-center -mt-20">
+                {/* ебало пацухи */}
                 <img src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg" class="w-40 border-4 border-white rounded-full">
                 </img>
                 <div class="flex items-center space-x-2 mt-2">
@@ -28,6 +29,7 @@ const Profile2 = () => {
                         </svg>
                     </span>
                 </div>
+                {/* информация о себе */}
                 <p class="text-gray-700">Senior Software Engineer at Tailwind CSS</p>
                 <p class="text-sm text-gray-500">New York, USA</p>
             </div>
