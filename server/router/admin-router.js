@@ -19,6 +19,7 @@ router.post(
   checkValidation,
   tryCatch(User.createUser)
 );
+
 router.patch(
   adminRoutes.userIdUpdatePath(),
   body('login').isLength({ min: 3, max: 30 }).trim(),
@@ -30,11 +31,14 @@ router.patch(
   validationErrorUser,
   tryCatch(User.updateUserData)
 );
+
 router.patch(
   adminRoutes.userChangePasswordPath(),
+  accessDenied,
   tryCatch(User.changePassword)
 );
-router.patch(adminRoutes.userChangeEmailPath(), tryCatch(User.changeEmail));
-router.delete(adminRoutes.userIdDeletePath(), tryCatch(User.deleteUser));
+
+router.patch(adminRoutes.userChangeEmailPath(), accessDenied, tryCatch(User.changeEmail));
+router.delete(adminRoutes.userIdDeletePath(), accessDenied, tryCatch(User.deleteUser));
 
 export default router;

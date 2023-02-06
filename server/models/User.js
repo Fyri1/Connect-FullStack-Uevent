@@ -1,5 +1,6 @@
 import client from '../client.js';
 import ApiError from '../exceptions/api-error.js';
+import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import Event from './Event.js';
 
@@ -123,6 +124,25 @@ class User {
       throw err;
     }
   }
+  async updateEmail(id, email) {
+    try {
+      await client('users').where('id', '=', id).update('email', email);
+    } catch (err) {
+      throw err;
+    }
+  }
+async updatePassword(id, password, oldPassword) {
+  try {
+    const { password: userOldPassword } = await this.initUser('id', id);
+    const isExist = await bcrypt.compare(oldPassword, userOldPassword);
+    if (!isExist) {
+      throw ApiError.IncorrectData('password gavno, ne sovpadaet so starim :)')
+    }
+    await client('users').where('id', '=', id).update('password', password);
+  } catch (err) {
+    throw err;
+  }
+}
 
   async updateUserDate(
     id,

@@ -11,6 +11,7 @@ import Login from './auth/Login.jsx';
 // FullMainItemPage
 import MainItem from './main-page/MainItem.jsx';
 import Profile2 from './user/Profile2.jsx';
+import MyTicket from './user/MyTicket.jsx';
 // 
 
 import Register from './auth/Register.jsx';
@@ -48,21 +49,7 @@ const App = () => {
     setSocketConnected(false);
   }, []);
 
-  // const buttonTranslate = Object.keys(lngs).map((lng) => {
-  //   return (
-  //     <button
-  //       type="submit"
-  //       key={lng}
-  //       className={`mx-2 text-white ${
-  //         i18n.resolvedLanguage === lng ? 'text-orange-800' : 'text-orange-400'
-  //       } ${i18n.resolvedLanguage === lng ? null : 'underline'}`}
-  //       onClick={() => i18n.changeLanguage(lng)}
-  //       disabled={i18n.resolvedLanguage === lng}
-  //     >
-  //       {lngs[lng].nativeName}
-  //     </button>
-  //   );
-  // });
+
 
   return socketConnected ? (
     <Spinner />
@@ -82,6 +69,7 @@ const App = () => {
             {/* Sral Vilsan */}
             <Route path="/MainItem" element={<MainItem />} />
             <Route path="/Profile2" element={<Profile2 />} />
+            <Route path="/MyTicket" element={<MyTicket />} />
             {/* neSral Vilsan */}
 
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />

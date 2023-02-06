@@ -30,7 +30,7 @@ const AdminPage = ({ dataCategory }) => {
         <Spinner />
         :
         <div>
-          <h1>Welcome to Admin control panel</h1>
+          <h1>Welcome to Admin control panel СЛАВА УКРАИНЕ</h1>
           <NavbarElement />
           <DataTable data={displayData[dataCategory].data.values} dataCategory={dataCategory} />
         </div>

@@ -46,27 +46,30 @@ const MainPage = () => {
         <Spinner />
       ) : (
         <div>
-          <p className='Main-center-txt'>This is MainPage</p>
-          
           <div className="main-content">
             <div className="col-sm-9 padding-right">
               <div className="features_items">
-                
                 <h2 className="title text-center">Features Items</h2>
-
-                {/* Слайдер */}
                 <Sidebar />
-
                   <div class="button-profile">
-                  <a href="/Profile2" > 
-
-                    <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div class="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      
-                      <span class="relative text-black group-hover:text-white">profile!</span>
-                    </button>
+                    <a href="/Profile2" > 
+                      <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
+                        <div class="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                        
+                        <span class="relative text-black group-hover:text-white">profile!</span>
+                      </button>
                     </a>
-                  </div >
+                  </div>
+                  
+                  <div class="button-profile">
+                    <a href="/MyTicket" > 
+                      <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
+                        <div class="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                        
+                        <span class="relative text-black group-hover:text-white">My ticket</span>
+                      </button>
+                    </a>
+                  </div>
 
                 <div className='Kokon-na-mazy'>
                   {eventsElements}

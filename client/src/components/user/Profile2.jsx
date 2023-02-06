@@ -1,18 +1,33 @@
 import React from "react";
 
+import './css/profile.css';
+
 const Profile2 = () => {
   return (
 <div>
     <div className="h-full bg-gray-200 p-8">
         <div className="bg-white rounded-lg shadow-xl pb-8">
-            <div x-data="{ openSettings: false }" className="absolute right-12 mt-4 rounded">
-                <button  className="border border-gray-400 p-2 rounded text-gray-300 hover:text-gray-300 bg-gray-100 bg-opacity-10 hover:bg-opacity-20" title="Settings">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
-                    </svg>
-                </button>
 
+            <div className="dropdown">
+                <div x-data="{ openSettings: false }" className="dropbtn absolute right-12 mt-4 rounded">
+
+                    {/* три точки сверху */}
+                    <button  className="border border-gray-400 p-2 rounded text-gray-300 hover:text-gray-300 bg-gray-100 bg-opacity-10 hover:bg-opacity-20" title="Settings">
+                    <div class="dropdown-content">
+                            <a href="#">Тимофей пидор(Ed Profile)</a>
+
+                        </div>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                        </svg>
+
+
+                    </button>
+
+                </div>
             </div>
+
             <div className="w-full h-[250px]">
                 <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" className="w-full h-full rounded-tl-lg rounded-tr-lg">
                 </img>
@@ -35,12 +50,12 @@ const Profile2 = () => {
             </div>
             <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
                 <div className="flex items-center space-x-4 mt-2">
-                    <button className="flex items-center bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
+                    {/* <button className="flex items-center bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
                         </svg>
                         <span>Connect</span>
-                    </button>
+                    </button> */}
                     <button className="flex items-center bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clipRule="evenodd"></path>
@@ -81,10 +96,10 @@ const Profile2 = () => {
                             <span className="font-bold w-24">Location:</span>
                             <span className="text-gray-700">New York, US</span>
                         </li>
-                        <li className="flex border-b py-2">
+                        {/* <li className="flex border-b py-2">
                             <span className="font-bold w-24">Languages:</span>
                             <span className="text-gray-700">English, Spanish</span>
-                        </li>
+                        </li> */}
                         <li className="flex items-center border-b py-2 space-x-2">
                             <span className="font-bold w-24">Elsewhere:</span>
                             <a href="#" title="Facebook">

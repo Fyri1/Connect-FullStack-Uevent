@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import InputField from '../common/form/InputField.jsx';
 import EditForm from '../common/form/EditForm.jsx';
+import SocialNetworkIcons from './SocialNetworkIcons.jsx';
 
 import clientRoutes from '../../routes/client/clientRoutes.js';
 import apiRoutes from '../../routes/api/apiClientRoutes.js';
@@ -91,6 +92,12 @@ const Login = () => {
             Don't have an account yet?{' '}
             <a href={clientRoutes.fullRegisterPagePath()} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
           </p>
+
+          <div className="inline-flex items-center justify-center w-full">
+            <hr className="w-96 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+            <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">Or continue using</span>
+          </div>
+          <SocialNetworkIcons />          
         </EditForm>
       </section>
     </form>
