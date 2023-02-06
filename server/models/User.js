@@ -1,6 +1,7 @@
 import client from '../client.js';
 import ApiError from '../exceptions/api-error.js';
 import { v4 as uuidv4 } from 'uuid';
+import Event from './Event.js';
 
 class User {
   constructor() {
@@ -9,7 +10,15 @@ class User {
 
   async findUserId(id) {
     const data = await client('users')
-      .select('id', 'login', 'email', 'active', 'created_at')
+      .select(
+        'id',
+        'login',
+        'email',
+        'first_name',
+        'second_name',
+        'last_name',
+        'created_at'
+      )
       .where('id', '=', id);
     if (data.length === 0) {
       throw ApiError.NotFound('user not found');
@@ -21,6 +30,13 @@ class User {
     // ya tak ponimau ti eto spizdil iz usofa ibo zapros hyinya
     const data = await client('users').select('*');
     return data;
+  }
+  async getAllEventsByUserId(id) {
+    return await client('events').select('id').where('user_id', '=', id);
+  }
+
+  async getRole(id) {
+    return await client('roles').select('role').where('user_id', '=', id);
   }
 
   async saveUser({ id, login, password, email, link, active }) {
@@ -49,49 +65,10 @@ class User {
         user_id: userId,
         role,
       });
-    } catch(err) {
-
-    }
-  }
-
-  // ___________________________________________ //
-
-  async findOrganizationId(id) {
-    try {
-      const data = await client('organization')
-        .select('*')
-        .where('id', '=', id);
-      return data;
     } catch (err) {
       throw err;
     }
   }
-
-  async isEqualNameOrganization(name) {
-    try {
-      const data = await client('organization')
-        .select('*')
-        .where('name_organization', '=', name);
-      return data.length !== 0;
-    } catch (err) {
-      if (!err.toString().match(/ignore/)) {
-        throw new Error(err.code + ': ' + err.message);
-      }
-    }
-  }
-
-  async saveOrganization(data) {
-    try {
-      await client('organization').insert(data);
-    } catch (err) {
-      if (!err.toString().match(/ignore/)) {
-        console.log(err);
-        throw err;
-      }
-    }
-  }
-
-  // ___________________________________________ //
 
   async isEqualLogin(login) {
     try {
@@ -137,39 +114,48 @@ class User {
     }
   }
 
-  async resetPassword(id, colName, value) {
-    console.log(id, colName, value);
+  async resetPassword(id, newPassword) {
     try {
-      await client('users').where('id', '=', id).update(colName, value);
+      await client('users')
+        .where('id', '=', id)
+        .update('password', newPassword);
     } catch (err) {
       throw err;
     }
   }
 
-  async updateUserDate(id, date) {
+  async updateUserDate(
+    id,
+    {
+      login,
+      firstName: first_name,
+      secondName: second_name,
+      lastName: last_name,
+    }
+  ) {
     try {
       await client('users').where('id', '=', id).update({
-        login: date.login,
-        // password: date.password,
-        full_name: date.fullName,
-        email: date.email,
-        profile_pic: date.avatar,
+        login,
+        first_name,
+        second_name,
+        last_name,
       });
     } catch (err) {
       throw err;
     }
   }
+  async deleteUserRole(id) {
+    await client('roles').where('user_id', '=', id).del();
+  }
 
   async dropUser(id) {
     try {
+      await this.findUserId(id);
       await client('users').where('id', '=', id).del();
-    } catch (err) {
-      throw err;
-    }
-  }
-  async logout(id) {
-    try {
-      await client('users').where('id', '=', id).update('token', null);
+      const eventsId = await this.getAllEventsByUserId(id);
+      const promises = eventsId.map(({ id }) => Event.deleteEvent(id));
+      await this.deleteUserRole(id);
+      await Promise.all(promises);
     } catch (err) {
       throw err;
     }

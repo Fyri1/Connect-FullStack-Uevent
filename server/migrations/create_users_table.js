@@ -9,7 +9,6 @@ export const up = (knex) =>
     table.string('second_name');
     table.string('last_name');
     table.string('password').notNullable();
-    table.string('company');
     table.string('phone_number');
     table.string('event_link');
     table.boolean('active').notNullable().defaultTo(false);
