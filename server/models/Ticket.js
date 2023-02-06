@@ -75,7 +75,13 @@ class Ticket {
       throw err;
     }
   }
-
+  async daleteTickets(id) {
+    try {
+      await client('tickets').where('event_id', '=', id).del();
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 export default new Ticket();

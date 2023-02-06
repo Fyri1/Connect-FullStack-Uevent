@@ -11,6 +11,7 @@ import eventRouter from './router/event-router.js';
 import ticketsRouter from './router/ticket-router.js';
 import adminRouter from './router/admin-router.js';
 import categoryRouter from './router/category-router.js';
+import organozationRouter from './router/organization-router.js';
 import errorMiddleware from './middlewares/error-middleware.js';
 import ApiError from './exceptions/api-error.js';
 
@@ -35,6 +36,7 @@ export default () => {
   app.use('/api/event', eventRouter);
   app.use('/api/ticket', ticketsRouter);
   app.use('/api/category', categoryRouter);
+  app.use('/api/organization', organozationRouter);
   app.use('/api/user', adminRouter);
   app.use('*', () => {
     throw ApiError.NotFound();

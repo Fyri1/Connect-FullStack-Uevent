@@ -1,66 +1,29 @@
-import User from '../models/User.js';
+import userService from '../services/user.service.js';
 import encrypt from '../encrypt.js';
 import { v4 as uuidv4 } from 'uuid';
+import User from '../models/User.js';
 
 class Users {
   async getAllUsers(_req, res) {
-    const users = await User.getAllUsers();
-    res.status(200);
-    res.json({ values: users });
-  }
-  
-  async getUserById(req, res, next) {
-    try {
-      const { id } = req.params;
-      const user = await User.findUserId(id);
-      if (user.length) {
-      }
-      res.status(200);
-      res.json({ ...user });
-    } catch (err) {
-      next(err);
-    }
-  }
-  async createUser(req, res, next) {
-    try {
-      const id = uuidv4();
-      const dataUser = req.body;
-      const enpryptPassword = encrypt(dataUser.password);
-      console.log({ ...dataUser, id, password: enpryptPassword });
-      // User.saveUser({ ...dataUser, id, password: enpryptPassword });
-      res.status(201);
-      res.json({ massage: `User ${dataUser.login} create` });
-    } catch (err) {
-      next(err);
-    }
+    return await userService.getAllUser();
   }
 
-  async updateUserData(req, res) {
-    try {
-      const updateData = req.body;
-      const { id } = req.params;
-      // const encryptedPassword = encrypt(updateData.password);
-      User.updateUserDate(id, {
-        ...updateData,
-        //  password: encryptedPassword
-      });
-      res.status(200);
-      res.json({ success: `update data user ${updateData.login}` });
-    } catch (err) {
-      console.log(err);
-      res.status(500);
-      res.end();
-    }
+  async getUserById(req, _res) {
+    return await userService.getUserById(req.params);
   }
-  async deleteUser(req, res, next) {
-    try {
-      const { id } = req.params;
-      await User.dropUser(id);
-      res.status(200);
-      res.json({ massage: 'User delete' });
-    } catch (err) {
-      next(err);
-    }
+  async createUser(req, _res, next) {
+    return await userService.createUser(req.body);
+  }
+
+  async updateUserData(req, _res) {
+    return await userService.updateUserData(req);
+  }
+
+  async changePassword(req, _res) {}
+  async upadateEmail(req, _res) {}
+
+  async deleteUser(req, _res) {
+    return userService.deleteUser(req.headers['authorization']);
   }
 }
 

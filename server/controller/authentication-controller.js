@@ -46,37 +46,6 @@ class Authorization {
     }
   }
 
-  async authRegisterOrganization(req, res, next) {
-    try {
-      const token = req.headers.authorization.split(' ')[1];
-      const { id: userId } = TokenService.validateAccessToken(token);
-      const {
-        name,
-        phone_org,
-        phone_staff,
-        address,
-        email,
-        description,
-        link_organization,
-      } = req.body;
-      const id = uuidv4();
-      await User.saveOrganization({
-        id,
-        user_id: userId,
-        name_organization: name,
-        phone_organization: phone_org,
-        phone_staff,
-        addres: address,
-        email,
-        description,
-        link_organization,
-      });
-      res.json({ massage: 'Confirm mail' });
-    } catch (err) {
-      next(err);
-    }
-  }
-
   async authLogin(req, res, next) {
     try {
       const errors = validationResult(req);

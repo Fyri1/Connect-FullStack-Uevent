@@ -18,18 +18,6 @@ router.post(
 );
 
 router.post(
-  '/register-organization/',
-  body('name').isLength({ min: 3, max: 30 }).trim(),
-  body('phone_org').isLength({ min: 4, max: 13 }).trim(),
-  body('phone_staff').isLength({ min: 4, max: 13 }).trim(),
-  body('address').isLength({ min: 3 }).trim(),
-  body('email').isEmail().normalizeEmail().trim(),
-  body('description').isLength({ min: 10, max: 150 }).trim(),
-  organizationValidate,
-  Authorization.authRegisterOrganization
-);
-
-router.post(
   '/login/',
   body('login').isLength({ min: 3, max: 30 }).trim(),
   body('password').not().isEmpty().trim(),

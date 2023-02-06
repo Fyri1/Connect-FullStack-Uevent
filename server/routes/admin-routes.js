@@ -4,10 +4,13 @@ const apiPath = '';
 export default {
   // Users
   usersGetPath: () => [apiPath].join('/'),
-  userIdGetPath: (userId) => [apiPath, 'get', userId].join('/'),
+  userIdGetPath: (userId) => [apiPath, ':id'].join('/'),
   userPostPath: () => [apiPath, 'create'].join('/'),
-  userIdUpdatePath: (userId) => [apiPath, 'update', userId].join('/'),
-  userIdDeletePath: (userId) => [apiPath, 'delete', userId].join('/'),
+  userIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
+  userChangeEmailPath: () => [apiPath, ':id', 'update', 'email'].join('/'),
+  userChangePasswordPath: () =>
+    [apiPath, ':id', 'update', 'password'].join('/'),
+  userIdDeletePath: () => [apiPath, 'delete'].join('/'),
 
   // Roles
   rolesGetPath: () => [apiPath].join('/'),
@@ -20,10 +23,11 @@ export default {
   eventsGetPath: () => [apiPath].join('/'),
   eventIdGetPath: (eventId) => [apiPath, 'get', eventId].join('/'),
   eventPostPath: () => [apiPath, 'create'].join('/'),
+  eventCategoriesGetPath: (id) => [apiPath, ':id', 'categories'].join('/'),
   eventTicketsGetPath: (id) => [apiPath, ':id', 'tickets'].join('/'),
   eventSellTicketPath: () => [apiPath, ':id', 'ticket', 'sell'].join('/'),
-  eventIdUpdatePath: (eventId) => [apiPath, 'update', eventId].join('/'),
-  eventIdDeletePath: (eventId) => [apiPath, 'delete', eventId].join('/'),
+  eventIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
+  eventIdDeletePath: () => [apiPath, ':id', 'delete'].join('/'),
 
   // Categories
   categoriesGetPath: () => [apiPath].join('/'),
