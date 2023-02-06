@@ -7,9 +7,16 @@ import Spinner from './common/Spinner.jsx';
 import PageNotFound from './common/PageNotFound.jsx';
 import MainPage from './main-page/MainPage.jsx';
 import Login from './auth/Login.jsx';
+
+// FullMainItemPage
+import MainItem from './main-page/MainItem.jsx';
+import Profile2 from './user/Profile2.jsx';
+// 
+
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
+import PartnerRegister from './auth/PartnerRegister.jsx';
 import Profile from './user/Profile.jsx';
 
 import AdminPage from './admin-panel/AdminPage.jsx';
@@ -71,9 +78,16 @@ const App = () => {
             {/* User routes */}
             <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
             <Route path={clientRoutes.loginPagePath()} element={<Login />} />
+
+            {/* Sral Vilsan */}
+            <Route path="/MainItem" element={<MainItem />} />
+            <Route path="/Profile2" element={<Profile2 />} />
+            {/* neSral Vilsan */}
+
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />
             <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
             <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
+            <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />
             <Route path={clientRoutes.profilePagePath()} element={<Profile />} />
 
             {/* Admin routes */}
@@ -81,9 +95,9 @@ const App = () => {
             <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
             <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
             <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
-            {/* <Route path={adminRoutes.eventCreatePagePath()} element={<EventEditPage />} /> */}
             <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
             <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
+            <Route path={adminRoutes.organizationsPagePath()} element={<AdminPage dataCategory="organizations" />} />
 
             {/* Moderator routes */}
             <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />

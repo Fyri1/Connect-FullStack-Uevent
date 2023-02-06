@@ -35,6 +35,12 @@ export default {
 
   // Tickets
   fullTicketsPagePath: () => [clientPath, 'admin', 'tickets'].join('/'),
-  ticketsPagePath: () => '/admin/tickets'
+  ticketsPagePath: () => '/admin/tickets',
   // Tickets
+
+  // Organizations
+  fullOrganizationsPagePath: () => [clientPath, 'admin', 'organizations'].join('/'),
+  organizationsPagePath: () => '/admin/organizations',
+  // Organizations
+
 };

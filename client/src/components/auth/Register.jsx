@@ -44,7 +44,7 @@ const Register = () => {
       console.log(e);
       setErrors({
         ...errors,
-        ...e.response.userData.errors.errors.reduce((acc, i) => {
+        ...e.response.data.errors.errors.reduce((acc, i) => {
           return {
             ...acc,
             [i.param]: i.msg,
@@ -90,6 +90,32 @@ const Register = () => {
               </svg>
             </div>
           </InputField>
+
+          {/* <!-- Button Google --> */}
+          <button type='button'
+            className='flex break-inside bg-white text-black border-2 border-black rounded-3xl px-6 py-3 mb-4 w-full  :bg-slate-800 dark:text-white'>
+            <div className='m-auto'>
+              <div className='flex items-center justify-start flex-1 space-x-4'>
+                <svg width='25' height='25' viewBox='0 0 24 24'>
+                  <path fill='currentColor' d='M21.35,11.1H12.18V13.83H18.69C18.36,17.64 15.19,19.27 12.19,19.27C8.36,19.27 5,16.25 5,12C5,7.9 8.2,4.73 12.2,4.73C15.29,4.73 17.1,6.7 17.1,6.7L19,4.72C19,4.72 16.56,2 12.1,2C6.42,2 2.03,6.8 2.03,12C2.03,17.05 6.16,22 12.25,22C17.6,22 21.5,18.33 21.5,12.91C21.5,11.76 21.35,11.1 21.35,11.1V11.1Z' />
+                </svg>
+                <span className='font-medium mb-[-2px]'>Continue with Google</span>
+              </div>
+            </div>
+          </button>
+
+          {/* <!-- Button Facebook --> */}
+          <button type='button'
+            className='flex break-inside bg-white text-black border-2 border-black rounded-3xl px-6 py-3 mb-4 w-full dark:bg-slate-800 dark:text-white'>
+            <div className='m-auto'>
+              <div className='flex items-center justify-start flex-1 space-x-4'>
+                <svg width='25' height='25' viewBox='0 0 24 24'>
+                  <path fill='currentColor' d='M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z' />
+                </svg>
+                <span className='font-medium mb-[-2px]'>Continue with Facebook</span>
+              </div>
+            </div>
+          </button>
 
           <button onClick={() => { console.log(userData) }} type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
             Sign up

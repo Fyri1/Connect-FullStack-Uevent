@@ -4,6 +4,7 @@ export default {
   fullMainPagePath: () => clientPath,
   mainPagePath: () => '/',
 
+  // Auth
   fullLoginPagePath: () => [clientPath, 'login'].join('/'),
   loginPagePath: () => '/login',
 
@@ -16,6 +17,10 @@ export default {
   fullConfirmEmailPagePath: () => [clientPath, 'comfirm-email'].join('/'),
   confirmEmailPagePath: () => '/comfirm-email',
 
+  fullPartnershipRegisterPagePath: () => [clientPath, 'comfirm-email'].join('/'),
+  partnershipRegisterPagePath: () => '/partner-register',
+  // Auth
+
   fullProfilePagePath: (userId) => [clientPath, 'user', userId].join('/'),
   profilePagePath: (userId) => '/user/' + userId,
 
@@ -24,5 +29,9 @@ export default {
 
   fullEventPagePath: (eventId) => [clientPath, 'event', eventId].join('/'),
   eventPagePath: (eventId) => '/event/' + eventId,
+
+  // хуйня Vilsak для итемов. Я понимаю шо у вас его нет в бд.
+  // fullLoginPagePath: () => [clientPath, 'item'].join('/'),
+  // loginPagePath: () => '/item',
 
 };
