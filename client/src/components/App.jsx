@@ -10,7 +10,7 @@ import Login from './auth/Login.jsx';
 
 // FullMainItemPage
 import MainItem from './main-page/MainItem.jsx';
-import UserProfilePage from './user/UserProfilePage.jsx';
+import UserProfilePage from './profile/UserProfilePage.jsx';
 import MyTicket from './user/MyTicket.jsx';
 
 import Register from './auth/Register.jsx';
