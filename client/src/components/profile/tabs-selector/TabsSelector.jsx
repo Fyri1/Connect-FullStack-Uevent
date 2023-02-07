@@ -3,9 +3,9 @@ import React from 'react';
 import TabButton from './TabButton.jsx';
 import TabContent from './TabContent.jsx';
 
-import ProfileDataTab from '../ProfileDataTab.jsx';
-import ProfileEditTab from '../ProfileEditTab.jsx';
-import EventsTab from '../EventsTab.jsx';
+import ProfileDataTab from '../tabs/ProfileDataTab.jsx';
+import ProfileEditTab from '../tabs/ProfileEditTab.jsx';
+import EventsTab from '../tabs/EventsTab.jsx';
 
 
 const TabsSelector = ({ userData }) => {
