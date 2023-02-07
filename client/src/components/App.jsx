@@ -10,15 +10,13 @@ import Login from './auth/Login.jsx';
 
 // FullMainItemPage
 import MainItem from './main-page/MainItem.jsx';
-import Profile2 from './user/Profile2.jsx';
+import UserProfilePage from './user/UserProfilePage.jsx';
 import MyTicket from './user/MyTicket.jsx';
-// 
 
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
 import PartnerRegister from './auth/PartnerRegister.jsx';
-import Profile from './user/Profile.jsx';
 
 import AdminPage from './admin-panel/AdminPage.jsx';
 import OrganizationPage from './admin-panel/OrganizationPage.jsx';
@@ -68,7 +66,7 @@ const App = () => {
 
             {/* Sral Vilsan */}
             <Route path="/MainItem" element={<MainItem />} />
-            <Route path="/Profile2" element={<Profile2 />} />
+            {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
             <Route path="/MyTicket" element={<MyTicket />} />
             {/* neSral Vilsan */}
 
@@ -76,7 +74,7 @@ const App = () => {
             <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
             <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
             <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />
-            <Route path={clientRoutes.profilePagePath()} element={<Profile />} />
+            <Route path={clientRoutes.profilePagePath()} element={<UserProfilePage />} />
 
             {/* Admin routes */}
             <Route path={adminRoutes.mainPagePath()} element={<AdminPage dataCategory="users" />} />

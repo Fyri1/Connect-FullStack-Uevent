@@ -45,7 +45,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <DropdownButton name="categories">
+      <DropdownButton id="dropDownElements" name="categories">
         {CategoriesElements}
       </DropdownButton>
       <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />

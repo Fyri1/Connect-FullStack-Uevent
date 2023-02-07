@@ -51,26 +51,6 @@ const MainPage = () => {
               <div className="features_items">
                 <h2 className="title text-center">Features Items</h2>
                 <Sidebar />
-                  <div class="button-profile">
-                    <a href="/Profile2" > 
-                      <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                        <div class="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                        
-                        <span class="relative text-black group-hover:text-white">profile!</span>
-                      </button>
-                    </a>
-                  </div>
-                  
-                  <div class="button-profile">
-                    <a href="/MyTicket" > 
-                      <button class="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                        <div class="absolute inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                        
-                        <span class="relative text-black group-hover:text-white">My ticket</span>
-                      </button>
-                    </a>
-                  </div>
-
                 <div className='Kokon-na-mazy'>
                   {eventsElements}
                 </div>

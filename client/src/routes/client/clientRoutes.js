@@ -22,7 +22,7 @@ export default {
   // Auth
 
   fullProfilePagePath: (userId) => [clientPath, 'user', userId].join('/'),
-  profilePagePath: (userId) => '/user/' + userId,
+  profilePagePath: () => '/user/',
 
   fullUserTicketsPagePath: () => [clientPath, 'user', 'tickets'].join('/'),
   userTicketsPagePath: () => '/tickets',
