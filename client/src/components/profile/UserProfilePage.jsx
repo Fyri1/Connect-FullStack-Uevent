@@ -8,7 +8,7 @@ import data from '../../temp/user_data.json';
 
 
 const UserProfilePage = () => {
-  const [userData, setUserData] = React.useState();
+  const [userData, setUserData] = React.useState(data);
   const [isLoading, setIsLoading] = React.useState(true);
 
   const onLoad = () => {
