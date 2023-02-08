@@ -428,3 +428,8 @@ a.btn {
   display: inline-block;
   transform: translateX(-90px);
 }
+.Tiket-code{
+  margin-left: auto;
+  margin-right: auto;
+
+}

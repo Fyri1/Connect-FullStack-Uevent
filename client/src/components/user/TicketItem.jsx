@@ -9,11 +9,11 @@ import '../css/event-card.css';
 const TicketItem = () => {
   return (
 <div className=" Ticket">
-    <div className=" product-image-wrapper" >
+    <div className=" " >
 
 
-      <div className="choose">
-        <div class="">
+      <div className="">
+        <div class=" bg-blue-900">
             <div class="absolute  opacity-80 inset-0 z-0"></div>
             <div class="max-w-md w-full h-full mx-auto z-10  rounded-3xl">
                 <div class="flex flex-col">
@@ -40,30 +40,9 @@ const TicketItem = () => {
                                         <h2 class="font-medium">Airindia</h2>
                                     </div>
                                     <div class="ml-auto text-blue-800">A380</div>
-                                </div>
-                                <div class="border-b border-dashed border-b-2 my-5"></div>
-                                <div class="flex items-center">
-                                    <div class="flex flex-col">
-                                        <div class="flex-auto text-xs text-gray-400 my-1">
-                                            <span class="mr-1 ">MO</span><span>19 22</span>
-                                        </div>
-                                        <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">COK</div>
-                                        <div class="text-xs">Cochi</div>
+                                </div>  
+                                <div class="  my-5"></div>
 
-                                    </div>
-                                    <div class="flex flex-col mx-auto">
-                                        <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1" class="w-20 p-1"></img>  
-
-                                        </div>
-                                        <div class="flex flex-col ">
-                                            <div class="flex-auto text-xs text-gray-400 my-1">
-                                                <span class="mr-1">MO</span><span>19 22</span>
-                                            </div>
-                                            <div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">DXB</div>
-                                            <div class="text-xs">Dubai</div>
-
-                                        </div>
-                                    </div>
                                     <div class="border-b border-dashed border-b-2 my-5 pt-5">
                                         <div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
                                         <div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
@@ -122,7 +101,10 @@ const TicketItem = () => {
                                         <h6 class="font-bold text-center">Boarding Pass</h6>
                                         {/* Код тут рисуется кссом , но я сюда доавлю картинку  */}
 
-                                        <div class="barcode h-14 w-0 inline-block mt-4 relative left-auto"></div>
+                                        {/* <div class="barcode h-14 w-0 inline-block mt-4 relative left-auto"></div> */}
+                                        <img src="http://qrcoder.ru/code/?https%3A%2F%2Fmil.ru%2F&4&0" alt="aji" class="Tiket-code w-32 h-32 object-cover rounded-2xl"></img>
+
+
                                     </div>
                                 </div>
                             </div>
