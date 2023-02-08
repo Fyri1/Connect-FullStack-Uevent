@@ -10,7 +10,6 @@ const MainItem = () => {
   return (
     
 <div сlass=" main-div-MainItem py-6 px-4 sm:p-6 md:py-10 md:px-8">
-
     <div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
       
       <div class="relative p-3 col-start-1 row-start-1  rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
@@ -23,11 +22,7 @@ const MainItem = () => {
             <span class="animate-ping absolute top-1 right-0.5 block h-1 w-1 rounded-full ring-2 ring-green-400 bg-green-600"></span>
         </button>
         </div>
-
-
         <h1 class="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">Ticket to Poland </h1>
-      
-        {/* <p class="text-sm leading-4 font-medium text-white sm:text-slate-500 dark:sm:text-slate-400">Весь дом</p> */}
       </div>
       {/* Основная часть */}
       <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2
@@ -42,8 +37,7 @@ const MainItem = () => {
         Kiosk biletowy teatru działa na Ekobazaar-Mytishchi pod adresem: Veteranov blvd., 6
         Bilety można rezerwować wcześniej telefonicznie. +7 (495) 582-81-81.
         Kasa teatru akceptuje zarówno gotówkę, jak i karty kredytowe.
-      </p>  
-
+      </p> 
       <div class="col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2  lg:row-span-6 lg:mb-0">
 
         {/* start biographies  */}
@@ -146,8 +140,6 @@ const MainItem = () => {
           <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >END :<a>  14:88</a></a>
         </div> */}
       </div>
-
-
   </div>
   {/* Start recommend */}
   <div className="recommend ">
@@ -172,13 +164,72 @@ const MainItem = () => {
             <div class="mt-1 p-2">
               <h2 class="text-slate-700">Adobe Photoshop CC 2022</h2>
               <p class="mt-1 text-sm text-slate-400">Lisbon, Portugal</p>
+              <div class="mt-3 flex items-end justify-between">
+                <p>
+                  <span class="text-lg font-bold text-blue-500">$850</span>
+                  <span class="text-sm text-slate-400">/night</span>
+                </p>
+                <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                  </svg>
+                  <button class="text-sm">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
+          <a href="#">
+            <div class="relative flex items-end overflow-hidden rounded-xl">
+              <img src="https://i.imgur.com/GIeyjWd.jpg" alt="Hotel Photo" />
+              <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                </svg>
+
+                <button class="text-sm">Add to cart</button>
+              </div>
+            </div>
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">Adobe Photoshop CC 2022</h2>
+              <p class="mt-1 text-sm text-slate-400">Lisbon, Portugal</p>
 
               <div class="mt-3 flex items-end justify-between">
                 <p>
                   <span class="text-lg font-bold text-blue-500">$850</span>
                   <span class="text-sm text-slate-400">/night</span>
                 </p>
+                <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                  </svg>
+                  <button class="text-sm">Add to cart</button>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
+          <a href="#">
+            <div class="relative flex items-end overflow-hidden rounded-xl">
+              <img src="https://i.imgur.com/GIeyjWd.jpg" alt="Hotel Photo" />
+              <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                </svg>
 
+                <button class="text-sm">Add to cart</button>
+              </div>
+            </div>
+            <div class="mt-1 p-2">
+              <h2 class="text-slate-700">Adobe Photoshop CC 2022</h2>
+              <p class="mt-1 text-sm text-slate-400">Lisbon, Portugal</p>
+              <div class="mt-3 flex items-end justify-between">
+                <p>
+                  <span class="text-lg font-bold text-blue-500">$850</span>
+                  <span class="text-sm text-slate-400">/night</span>
+                </p>
                 <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
@@ -217,75 +268,6 @@ const MainItem = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                   </svg>
-
-                  <button class="text-sm">Add to cart</button>
-                </div>
-              </div>
-            </div>
-          </a>
-        </article>
-        <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
-          <a href="#">
-            <div class="relative flex items-end overflow-hidden rounded-xl">
-              <img src="https://i.imgur.com/GIeyjWd.jpg" alt="Hotel Photo" />
-              <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                </svg>
-
-                <button class="text-sm">Add to cart</button>
-              </div>
-            </div>
-
-            <div class="mt-1 p-2">
-              <h2 class="text-slate-700">Adobe Photoshop CC 2022</h2>
-              <p class="mt-1 text-sm text-slate-400">Lisbon, Portugal</p>
-
-              <div class="mt-3 flex items-end justify-between">
-                <p>
-                  <span class="text-lg font-bold text-blue-500">$850</span>
-                  <span class="text-sm text-slate-400">/night</span>
-                </p>
-
-                <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                  </svg>
-
-                  <button class="text-sm">Add to cart</button>
-                </div>
-              </div>
-            </div>
-          </a>
-        </article>
-        <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
-          <a href="#">
-            <div class="relative flex items-end overflow-hidden rounded-xl">
-              <img src="https://i.imgur.com/GIeyjWd.jpg" alt="Hotel Photo" />
-              <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                </svg>
-
-                <button class="text-sm">Add to cart</button>
-              </div>
-            </div>
-
-            <div class="mt-1 p-2">
-              <h2 class="text-slate-700">Adobe Photoshop CC 2022</h2>
-              <p class="mt-1 text-sm text-slate-400">Lisbon, Portugal</p>
-
-              <div class="mt-3 flex items-end justify-between">
-                <p>
-                  <span class="text-lg font-bold text-blue-500">$850</span>
-                  <span class="text-sm text-slate-400">/night</span>
-                </p>
-
-                <div class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                  </svg>
-
                   <button class="text-sm">Add to cart</button>
                 </div>
               </div>
@@ -295,8 +277,6 @@ const MainItem = () => {
         
       </div>
     </section>
-        
-
   </div>
 
   {/* начало Комментариев */}
