@@ -8,6 +8,8 @@ export default {
   userPostPath: () => [apiPath, 'create'].join('/'),
   userIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
   userChangeEmailPath: () => [apiPath, ':id', 'update', 'email'].join('/'),
+  userSendEmailPath: () =>
+    [apiPath, ':id', 'send', 'update', 'email'].join('/'),
   userChangePasswordPath: () =>
     [apiPath, ':id', 'update', 'password'].join('/'),
   userIdDeletePath: () => [apiPath, 'delete'].join('/'),

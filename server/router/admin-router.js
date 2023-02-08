@@ -38,7 +38,19 @@ router.patch(
   tryCatch(User.changePassword)
 );
 
-router.patch(adminRoutes.userChangeEmailPath(), accessDenied, tryCatch(User.changeEmail));
-router.delete(adminRoutes.userIdDeletePath(), accessDenied, tryCatch(User.deleteUser));
+router.patch(
+  adminRoutes.userChangeEmailPath(),
+  accessDenied,
+  tryCatch(User.changeEmail)
+);
+
+router.post(
+  adminRoutes.userSendEmailPath(),
+  body('email').isEmail().normalizeEmail().trim(),
+  accessDenied,
+  tryCatch(User.sendCodeUpdateEmail)
+);
+
+router.delete(adminRoutes.userIdDeletePath(), tryCatch(User.deleteUser));
 
 export default router;

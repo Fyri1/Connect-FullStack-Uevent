@@ -50,6 +50,8 @@ class User {
         event_link: link,
         active,
       });
+
+      await this.setRole(id, 'user');
     } catch (err) {
       if (!err.toString().match(/ignore/)) {
         console.log(err);
@@ -60,8 +62,8 @@ class User {
 
   async setRole(userId, role) {
     try {
-      const id = uuid4();
-      await client('role').insert({
+      const id = uuidv4();
+      await client('roles').insert({
         id,
         user_id: userId,
         role,
@@ -104,7 +106,7 @@ class User {
   async initUser(colName, value) {
     try {
       const data = await client('users')
-        .select('id', 'login', 'password', 'email', 'created_at')
+        .select('id', 'login', 'password', 'email', 'active', 'created_at')
         .where(colName, '=', value);
       if (data.length === 0) {
         throw ApiError.UnknowUser('User does not exist');
@@ -131,18 +133,20 @@ class User {
       throw err;
     }
   }
-async updatePassword(id, password, oldPassword) {
-  try {
-    const { password: userOldPassword } = await this.initUser('id', id);
-    const isExist = await bcrypt.compare(oldPassword, userOldPassword);
-    if (!isExist) {
-      throw ApiError.IncorrectData('password gavno, ne sovpadaet so starim :)')
+  async updatePassword(id, password, oldPassword) {
+    try {
+      const { password: userOldPassword } = await this.initUser('id', id);
+      const isExist = await bcrypt.compare(oldPassword, userOldPassword);
+      if (!isExist) {
+        throw ApiError.IncorrectData(
+          'password gavno, ne sovpadaet so starim :)'
+        );
+      }
+      await client('users').where('id', '=', id).update('password', password);
+    } catch (err) {
+      throw err;
     }
-    await client('users').where('id', '=', id).update('password', password);
-  } catch (err) {
-    throw err;
   }
-}
 
   async updateUserDate(
     id,
@@ -183,7 +187,7 @@ async updatePassword(id, password, oldPassword) {
 
   async deleteLink(id) {
     try {
-      await client('users').where('id', '=', id).update('link_event', null);
+      await client('users').where('id', '=', id).update('event_link', null);
     } catch (err) {
       throw err;
     }
@@ -199,7 +203,7 @@ async updatePassword(id, password, oldPassword) {
 
   async setLink(id, link) {
     try {
-      await client('users').where('id', '=', id).update('link_event', link);
+      await client('users').where('id', '=', id).update('event_link', link);
     } catch (err) {
       throw err;
     }
