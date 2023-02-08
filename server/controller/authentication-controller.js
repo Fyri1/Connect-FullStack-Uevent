@@ -36,7 +36,7 @@ class Authorization {
         login,
         password: enpryptPassword,
         link,
-        active: true, // false <--------------------------
+        active: false,
       });
       sendMassege.send(email, link, 'activate').then(() => {
         res.json({ massage: 'Confirm mail' });
@@ -57,6 +57,9 @@ class Authorization {
       const isValid = await bcrypt.compare(password, userData.password);
       if (!isValid) {
         next(ApiError.IncorrectData('Username or password is incorrect'));
+      }
+      if (!userData.active) {
+        next(ApiError.ActiveEmail('inactive email!'));
       }
       const userDto = new UserDto(userData);
 
@@ -131,8 +134,8 @@ class Authorization {
       }
       const { link } = req.params;
       const enpryptPassword = await encrypt(resetPassword);
-      const user = await User.initUser('link_event', link);
-      await User.resetPassword(user.id, 'password', enpryptPassword);
+      const user = await User.initUser('event_link', link);
+      await User.resetPassword(user.id, enpryptPassword);
       await User.deleteLink(user.id);
       res.json({ massage: 'password reset' });
     } catch (err) {
@@ -143,14 +146,12 @@ class Authorization {
     try {
       const { link } = req.params;
       console.log(link);
-      const user = await User.initUser('link_event', link);
+      const user = await User.initUser('event_link', link);
       if (user.active) {
-        req.io.emit('email', { failed: true, validLink: false });
         next(ApiError.ActiveEmail('You have already activated your email'));
         return;
       }
       if (!(Date.now() - new Date(user.created_at).getTime() < 8356586)) {
-        req.io.emit('email', { failed: false, validLink: true });
         next(ApiError.TokenKiller());
         return;
       }
@@ -160,7 +161,6 @@ class Authorization {
         massage: 'gmail active, thanks for creating account',
       });
     } catch (err) {
-      req.io.emit('email', { failed: false, validLink: true });
       next(err);
     }
   }

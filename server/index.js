@@ -8,7 +8,8 @@ import cookieParser from 'cookie-parser';
 
 import authRouter from './router/auth-router.js';
 import eventRouter from './router/event-router.js';
-import ticketsRouter from './router/ticket-router.js';
+import ticketRouter from './router/ticket-router.js';
+import commentRouter from './router/comment-router.js';
 import adminRouter from './router/admin-router.js';
 import categoryRouter from './router/category-router.js';
 import organozationRouter from './router/organization-router.js';
@@ -34,8 +35,9 @@ export default () => {
   // app.use('/picture-post', Express.static(`${path.resolve()}/picture-post`));
   app.use('/api/auth', authRouter);
   app.use('/api/event', eventRouter);
-  app.use('/api/ticket', ticketsRouter);
+  app.use('/api/ticket', ticketRouter);
   app.use('/api/category', categoryRouter);
+  app.use('/api/comment', commentRouter);
   app.use('/api/organization', organozationRouter);
   app.use('/api/user', adminRouter);
   app.use('*', () => {

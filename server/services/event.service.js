@@ -1,9 +1,18 @@
 import { v4 as uuidv4 } from 'uuid';
+import Comment from '../models/Comment.js';
 import Event from '../models/Event.js';
 
 class EventService {
   async getAllEvents() {
     return await Event.getAll();
+  }
+
+  async getEventsById({ id }) {
+    return await Event.findId(id);
+  }
+
+  async createComment({ params: { id: postId }, body: { content } }, userId) {
+    return await Comment.createComment(postId, userId, content);
   }
 
   async getAllEventTickets(eventId) {
@@ -20,6 +29,10 @@ class EventService {
 
   async ticketReturn(ticketId) {
     return await Event.ticketReturn(ticketId);
+  }
+
+  async getAllCommentEvent(id) {
+    return await Event.getAllCommentsEvent(id);
   }
 
   async createEvent(body) {

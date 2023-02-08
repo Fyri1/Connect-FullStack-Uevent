@@ -65,6 +65,29 @@ class SendMail {
         `;
         }
         break;
+      case 'code':
+        {
+          massageEmail.subject = 'Activate email code - usof-backend.com';
+          massageEmail.html = `
+         <div>
+              <p>
+              You have submitted an email change request to this email address, please enter a 6-digit code to confirm
+              </p>
+              <p align="center" style="
+              font-size: 40px;
+          "><b>${uuid
+            .split('')
+            .map((item, i) => {
+              if (i === 3) {
+                return ` ${item}`;
+              }
+              return item;
+            })
+            .join('')}</b></p>
+          </div>
+          `;
+        }
+        break;
       default:
         throw new Error(`undefined type - ${type} massage`);
     }

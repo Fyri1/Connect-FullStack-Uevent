@@ -104,6 +104,16 @@ class Event {
     }
   }
 
+  async getAllCommentsEvent(eventId) {
+    const commentsId = await client('event_comments')
+      .select('comment_id')
+      .where('event_id', '=', eventId);
+    const commentsEvent = commentsId.map(({ comment_id }) =>
+      client('comments').select('*').where('id', '=', comment_id)
+    );
+    return Promise.all(commentsEvent);
+  }
+
   async updateEvent({
     id,
     title,
