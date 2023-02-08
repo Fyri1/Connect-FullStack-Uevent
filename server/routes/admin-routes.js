@@ -23,13 +23,15 @@ export default {
 
   // Events
   eventsGetPath: () => [apiPath].join('/'),
-  eventIdGetPath: (eventId) => [apiPath, 'get', eventId].join('/'),
+  eventIdGetPath: () => [apiPath, ':id'].join('/'),
   eventPostPath: () => [apiPath, 'create'].join('/'),
-  eventCategoriesGetPath: (id) => [apiPath, ':id', 'categories'].join('/'),
-  eventTicketsGetPath: (id) => [apiPath, ':id', 'tickets'].join('/'),
+  eventCategoriesGetPath: () => [apiPath, ':id', 'categories'].join('/'),
+  eventTicketsGetPath: () => [apiPath, ':id', 'tickets'].join('/'),
+  eventGetAllComments: () => [apiPath, ':id', 'comments'].join('/'),
   eventSellTicketPath: () => [apiPath, ':id', 'ticket', 'sell'].join('/'),
   eventIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
   eventIdDeletePath: () => [apiPath, ':id', 'delete'].join('/'),
+  eventCreateCommentPath: () => [apiPath, ':id', 'create', 'comment'].join('/'),
 
   // Categories
   categoriesGetPath: () => [apiPath].join('/'),
@@ -46,4 +48,10 @@ export default {
   ticketReturnPath: () => [apiPath, ':id', 'return'].join('/'),
   ticketIdUpdatePath: (ticketId) => [apiPath, 'update', ticketId].join('/'),
   ticketIdDeletePath: (ticketId) => [apiPath, 'delete', ticketId].join('/'),
+
+  // Comments
+  CommentsGetPath: () => [apiPath].join('/'),
+  CommentsIdGetPath: () => [apiPath, ':id'].join('/'),
+  CommentsIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
+  CommentsIdDeletePath: () => [apiPath, ':id', 'delete'].join('/'),
 };

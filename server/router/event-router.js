@@ -16,6 +16,12 @@ router.get(
 );
 
 router.get(
+  adminRoutes.eventIdGetPath(),
+  tryCatch(Events.getEventsById),
+  Events.getEventsById
+);
+
+router.get(
   adminRoutes.eventTicketsGetPath(),
   tryCatch(Events.getAllEventTickets),
   Events.getAllEventTickets
@@ -52,6 +58,18 @@ router.patch(
   eventAccessEnied,
   tryCatch(Events.updateEvent),
   Events.updateEvent
+);
+
+router.get(
+  adminRoutes.eventGetAllComments(),
+  tryCatch(Events.getAllComments),
+  Events.getAllComments
+);
+
+router.post(
+  adminRoutes.eventCreateCommentPath(),
+  body('content').not().isEmpty().escape().trim(),
+  tryCatch(Events.createComment)
 );
 
 router.post(
