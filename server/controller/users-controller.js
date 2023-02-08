@@ -30,6 +30,9 @@ class Users {
   async deleteUser(req, _res) {
     return userService.deleteUser(req.headers['authorization']);
   }
+  async sendCodeUpdateEmail(req, _res) {
+    return userService.sendCodeEmail(req);
+  }
 }
 
 export default new Users();
