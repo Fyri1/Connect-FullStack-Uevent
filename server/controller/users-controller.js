@@ -4,14 +4,18 @@ import { v4 as uuidv4 } from 'uuid';
 import User from '../models/User.js';
 
 class Users {
-  async getAllUsers(_req, res) {
+  async getAllUsers(_req, _res) {
     return await userService.getAllUser();
+  }
+
+  async getInfoUser(req, _res) {
+    return await userService.getInfoUser(req.headers['authorization']);
   }
 
   async getUserById(req, _res) {
     return await userService.getUserById(req.params);
   }
-  async createUser(req, _res, next) {
+  async createUser(req, _res) {
     return await userService.createUser(req.body);
   }
 

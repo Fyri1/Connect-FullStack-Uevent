@@ -118,7 +118,7 @@ const createEvent = async (user_id) => {
       if (count === 2) {
         await createEvent(id);
       }
-      return client('users').insert({ ...data, id });
+      return client('users').insert({ ...data, active: true, id });
     });
     await Promise.all(promisesUsers);
     console.log('|     complete :)    |');

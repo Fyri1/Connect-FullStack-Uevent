@@ -1,19 +1,25 @@
-import Comment from '../services/comment.service.js';
-import ApiError from '../exceptions/api-error.js';
-import TokenService from '../service/token-service.js';
+import commentService from '../services/comment.service.js';
+import TokenService from '../services/token-service.js';
 
-class Сomments {
-  async getCommentById(req, _res) {
-    return await Comment.getCommentById(req.params);
+class Comments {
+  
+  async getAllComments() {
+   return await commentService.getAll(); 
   }
+
+  async getCommentById(req, _res) {
+    return await commentService.getCommentById(req.params);
+  }
+
   async updateCommentData(req, _res) {
     const token = req.headers.authorization.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);
-    return await Comment.getCommentById(req, id);
+    return await commentService.updateCommentData(req, id);
   }
+
   async deleteComment(req, _res) {
-    return await Comment.getCommentById(req.params);
+    return await commentService.getCommentById(req.params);
   }
 }
 
-export default new Сomments();
+export default new Comments();

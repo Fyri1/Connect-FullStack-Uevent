@@ -1,5 +1,7 @@
 import eventService from '../services/event.service.js';
 import TokenService from '../services/token-service.js';
+import { validationResult } from 'express-validator';
+import ApiError from '../exceptions/api-error.js';
 
 class Events {
   async getAllEvents(_req, _res) {
@@ -48,8 +50,8 @@ class Events {
     return result;
   }
 
-  async getAllComments({ id }) {
-    return eventService.getAllCommentEvent(id);
+  async getAllComments(req, _res) {
+    return eventService.getAllCommentsEvent(req.params);
   }
 
   async createComment(req, _res) {

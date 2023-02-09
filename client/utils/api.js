@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Проверим в самом начале, есть ли токен в хранилище
-const JWTToken = localStorage.getItem('jwt');
+const JWTToken = localStorage.getItem('token');
 const BASE_URL = 'http://localhost:8080';
 // Создать инстанс axios
 const $api = axios.create({
@@ -38,9 +38,8 @@ $api.interceptors.response.use(
 
     if (error.response.status === 401) {
       try {
-        const response = await axios.get(`${BASE_URL}/api/auth/refresh`, {
-          withCredentials: true,
-        });
+        const response = await axios.get(`${BASE_URL}/api/auth/refresh`);
+        console.log('abnoba');
         localStorage.setItem('jwt', response.data.accessToken);
         return $api.request(originalRequest);
       } catch (err) {

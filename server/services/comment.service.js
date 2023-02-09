@@ -3,6 +3,11 @@ import Comment from '../models/Comment.js';
 import ApiError from '../exceptions/api-error.js';
 
 class CommentService {
+
+  async getAll() {
+    return await Comment.getAll();
+  }
+
   async getCommentById({ id }) {
     return await Comment.findCommentId(id);
   }

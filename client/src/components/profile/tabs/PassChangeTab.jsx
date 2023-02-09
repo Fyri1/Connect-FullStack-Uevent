@@ -1,25 +1,54 @@
 import React from 'react';
+import axios from 'axios';
 
 import EditForm from '../../common/form/EditForm';
 import InputField from '../../common/form/InputField.jsx';
 
+import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
+
 
 const PassChangeTab = ({ userData }) => {
-  // Probably to change to custom set of errors and data //
-  const keys = Object.keys(userData);
-
-  let temp = {};
-  keys.forEach((key, i) => {
-    temp[key] = "";
+  const [errors, setErrors] = React.useState({
+    password: "",
+    passwordConfirm: "",
+    oldPassword: ""
   });
-  const [errors, setErrors] = React.useState(temp);
-  const [data, setData] = React.useState(userData);
-  // Probably to change to custom set of errors and data //
+
+  const [submitData, setData] = React.useState({
+    password: "",
+    passwordConfirm: "",
+    oldPassword: ""
+  });
+
+  // React.useEffect(() => {
+  //   console.log(submitData);
+  // }, [submitData]);
+
+  const handleDataSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // const response = await axios.post( submitData);
+      console.log(response);
+      navigate(adminRoutes.mainPagePath());
+    } catch (e) {
+      console.log(e);
+      setErrors({
+        ...errors,
+        ...e.response.data.errors.errors.reduce((acc, i) => {
+          return {
+            ...acc,
+            [i.param]: i.msg,
+          };
+        }, {}),
+      });
+    }
+  }
 
   return (
     <div>
-      {/* <EditForm formMessage="Edit email"> */}
-        <InputField id="password_old" name="Old password" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+      <form onSubmit={handleDataSubmit}>
+        <InputField id="oldPassword" name="Old password" type="text" data={submitData} setData={setData} errors={errors} setErrors={setErrors}>
           <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
             <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -28,7 +57,7 @@ const PassChangeTab = ({ userData }) => {
           </div>
         </InputField>
 
-        <InputField id="password_new" name="New password" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+        <InputField id="password" name="New password" type="text" data={submitData} setData={setData} errors={errors} setErrors={setErrors}>
           <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
             <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -37,7 +66,7 @@ const PassChangeTab = ({ userData }) => {
           </div>
         </InputField>
 
-        <InputField id="password_confirm" name="Confirm" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+        <InputField id="passwordConfirm" name="Confirm" type="text" data={submitData} setData={setData} errors={errors} setErrors={setErrors}>
           <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
             <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -45,7 +74,9 @@ const PassChangeTab = ({ userData }) => {
             </svg>
           </div>
         </InputField>
-      {/* </EditForm> */}
+
+        <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save</button>
+      </form>
     </div>
   )
 }

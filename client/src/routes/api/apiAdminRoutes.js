@@ -4,7 +4,7 @@ const apiPath = 'http://localhost:8080/api';
 export default {
   // Users
   usersGetPath: () => [apiPath, 'user'].join('/'),
-  userIdGetPath: (userId) => [apiPath, 'user', 'get', userId].join('/'),
+  userIdGetPath: (userId) => [apiPath, 'user', userId].join('/'),
   userPostPath: () => [apiPath, 'user', 'create'].join('/'),
   userIdUpdatePath: (userId) => [apiPath, 'user', 'update', userId].join('/'),
   userIdDeletePath: (userId) => [apiPath, 'user', 'delete', userId].join('/'),

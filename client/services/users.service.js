@@ -6,6 +6,12 @@ const UsersService = {
   getAll() {
     return $api.get(adminRoutes.usersGetPath());
   },
+  getById(id) {
+    return $api.get(adminRoutes.userIdGetPath(id));
+  },
+  getInfoUser() {
+    return $api.get(clientRoutes.usersGetInfoPath())
+  }
 };
 
 export { UsersService };

@@ -11,8 +11,9 @@ class EventService {
     return await Event.findId(id);
   }
 
-  async createComment({ params: { id: postId }, body: { content } }, userId) {
-    return await Comment.createComment(postId, userId, content);
+  async createComment({ params: { id: eventId }, body: { content } }, userId) {
+    const commentId = uuidv4()
+    return await Comment.createComment(commentId, eventId, userId, content);
   }
 
   async getAllEventTickets(eventId) {
@@ -31,7 +32,7 @@ class EventService {
     return await Event.ticketReturn(ticketId);
   }
 
-  async getAllCommentEvent(id) {
+  async getAllCommentsEvent({ id }) {
     return await Event.getAllCommentsEvent(id);
   }
 

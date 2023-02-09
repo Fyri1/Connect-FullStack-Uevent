@@ -4,7 +4,8 @@ const apiPath = '';
 export default {
   // Users
   usersGetPath: () => [apiPath].join('/'),
-  userIdGetPath: (userId) => [apiPath, ':id'].join('/'),
+  usersGetMyInfoPath: () => [apiPath, 'profile'].join('/'),
+  userIdGetPath: () => [apiPath, ':id'].join('/'),
   userPostPath: () => [apiPath, 'create'].join('/'),
   userIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
   userChangeEmailPath: () => [apiPath, ':id', 'update', 'email'].join('/'),
@@ -50,8 +51,8 @@ export default {
   ticketIdDeletePath: (ticketId) => [apiPath, 'delete', ticketId].join('/'),
 
   // Comments
-  CommentsGetPath: () => [apiPath].join('/'),
-  CommentsIdGetPath: () => [apiPath, ':id'].join('/'),
-  CommentsIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
-  CommentsIdDeletePath: () => [apiPath, ':id', 'delete'].join('/'),
+  commentsGetPath: () => [apiPath].join('/'),
+  commentsIdGetPath: () => [apiPath, ':id'].join('/'),
+  commentsIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
+  commentsIdDeletePath: () => [apiPath, ':id', 'delete'].join('/'),
 };

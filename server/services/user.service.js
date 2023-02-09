@@ -13,6 +13,12 @@ class UserService {
     return await User.getAllUsers();
   }
 
+  async getInfoUser(bearerToken) {
+    const token = bearerToken.split(' ')[1];
+    const { id } = tokenService.validateAccessToken(token);
+    return User.findUserId(id);
+  }
+
   async getUserById({ id }) {
     return await User.findUserId(id);
   }

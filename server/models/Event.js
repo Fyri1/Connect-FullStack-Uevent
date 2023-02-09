@@ -105,11 +105,15 @@ class Event {
   }
 
   async getAllCommentsEvent(eventId) {
+    console.log(eventId);
     const commentsId = await client('event_comments')
       .select('comment_id')
       .where('event_id', '=', eventId);
-    const commentsEvent = commentsId.map(({ comment_id }) =>
-      client('comments').select('*').where('id', '=', comment_id)
+    console.log(commentsId);
+    const commentsEvent = commentsId.map(async ({ comment_id }) => {
+      const data = await client('comments').select('*').where('id', '=', comment_id)
+      return data[0];
+    }
     );
     return Promise.all(commentsEvent);
   }
