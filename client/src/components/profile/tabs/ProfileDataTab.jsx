@@ -9,7 +9,7 @@ const ProfileDataTab = ({ userData }) => {
       <ul className="mt-2 text-gray-700">
         <li className="flex border-y py-2">
           <span className="font-bold w-24">Full name:</span>
-          <span className="text-gray-700">{ userData.values.first_name }</span>
+          {/* <span className="text-gray-700">{ userData.values.first_name }</span> */}
         </li>
         <li className="flex border-b py-2">
           <span className="font-bold w-24">Birthday:</span>
@@ -25,7 +25,7 @@ const ProfileDataTab = ({ userData }) => {
         </li>
         <li className="flex border-b py-2">
           <span className="font-bold w-24">Email:</span>
-          <span className="text-gray-700">{ userData.values.email }</span>
+          {/* <span className="text-gray-700">{ userData.values.email }</span> */}
         </li>
         <li className="flex border-b py-2">
           <span className="font-bold w-24">Location:</span>

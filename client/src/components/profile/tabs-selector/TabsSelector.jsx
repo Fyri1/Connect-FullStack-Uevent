@@ -8,7 +8,7 @@ import ProfileEditTab from '../tabs/ProfileEditTab.jsx';
 import EventsTab from '../tabs/EventsTab.jsx';
 
 
-const TabsSelector = ({ userData }) => {
+const TabsSelector = ({ userData, isLoading }) => {
   return (
     <div className="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
       <div className="w-full flex flex-col 2xl:w-1/3">
@@ -25,10 +25,10 @@ const TabsSelector = ({ userData }) => {
           
           {/* Tabs temselves */}
           <div id="myTabContent">
-            <TabContent id="profile"><ProfileDataTab userData={userData} /></TabContent>
-            <TabContent id="edit"><ProfileEditTab userData={userData} /></TabContent>
-            <TabContent id="events"><EventsTab userData={userData} /></TabContent>
-            <TabContent id="contacts"><EventsTab userData={userData} /></TabContent>
+            <TabContent id="profile">{ isLoading ? <></> : <ProfileDataTab userData={userData} /> }</TabContent>
+            <TabContent id="edit">{ isLoading ? <></> : <ProfileEditTab userData={userData} isLoading={isLoading} /> }</TabContent>
+            <TabContent id="events">{ isLoading ? <></> : <EventsTab userData={userData} /> }</TabContent>
+            <TabContent id="contacts">{ isLoading ? <></> : <EventsTab userData={userData} /> }</TabContent>
           </div>
         </div>
       </div>

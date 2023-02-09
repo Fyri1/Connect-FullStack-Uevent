@@ -5,17 +5,8 @@ import InputField from '../../common/form/InputField.jsx';
 
 
 const ProfileDataEditTab = ({ userData }) => {
-  // Probably to change to custom set of errors
-  const keys = Object.keys(userData);
-
-  let temp = {};
-  keys.forEach((key, i) => {
-    temp[key] = "";
-  });
-  const [errors, setErrors] = React.useState(temp);
-  // Probably to change to custom set of errors //
-
-  const [data, setData] = React.useState(userData);
+  const [errors, setErrors] = React.useState({ email: "" });
+  const [data, setData] = React.useState({ email: "" });
 
   return (
     <div>
