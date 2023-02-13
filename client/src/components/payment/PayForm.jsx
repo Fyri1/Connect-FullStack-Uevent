@@ -49,15 +49,7 @@ const MyTicket = () => {
                     <main class="mt-4 p-4">
                     <h1 class="text-xl font-semibold text-gray-700 text-center">Card payment</h1>
                     <div class="">
-                        <div class="my-3">
-                        <input
-                            type="text"
-                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                            placeholder="Card holder"
-                            maxlength="22"
-                            x-model="cardholder"
-                        />
-                        </div>
+
                         <div class="my-3">
                         <input
                             type="text"
