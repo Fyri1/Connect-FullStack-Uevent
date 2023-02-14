@@ -28,6 +28,30 @@ const users = [
     email: 'user1@gmail.com',
     role: 'user',
   },
+  {
+    login: 'user2',
+    password: await encrypt('1234'),
+    email: 'user3@gmail.com',
+    role: 'user',
+  },
+  {
+    login: 'user3',
+    password: await encrypt('1234'),
+    email: 'user4@gmail.com',
+    role: 'user',
+  },
+  {
+    login: 'user4',
+    password: await encrypt('1234'),
+    email: 'user4@gmail.com',
+    role: 'user',
+  },
+  {
+    login: 'user5',
+    password: await encrypt('1234'),
+    email: 'user5@gmail.com',
+    role: 'user',
+  },
 ];
 
 const categories = [
@@ -66,6 +90,23 @@ const cleanDatabase = async () => {
   } catch (err) {
     throw err;
   }
+};
+
+const createOrganizarion = async (user_id) => {
+  const id = uuidv4();
+  await client('organization').insert({
+    id,
+    user_id,
+    name_organization: 'Trello',
+    phone_organization: '+380501234567',
+    phone_staff: '+380507654321',
+    address: 'Trello 2',
+    email: 'trello@gmail.com',
+    description:
+      'Cloud-based small team project management software developed by Fog Creek Software. Trello uses a project management paradigm known as kanban, a method originally popularized by Toyota in the 1980s for supply chain management.',
+    link_organization: 'trello.com​',
+    is_confirmed: true,
+  });
 };
 
 const setRole = async (user_id, role) => {
@@ -116,6 +157,7 @@ const createEvent = async (user_id) => {
       const id = uuidv4();
       await setRole(id, role);
       if (count === 2) {
+        await createOrganizarion(id);
         await createEvent(id);
       }
       return client('users').insert({ ...data, active: true, id });

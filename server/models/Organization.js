@@ -2,12 +2,32 @@ import client from '../client.js';
 import { v4 as uuidv4 } from 'uuid';
 
 class Organization {
+  async getAllOrganization() {
+    try {
+      const data = await client('organization').select('*');
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async findOrganizationId(id) {
     try {
       const data = await client('organization')
         .select('*')
         .where('id', '=', id);
-      return data;
+      return data[0];
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async findOrganizationByUserId(id) {
+    try {
+      const data = await client('organization')
+        .select('*')
+        .where('user_id', '=', id);
+      return data[0];
     } catch (err) {
       throw err;
     }

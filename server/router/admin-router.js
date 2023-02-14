@@ -14,13 +14,14 @@ const router = Express.Router();
 router.get(adminRoutes.usersGetPath(), tryCatch(User.getAllUsers));
 router.get(adminRoutes.usersGetMyInfoPath(), tryCatch(User.getInfoUser));
 
-
 router.get(adminRoutes.userIdGetPath(), tryCatch(User.getUserById));
 router.post(
   adminRoutes.userPostPath(),
   checkValidation,
   tryCatch(User.createUser)
 );
+
+router.post(adminRoutes.userHiddenPath(), tryCatch(User.hiddenUser));
 
 router.patch(
   adminRoutes.userIdUpdatePath(),

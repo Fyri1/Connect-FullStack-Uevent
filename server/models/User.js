@@ -17,6 +17,7 @@ class User {
         'email',
         'first_name',
         'second_name',
+        'hidden',
         'last_name',
         'created_at'
       )
@@ -58,6 +59,16 @@ class User {
         throw err;
       }
     }
+  }
+
+  async setHidden(id) {
+    const userData = await this.findUserId(id);
+    await client('users')
+      .update({
+        hidden: !userData.hidden,
+      })
+      .where('id', '=', id);
+    return { hidden: `${!userData.hidden}` };
   }
 
   async setRole(userId, role) {

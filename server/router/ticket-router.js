@@ -8,7 +8,11 @@ import tryCatch from '../utils/try-catch.event.js';
 
 const router = Express.Router();
 
-router.get(adminRoutes.ticketsGetPath(), tryCatch(ticketsController.getAllTikets), ticketsController.getAllTikets)
+router.get(
+  adminRoutes.ticketsGetPath(),
+  tryCatch(ticketsController.getAllTikets),
+  ticketsController.getAllTikets
+);
 
 router.post(
   adminRoutes.ticketPostPath(),

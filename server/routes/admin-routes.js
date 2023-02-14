@@ -14,6 +14,7 @@ export default {
   userChangePasswordPath: () =>
     [apiPath, ':id', 'update', 'password'].join('/'),
   userIdDeletePath: () => [apiPath, 'delete'].join('/'),
+  userHiddenPath: () => [apiPath, 'hidden'].join('/'),
 
   // Roles
   rolesGetPath: () => [apiPath].join('/'),
@@ -33,6 +34,8 @@ export default {
   eventIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
   eventIdDeletePath: () => [apiPath, ':id', 'delete'].join('/'),
   eventCreateCommentPath: () => [apiPath, ':id', 'create', 'comment'].join('/'),
+  eventAllUsersSellTicketByEventId: () =>
+    [apiPath, ':id', 'ticket', 'users'].join('/'),
 
   // Categories
   categoriesGetPath: () => [apiPath].join('/'),

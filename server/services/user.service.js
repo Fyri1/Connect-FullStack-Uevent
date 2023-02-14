@@ -23,6 +23,12 @@ class UserService {
     return await User.findUserId(id);
   }
 
+  async hiddenUser(bearerToken) {
+    const token = bearerToken?.split(' ')[1];
+    const { id } = tokenService.validateAccessToken(token);
+    return await User.setHidden(id);
+  }
+
   async updateUserData({ params: { id }, body: data }) {
     await User.updateUserDate(id, data);
   }

@@ -19,6 +19,10 @@ class Users {
     return await userService.createUser(req.body);
   }
 
+  async hiddenUser(req, _res) {
+    return userService.hiddenUser(req.headers['authorization']);
+  }
+
   async updateUserData(req, _res) {
     return await userService.updateUserData(req);
   }

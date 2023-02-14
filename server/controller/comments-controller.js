@@ -2,9 +2,8 @@ import commentService from '../services/comment.service.js';
 import TokenService from '../services/token-service.js';
 
 class Comments {
-  
   async getAllComments() {
-   return await commentService.getAll(); 
+    return await commentService.getAll();
   }
 
   async getCommentById(req, _res) {
@@ -18,7 +17,9 @@ class Comments {
   }
 
   async deleteComment(req, _res) {
-    return await commentService.getCommentById(req.params);
+    const token = req.headers.authorization.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await commentService.deleteComment(req.params, id);
   }
 }
 

@@ -42,14 +42,14 @@ class Ticket {
 
   async soldTicket(id) {
     try {
-      await client('ticket').where('id', '=', id).update('is_sold', true);
+      await client('tickets').where('id', '=', id).update('is_sold', true);
     } catch (err) {
       throw err;
     }
   }
   async inactiveTicket(id) {
     try {
-      await client('ticket').where('id', '=', id).update('is_sold', false);
+      await client('tickets').where('id', '=', id).update('is_sold', false);
     } catch (err) {
       console.log(err);
       throw err;

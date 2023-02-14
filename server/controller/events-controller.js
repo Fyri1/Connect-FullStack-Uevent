@@ -23,20 +23,30 @@ class Events {
     return await eventService.getAllCategoriesByEventId(req.params);
   }
 
-  async sellTicketEvent(req, _res) {
+  async payTicketEvent(req, _res) {
     const { id: eventId } = req.params;
-    const token = req.headers.authorization.split(' ')[1];
+    const token = req.headers.authorization?.split(' ')[1];
     const { id: userId } = TokenService.validateAccessToken(token);
-    const result = await eventService.sellTicket(userId, eventId);
+    const body = req.body;
+    const result = await eventService.payTicket(userId, eventId, body);
     return result;
   }
 
   async returnTicketEvent(req, _res) {
     const { id: ticketId } = req.params;
-    const token = req.headers.authorization.split(' ')[1];
+    const token = req.headers.authorization?.split(' ')[1];
     TokenService.validateAccessToken(token);
     const result = await eventService.ticketReturn(ticketId);
     return result;
+  }
+
+  async getAllUsersSellTicketByEventId(req, _res) {
+    const token = req.headers.authorization?.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await eventService.getAllUsersSellTicketByEventId({
+      eventId: req.params.id,
+      id,
+    });
   }
 
   async getEventsById(req, _res) {
@@ -44,7 +54,7 @@ class Events {
   }
 
   async createEvent(req, _res) {
-    const token = req.headers.authorization.split(' ')[1];
+    const token = req.headers.authorization?.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);
     const result = await eventService.createEvent({ ...req.body, userId: id });
     return result;
@@ -59,7 +69,7 @@ class Events {
     if (!errors.isEmpty()) {
       throw ApiError.BadRequest('Invalid ti', errors.array());
     }
-    const token = req.headers.authorization.split(' ')[1];
+    const token = req.headers.authorization?.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);
     return await eventService.createComment(req, id);
   }

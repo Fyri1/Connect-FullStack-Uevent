@@ -2,7 +2,6 @@ import client from '../client.js';
 import ApiError from '../exceptions/api-error.js';
 
 class Comment {
-
   async getAll() {
     return await client('comments').select('*');
   }
@@ -18,14 +17,21 @@ class Comment {
   async deleteComment(id) {
     try {
       await client('comments').where('id', '=', id).del();
+      await client('event_comments').where('comment_id', '=', id).del();
       return 'delete comment :)';
     } catch (err) {
       throw err;
     }
   }
+
+  async deleteAllCommentEvent(comments) {
+    const promises = comments.map(({ id }) => this.deleteComment(id));
+    return await Promise.all(promises);
+  }
+
   async updateComment(id, content) {
     try {
-      // await client('comments').where('id', '=', id).update({ content });
+      await client('comments').where('id', '=', id).update({ content });
       return 'update comment :)';
     } catch (err) {
       throw err;
