@@ -9,7 +9,7 @@ const ProfileDataEditTab = ({ userData }) => {
   const [data, setData] = React.useState({ email: "" });
 
   return (
-    <div>
+    <div className="items-center justify-center content-center h-[250px]">
       {/* <EditForm formMessage="Edit email"> */}
         <div className="grid md:grid-cols-3 md:gap-6">
           <InputField id="first_name" name="First name" type="text" placeholder="" data={data} setData={setData} errors={errors} setErrors={setErrors}>
@@ -40,14 +40,17 @@ const ProfileDataEditTab = ({ userData }) => {
           </InputField>
         </div>
 
-        <InputField id="phone_number" name="Contact number" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
-          <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
-            <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-            </svg>
-          </div>
-        </InputField>
+        <div className="mx-[34%]">
+          <InputField id="phone_number" name="Contact number" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
+            <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
+              <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+            </div>
+          </InputField>
+        </div>
+        
       {/* </EditForm> */}
     </div>
   )

@@ -9,7 +9,7 @@ const PassResetTab = ({ userData }) => {
   const [data, setData] = React.useState({ email: "" });
 
   return (
-    <div>
+    <div className="items-center justify-center content-center h-[250px] mx-[30%]">
       {/* <EditForm formMessage="Edit email"> */}
         <InputField id="email" name="Current email" type="text" data={data} setData={setData} errors={errors} setErrors={setErrors}>
           <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">

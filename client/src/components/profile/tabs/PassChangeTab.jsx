@@ -46,7 +46,7 @@ const PassChangeTab = ({ userData }) => {
   }
 
   return (
-    <div>
+    <div className="items-center justify-center content-center mx-[10%]">
       <form onSubmit={handleDataSubmit}>
         <InputField id="oldPassword" name="Old password" type="text" data={submitData} setData={setData} errors={errors} setErrors={setErrors}>
           <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
