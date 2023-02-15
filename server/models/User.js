@@ -41,6 +41,20 @@ class User {
     return await client('roles').select('role').where('user_id', '=', id);
   }
 
+  async getUserTicketById(id) {
+    const ids = await client('user_tickets')
+      .select('ticket_id')
+      .where('user_id', '=', id);
+    console.log(ids);
+    const ticketsInfo = ids.map(async ({ ticket_id }) => {
+      const ticket = await client('tickets')
+        .select('*')
+        .where('id', '=', ticket_id);
+      return ticket[0];
+    });
+    return await Promise.all(ticketsInfo);
+  }
+
   async saveUser({ id, login, password, email, link, active }) {
     try {
       await client('users').insert({

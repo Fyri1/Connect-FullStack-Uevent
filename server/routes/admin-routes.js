@@ -15,6 +15,7 @@ export default {
     [apiPath, ':id', 'update', 'password'].join('/'),
   userIdDeletePath: () => [apiPath, 'delete'].join('/'),
   userHiddenPath: () => [apiPath, 'hidden'].join('/'),
+  userGetTicketsById: () => [apiPath, ':id', 'ticket'].join('/'),
 
   // Roles
   rolesGetPath: () => [apiPath].join('/'),

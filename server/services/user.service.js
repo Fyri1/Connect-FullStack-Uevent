@@ -22,6 +22,9 @@ class UserService {
   async getUserById({ id }) {
     return await User.findUserId(id);
   }
+  async getUserTicketById({ id }) {
+    return await User.getUserTicketById(id);
+  }
 
   async hiddenUser(bearerToken) {
     const token = bearerToken?.split(' ')[1];

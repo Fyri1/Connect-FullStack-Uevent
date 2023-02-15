@@ -1,0 +1,79 @@
+{
+    "4149391865421694": {
+        "issuingNetwork": "VISA",
+        "moneyRange": "136",
+        "currency": "UA",
+        "CVV": 142,
+        "expiry": "05/2024"
+    },
+    "4246577650762399": {
+        "issuingNetwork": "VISA",
+        "moneyRange": "4550",
+        "currency": "UA",
+        "CVV": 323,
+        "expiry": "07/2025"
+    },
+    "4731211089672647": {
+        "issuingNetwork": "VISA",
+        "moneyRange": "920",
+        "CVV": 304,
+        "expiry": "02/2024",
+        "currency": "UA"
+    },
+    "4731172350143173": {
+        "issuingNetwork": "VISA",
+        "moneyRange": "537",
+        "CVV": 499,
+        "expiry": "08/2029",
+        "currency": "UA"
+    },
+    "4149494553029660": {
+        "issuingNetwork": "VISA",
+        "moneyRange": "654",
+        "CVV": 116,
+        "expiry": "02/2025",
+        "currency": "UA"
+    },
+    "5169165797894224": {
+        "issuingNetwork": "MASTERCARD",
+        "moneyRange": "699",
+        "currency": "UA",
+        "CVV": 983,
+        "expiry": "02/2024"
+    },
+    "5351285951467258": {
+        "issuingNetwork": "MASTERCARD",
+        "moneyRange": "682",
+        "currency": "UA",
+        "CVV": 316,
+        "expiry": "08/2030"
+    },
+    "5573877877216363": {
+        "issuingNetwork": "MASTERCARD",
+        "moneyRange": "855",
+        "currency": "UA",
+        "CVV": 118,
+        "expiry": "06/2022"
+    },
+    "5169174171020703": {
+        "issuingNetwork": "MASTERCARD",
+        "moneyRange": "631",
+        "currency": "UA",
+        "CVV": 585,
+        "expiry": "02/2028"
+    },
+    "5167972894402088": {
+        "issuingNetwork": "MASTERCARD",
+        "moneyRange": "735",
+        "currency": "UA",
+        "CVV": 585,
+        "expiry": "07/2029"
+    },
+    "undefined": {
+        "issuingNetwork": "VISA",
+        "moneyRange": "4700",
+        "currency": "UA",
+        "CVV": 323,
+        "expiry": "07/2025"
+    }
+}

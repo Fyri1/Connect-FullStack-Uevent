@@ -79,7 +79,7 @@ class Event {
 
   async sellTicket(userId, ticket) {
     try {
-      await Ticket.soldTicket(ticket[0].id);
+      await Ticket.soldTicket(ticket.id);
       await client('user_tickets').insert({
         ticket_id: ticket.id,
         user_id: userId,

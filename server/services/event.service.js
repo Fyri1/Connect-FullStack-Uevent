@@ -3,6 +3,7 @@ import Comment from '../models/Comment.js';
 import Event from '../models/Event.js';
 import axios from 'axios';
 import Organization from '../models/Organization.js';
+import ApiError from '../exceptions/api-error.js';
 
 class EventService {
   async getAllEvents() {
@@ -35,21 +36,25 @@ class EventService {
     if (filterNotSoldTicket.length === 0) {
       return 'Empty';
     }
-    const responce = await axios.post('http://localhost:8081/pay', {
-      ...infoCard,
-      organozationId,
-      orderId: filterNotSoldTicket[0].id,
-      amount: filterNotSoldTicket[0].price,
-      products: {
-        name: `${name_organization} ticket`,
-        price: filterNotSoldTicket[0].price,
-      },
-      signature: '',
-    });
-    console.log(responce.data);
-    return { userId, eventId, infoCard };
-    // await Event.sellTicket(userId, filterNotSoldTicket[0]);
-    return;
+    try {
+      const responce = await axios.post('http://localhost:8081/pay', {
+        ...infoCard,
+        organozationId,
+        orderId: filterNotSoldTicket[0].id,
+        amount: filterNotSoldTicket[0].price,
+        products: {
+          name: `${name_organization} ticket`,
+          price: filterNotSoldTicket[0].price,
+        },
+        signature: '',
+      });
+      console.log(responce.data);
+      await Event.sellTicket(userId, filterNotSoldTicket[0]);
+      return responce.data.state;
+    } catch (err) {
+      console.log(err.response.data);
+      throw ApiError.BadRequest(err.response.data.massage);
+    }
   }
 
   async getAllUsersSellTicketByEventId({ eventId, id }) {

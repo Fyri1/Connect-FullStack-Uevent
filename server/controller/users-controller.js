@@ -12,6 +12,10 @@ class Users {
     return await userService.getInfoUser(req.headers['authorization']);
   }
 
+  async getUserTicketById(req, _res) {
+    return await userService.getUserTicketById(req.params);
+  }
+
   async getUserById(req, _res) {
     return await userService.getUserById(req.params);
   }

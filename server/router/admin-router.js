@@ -15,6 +15,8 @@ router.get(adminRoutes.usersGetPath(), tryCatch(User.getAllUsers));
 router.get(adminRoutes.usersGetMyInfoPath(), tryCatch(User.getInfoUser));
 
 router.get(adminRoutes.userIdGetPath(), tryCatch(User.getUserById));
+router.get(adminRoutes.userGetTicketsById(), tryCatch(User.getUserTicketById)); // <----- Access denied add!!!!!!!!
+
 router.post(
   adminRoutes.userPostPath(),
   checkValidation,
