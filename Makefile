@@ -1,6 +1,7 @@
 install: 
 	make -C server setup
 	make -C client install
+	make -C Ebank install
 
 start-frontend:
 	make -C ./client start
