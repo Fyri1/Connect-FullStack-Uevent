@@ -12,6 +12,7 @@ export const up = (knex) =>
     table.string('phone_number');
     table.string('event_link');
     table.boolean('active').notNullable().defaultTo(false);
+    table.boolean('hidden').notNullable().defaultTo(false);
     table.timestamp('created_at').defaultTo(knex.fn.now());
   });
 

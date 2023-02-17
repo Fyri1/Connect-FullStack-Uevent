@@ -8,6 +8,12 @@ const router = Express.Router();
 
 // router.get('/test-qr/', Authorization.testQR);
 
+router.get('/', tryCatch(Organization.getAllOrganization));
+
+router.post(
+  '/subscription/:id',
+  tryCatch(Organization.subscriptionOrganization)
+);
 router.post(
   '/register-organization/',
   body('name').isLength({ min: 3, max: 30 }).trim(),

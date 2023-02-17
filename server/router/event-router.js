@@ -6,6 +6,7 @@ import adminRoutes from '../routes/admin-routes.js';
 import validationErrorEvent from '../middlewares/validationError.event.js';
 import tryCatch from '../utils/try-catch.event.js';
 import eventAccessEnied from '../middlewares/event.access-enied.js';
+import validationErrorCard from '../middlewares/validationError.event-card.js';
 
 const router = Express.Router();
 
@@ -13,6 +14,12 @@ router.get(
   adminRoutes.eventsGetPath(),
   tryCatch(Events.getAllEvents),
   Events.getAllEvents
+);
+
+router.get(
+  adminRoutes.eventAllUsersSellTicketByEventId(),
+  tryCatch(Events.getAllUsersSellTicketByEventId),
+  Events.getAllUsersSellTicketByEventId
 );
 
 router.get(
@@ -74,15 +81,15 @@ router.post(
 
 router.post(
   adminRoutes.eventSellTicketPath(),
-  tryCatch(Events.sellTicketEvent),
-  Events.sellTicketEvent
+  validationErrorCard,
+  tryCatch(Events.payTicketEvent),
+  Events.payTicketEvent
 );
 
 router.delete(
   adminRoutes.eventIdDeletePath(),
   eventAccessEnied,
-  tryCatch(Events.deleteEvent),
-  Events.sellTicketEvent
+  tryCatch(Events.deleteEvent)
 );
 
 export default router;

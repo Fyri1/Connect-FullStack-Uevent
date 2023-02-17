@@ -22,6 +22,15 @@ class UserService {
   async getUserById({ id }) {
     return await User.findUserId(id);
   }
+  async getUserTicketById({ id }) {
+    return await User.getUserTicketById(id);
+  }
+
+  async hiddenUser(bearerToken) {
+    const token = bearerToken?.split(' ')[1];
+    const { id } = tokenService.validateAccessToken(token);
+    return await User.setHidden(id);
+  }
 
   async updateUserData({ params: { id }, body: data }) {
     await User.updateUserDate(id, data);

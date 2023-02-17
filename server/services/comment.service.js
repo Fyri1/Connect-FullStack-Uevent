@@ -3,7 +3,6 @@ import Comment from '../models/Comment.js';
 import ApiError from '../exceptions/api-error.js';
 
 class CommentService {
-
   async getAll() {
     return await Comment.getAll();
   }
@@ -13,16 +12,17 @@ class CommentService {
   }
 
   async updateCommentData({ params: { id }, body: { content } }, userId) {
-    const { author_id } = await Comment.findCommentId(id);
-    if (author_id !== userId) {
-      next(ApiError.AccessDenied('Access denied, your ne tot User'));
+    const { user_id } = await Comment.findCommentId(id);
+    if (user_id !== userId) {
+      throw ApiError.AccessDenied('Access denied, your ne tot User');
     }
     return await Comment.updateComment(id, content);
   }
-  async deleteComment({ params: { id } }, userId) {
-    const { author_id } = await Comment.findCommentId(id);
-    if (author_id !== userId) {
-      next(ApiError.AccessDenied('Access denied, your ne tot User'));
+
+  async deleteComment({ id }, userId) {
+    const { user_id } = await Comment.findCommentId(id);
+    if (user_id !== userId) {
+      throw ApiError.AccessDenied('Access denied, your ne tot User');
     }
     return await Comment.deleteComment(id);
   }

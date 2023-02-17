@@ -3,6 +3,8 @@ import Ticket from './Ticket.js';
 import Category from './Category.js';
 import ApiError from '../exceptions/api-error.js';
 import _ from 'lodash';
+import Comment from './Comment.js';
+import User from './User.js';
 
 class Event {
   async getAll() {
@@ -17,7 +19,7 @@ class Event {
 
   async getAllTickets(id) {
     try {
-      const data = await client('ticket')
+      const data = await client('tickets')
         .select('*')
         .where('event_id', '=', id);
       return data;
@@ -41,7 +43,33 @@ class Event {
     }
   }
 
-  async findId(id) {
+  async getAllUsersSellTicketByEventId(event_id, userId) {
+    try {
+      const ticketsEvent = await this.getAllTickets(event_id);
+      const soldTicket = ticketsEvent.filter(({ is_sold }) => is_sold);
+      const promises = soldTicket.map(async ({ id }) => {
+        const data = await client('user_tickets')
+          .select('user_id')
+          .where('ticket_id', '=', id);
+        return data[0];
+      });
+      const [{ role }] = await User.getRole(userId);
+      const userIds = await Promise.all(promises);
+      const users = userIds.map(async ({ user_id }) => {
+        const userData = await User.findUserId(user_id);
+        if (userData.hidden && role !== 'organization' && userId !== user_id) {
+          return [];
+        }
+        return userData;
+      });
+      const allUsers = await Promise.all(users);
+      return allUsers.filter((item) => item.length !== 0);
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async findOne(id) {
     const data = await client('events').select('*').where('id', '=', id);
     if (data.length === 0) {
       throw ApiError.NotFound('event not found');
@@ -49,16 +77,11 @@ class Event {
     return data[0];
   }
 
-  async sellTicket(userId, eventId) {
+  async sellTicket(userId, ticket) {
     try {
-      const allTicketEvent = await this.getAllTickets(eventId);
-      const filterNotSoldTicket = allTicketEvent.filter((i) => !i.is_sold);
-      if (filterNotSoldTicket.length === 0) {
-        return 'Emptu';
-      }
-      await Ticket.soldTicket(filterNotSoldTicket[0].id);
+      await Ticket.soldTicket(ticket.id);
       await client('user_tickets').insert({
-        ticket_id: filterNotSoldTicket[0].id,
+        ticket_id: ticket.id,
         user_id: userId,
       });
     } catch (err) {
@@ -105,16 +128,16 @@ class Event {
   }
 
   async getAllCommentsEvent(eventId) {
-    console.log(eventId);
     const commentsId = await client('event_comments')
       .select('comment_id')
       .where('event_id', '=', eventId);
     console.log(commentsId);
     const commentsEvent = commentsId.map(async ({ comment_id }) => {
-      const data = await client('comments').select('*').where('id', '=', comment_id)
+      const data = await client('comments')
+        .select('*')
+        .where('id', '=', comment_id);
       return data[0];
-    }
-    );
+    });
     return Promise.all(commentsEvent);
   }
 
@@ -183,12 +206,15 @@ class Event {
       throw err;
     }
   }
+
   async deleteEvent(id) {
     try {
       console.log(id);
       await client('events').where('id', '=', id).del();
       await this.updateCategories(id);
       await Ticket.daleteTickets(id);
+      const allCommentsEvent = await this.getAllCommentsEvent(id);
+      await Comment.deleteAllCommentEvent(allCommentsEvent);
       return 'delete event';
     } catch (err) {
       throw err;

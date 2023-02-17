@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Ticket from '../models/Ticket.js';
 import Event from '../models/Event.js';
 import ApiError from '../exceptions/api-error.js';
+import axios from 'axios';
 
 class TicketService {
   async getAllTickets() {
@@ -31,6 +32,10 @@ class TicketService {
   }
 
   async returnTicket({ ticketId, userId }) {
+    const response = await axios.post(
+      'http://localhost:8081/decline/' + ticketId
+    );
+    console.log(response.data);
     return await Ticket.ticketReturn(ticketId, userId);
   }
 
