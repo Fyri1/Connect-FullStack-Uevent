@@ -1,59 +1,50 @@
 import client from '../client.js';
 import { v4 as uuidv4 } from 'uuid';
+import ApiError from '../exceptions/api-error.js';
 
 class Organization {
   async getAllOrganization() {
-    try {
-      const data = await client('organization').select('*');
-      return data;
-    } catch (err) {
-      throw err;
-    }
+    const data = await client('organization').select('*');
+    return data;
   }
 
   async findOrganizationId(id) {
-    try {
-      const data = await client('organization')
-        .select('*')
-        .where('id', '=', id);
-      return data[0];
-    } catch (err) {
-      throw err;
-    }
+    const data = await client('organization').select('*').where('id', '=', id);
+    return data[0];
   }
 
   async findOrganizationByUserId(id) {
-    try {
-      const data = await client('organization')
-        .select('*')
-        .where('user_id', '=', id);
-      return data[0];
-    } catch (err) {
-      throw err;
-    }
+    const data = await client('organization')
+      .select('*')
+      .where('user_id', '=', id);
+    return data[0];
   }
 
   async isEqualNameOrganization(name) {
-    try {
-      const data = await client('organization')
-        .select('*')
-        .where('name_organization', '=', name);
-      return data.length !== 0;
-    } catch (err) {
-      if (!err.toString().match(/ignore/)) {
-        throw new Error(err.code + ': ' + err.message);
-      }
-    }
+    const data = await client('organization')
+      .select('*')
+      .where('name_organization', '=', name);
+    return data.length !== 0;
   }
 
   async saveOrganization(data) {
-    try {
-      await client('organization').insert(data);
-    } catch (err) {
-      if (!err.toString().match(/ignore/)) {
-        console.log(err);
-        throw err;
-      }
+    await client('organization').insert(data);
+  }
+
+  async subscription(user_id, organization_id) {
+    const isEmpty = await client('organizer_subscriptions')
+      .select('*')
+      .where('user_id', '=', user_id);
+
+    if (isEmpty.length !== 0) {
+      await client('organizer_subscriptions')
+        .where('user_id', '=', user_id)
+        .del();
+    } else {
+      await client('organizer_subscriptions').insert({
+        user_id,
+        organization_id,
+      });
     }
   }
 }
