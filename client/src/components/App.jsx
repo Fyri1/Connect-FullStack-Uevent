@@ -29,29 +29,15 @@ import organizationRoutes from '../routes/client/organizationRoutes.js';
 import LanguageContext from '../context/languageContext.js';
 
 const lngs = {
-  en: {
-    nativeName: 'en',
-  },
-  ua: {
-    nativeName: 'ua',
-  },
+  en: { nativeName: 'en' },
+  ru: { nativeName: 'ru' },
+  ua: { nativeName: 'ua' },
 };
 
 const App = () => {
-  const [socketConnected, setSocketConnected] = React.useState(true);
   const { t, i18n } = useTranslation();
 
-  React.useEffect(() => {
-    // socket.on('connection', () => console.log(socket.id));
-    // !localStorage.getItem('jwt') ? setGuest(true) : setGuest(false);
-    setSocketConnected(false);
-  }, []);
-
-
-
-  return socketConnected ? (
-    <Spinner />
-  ) : (
+  return (
     <LanguageContext.Provider value={{ t }}>
       {/* <SocketContext.Provider value={{ socket }}> */}
       <BrowserRouter>

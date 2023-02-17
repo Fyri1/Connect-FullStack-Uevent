@@ -9,8 +9,8 @@ import PassChangeTab from '../tabs/PassChangeTab';
 
 
 const UserDataTabsSelector = ({ userData, isLoading }) => {
+  console.log("ebat moi hyi!")
   return (
-    // VOZMOZNO ETA HYINYA LOMAETSA BEZ DEVTOOLSA
     <div className="my-4 flex flex-col"> 
       <div className="w-full flex flex-col">
         <div className="flex-1 bg-white rounded-lg shadow-xl py-3 px-6">

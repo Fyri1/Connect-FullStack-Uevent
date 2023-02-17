@@ -19,6 +19,7 @@ const UserProfilePage = () => {
   // return isLoading ? <Spinner /> : (
   return (
     <div>
+      { isLoading ? <Spinner /> : <></> }
       <div className="h-full bg-gray-200 p-8">
         {/* TYT PIZDEC MAKSIMA YA TYDA LEZT NE HO4Y! */}
         <ProfileHead userData={userInfo} />
