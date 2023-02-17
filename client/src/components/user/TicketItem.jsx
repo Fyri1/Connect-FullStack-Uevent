@@ -103,8 +103,6 @@ const TicketItem = () => {
 
                                         {/* <div class="barcode h-14 w-0 inline-block mt-4 relative left-auto"></div> */}
                                         <img src="http://qrcoder.ru/code/?https%3A%2F%2Fmil.ru%2F&4&0" alt="aji" class="Tiket-code w-32 h-32 object-cover rounded-2xl"></img>
-
-
                                     </div>
                                 </div>
                             </div>

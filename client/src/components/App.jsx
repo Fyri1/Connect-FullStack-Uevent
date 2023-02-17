@@ -12,6 +12,7 @@ import Login from './auth/Login.jsx';
 import MainItem from './main-page/MainItem.jsx';
 import UserProfilePage from './profile/UserProfilePage.jsx';
 import MyTicket from './user/MyTicket.jsx';
+import PayForm from './payment/PayForm.jsx'
 
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
@@ -54,6 +55,7 @@ const App = () => {
             <Route path="/MainItem" element={<MainItem />} />
             {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
             <Route path="/MyTicket" element={<MyTicket />} />
+            <Route path="/PayForm" element={<PayForm />} />
             {/* neSral Vilsan */}
 
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />
