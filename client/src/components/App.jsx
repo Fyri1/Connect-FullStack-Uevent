@@ -12,6 +12,7 @@ import Login from './auth/Login.jsx';
 import MainItem from './main-page/MainItem.jsx';
 import UserProfilePage from './profile/UserProfilePage.jsx';
 import MyTicket from './user/MyTicket.jsx';
+import PayForm from './payment/PayForm.jsx'
 
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
@@ -29,31 +30,16 @@ import organizationRoutes from '../routes/client/organizationRoutes.js';
 import LanguageContext from '../context/languageContext.js';
 
 const lngs = {
-  en: {
-    nativeName: 'en',
-  },
-  ua: {
-    nativeName: 'ua',
-  },
+  en: { nativeName: 'en' },
+  ru: { nativeName: 'ru' },
+  ua: { nativeName: 'ua' },
 };
 
 const App = () => {
-  const [socketConnected, setSocketConnected] = React.useState(true);
   const { t, i18n } = useTranslation();
 
-  React.useEffect(() => {
-    // socket.on('connection', () => console.log(socket.id));
-    // !localStorage.getItem('jwt') ? setGuest(true) : setGuest(false);
-    setSocketConnected(false);
-  }, []);
-
-
-
-  return socketConnected ? (
-    <Spinner />
-  ) : (
+  return (
     <LanguageContext.Provider value={{ t }}>
-      {/* <SocketContext.Provider value={{ socket }}> */}
       <BrowserRouter>
         <Header />
         <Routes>
@@ -68,6 +54,7 @@ const App = () => {
             <Route path="/MainItem" element={<MainItem />} />
             {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
             <Route path="/MyTicket" element={<MyTicket />} />
+            <Route path="/PayForm" element={<PayForm />} />
             {/* neSral Vilsan */}
 
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />
@@ -98,7 +85,6 @@ const App = () => {
               )} */}
         </Routes>
       </BrowserRouter>
-      {/* </SocketContext.Provider> */}
     </LanguageContext.Provider>
   );
 };

@@ -36,7 +36,7 @@ const EmailChangeTab = ({ userData }) => {
   }
 
   return (
-    <div>
+    <div className="items-center justify-center content-center mx-[10%]">
       <form onSubmit={handleDataSubmit}>
         <InputField id="email" name="New email" type="text" data={submitData} setData={setData} errors={errors} setErrors={setErrors}>
           <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
@@ -48,6 +48,11 @@ const EmailChangeTab = ({ userData }) => {
         </InputField>
 
         <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save</button>
+
+        {/* <div className="flex">
+          <button type="submit" className="w-full mx-3 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save</button>
+          <button type="submit" className="w-full mx-3 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Cancel</button>
+        </div> */}
       </form>
     </div>
   )
