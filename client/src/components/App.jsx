@@ -40,7 +40,6 @@ const App = () => {
 
   return (
     <LanguageContext.Provider value={{ t }}>
-      {/* <SocketContext.Provider value={{ socket }}> */}
       <BrowserRouter>
         <Header />
         <Routes>
@@ -86,7 +85,6 @@ const App = () => {
               )} */}
         </Routes>
       </BrowserRouter>
-      {/* </SocketContext.Provider> */}
     </LanguageContext.Provider>
   );
 };
