@@ -40,9 +40,6 @@ export default () => {
   app.use('/api/comment', commentRouter);
   app.use('/api/organization', organozationRouter);
   app.use('/api/user', adminRouter);
-  // app.get('/api/test', (req, res) => {
-
-  // });
   app.use('*', () => {
     throw ApiError.NotFound();
   });
