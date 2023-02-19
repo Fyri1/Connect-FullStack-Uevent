@@ -8,7 +8,7 @@ import EmailChangeTab from '../tabs/EmailChangeTab.jsx';
 import PassChangeTab from '../tabs/PassChangeTab';
 
 
-const UserDataTabsSelector = ({ userData, isLoading }) => {
+const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
   console.log("ebat moi hyi!")
   return (
     <div className="my-4 flex flex-col"> 
@@ -27,9 +27,9 @@ const UserDataTabsSelector = ({ userData, isLoading }) => {
           <div id="UserDataTabContent">
             {/* <TabContent id="profile">{ isLoading ? <></> : <ProfileDataTab userData={userData} /> }</TabContent>
             <TabContent id="edit">{ isLoading ? <></> : <ProfileEditTab userData={userData} isLoading={isLoading} /> }</TabContent> */}
-            <TabContent id="profile"><ProfileDataTab userData={userData} /></TabContent>
-            <TabContent id="emailEdit"><EmailChangeTab userData={userData} /></TabContent>
-            <TabContent id="passEdit"><PassChangeTab userData={userData} /></TabContent>
+            <TabContent id="profile"><ProfileDataTab userData={userData} setUserData={setUserData} /></TabContent>
+            <TabContent id="emailEdit"><EmailChangeTab userData={userData} setUserData={setUserData} /></TabContent>
+            <TabContent id="passEdit"><PassChangeTab userData={userData} setUserData={setUserData} /></TabContent>
           </div>
         </div>
       </div>

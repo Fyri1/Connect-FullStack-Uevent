@@ -8,6 +8,7 @@ export default async (req, _res, next) => {
   const { login } = req.body;
   const token = req.headers['authorization']?.split(' ')[1];
   const userData = tokenService.validateAccessToken(token);
+  console.log(userData.login, login);
   if ((await User.isEqualLogin(login)) && login !== userData.login) {
     errors.errors.push({
       value: login,

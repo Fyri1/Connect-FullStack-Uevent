@@ -10,5 +10,6 @@ export default {
   confirmEmail: (token) => [apiPath, 'auth', 'active', token].join('/'),
   getAllEvent: () => [apiPath, 'event'].join('/'),
   usersGetInfoPath: () => [apiPath, 'user', 'profile'].join('/'),
+  changeUserInfo: (id) => [apiPath,'user', id, 'update'].join('/'),
   userIdGetPath: (userId) => [apiPath, 'user', userId].join('/'),
 };

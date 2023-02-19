@@ -3,9 +3,12 @@ import React from 'react';
 import Spinner from '../../common/Spinner.jsx';
 import ProfileDataRow from './ProfileDataRow.jsx';
 import ProfileDataInputRow from './ProfileDataInputRow.jsx';
+import $api from '../../../../utils/api.js';
+import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
+import { useMutation } from 'react-query';
+import { UsersService } from '../../../../services/users.service.js';
 
-
-const ProfileDataTab = ({ userData }) => {
+const ProfileDataTab = ({ userData, setUserData }) => {
   // console.log(userData);
 
   let temp = {};
@@ -23,12 +26,23 @@ const ProfileDataTab = ({ userData }) => {
   
   const editButtonHandle = () => {
     console.log("edit epta nado");
-    setEditActive(true);
+    setEditActive(!editActive);
   };
+  const { isLoading, mutateAsync } = useMutation('change info user', (data) => UsersService.updateInfoUser(data), 
+      {
+        onSuccess: () => {
+          setUserData({ values: submitData });
+          setEditActive(!editActive);
+        },
+        onError: (err) => {
+          console.log(err);
+        }
+      }
+    )
 
-  const submitButtonHandle = () => {
-    console.log("submit epta nado");
-    setEditActive(false);
+  const submitButtonHandle = async () => {
+      const { id, login, first_name: firstName, last_name: lastName, second_name: secondName } = submitData;
+      await mutateAsync({ id, login, firstName, lastName, secondName });
   }
 
   
@@ -49,15 +63,17 @@ const ProfileDataTab = ({ userData }) => {
           editActive
           ?
           <div>
+            <ProfileDataInputRow id="login" name="Login:" value={userData.values.login} data={submitData} setData={setSubmitData} errors={errors} setErrors={setErrors} />
             <ProfileDataInputRow id="first_name" name="First name:" value={userData.values.first_name} data={submitData} setData={setSubmitData} errors={errors} setErrors={setErrors} />
             <ProfileDataInputRow id="second_name" name="Second name:" value={userData.values.second_name} data={submitData} setData={setSubmitData} errors={errors} setErrors={setErrors} />
             <ProfileDataInputRow id="last_name" name="Last name:" value={userData.values.last_name} data={submitData} setData={setSubmitData} errors={errors} setErrors={setErrors} />
-            <ProfileDataInputRow id="phone_number" name="Mobile:" value={userData.values.phone_number} data={submitData} setData={setSubmitData} errors={errors} setErrors={setErrors} />
+            <ProfileDataRow id="phone_number" name="Mobile:" value={userData.values.phone_number} />
             <ProfileDataRow id="email" name="Email:" value={userData.values.email} />
-            <button onClick={submitButtonHandle} type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save changes</button>
+            <button onClick={submitButtonHandle} disabled={isLoading} type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save changes</button>
           </div>
           :
           <div>
+            <ProfileDataRow id="login" name="Login:" value={userData.values.login} />
             <ProfileDataRow id="first_name" name="First name:" value={userData.values.first_name} />
             <ProfileDataRow id="second_name" name="Second name:" value={userData.values.second_name} />
             <ProfileDataRow id="last_name" name="Last name:" value={userData.values.last_name} />

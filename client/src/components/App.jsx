@@ -44,15 +44,6 @@ const App = () => {
     <I18nextProvider i18n={i18next}>
       <BrowserRouter>
         <Header />
-        <button type="submit" key="en" className="mx-2 text-white text-orange-800" onClick={() => i18n.changeLanguage(lngs.en.nativeName)}>
-          {lngs.en.nativeName}
-        </button>
-        <button type="submit" key="ru" className="mx-2 text-white text-orange-400 underline" onClick={() => i18n.changeLanguage(lngs.ru.nativeName)}>
-          {lngs.ru.nativeName}
-        </button>
-        <button type="submit" key="ua" className="mx-2 text-white text-orange-400 underline" onClick={() => i18n.changeLanguage(lngs.ua.nativeName)}>
-          {lngs.ua.nativeName}
-        </button>
         <Routes>
           {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
           {/* {isGuest ? ( */}

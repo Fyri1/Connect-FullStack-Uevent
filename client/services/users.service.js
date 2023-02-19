@@ -12,6 +12,9 @@ const UsersService = {
   getInfoUser() {
     return $api.get(clientRoutes.usersGetInfoPath())
   }
+  ,updateInfoUser({id, ...data}) {
+    return $api.patch(clientRoutes.changeUserInfo(id), data);
+  }
 };
 
 export { UsersService };

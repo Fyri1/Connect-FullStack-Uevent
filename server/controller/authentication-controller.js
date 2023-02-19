@@ -83,13 +83,16 @@ class Authorization {
     }
   }
   async authLogout(req, res, next) {
-    const { refreshToken } = req.cookies;
-    if (!refreshToken) {
-      return res.status(401).end('GG');
-    }
+    // const { refreshToken } = req.cookies;
+    // if (!refreshToken) {
+    //   return res.status(401).end('GG');
+    // }
     try {
-      const user = TokenService.validateRefreshToken(refreshToken);
-      res.clearCookie('refreshToken');
+      console.log(req.headers);
+      const token = req.headers.authorization?.split(' ');
+      console.log(token);
+      TokenService.validateAccessToken(token);
+    //   res.clearCookie('refreshToken');
       res.status(200);
       res.json({
         massage: `${user.login} logout, see you later`,
@@ -99,6 +102,7 @@ class Authorization {
       next(err);
     }
   }
+
   async authSendPasswordReset(req, res, next) {
     try {
       const errors = validationResult(req);

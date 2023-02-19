@@ -38,7 +38,7 @@ const Login = () => {
       const response = await axios.post(apiRoutes.loginPath(), userData);
       console.log(response);
       localStorage.setItem('token', response.data.accessToken);
-      navigate(clientRoutes.mainPagePath());
+      location.href = clientRoutes.mainPagePath();
     } catch (e) {
       console.log(e);
       setErrors({

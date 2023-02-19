@@ -4,9 +4,17 @@ import { useTranslation } from 'react-i18next';
 import Navbar from './Navbar.jsx';
 import AuthButton from './AuthButton.jsx';
 import UserDropdownMenu from './UserDropdownMenu.jsx';
+import LanguageSelectMenu from './LanguageSelectMenu.jsx';
 
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 import '../../css/header.css';
+
+
+const lngs = {
+  en: { nativeName: 'en' },
+  ru: { nativeName: 'ru' },
+  ua: { nativeName: 'ua' },
+};
 
 const Header = () => {
   const [ t, i18n ] = useTranslation('header');
@@ -33,7 +41,10 @@ const Header = () => {
               // check whether user is logged in
               localStorage.getItem("token")
               ?
-              <UserDropdownMenu userDetails={tempUserDetails}/>
+              <div className="flex items-center">
+                <LanguageSelectMenu />
+                <UserDropdownMenu userDetails={tempUserDetails}/>
+              </div>
               :
               <div className="authButtons">
                 <div className="container-left-button">

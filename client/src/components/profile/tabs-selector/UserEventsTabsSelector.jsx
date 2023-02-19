@@ -6,7 +6,7 @@ import TabContent from './TabContent.jsx';
 import EventsTab from '../tabs/EventsTab.jsx';
 
 
-const UserEventsTabsSelector = ({ userData, isLoading }) => {
+const UserEventsTabsSelector = ({ userData, setUserData, isLoading }) => {
   return (
     <div className="my-4 flex flex-col">
       <div className="w-full flex flex-col">
