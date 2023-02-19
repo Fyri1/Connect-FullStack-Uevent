@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Navbar from './Navbar.jsx';
 import AuthButton from './AuthButton.jsx';
@@ -8,6 +9,8 @@ import clientRoutes from '../../../routes/client/clientRoutes.js';
 import '../../css/header.css';
 
 const Header = () => {
+  const [ t, i18n ] = useTranslation('header');
+  
   const tempUserDetails = {
     id: "temp_user_id",
     fullname: "USER NAME", 

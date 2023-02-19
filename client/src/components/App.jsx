@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, I18nextProvider } from 'react-i18next';
+import i18next from "i18next";
 
 import Header from './common/header/Header.jsx';
 import Spinner from './common/Spinner.jsx';
@@ -34,58 +35,81 @@ const lngs = {
   ru: { nativeName: 'ru' },
   ua: { nativeName: 'ua' },
 };
+// i18next.init({
+//   interpolation: { escapeValue: false },
+//   lng: 'en',
+//   resources: {
+//     en: {
+//       header: header_en
+//     },
+//     ru: {
+//       header: header_ru
+//     },
+//   },
+// });
 
 const App = () => {
-  const { t, i18n } = useTranslation();
+  const [ t, i18n ] = useTranslation('header');
 
   return (
-    <LanguageContext.Provider value={{ t }}>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
-          {/* {isGuest ? ( */}
-          <>
-            {/* User routes */}
-            <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
-            <Route path={clientRoutes.loginPagePath()} element={<Login />} />
+    <I18nextProvider i18n={i18next}>
+      <LanguageContext.Provider value={{ t }}>
+        <BrowserRouter>
+          <Header />
+          <button type="submit" key="en" className="mx-2 text-white text-orange-800" onClick={() => i18n.changeLanguage(lngs.en.nativeName)}>
+            {lngs.en.nativeName}
+          </button>
+          <button type="submit" key="ru" className="mx-2 text-white text-orange-400 underline" onClick={() => i18n.changeLanguage(lngs.ru.nativeName)}>
+            {lngs.ru.nativeName}
+          </button>
+          <button type="submit" key="ua" className="mx-2 text-white text-orange-400 underline" onClick={() => i18n.changeLanguage(lngs.ua.nativeName)}>
+            {lngs.ua.nativeName}
+          </button>
+          <Routes>
+            {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
+            {/* {isGuest ? ( */}
+            <>
+              {/* User routes */}
+              <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
+              <Route path={clientRoutes.loginPagePath()} element={<Login />} />
 
-            {/* Sral Vilsan */}
-            <Route path="/MainItem" element={<MainItem />} />
-            {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
-            <Route path="/MyTicket" element={<MyTicket />} />
-            <Route path="/PayForm" element={<PayForm />} />
-            {/* neSral Vilsan */}
+              {/* Sral Vilsan */}
+              <Route path="/MainItem" element={<MainItem />} />
+              {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
+              <Route path="/MyTicket" element={<MyTicket />} />
+              <Route path="/PayForm" element={<PayForm />} />
+              {/* neSral Vilsan */}
 
-            <Route path={clientRoutes.registerPagePath()} element={<Register />} />
-            <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
-            <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
-            <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />
-            <Route path={clientRoutes.profilePagePath()} element={<UserProfilePage />} />
+              <Route path={clientRoutes.registerPagePath()} element={<Register />} />
+              <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
+              <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
+              <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />
+              <Route path={clientRoutes.profilePagePath()} element={<UserProfilePage />} />
 
-            {/* Admin routes */}
-            <Route path={adminRoutes.mainPagePath()} element={<AdminPage dataCategory="users" />} />
-            <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
-            <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
-            <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
-            <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
-            <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
-            <Route path={adminRoutes.organizationsPagePath()} element={<AdminPage dataCategory="organizations" />} />
+              {/* Admin routes */}
+              <Route path={adminRoutes.mainPagePath()} element={<AdminPage dataCategory="users" />} />
+              <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
+              <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
+              <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
+              <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
+              <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
+              <Route path={adminRoutes.organizationsPagePath()} element={<AdminPage dataCategory="organizations" />} />
 
-            {/* Moderator routes */}
-            <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
+              {/* Moderator routes */}
+              <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
 
-            {/* Organization routes */}
-            <Route path={organizationRoutes.mainPagePath()} element={<OrganizationPage />} />
+              {/* Organization routes */}
+              <Route path={organizationRoutes.mainPagePath()} element={<OrganizationPage />} />
 
-            <Route path="*" element={<PageNotFound />} />
-          </>
-          {/* ) : (
-                <Route path="/" element={<Calendar />} />
-              )} */}
-        </Routes>
-      </BrowserRouter>
-    </LanguageContext.Provider>
+              <Route path="*" element={<PageNotFound />} />
+            </>
+            {/* ) : (
+                  <Route path="/" element={<Calendar />} />
+                )} */}
+          </Routes>
+        </BrowserRouter>
+      </LanguageContext.Provider>
+    </I18nextProvider>
   );
 };
 
