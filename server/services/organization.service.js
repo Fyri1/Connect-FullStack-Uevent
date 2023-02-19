@@ -3,8 +3,8 @@ import Organization from '../models/Organization.js';
 import TokenService from './token-service.js';
 
 class CategoryService {
-  async getCategoryById({ id }) {
-    return await Organization.findCategoryId(id);
+  async getAllOrganization() {
+    return await Organization.getAllOrganization();
   }
 
   async createOrganization({
@@ -34,6 +34,10 @@ class CategoryService {
       link_organization,
     });
     return 'Confirm mail';
+  }
+
+  async subscriptionOrganization(organizationId, userId) {
+    return await Organization.subscription(userId, organizationId);
   }
 
   async deleteCategory({ id }) {

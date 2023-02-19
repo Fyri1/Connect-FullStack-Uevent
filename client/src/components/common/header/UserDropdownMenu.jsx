@@ -14,9 +14,9 @@ const UserDropdownMenu = ({ userDetails }) => {
       </button>
 
       {/* Dropdown menu */}
-      <div id={userDetails.id} className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+      <div id={userDetails.id} className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-300 shadow dark:bg-gray-700 dark:divide-gray-600">
         <div className="py-3 px-7 text-sm text-gray-900 dark:text-white">
-          <div className="absolute  inset-0 w-3 bg-amber-400 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+          <div className="absolute inset-0 w-3 bg-blue-600 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
           <div className="font-medium ">{userDetails.fullname}</div>
         </div>
         <ul className="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
