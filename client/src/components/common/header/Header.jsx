@@ -41,6 +41,9 @@ const Header = () => {
             </div>
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">UEvent</span>
           </a>
+          
+
+
 
           <Navbar />
           <div className="flex items-center lg:order-2">
@@ -62,7 +65,23 @@ const Header = () => {
                 </div>
               </div>
             }
+{/* я тут играюсь , потом вынесу в отдельный файл  */}
 
+          <div class="bg-white dark:bg-gray-900  items-center">
+    <div class="flex flex-row justify-between toggle">
+        <label for="dark-toggle" class="flex items-center cursor-pointer">
+            <div class="relative">
+            <input type="checkbox" name="dark-mode" id="dark-toggle" class="checkbox hidden"/>
+            <div class="block border-[1px] dark:border-white border-gray-900 w-14 h-8 rounded-full"></div>
+            <div class="dot absolute left-1 top-1 dark:bg-white bg-gray-800 w-6 h-6 rounded-full transition"></div>
+            </div>
+            <div class="ml-3 dark:text-white text-gray-900 font-medium">
+            Dark Mode
+            </div>
+        </label>
+        </div>
+    </div>
+{/* навреное... */}
             <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
