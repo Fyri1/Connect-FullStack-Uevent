@@ -4,5 +4,11 @@
         "partnerRegister" : "Організаторам",
         "about" : "Про нас",
         "contact" : "Контакти"
+    },
+    "userDropdownMenu" : {
+        "welcome" : "Хай, ",
+        "profile" : "Профіль",
+        "eventCreate" : "Панель управління",
+        "logout" : "Вийти"
     }
 }
