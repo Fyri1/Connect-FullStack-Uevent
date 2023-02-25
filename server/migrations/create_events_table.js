@@ -9,6 +9,7 @@ export const up = (knex) =>
     table.string('city').notNullable();
     table.string('address').notNullable();
     table.string('poster');
+    table.string('phone_org');
     table.timestamp('event_start').notNullable();
     table.timestamp('event_end').notNullable();
     table.timestamp('created_at').defaultTo(knex.fn.now());
