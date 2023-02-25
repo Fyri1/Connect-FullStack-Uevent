@@ -17,7 +17,7 @@ app.post('/pay', async (req, res) => {
     ).toString('base64');
 
     const stringifyInternetCards = await fsp.readFile(
-      path.join(path.resolve(), 'internet-card.json'),
+      path.join(path.resolve(), 'Ebank', 'internet-card.json'),
       'utf-8'
     );
     const internetCards = JSON.parse(stringifyInternetCards);
@@ -54,7 +54,7 @@ app.post('/pay', async (req, res) => {
     }
 
     await fsp.writeFile(
-      path.join(path.resolve(), 'internet-card.json'),
+      path.join(path.resolve(), 'Ebank', 'internet-card.json'),
       JSON.stringify(
         {
           ...internetCards,
@@ -66,7 +66,7 @@ app.post('/pay', async (req, res) => {
     );
 
     await fsp.writeFile(
-      path.join(path.resolve(), `${orderId}.json`),
+      path.join(path.resolve(), 'Ebank', `${orderId}.json`),
       JSON.stringify(
         {
           state: 'SOLD',
@@ -94,12 +94,12 @@ app.post('/pay', async (req, res) => {
 app.post('/decline/:orderId', async (req, res) => {
   const { orderId } = req.params;
   const fileData = await fsp.readFile(
-    path.join(path.resolve(), `${orderId}.json`),
+    path.join(path.resolve(), 'Ebank', `${orderId}.json`),
     'utf-8'
   );
   const parseData = JSON.parse(fileData);
   const stringifyInternetCards = await fsp.readFile(
-    path.join(path.resolve(), 'internet-card.json'),
+    path.join(path.resolve(), 'Ebank', 'internet-card.json'),
     'utf-8'
   );
   const internetCards = JSON.parse(stringifyInternetCards);
@@ -114,7 +114,7 @@ app.post('/decline/:orderId', async (req, res) => {
 
   console.log();
   await fsp.writeFile(
-    path.join(path.resolve(), 'internet-card.json'),
+    path.join(path.resolve(), 'Ebank', 'internet-card.json'),
     JSON.stringify(
       {
         ...internetCards,
@@ -129,7 +129,7 @@ app.post('/decline/:orderId', async (req, res) => {
   );
 
   await fsp.writeFile(
-    path.join(path.resolve(), `${orderId}.json`),
+    path.join(path.resolve(), 'Ebank', `${orderId}.json`),
     JSON.stringify({ ...parseData, state: 'DECLINE' }, 2, 4)
   );
   res.end('end');

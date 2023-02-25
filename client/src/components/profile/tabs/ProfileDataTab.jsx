@@ -8,8 +8,6 @@ import ProfileDataInputRow from './ProfileDataInputRow.jsx';
 import { UsersService } from '../../../../services/users.service.js';
 
 const ProfileDataTab = ({ userData, setUserData }) => {
-  // console.log(userData);
-
   let temp = {};
   if (!userData) {
     return <Spinner />
@@ -43,16 +41,12 @@ const ProfileDataTab = ({ userData, setUserData }) => {
               };
             }, {})
           })
-          // галимо то что у тебя снейком first_name и тд. потому что у меня с сервера кемелом приходит :(
-          // но в errors оно заносится
-          console.log(errors);
         }
       }
     )
 
   const submitButtonHandle = async () => {
-    const { id, login, first_name: firstName, last_name: lastName, second_name: secondName } = submitData;
-    await mutateAsync({ id, login, firstName, lastName, secondName });
+    await mutateAsync(submitData);
   }
   
   return !userData ? <Spinner /> : (

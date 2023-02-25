@@ -1,14 +1,14 @@
 {
     "4149391865421694": {
         "issuingNetwork": "VISA",
-        "moneyRange": "136",
+        "moneyRange": "1360",
         "currency": "UA",
         "CVV": 142,
         "expiry": "05/2024"
     },
     "4246577650762399": {
         "issuingNetwork": "VISA",
-        "moneyRange": "4550",
+        "moneyRange": "4250",
         "currency": "UA",
         "CVV": 323,
         "expiry": "07/2025"

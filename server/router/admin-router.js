@@ -28,9 +28,9 @@ router.post(adminRoutes.userHiddenPath(), tryCatch(User.hiddenUser));
 router.patch(
   adminRoutes.userIdUpdatePath(),
   body('login').isLength({ min: 3, max: 30 }).trim(),
-  body('firstName').notEmpty().trim(),
-  body('secondName').notEmpty().trim(),
-  body('lastName').notEmpty().trim(),
+  body('first_name').notEmpty().trim(),
+  body('second_name').notEmpty().trim(),
+  body('last_name').notEmpty().trim(),
   // body('phone_number').isLength({ min: 4, max: 13 }).trim(),
   accessDenied,
   validationErrorUser,

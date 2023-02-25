@@ -16,4 +16,5 @@ export default {
 
   userChangeEmail: () => [apiPath, 'user', id, 'update', 'password'].join('/'),
   userChangePasswordPath: (id) => [apiPath, 'user', id, 'update', 'password'].join('/'),
+  userTickets: (id) => [apiPath, 'user', id, 'ticket'].join('/'),
 };

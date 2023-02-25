@@ -45,12 +45,17 @@ class User {
     const ids = await client('user_tickets')
       .select('ticket_id')
       .where('user_id', '=', id);
-    console.log(ids);
     const ticketsInfo = ids.map(async ({ ticket_id }) => {
       const ticket = await client('tickets')
         .select('*')
         .where('id', '=', ticket_id);
-      return ticket[0];
+      const eventName = await Event.findOne(ticket[0].event_id);
+      return {
+        ...ticket[0],
+        name: eventName.title,
+        start: eventName.event_start,
+        end: eventName.event_end,
+      };
     });
     return await Promise.all(ticketsInfo);
   }
@@ -173,22 +178,9 @@ class User {
     }
   }
 
-  async updateUserDate(
-    id,
-    {
-      login,
-      firstName: first_name,
-      secondName: second_name,
-      lastName: last_name,
-    }
-  ) {
+  async updateUserDate(id, updateData) {
     try {
-      await client('users').where('id', '=', id).update({
-        login,
-        first_name,
-        second_name,
-        last_name,
-      });
+      await client('users').where('id', '=', id).update(updateData);
     } catch (err) {
       throw err;
     }
