@@ -4,6 +4,9 @@ import ProfileHead from './ProfileHead.jsx';
 import UserDataTabsSelector from './tabs-selector/UserDataTabsSelector.jsx';
 import UserEventsTabsSelector from './tabs-selector/UserEventsTabsSelector.jsx';
 import Spinner from '../common/Spinner.jsx';
+import ToastSuccess from '../common/toast/ToastSuccess.jsx';
+import ToastWarning from '../common/toast/ToastWarning.jsx';
+import ToastError from '../common/toast/ToastError.jsx';
 
 import '../css/Profile.css';
 import data from '../../temp/user_data.json';
@@ -35,6 +38,13 @@ const UserProfilePage = () => {
           {/* Events and tickets list */}
           <div className="h-full w-[60%] ml-[1%]"><UserEventsTabsSelector userData={userData} setUserData={setUserData} isLoading={isLoading} /></div>
         </div>
+        
+        <div className='fixed bottom-0 right-4 w-72'>
+          <ToastSuccess id="gavno1" message="sasi dayn nice" />
+          <ToastWarning id="gavno2" message="sasi dayn gavno" />
+          <ToastError id="gavno3" message="sasi dayn error" />
+        </div>
+        
       </div>
     </div>
   );
