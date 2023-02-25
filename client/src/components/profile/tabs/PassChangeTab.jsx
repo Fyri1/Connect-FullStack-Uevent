@@ -1,11 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
+import $api from '../../../../utils/api.js';
 import EditForm from '../../common/form/EditForm';
 import InputField from '../../common/form/InputField.jsx';
 
 import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
-
 
 const PassChangeTab = ({ userData }) => {
   const [errors, setErrors] = React.useState({
@@ -19,20 +18,23 @@ const PassChangeTab = ({ userData }) => {
     passwordConfirm: "",
     oldPassword: ""
   });
-
   // React.useEffect(() => {
   //   console.log(submitData);
   // }, [submitData]);
 
   const handleDataSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // const response = await axios.post( submitData);
-      console.log(response);
-      navigate(adminRoutes.mainPagePath());
+      await $api.patch(apiClientRoutes.userChangePasswordPath(userData.values.id), submitData);
+      setData({
+        password: "",
+        passwordConfirm: "",
+        oldPassword: ""
+      })
     } catch (e) {
-      console.log(e);
+      console.log(e.response);
+      // 422 - старый пароль не совпадает
+      // 400 - новый пароль не совпадает с подтвержденным
       setErrors({
         ...errors,
         ...e.response.data.errors.errors.reduce((acc, i) => {

@@ -1,4 +1,7 @@
 import React from 'react';
+import $api from '../../../../utils/api';
+import apiAdminRoutes from '../../../routes/api/apiAdminRoutes';
+import apiClientRoutes from '../../../routes/api/apiClientRoutes';
 
 import EditForm from '../../common/form/EditForm';
 import InputField from '../../common/form/InputField.jsx';
@@ -13,25 +16,24 @@ const EmailChangeTab = ({ userData }) => {
     email: ""
   });
 
-
   const handleDataSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(apiAdminRoutes.eventPostPath(), submitData);
+      const response = await $api.patch(apiClientRoutes.userChangeEmail(userData.values.id), submitData);
       console.log(response);
-      navigate(adminRoutes.mainPagePath());
+      setData({ email: "" });
     } catch (e) {
-      console.log(e);
-      setErrors({
-        ...errors,
-        ...e.response.data.errors.errors.reduce((acc, i) => {
-          return {
-            ...acc,
-            [i.param]: i.msg,
-          };
-        }, {}),
-      });
+      console.log(e.response.data);
+      // setErrors({
+      //   ...errors,
+      //   ...e.response.data.errors.errors.reduce((acc, i) => {
+      //     return {
+      //       ...acc,
+      //       [i.param]: i.msg,
+      //     };
+      //   }, {}),
+      // });
     }
   }
 

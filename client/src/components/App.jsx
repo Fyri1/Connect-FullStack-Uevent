@@ -53,7 +53,7 @@ const App = () => {
             <Route path={clientRoutes.loginPagePath()} element={<Login />} />
 
             {/* Sral Vilsan */}
-            <Route path="/MainItem" element={<MainItem />} />
+            <Route path="/event/:id" element={<MainItem />} />
             {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
             <Route path="/MyTicket" element={<MyTicket />} />
             <Route path="/PayForm" element={<PayForm />} />

@@ -6,6 +6,7 @@ const useEvents = () => {
     onError: (error) => {
       console.log(error);
     },
+    select: ({data}) => data.values
   });
   return { isLoading, events };
 };

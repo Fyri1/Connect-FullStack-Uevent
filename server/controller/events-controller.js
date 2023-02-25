@@ -9,6 +9,10 @@ class Events {
     return result;
   }
 
+  async getEventsById(req, _res) {
+    return await eventService.getEventsById(req.params);
+  }
+
   async getAllEventTickets(req, _res) {
     const { id: eventId } = req.params;
     const result = await eventService.getAllEventTickets(eventId);
@@ -47,10 +51,6 @@ class Events {
       eventId: req.params.id,
       id,
     });
-  }
-
-  async getEventsById(req, _res) {
-    return await eventService.getEventsById(req.params);
   }
 
   async createEvent(req, _res) {

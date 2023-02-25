@@ -17,15 +17,15 @@ router.get(
 );
 
 router.get(
-  adminRoutes.eventAllUsersSellTicketByEventId(),
-  tryCatch(Events.getAllUsersSellTicketByEventId),
-  Events.getAllUsersSellTicketByEventId
-);
-
-router.get(
   adminRoutes.eventIdGetPath(),
   tryCatch(Events.getEventsById),
   Events.getEventsById
+);
+
+router.get(
+  adminRoutes.eventAllUsersSellTicketByEventId(),
+  tryCatch(Events.getAllUsersSellTicketByEventId),
+  Events.getAllUsersSellTicketByEventId
 );
 
 router.get(

@@ -20,7 +20,7 @@ const ProfileDataTab = ({ userData, setUserData }) => {
     });
   }
   
-  const [errors, setErrors] = React.useState(temp);
+  const [errors, setErrors] = React.useState({});
   const [submitData, setSubmitData] = React.useState(userData?.values);
   const [editActive, setEditActive] = React.useState(false);
   
@@ -35,7 +35,18 @@ const ProfileDataTab = ({ userData, setUserData }) => {
           setEditActive(!editActive);
         },
         onError: (err) => {
-          console.log(err);
+          setErrors({
+            ...errors,
+            ...err.response.data.errors.errors.reduce((acc, i) => {
+              return {
+                ...acc,
+                [i.param]: i.msg,
+              };
+            }, {})
+          })
+          // галимо то что у тебя снейком first_name и тд. потому что у меня с сервера кемелом приходит :(
+          // но в errors оно заносится
+          console.log(errors);
         }
       }
     )

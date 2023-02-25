@@ -6,10 +6,14 @@ export default {
   logoutPath: () => [apiPath, 'auth', 'logout'].join('/'),
   sendMailResetPassword: () => [apiPath, 'auth', 'password-reset'].join('/'),
   resetPassword: (token) => [apiPath, 'auth', 'password-reset', token].join('/'),
-  userChangePasswordPath: () => [apiPath, ':id', 'update', 'password'].join('/'),
   confirmEmail: (token) => [apiPath, 'auth', 'active', token].join('/'),
-  getAllEvent: () => [apiPath, 'event'].join('/'),
   usersGetInfoPath: () => [apiPath, 'user', 'profile'].join('/'),
   changeUserInfo: (id) => [apiPath,'user', id, 'update'].join('/'),
   userIdGetPath: (userId) => [apiPath, 'user', userId].join('/'),
+
+  getAllEvent: () => [apiPath, 'event'].join('/'),
+  getEventById: (id) => [apiPath, 'event', id].join('/'),
+
+  userChangeEmail: () => [apiPath, 'user', id, 'update', 'password'].join('/'),
+  userChangePasswordPath: (id) => [apiPath, 'user', id, 'update', 'password'].join('/'),
 };
