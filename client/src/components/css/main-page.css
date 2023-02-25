@@ -1,0 +1,12 @@
+
+.Kokon-na-mazy{
+    width:60%;
+    position: fixed; /* Фиксированное положение */
+    left: 10%;
+  
+  
+  }
+.main-content{
+    position: static; /* Фиксированное положение */
+    flex-grow: 1;
+}

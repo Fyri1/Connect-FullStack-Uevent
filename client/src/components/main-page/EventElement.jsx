@@ -6,7 +6,7 @@ import '../css/event-card.css';
 const EventElement = ({ event }) => {
   return (
     <div >
-      <div className=" col-sm-4">
+      <div className="col-sm-4">
         <div className=" product-image-wrapper" >
           <div className="single-products">
 

@@ -3,6 +3,19 @@ body {
   margin: 0;
   padding: 0;
 }
+.header-div{
+  position: static; /* Фиксированное положение */
+  flex-grow: 1;
+}
+.logo-div{
+  position: fixed; /* Фиксированное положение */
+  left: 10%; /* Расстояние от правого края окна браузера */
+}
+.text-logo{
+  position: fixed; /* Фиксированное положение */
+  left: 14%; /* Расстояние от правого края окна браузера */
+  
+}
 
 .authButtons {
   width: 100%;

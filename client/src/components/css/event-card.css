@@ -12,6 +12,12 @@
   margin: 0;
   padding: 0;
 }
+.info-ticket-div
+{
+  position: fixed; /* Фиксированное положение */
+  left: 10%;
+}
+
 
 .slider {
   width: 800px;
@@ -97,14 +103,6 @@ input[name="r"] {
   margin-left: -75%;
 }
 
-.Kokon-na-mazy{
-  width: 60%;
-   margin-left: auto;
-    margin-right: auto;
-    display: block;
-
-}
-
 
 
 .features_items {
@@ -120,9 +118,9 @@ input[name="r"] {
 .col-sm-4{
   float: left;
   width: 23%;
-  height: 20%;
+
   position: left;
-  margin: 15px 15px 0px 0px;
+  margin: 25px 15px 0px 0px;
 
   transition: 1s; /* Время эффекта */
   text-align: center; 
@@ -383,6 +381,10 @@ a.btn {
 }
 .recommend{
   border-radius: 5px;
+  position: fixed; /* Фиксированное положение */
+  left: 10%;
+  top:10%
+
 }
 .item-recommend{
   border: 5px solid darkblue;
