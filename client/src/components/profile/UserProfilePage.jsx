@@ -33,7 +33,10 @@ const UserProfilePage = () => {
           <div className="h-full w-[40%] mr-[1%]"><UserDataTabsSelector userData={userData} setUserData={setUserData} isLoading={isLoading} /></div>
 
           {/* Events and tickets list */}
-          <div className="h-full w-[60%] ml-[1%]"><UserEventsTabsSelector userData={userData} setUserData={setUserData} isLoading={isLoading} /></div>
+          <div className="h-full w-[60%] ml-[1%]"><UserEventsTabsSelector userData={userData} setUserData={setUserData} isLoading={isLoading} />
+
+          
+          </div>
         </div>
       </div>
     </div>

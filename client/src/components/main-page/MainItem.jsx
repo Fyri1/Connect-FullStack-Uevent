@@ -24,6 +24,52 @@ const MainItem = () => {
         </button>
         </div>
         <h1 class="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">Ticket to Poland </h1>
+         {/* start biographies  */}
+				<div class="mx-auto px-4 py-4 max-w-xl my-auto">
+					<div class="bg-gray-50 md:bg-white md:shadow-xl md:rounded-lg mb-2">
+
+						<div class="bg-gray-50 md:bg-white md:shadow-lg dark:bg-gray-900 md:dark:bg-gray-800">
+							<a href='#'>
+								<div class="p-4">
+									<p
+										class="truncate font-bold mb-2 md:mt-4 text-2xl text-gray-600 dark:text-gray-200 tracking-normal">
+										Figuring Out NFT and DeFi</p>
+									<div class="break-words text-sm text-gray-600 dark:text-gray-400 ">
+										<p>
+											<p>&nbsp;</p>
+
+											<p>NFT or &ldquo;Non Fungible Token&rdquo; is a token that exists on a
+												distributed
+												ledger/blockchain and is non-fungible in nature, meaning it can&rsquo;t
+												be replaced by
+												another item or interchanged. One can buy NFTs using cryptocurrencies
+												such as Bitcoin,
+												Ethereum, …</p>
+										</p>
+									</div>
+								</div>
+							</a>
+							<div class="flex items-center justify-between p-2 md:p-4 mx-2 md:mx-4">
+								<a href='#'>
+									<div class="flex items-center ml-2">
+										<img class="overflow-hidden object-cover w-10 h-10 md:w-12 md:h-12 rounded " src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="author image"/>
+										<div class="text-xs ml-2 text-left text-gray-600 dark:text-gray-400">
+											<p>ahampriyanshu@gmail.com</p>
+											<p>23 Aug, 2021</p>
+										</div>
+									</div>
+								</a>
+								<div class="text-sm md:text-base text-left text-gray-600 dark:text-gray-400 px-8 py-2">
+									<p>
+										1 min read
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+      {/* end biographies  */}
       </div>
       {/* Основная часть */}
       <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2
@@ -32,49 +78,10 @@ const MainItem = () => {
         <p>&nbsp;</p>
         <button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button>
       </div>
-      <p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 dark:text-slate-400">
-        ЭBilety na spektakle naszego teatru można również kupić w kasie znajdującej się w budynku teatru. 
-        Kasa czynna codziennie od 10.00 do 20.00, przerwa od 14.00 do 14.30, przerwy techniczne od 12:00 do 12:15, od 17:00 do 17:15.
-        Kiosk biletowy teatru działa na Ekobazaar-Mytishchi pod adresem: Veteranov blvd., 6
-        Bilety można rezerwować wcześniej telefonicznie. +7 (495) 582-81-81.
-        Kasa teatru akceptuje zarówno gotówkę, jak i karty kredytowe.
-      </p> 
-      <div class="col-start-1 col-end-3 row-start-1 sm:mb-6 sm:grid-cols-4 lg:gap-6 lg:col-start-2  lg:row-span-6 lg:mb-0">
 
-        {/* start biographies  */}
-        {/* <div class='flex items-center justify-center min-h-screen from-pink-200 via-purple-300 to-blue-500 bg-gradient-to-br'>
-            <div class='w-full max-w-lg py-8 flex flex-row items-center justify-center mx-auto bg-[#FFFBFB] rounded-lg shadow-xl'>
-                <div class="flex flex-col md:flex-row w-3/4 md:w-5/6 space-x-0 md:space-x-8">
-                    <div class="w-full md:w-2/5 flex flex-col items-center justify-center">
-                        <figure class="w-1/2 md:w-full  rounded-full overflow-hidden">
-                            <img src="https://images.pexels.com/photos/1820559/pexels-photo-1820559.jpeg?auto=compress&cs=tinysrgb&w=600" alt="woman wearing a headwrap and an Africa-shaped earring while smiling"></img>
-                        </figure>
-                    </div>
-                    <div class="w-full md:w-3/5 space-y-4 flex flex-col justify-center items-center">
-                        <div class="flex flex-col justify-center">
-                            <h1 class="text-center md:text-left text-2xl font-bold text-gray-900">Justine Howell</h1>
-                            <p class="inline text-gray-700 font-normal leading-6 w-full text-base">UX Researcher, Co-host of the Interesting Design podcast
-                                and a proud mother of three children</p>
-                        </div>
-                        <ul class="space-y-4  md:space-y-0 space-x-0 md:space-x-4 flex flex-col md:flex-row text-left justify-center">
-                            <li class="text-sm"><i class="iconoir-pin-alt mr-2"></i>NYC</li>
-                            <li class="text-sm"><i class="iconoir-calendar mr-2"></i>Member since 2019 </li>
-                        </ul>
+      
+     
 
-                        <ul class="space-x-4 flex flex-row justify-center w-full mb-4">
-                            <li class="text-sm text-gray-800"><strong class="text-gray-900">10.9k</strong> Followers</li>
-                            <li class="text-sm text-gray-800"><strong class="text-gray-900">100</strong> Following</li>
-                        </ul>
-                        <button class="transition-colors bg-purple-700 hover:bg-purple-800 p-2 rounded-sm w-full text-white text-hover shadow-md shadow-purple-900">
-                            Follow
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div> */}
-
-        {/* end biographies  */}
-      </div>
       <dl class="mt-4 text-xs font-medium flex items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-2">
 
         {/* Количество и иконка */}

@@ -14,8 +14,10 @@
 }
 .info-ticket-div
 {
-  position: fixed; /* Фиксированное положение */
+  width:60%;
+  position: absolute; /* Фиксированное положение */
   left: 10%;
+
 }
 
 
@@ -381,9 +383,9 @@ a.btn {
 }
 .recommend{
   border-radius: 5px;
-  position: fixed; /* Фиксированное положение */
+  position: absolute;
   left: 10%;
-  top:10%
+  top:60%
 
 }
 .item-recommend{
@@ -407,6 +409,13 @@ a.btn {
 } */
 .comment-down{
   border: 1px solid rgb(0, 0, 0);
+
+}
+.comment {
+  border-radius: 5px;
+  position: absolute;
+  left: 30%;
+  top:100%
 }
 .followin-button{
   

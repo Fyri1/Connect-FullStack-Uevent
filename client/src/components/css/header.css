@@ -4,17 +4,15 @@ body {
   padding: 0;
 }
 .header-div{
-  position: static; /* Фиксированное положение */
-  flex-grow: 1;
+
 }
 .logo-div{
-  position: fixed; /* Фиксированное положение */
+  position: absolute;
   left: 10%; /* Расстояние от правого края окна браузера */
 }
-.text-logo{
-  position: fixed; /* Фиксированное положение */
-  left: 14%; /* Расстояние от правого края окна браузера */
-  
+.logo-div-text{
+  position: absolute;
+  left: 13%; /* Расстояние от правого края окна браузера */
 }
 
 .authButtons {
