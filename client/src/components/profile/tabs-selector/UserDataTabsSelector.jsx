@@ -25,8 +25,6 @@ const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
           
           {/* Tabs temselves */}
           <div id="UserDataTabContent">
-            {/* <TabContent id="profile">{ isLoading ? <></> : <ProfileDataTab userData={userData} /> }</TabContent>
-            <TabContent id="edit">{ isLoading ? <></> : <ProfileEditTab userData={userData} isLoading={isLoading} /> }</TabContent> */}
             <TabContent id="profile"><ProfileDataTab userData={userData} setUserData={setUserData} /></TabContent>
             <TabContent id="emailEdit"><EmailChangeTab userData={userData} setUserData={setUserData} /></TabContent>
             <TabContent id="passEdit"><PassChangeTab userData={userData} setUserData={setUserData} /></TabContent>
