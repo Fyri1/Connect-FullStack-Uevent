@@ -1,13 +1,15 @@
 
-/*************************
-*******Typography******
-**************************/
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
 /* body{
   background-color: var(--bs-gray-100);
 } */
+.lin2 {
+  min-width: 110%; /* от ширины родителя */
+  max-width: 90%; /* от ширины всей страницы */
+  }
+
 * {
   margin: 0;
   padding: 0;

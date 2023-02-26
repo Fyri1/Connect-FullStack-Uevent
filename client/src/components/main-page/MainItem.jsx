@@ -11,9 +11,9 @@ const MainItem = () => {
     
 <div сlass=" main-div-MainItem py-6 px-4 sm:p-6 md:py-10 md:px-8">
 
-    <div class="info-ticket-div max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
+    <div class="info-ticket-div max-w-4xl mx-auto  lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
       
-      <div class="relative p-3 col-start-1 row-start-1  rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
+      <div class="lin2">
         
         <div class="followin-button ">
         <button class="inline-block relative"> 
@@ -24,50 +24,43 @@ const MainItem = () => {
         </button>
         </div>
         <h1 class="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">Ticket to Poland </h1>
+        {/* иконка локации */}
+        <div class=" bl1 start flex   ">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6 text-gray-500">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+          <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Łwow </a>
+        </div>
+        <a>&nbsp;</a>
          {/* start biographies  */}
-				<div class="mx-auto px-4 py-4 max-w-xl my-auto">
-					<div class="bg-gray-50 md:bg-white md:shadow-xl md:rounded-lg mb-2">
+       
+				  <div class="lin2 md:flex shadow-lg  mx-4 max-w-lg md:max-w-2xl h-64">
+            <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag"/>
+            <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
 
-						<div class="bg-gray-50 md:bg-white md:shadow-lg dark:bg-gray-900 md:dark:bg-gray-800">
-							<a href='#'>
-								<div class="p-4">
-									<p
-										class="truncate font-bold mb-2 md:mt-4 text-2xl text-gray-600 dark:text-gray-200 tracking-normal">
-										Figuring Out NFT and DeFi</p>
-									<div class="break-words text-sm text-gray-600 dark:text-gray-400 ">
-										<p>
-											<p>&nbsp;</p>
+                <p class=" text-sm text-gray-700 mt-4">
+                  Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
+                </p>
+                <div class="time-info-div">
+                  <div className='time2'>
+                    <a className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" > </a>
+                  </div>
 
-											<p>NFT or &ldquo;Non Fungible Token&rdquo; is a token that exists on a
-												distributed
-												ledger/blockchain and is non-fungible in nature, meaning it can&rsquo;t
-												be replaced by
-												another item or interchanged. One can buy NFTs using cryptocurrencies
-												such as Bitcoin,
-												Ethereum, …</p>
-										</p>
-									</div>
-								</div>
-							</a>
-							<div class="flex items-center justify-between p-2 md:p-4 mx-2 md:mx-4">
-								<a href='#'>
-									<div class="flex items-center ml-2">
-										<img class="overflow-hidden object-cover w-10 h-10 md:w-12 md:h-12 rounded " src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="author image"/>
-										<div class="text-xs ml-2 text-left text-gray-600 dark:text-gray-400">
-											<p>ahampriyanshu@gmail.com</p>
-											<p>23 Aug, 2021</p>
-										</div>
-									</div>
-								</a>
-								<div class="text-sm md:text-base text-left text-gray-600 dark:text-gray-400 px-8 py-2">
-									<p>
-										1 min read
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+
+                </div>
+                <div class="flex items-center justify-end mt-4 top-auto">
+                  
+                </div>
+                <div class="flex items-center justify-end mt-4 top-auto">
+ 
+                  <button class=" bg-blue-600 text-gray-200 px-2 py-2 rounded-md ">РАЗВЕРНУть</button>
+                </div>
+            </div>
+            
+          </div>
+       
+          
 
       {/* end biographies  */}
       </div>
@@ -97,26 +90,14 @@ const MainItem = () => {
           </a>
         </div>
 
-        {/* Место положение */}
-        <div class="flex items-center ">
 
-        </div>
 
       </dl>
 
       {/* то что идет после описания */}
       <div class=" mt-5 text-xs font-medium  items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-5">
 
-        {/* иконка локации */}
-        <div class=" bl1 start flex   ">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6 text-gray-500">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-          </svg>
-          
-          <a class="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; Łwow </a>
-        </div>
-        <a>&nbsp;</a>
+
         {/* Start  time*/}
         <div class=" bl1 start flex   ">
           <svg width="2" height="2" aria-hidden="true" fill="currentColor" class="mx-0 text-slate-300">
