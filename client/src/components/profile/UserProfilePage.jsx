@@ -44,7 +44,7 @@ const UserProfilePage = () => {
           <ToastError id="gavno3" message="sasi dayn error" />
         </div> */}
         
-        <div className="my-4 flex flex-col"> 
+        {/* <div className="my-4 flex flex-col"> 
           <div className="w-full flex flex-col">
             <div className="flex-1 bg-white rounded-lg shadow-xl py-3 px-6" data-carousel="static" id="indicators-carousel">
               
@@ -64,24 +64,26 @@ const UserProfilePage = () => {
                 </ul>
               </div>
 
-              <div className="hidden duration-700 ease-in-out" data-carousel-item="active">
-                <img src="/docs/images/carousel/carousel-1.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."></img>
-                <p>Parasha1</p>
-              </div>
-              
-              <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-2.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."></img>
-                <p>Parasha2</p>
-              </div>
-              
-              <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-3.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."></img>
-                <p>Parasha3</p>
+              <div className="relative h-56 overflow-hidden rounded-lg">
+                <div className="hidden p-3 items-center justify-center w-full rounded-lg bg-gray-50 dark:bg-gray-800 duration-700 ease-in-out" data-carousel-item="active">
+                  <img src="/docs/images/carousel/carousel-1.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."></img>
+                  <p>Parasha1</p>
+                </div>
+                
+                <div className="hidden p-3 items-center justify-center w-full rounded-lg bg-gray-50 dark:bg-gray-800 duration-700 ease-in-out" data-carousel-item>
+                  <img src="/docs/images/carousel/carousel-2.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."></img>
+                  <p>Parasha2</p>
+                </div>
+                
+                <div className="hidden p-3 items-center justify-center w-full rounded-lg bg-gray-50 dark:bg-gray-800 duration-700 ease-in-out" data-carousel-item>
+                  <img src="/docs/images/carousel/carousel-3.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."></img>
+                  <p>Parasha3</p>
+                </div>
               </div>
 
             </div>
           </div>
-        </div>
+        </div> */}
 
 
         {/* <div id="indicators-carousel" className="relative" data-carousel="static">
