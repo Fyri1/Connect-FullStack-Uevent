@@ -1,17 +1,43 @@
 
-/*************************
-*******Typography******
-**************************/
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
 /* body{
   background-color: var(--bs-gray-100);
 } */
+.back-fon-biographies{
+  margin: 10px 10px 20px 10px;
+}
+.lin2 {
+  background-color: #0f67fe;
+  }
+  .child {
+    border: 3px solid #666; /* Параметры рамки */
+    padding: 10px; /* Поля вокруг текста */
+    margin: 10px; /* Отступы вокруг */
+   }
+   .outer {
+    border: 1px solid blue;
+  }
+  .inner {
+    border: 1px solid red;
+  }
+
+
+
+
+
 * {
   margin: 0;
   padding: 0;
 }
+.info-ticket-div
+{
+  left: 10%;
+
+}
+
+
 
 .slider {
   width: 800px;
@@ -97,14 +123,6 @@ input[name="r"] {
   margin-left: -75%;
 }
 
-.Kokon-na-mazy{
-  width: 60%;
-   margin-left: auto;
-    margin-right: auto;
-    display: block;
-
-}
-
 
 
 .features_items {
@@ -120,9 +138,9 @@ input[name="r"] {
 .col-sm-4{
   float: left;
   width: 23%;
-  height: 20%;
+
   position: left;
-  margin: 15px 15px 0px 0px;
+  margin: 25px 15px 0px 0px;
 
   transition: 1s; /* Время эффекта */
   text-align: center; 
@@ -382,7 +400,11 @@ a.btn {
 
 }
 .recommend{
-  border-radius: 5px;
+  /* border-radius: 5px;
+  position: absolute; */
+  /* left: 10%;
+  top:60% */
+
 }
 .item-recommend{
   border: 5px solid darkblue;
@@ -405,6 +427,13 @@ a.btn {
 } */
 .comment-down{
   border: 1px solid rgb(0, 0, 0);
+
+}
+.comment {
+  /* border-radius: 5px;
+  position: absolute;
+  left: 30%;
+  top:100% */
 }
 .followin-button{
   

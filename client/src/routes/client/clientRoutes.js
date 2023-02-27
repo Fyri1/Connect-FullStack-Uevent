@@ -14,6 +14,9 @@ export default {
   fullPassResetPagePath: () => [clientPath, 'pass-reset'].join('/'),
   passResetPagePath: () => '/pass-reset',
 
+  fullRulesPagePath: () => [clientPath, 'rules-user'].join('/'),
+  rulesPagePath: () => '/rules-user',
+
   fullConfirmEmailPagePath: () => [clientPath, 'comfirm-email'].join('/'),
   confirmEmailPagePath: () => '/comfirm-email',
 

@@ -20,6 +20,8 @@ import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
 import PartnerRegister from './auth/PartnerRegister.jsx';
+import RulesUser from './auth/RulesUser.jsx';
+
 
 // Admin panel
 import AdminPage from './admin-panel/AdminPage.jsx';
@@ -30,6 +32,7 @@ import clientRoutes from '../routes/client/clientRoutes.js';
 import adminRoutes from '../routes/client/adminRoutes.js';
 import moderatorRoutes from '../routes/client/moderatorRoutes.js';
 import organizationRoutes from '../routes/client/organizationRoutes.js';
+// import Rules from './auth/RulesUser.jsx';
 
 const lngs = {
   en: { nativeName: 'en' },
@@ -61,6 +64,9 @@ const App = () => {
 
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />
             <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
+
+            <Route path={clientRoutes.rulesPagePath()} element={<RulesUser />} />
+
             <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
             <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />
             <Route path={clientRoutes.profilePagePath()} element={<UserProfilePage />} />
