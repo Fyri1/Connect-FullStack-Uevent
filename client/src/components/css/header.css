@@ -7,13 +7,11 @@ body {
 
 }
 .logo-div{
-  position: absolute;
-  left: 10%; /* Расстояние от правого края окна браузера */
+  width:250%;
+  display:flex;
+  justify-content:flex-end;
 }
-.logo-div-text{
-  position: absolute;
-  left: 13%; /* Расстояние от правого края окна браузера */
-}
+
 
 .authButtons {
   width: 100%;

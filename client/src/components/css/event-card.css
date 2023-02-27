@@ -6,14 +6,26 @@
   background-color: var(--bs-gray-100);
 } */
 .back-fon-biographies{
-  margin: 10px 0px 20px 0px;
-  background-color:#b80e0e;
+  margin: 10px 10px 20px 10px;
 }
 .lin2 {
- 
-  min-width: 110%; /* от ширины родителя */
-  max-width: 90%; /* от ширины всей страницы */
+  background-color: #0f67fe;
   }
+  .child {
+    border: 3px solid #666; /* Параметры рамки */
+    padding: 10px; /* Поля вокруг текста */
+    margin: 10px; /* Отступы вокруг */
+   }
+   .outer {
+    border: 1px solid blue;
+  }
+  .inner {
+    border: 1px solid red;
+  }
+
+
+
+
 
 * {
   margin: 0;
@@ -21,11 +33,10 @@
 }
 .info-ticket-div
 {
-  width:60%;
-  position: absolute; /* Фиксированное положение */
   left: 10%;
 
 }
+
 
 
 .slider {
@@ -389,10 +400,10 @@ a.btn {
 
 }
 .recommend{
-  border-radius: 5px;
-  position: absolute;
-  left: 10%;
-  top:60%
+  /* border-radius: 5px;
+  position: absolute; */
+  /* left: 10%;
+  top:60% */
 
 }
 .item-recommend{
@@ -419,10 +430,10 @@ a.btn {
 
 }
 .comment {
-  border-radius: 5px;
+  /* border-radius: 5px;
   position: absolute;
   left: 30%;
-  top:100%
+  top:100% */
 }
 .followin-button{
   
