@@ -5,7 +5,12 @@
 /* body{
   background-color: var(--bs-gray-100);
 } */
+.back-fon-biographies{
+  margin: 10px 0px 20px 0px;
+  background-color:#b80e0e;
+}
 .lin2 {
+ 
   min-width: 110%; /* от ширины родителя */
   max-width: 90%; /* от ширины всей страницы */
   }

@@ -34,35 +34,73 @@ const MainItem = () => {
         </div>
         <a>&nbsp;</a>
          {/* start biographies  */}
-       
-				  <div class="lin2 md:flex shadow-lg  mx-4 max-w-lg md:max-w-2xl h-64">
-            <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag"/>
-            <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
 
-                <p class=" text-sm text-gray-700 mt-4">
-                  Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
-                </p>
-                <div class="time-info-div">
-                  <div className='time2'>
-                    <a className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" > </a>
+          <div className='back-fon-biographies'>
+            <div class="lin2 md:flex shadow-lg  mx-4 max-w-lg md:max-w-2xl h-64">
+              <img class=" object-cover rounded-lg rounded-r-none pb-5/6" src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag"/>
+              <div class="px-4 py-4 bg-white rounded-lg">
+
+                  <p class=" text-sm text-gray-700 mt-4">
+                    Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam 
+                    reiciendis numquam tempore commodi ipsa suscipit laboriosam, 
+                    sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam
+                    tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
+                  </p>
+                  <div class="time-info-div">
+                    <div className='time2'>
+                      <a className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" > </a>
+                    </div>
                   </div>
+                  <div class="flex items-center justify-end mt-4 top-auto">
+                    
+                  </div>
+                  <div class="flex items-center justify-end mt-4 top-auto">
+  
+                    <button class=" bg-blue-600 text-gray-200 px-2 py-2 rounded-md ">РАЗВЕРНУть</button>
 
-
-                </div>
-                <div class="flex items-center justify-end mt-4 top-auto">
-                  
-                </div>
-                <div class="flex items-center justify-end mt-4 top-auto">
- 
-                  <button class=" bg-blue-600 text-gray-200 px-2 py-2 rounded-md ">РАЗВЕРНУть</button>
-                </div>
+                  </div>
+              </div>
+              
             </div>
-            
           </div>
-       
           
 
       {/* end biographies  */}
+      <div class="">
+          <div class="shadow overflow-hidden rounded border-b border-gray-200">
+            <table class="min-w-full bg-white">
+              <thead class="bg-gray-800 text-white">
+                <tr>
+                  <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Когда?</th>
+                  <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Где?</th>
+                  <th class="text-left py-3 px-4 uppercase font-semibold text-sm"></th>
+          
+                </tr>
+              </thead>
+            <tbody class="text-gray-700">
+              <tr>
+                <td class="w-1/3 text-left py-3 px-4">17.03.2023</td>
+                <td class="w-1/3 text-left py-3 px-4">Hamburg
+Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">ЗАКАЗАТЬ</a></td>
+              </tr>
+              <tr class="bg-gray-100">
+                <td class="w-1/3 text-left py-3 px-4">17.03.2023</td>
+                <td class="w-1/3 text-left py-3 px-4">Hamburg
+Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">ЗАКАЗАТЬ</a></td>
+              </tr>
+              <tr>
+                <td class="w-1/3 text-left py-3 px-4">17.03.2023</td>
+                <td class="w-1/3 text-left py-3 px-4">Hamburg
+Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">ЗАКАЗАТЬ</a></td>
+              </tr>
+
+            </tbody>
+            </table>
+          </div>
+        </div>
       </div>
       {/* Основная часть */}
       <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2
@@ -131,13 +169,11 @@ const MainItem = () => {
       </div>
   </div>
   {/* Start recommend */}
-  <div className="recommend ">
+  {/* <div className="recommend ">
     <h1 class=" text-center  bg-white rounded-md  py-5 max-w-2xl mx-auto text-2xl font-bold text-gray-500  ">RECOMMEND</h1>
     
-       {/* class="py-3 bg-gray-100  это был приятный фон */}
       <section >
       <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {/* Итемы рекомендаций Думаю просто на похуе можно выгружать 4 штуки ( если выгружать больше то будут вторй строкой)  */}
         <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
           <a href="#">
             <div class="relative flex items-end overflow-hidden rounded-xl">
@@ -266,7 +302,7 @@ const MainItem = () => {
         
       </div>
     </section>
-  </div>
+  </div> */}
 
   {/* начало Комментариев */}
   <div class="comment">   {/* отвечате за цвет*/}
