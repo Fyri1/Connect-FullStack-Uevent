@@ -7,6 +7,8 @@ import ProfileDataTab from '../tabs/ProfileDataTab.jsx';
 import EmailChangeTab from '../tabs/EmailChangeTab.jsx';
 import PassChangeTab from '../tabs/PassChangeTab';
 
+import '../../css/Profile.css';
+
 
 const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
   console.log("ebat moi hyi!")

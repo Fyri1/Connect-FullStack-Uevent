@@ -23,3 +23,40 @@
 .dropdown-content a:hover {background-color: #f1f1f1;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+.tab-button-wrapper {
+    position: relative;
+    margin: 0 auto;
+}
+
+.tab-button-wrapper .tab-button-border {
+    background: #383838;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    margin: auto;
+    opacity: 0;
+    transition: linear 0.3s;
+}
+
+.tab-button-wrapper:hover .tab-button-border {
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    transition: all .2s linear;
+}
+
+.tab-button-border:focus {
+    width: 100%;
+    opacity: 1;
+}
+
+/* .tab-button-wrapper:focus .tab-button-border {
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    transition: all .2s linear;
+} */
