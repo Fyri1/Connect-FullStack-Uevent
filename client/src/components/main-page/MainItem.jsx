@@ -69,10 +69,11 @@ const MainItem = () => {
       <div class="">
           <div class="shadow overflow-hidden rounded border-b border-gray-200">
             <table class="min-w-full bg-white">
-              <thead class="bg-gray-800 text-white">
+              <thead class="bg-blue-800 text-white">
                 <tr>
-                  <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Когда?</th>
-                  <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Где?</th>
+                  <th class="mt-1 text-lg font-semibold text-white md:text-2xl dark:sm:text-white">Когда?</th>
+                  <th class="mt-1 text-lg font-semibold text-white md:text-2xl dark:sm:text-white">Где?</th>
+                  <th class="mt-1 text-lg font-semibold text-white md:text-2xl dark:sm:text-white">Prise</th>
                   <th class="text-left py-3 px-4 uppercase font-semibold text-sm"></th>
           
                 </tr>
@@ -81,20 +82,24 @@ const MainItem = () => {
               <tr>
                 <td class="w-1/3 text-left py-3 px-4">17.03.2023</td>
                 <td class="w-1/3 text-left py-3 px-4">Hamburg
-Barclaycard Arena, Sylvesterallee 10, 22525</td>
-                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">ЗАКАЗАТЬ</a></td>
+                  Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                <td class="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
+                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662"><button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button></a></td>
               </tr>
               <tr class="bg-gray-100">
                 <td class="w-1/3 text-left py-3 px-4">17.03.2023</td>
                 <td class="w-1/3 text-left py-3 px-4">Hamburg
 Barclaycard Arena, Sylvesterallee 10, 22525</td>
-                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">ЗАКАЗАТЬ</a></td>
+                  Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                <td class="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
+                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662"><button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button></a></td>
               </tr>
               <tr>
                 <td class="w-1/3 text-left py-3 px-4">17.03.2023</td>
                 <td class="w-1/3 text-left py-3 px-4">Hamburg
-Barclaycard Arena, Sylvesterallee 10, 22525</td>
-                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">ЗАКАЗАТЬ</a></td>
+                Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                <td class="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
+                <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662"><button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button></a></td>
               </tr>
 
             </tbody>
@@ -107,7 +112,6 @@ Barclaycard Arena, Sylvesterallee 10, 22525</td>
         lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
         <h4 class="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">Prise:<a>  56$</a></h4>
         <p>&nbsp;</p>
-        <button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button>
       </div>
 
       
