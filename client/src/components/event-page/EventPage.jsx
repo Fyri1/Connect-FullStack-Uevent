@@ -6,6 +6,8 @@ import Spinner from '../common/Spinner.jsx';
 import RecommendCard from './RecommendCard.jsx';
 import CommentsSection from "./comments/CommentsSection.jsx";
 
+import CheckoutButton from '../payment/PayForm.jsx';
+
 import '../css/event-card.css';
 
 
@@ -110,7 +112,7 @@ const EventPage = () => {
                     <td className="w-1/3 text-left py-3 px-4">17.03.2023</td>
                     <td className="w-1/3 text-left py-3 px-4">Hamburg Barclaycard Arena, Sylvesterallee 10, 22525</td>
                     <td className="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
-                    <td className="text-left py-3 px-4"><a className="hover:text-blue-500" href="tel:622322662"><button type="button" className="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button></a></td>
+                    <td className="text-left py-3 px-4"><CheckoutButton eventItem={event}/></td>
                   </tr>
                   <tr className="bg-gray-100">
                     <td className="w-1/3 text-left py-3 px-4">17.03.2023</td>
