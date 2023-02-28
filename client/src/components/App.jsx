@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useTranslation, I18nextProvider } from 'react-i18next';
+import { I18nextProvider } from 'react-i18next';
 import i18next from "i18next";
 
 // Common
@@ -9,7 +9,7 @@ import PageNotFound from './common/PageNotFound.jsx';
 import MainPage from './main-page/MainPage.jsx';
 
 // FullMainItemPage
-import MainItem from './main-page/MainItem.jsx';
+import EventPage from './event-page/EventPage.jsx';
 import UserProfilePage from './profile/UserProfilePage.jsx';
 import MyTicket from './user/MyTicket.jsx';
 import PayForm from './payment/PayForm.jsx'
@@ -21,7 +21,6 @@ import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
 import PartnerRegister from './auth/PartnerRegister.jsx';
 import RulesUser from './auth/RulesUser.jsx';
-
 
 // Admin panel
 import AdminPage from './admin-panel/AdminPage.jsx';
@@ -56,7 +55,7 @@ const App = () => {
             <Route path={clientRoutes.loginPagePath()} element={<Login />} />
 
             {/* Sral Vilsan */}
-            <Route path="/event/:id" element={<MainItem />} />
+            <Route path="/event/:id" element={<EventPage />} />
             {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
             <Route path="/MyTicket" element={<MyTicket />} />
             <Route path="/PayForm" element={<PayForm />} />
