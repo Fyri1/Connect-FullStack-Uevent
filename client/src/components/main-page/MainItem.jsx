@@ -116,7 +116,7 @@ const MainItem = () => {
                 <td class="w-1/3 text-left py-3 px-4">17.03.2023</td>
                 <td class="w-1/3 text-left py-3 px-4">Hamburg
                   Barclaycard Arena, Sylvesterallee 10, 22525</td>
-                <td class="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
+                <td class="price-td mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
                 <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662"><button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button></a></td>
               </tr>
               <tr>

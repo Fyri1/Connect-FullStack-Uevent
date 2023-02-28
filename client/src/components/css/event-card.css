@@ -22,7 +22,9 @@
   .inner {
     border: 1px solid red;
   }
-
+.price-td{
+     width: 6em;
+}
 
 
 
