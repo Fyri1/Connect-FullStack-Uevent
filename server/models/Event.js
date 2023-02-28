@@ -12,8 +12,9 @@ class Event {
       const data = await client('events').select('*');
       const events = data.map(async (event) => {
         const tickets = await this.getAllTickets(event.id)
+        const eventCategories = await this.getAllCategories(event.id);
         const priceTicket = tickets[0].price;
-        return { ...event, priceTicket }
+        return { ...event, priceTicket, categories: eventCategories }
       })
       return Promise.all(events);
     } catch (err) {
@@ -28,7 +29,8 @@ class Event {
       throw ApiError.NotFound('event not found');
     }
     const tickets = await this.getAllTickets(data[0].id)
-    return { ...data[0], priceTicket: tickets[0].price };
+    const eventCategories = await this.getAllCategories(data[0].id);
+    return { ...data[0], priceTicket: tickets[0].price, categories: eventCategories };
   }
 
 

@@ -38,7 +38,7 @@ const lngs = {
   ru: { nativeName: 'ru' },
   ua: { nativeName: 'ua' },
 };
-
+  
 const App = () => {
   // const [ t, i18n ] = useTranslation('header');
 
@@ -58,7 +58,8 @@ const App = () => {
             <Route path="/event/:id" element={<EventPage />} />
             {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
             <Route path="/MyTicket" element={<MyTicket />} />
-            <Route path="/PayForm" element={<PayForm />} />
+            
+            <Route path="/success" element={<><h2>SUCCESS</h2></>} />
             {/* neSral Vilsan */}
 
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />

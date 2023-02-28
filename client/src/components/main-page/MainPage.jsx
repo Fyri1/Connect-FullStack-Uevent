@@ -10,9 +10,7 @@ import '../css/main-page.css';
 
 const MainPage = () => {
   const { isLoading, events } = useEvents();
-
-  // const eventsElements = ;
-
+  
   return (
     <div>
       {isLoading ? (
