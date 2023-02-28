@@ -161,6 +161,7 @@ const MainItem = () => {
                     </div>
                   </a>
                 </article>
+                
                 <article className="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
                   <a href="#">
                     <div className="relative flex items-end overflow-hidden rounded-xl">
@@ -192,6 +193,7 @@ const MainItem = () => {
                     </div>
                   </a>
                 </article>
+
                 <article className="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
                   <a href="#">
                     <div className="relative flex items-end overflow-hidden rounded-xl">
@@ -200,7 +202,6 @@ const MainItem = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-4 w-4">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                         </svg>
-
                         <button className="text-sm">Add to cart</button>
                       </div>
                     </div>
@@ -216,7 +217,6 @@ const MainItem = () => {
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-4 w-4">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                           </svg>
-
                           <button className="text-sm">Add to cart</button>
                         </div>
                       </div>
@@ -260,12 +260,11 @@ const MainItem = () => {
           </div>
 
           {/* начало Комментариев */}
-          <div className="comment">   {/* отвечате за цвет*/}
+          <div className="comment"> {/* отвечает за цвет*/}
             <div className="flex justify-center  min-h-screen">
               <div className="h-80 px-7 w-[700px] rounded-[12px] bg-white p-4 shadow-md border">
                 <p className="text-xl font-semibold text-blue-900 cursor-pointer transition-all hover:text-black">Add Comment</p>
-                <textarea className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here"></textarea>  
-
+                <textarea className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here"></textarea>
                 <div className="flex justify-between mt-2"> 
                   <p className="text-sm text-blue-900 ">Enter atleast 15 characters</p>
                   <button className="h-12 w-[150px] bg-blue-400 text-sm text-white rounded-lg transition-all cursor-pointer hover:bg-blue-600">Submit comment</button>
