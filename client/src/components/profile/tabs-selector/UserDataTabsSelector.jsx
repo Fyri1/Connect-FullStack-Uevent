@@ -19,9 +19,9 @@ const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
           {/* Tabs selector */}
           <div className="mb-4 border-b border-gray-200 dark:border-gray-700">
             <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
-              <TabButton id="profile" slideNumber="1" current={true} name="Personal Info" />
-              <TabButton id="emailEdit" slideNumber="2" current={false} name="Email" />
-              <TabButton id="passEdit" slideNumber="3" current={false} name="Password" />
+              <TabButton id="profile" slideNumber="1" active={true} category="userData" name="Personal Info" />
+              <TabButton id="emailEdit" slideNumber="2" active={false} category="userData" name="Email" />
+              <TabButton id="passEdit" slideNumber="3" active={false} category="userData" name="Password" />
             </ul>
           </div>
 
@@ -30,7 +30,7 @@ const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
             <TabContent id="profile"><ProfileDataTab userData={userData} setUserData={setUserData} /></TabContent>
             <TabContent id="emailEdit"><EmailChangeTab userData={userData} setUserData={setUserData} /></TabContent>
             <TabContent id="passEdit"><PassChangeTab userData={userData} setUserData={setUserData} /></TabContent>
-            <TabContent id="phantom"></TabContent>
+            <TabContent id="phantom1"></TabContent>
           </div>
         </div>
       </div>

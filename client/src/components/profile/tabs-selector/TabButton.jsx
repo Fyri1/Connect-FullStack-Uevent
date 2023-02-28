@@ -3,18 +3,22 @@ import React from 'react';
 import '../../css/Profile.css';
 
 
-const TabButton = ({ id, slideNumber, current, name }) => {
+const TabButton = ({ id, slideNumber, active, category, name }) => {
   const tabChangeAnimationHandle = () => {
-    console.log('pizdec')
+    const buttonClassList = document.getElementsByClassName(category);
+    for (let i = 0; i < buttonClassList.length; i++) {
+      buttonClassList.item(i).classList.remove("tab-button-active");
+    }
+    // Assign to our elemnt id the blue hyi
+    document.getElementById(id + "-tab-wrapper").classList.add("tab-button-active");
   }
 
   return (
     <li className="mr-2" role="presentation">
-      <div className="tab-button-wrapper">
+      <div id={id + "-tab-wrapper"} className={"tab-button-wrapper " + category + (active ? " tab-button-active" : "")}>
         <button
-          className="tab-button group inline-block p-4 rounded-t-lg focus:text-blue-700"
+          className={"tab-button group inline-block p-4 rounded-t-lg"}
           onClick={tabChangeAnimationHandle}
-          aria-current={current}
           data-carousel-slide-to={slideNumber}
           id={id + "-tab"}
           type="button">

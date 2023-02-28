@@ -31,7 +31,7 @@
 }
 
 .tab-button-wrapper .tab-button-border {
-    background: #383838;
+    background: #d8d8d8;
     position: absolute;
     bottom: 0px;
     left: 50%;
@@ -39,7 +39,20 @@
     height: 2px;
     margin: auto;
     opacity: 0;
-    transition: linear 0.3s;
+    transition: linear 0.4s;
+}
+
+.tab-button-active {
+    color: blue;
+    transition: linear 0.4s;
+}
+
+.tab-button-active .tab-button-border {
+    background: blue;
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    transition: all .2s linear;
 }
 
 .tab-button-wrapper:hover .tab-button-border {
@@ -48,15 +61,3 @@
     opacity: 1;
     transition: all .2s linear;
 }
-
-.tab-button-border:focus {
-    width: 100%;
-    opacity: 1;
-}
-
-/* .tab-button-wrapper:focus .tab-button-border {
-    left: 0;
-    width: 100%;
-    opacity: 1;
-    transition: all .2s linear;
-} */
