@@ -8,13 +8,16 @@ export default {
   resetPassword: (token) => [apiPath, 'auth', 'password-reset', token].join('/'),
   confirmEmail: (token) => [apiPath, 'auth', 'active', token].join('/'),
   usersGetInfoPath: () => [apiPath, 'user', 'profile'].join('/'),
-  changeUserInfo: (id) => [apiPath,'user', id, 'update'].join('/'),
+  changeUserInfo: (id) => [apiPath, 'user', id, 'update'].join('/'),
   userIdGetPath: (userId) => [apiPath, 'user', userId].join('/'),
 
   getAllEvent: () => [apiPath, 'event'].join('/'),
   getEventById: (id) => [apiPath, 'event', id].join('/'),
 
   userChangeEmail: () => [apiPath, 'user', id, 'update', 'password'].join('/'),
-  userChangePasswordPath: (id) => [apiPath, 'user', id, 'update', 'password'].join('/'),
+  userChangePasswordPath: (id) =>
+    [apiPath, 'user', id, 'update', 'password'].join('/'),
   userTickets: (id) => [apiPath, 'user', id, 'ticket'].join('/'),
+
+  payPath: () => [apiPath, 'pay', 'create-session-intent'].join('/'),
 };

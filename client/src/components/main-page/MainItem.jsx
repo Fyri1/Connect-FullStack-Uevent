@@ -2,14 +2,15 @@ import React from "react";
 <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css"/>;
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"/>
 import { useEvent } from '../../../hooks/useEvent';
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import '../css/event-card.css';
 import Spinner from '../common/Spinner.jsx';
+import CheckOut from '../payment/PayForm.jsx'
 
 const MainItem = () => {
   const id = useParams()['id'];
   const { isLoading, event } = useEvent(id);
-  console.log(event);
+  const navigate = useNavigate()
 
   return isLoading ? <Spinner /> : (
     
@@ -33,7 +34,7 @@ const MainItem = () => {
         lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
         <h4 class="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">Prise:<a>  56$</a></h4>
         <p>&nbsp;</p>
-        <button type="button" class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button>
+        <CheckOut eventItem={event}/>
       </div>
       <p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 dark:text-slate-400">
         ЭBilety na spektakle naszego teatru można również kupić w kasie znajdującej się w budynku teatru. 
