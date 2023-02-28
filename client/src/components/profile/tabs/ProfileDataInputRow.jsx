@@ -6,7 +6,7 @@ import InputField from '../../common/form/InputField.jsx';
 const ProfileDataInputRow = ({ id, name, value, data, setData, errors, setErrors }) => {
   // console.log(data);
   return (
-    <li className="flex border-y py-4">
+    <li className="flex border-y pt-4 pb-1">
       <div className="flex w-full">
         <span className="font-bold pt-2 w-[35%] pr-1">{ name }</span>
         <div className="w-[65%]">
