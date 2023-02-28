@@ -5,7 +5,7 @@ import '../../css/events-tab.css';
 const EventsTab = ({ userData }) => {
   return (
     <div>
-                <div class="md:flex shadow-lg  mx-6 max-w-lg md:max-w-2xl h-64">
+          <div class="md:flex shadow-lg  mx-6 max-w-lg md:max-w-2xl h-64">
             <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag"/>
             <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
                 <div class="flex items-center">
