@@ -11,6 +11,7 @@ export const up = (knex) =>
     table.string('email').notNullable();
     table.string('description').notNullable();
     table.string('link_organization');
+    table.string('secret_key');
     table.boolean('is_confirmed').notNullable().defaultTo(false);
     table.timestamp('created_at').defaultTo(knex.fn.now());
   });

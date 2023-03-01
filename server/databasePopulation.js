@@ -105,6 +105,7 @@ const createOrganizarion = async (user_id) => {
     description:
       'Cloud-based small team project management software developed by Fog Creek Software. Trello uses a project management paradigm known as kanban, a method originally popularized by Toyota in the 1980s for supply chain management.',
     link_organization: 'trello.com​',
+    secret_key: 'sk_test_51Mg9UfDxrUTatUeLOCgBTViSh63SKNU7hixzWgz2VTR4ZXaYyxaHd6ccbJjUqmIVc0m9BDwFhyKjI9KNZSynyK4g00jS8lViec',
     is_confirmed: true,
   });
 };

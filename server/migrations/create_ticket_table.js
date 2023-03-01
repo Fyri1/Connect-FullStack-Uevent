@@ -6,6 +6,7 @@ export const up = (knex) =>
     table.string('event_id').unsigned().index().references('event.id');
     table.decimal('price').notNullable();
     table.boolean('is_sold').notNullable().defaultTo(false);
+    table.string('payment_intent');
   });
 
 export const down = (knex) => knex.schema.dropTable('ticket');
