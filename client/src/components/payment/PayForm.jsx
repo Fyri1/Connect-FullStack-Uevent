@@ -166,7 +166,7 @@ import {
 } from '@stripe/react-stripe-js';
 import $api from '../../../utils/api';
 import apiClientRoutes from '../../routes/api/apiClientRoutes.js';
-import './PayForm.css';
+import '../css/PayForm.css';
 
 export default ({ eventItem }) => {
   const handleSubmit = async () => {
