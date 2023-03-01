@@ -1,0 +1,21 @@
+.main-event-content-retracted {
+    overflow: hidden;
+    height: 100px;
+    transition: linear 0.3s;
+}
+
+.main-event-content-unfolded {
+    overflow: hidden;
+    height: 235px;
+    transition: linear 0.3s;
+}
+
+.text-retracted {
+    height: 50px;
+    transition: linear 0.3s;
+}
+
+.text-unfolded {
+    height: auto;
+    transition: linear 0.3s;
+}

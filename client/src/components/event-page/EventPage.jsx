@@ -3,18 +3,25 @@ import { useEvent } from '../../../hooks/useEvent';
 import { useParams } from 'react-router-dom'
 
 import Spinner from '../common/Spinner.jsx';
+import EventDetailsElement from "./EventDetailsElement.jsx";
 import RecommendCard from './RecommendCard.jsx';
 import CommentsSection from "./comments/CommentsSection.jsx";
 
 import CheckoutButton from '../payment/PayForm.jsx';
 
-import '../css/event-card.css';
+// MAKS BLYA PERENESI VSY HYINU DLYA EVENT PAGE V OTDELNII FILE
+import '../css/event-card.css'; // MAKS BLYA PERENESI VSY HYINU DLYA EVENT PAGE V OTDELNII FILE
+// MAKS BLYA PERENESI VSY HYINU DLYA EVENT PAGE V OTDELNII FILE
+
+// VOT SYDA
+import '../css/EventPage.css';
 
 
 const EventPage = () => {
   const id = useParams()['id'];
   const { isLoading, event } = useEvent(id);
   console.log(event);
+
 
   return isLoading ? <Spinner /> : (
     <div className=" main-div-MainItem py-6 px-4 sm:p-6 md:py-10 md:px-8">
@@ -69,30 +76,7 @@ const EventPage = () => {
           </div> */}
           
           {/* Start event description */}
-          <div className='lin2 back-fon-biographies'>
-            <div className="md:flex shadow-lg h-64">
-              <img className="object-cover rounded-lg rounded-r-none" src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag"/>
-              <div className="child px-4 py-4 bg-white rounded-lg">
-                <p className="text-sm text-gray-700 mt-4">
-                  Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam 
-                  reiciendis numquam tempore commodi ipsa suscipit laboriosam, 
-                  sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam
-                  tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
-                </p>
-                <div className="time-info-div">
-                  <div className='time2'>
-                    <a className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" > </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-end mt-4 top-auto"></div>
-
-                <div className="">
-                  <button className="mt-20 w-full border p-2 bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400" type="submit">Развернуть</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <EventDetailsElement />
           {/* end event description  */}
 
           {/* Tablica govna */}
