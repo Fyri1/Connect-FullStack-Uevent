@@ -10,7 +10,7 @@ class Ticket {
   async findOne(id) {
     const data = await client('tickets')
       .where('id', '=', id)
-      .select('payment_intent');
+      .select('*');
     return data[0];
   }
 

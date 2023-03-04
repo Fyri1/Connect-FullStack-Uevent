@@ -61,13 +61,15 @@ class PayService {
     }
   }
   async createRefaundPayment(ticketId, userId) {
+    const ticketData = await Ticket.findOne(ticketId);
+    const { user_id } = await Event.findOne(ticketData.event_id);
+    const { secret_key } = await Organization.findOrganizationByUserId(user_id);
     const stripe = new Stripe(secret_key);
-    const { payment_intent } = await Ticket.findOne(ticketId);
-    console.log(payment_intent);
-    const refund = await stripe.refunds.create({
-      payment_intent: session.payment_intent,
+
+    await stripe.refunds.create({
+      payment_intent: ticketData.payment_intent,
     });
-    await Ticket.ticketReturn(ticketId, userId)
+    return await Ticket.ticketReturn(ticketId, userId);
   }
 }
 

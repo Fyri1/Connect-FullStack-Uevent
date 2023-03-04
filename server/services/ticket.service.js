@@ -31,14 +31,6 @@ class TicketService {
     }
   }
 
-  async returnTicket({ ticketId, userId }) {
-    const response = await axios.post(
-      'http://localhost:8081/decline/' + ticketId
-    );
-    console.log(response.data);
-    return await Ticket.ticketReturn(ticketId, userId);
-  }
-
   // async createEvent(body) {
   //   const id = uuidv4();
   //   await Event.save({ id, ...body });

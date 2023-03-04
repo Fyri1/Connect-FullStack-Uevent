@@ -9,15 +9,6 @@ class Tickets {
   async createTickets(req, _res, _next) {
     return ticketService.createTicket(req.body);
   }
-  async returnTicketEvent(req, _res, _next) {
-    const {
-      params: { id },
-      headers: { authorization },
-    } = req;
-    const token = authorization.split(' ')[1];
-    const data = tokenService.validateAccessToken(token);
-    return ticketService.returnTicket({ ticketId: id, userId: data.id });
-  }
-}
+};
 
 export default new Tickets();
