@@ -180,7 +180,7 @@ export default ({ eventItem }) => {
       <button
         onClick={handleSubmit}
         type="button"
-        class="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg"
+        className="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg"
       >
         Buy now
       </button>
