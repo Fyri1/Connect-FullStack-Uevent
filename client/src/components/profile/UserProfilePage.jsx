@@ -15,7 +15,9 @@ import { useUserProfile } from '../../../hooks/useUserProfile.js';
 const UserProfilePage = () => {
   // const [userData, setUserData] = React.useState(data);
   const { userInfo, isLoading } = useUserProfile();
+
   const [userData, setUserData] = React.useState(userInfo);
+
   React.useEffect(() => {
     setUserData(userInfo);
   }, [userInfo]);
@@ -35,10 +37,7 @@ const UserProfilePage = () => {
           <div className="h-full w-[40%] mr-[1%]"><UserDataTabsSelector userData={userData} setUserData={setUserData} isLoading={isLoading} /></div>
 
           {/* Events and tickets list */}
-          <div className="h-full w-[60%] ml-[1%]"><UserEventsTabsSelector userData={userData} setUserData={setUserData} isLoading={isLoading} />
-
-          
-          </div>
+          <div className="h-full w-[60%] ml-[1%]"><UserEventsTabsSelector userData={userData} isLoading={isLoading} /></div>
         </div>
         
         {/* <div className='fixed bottom-0 right-4 w-72'>
