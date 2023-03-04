@@ -87,13 +87,18 @@ class Event {
   }
 
 
-  async sellTicket(userId, ticket) {
+  async sellTicket(userId, ticket, payment_intent) {
     try {
-      await Ticket.soldTicket(ticket.id);
+      const isEqual = await Ticket.isEqualTicket(payment_intent);
+      if (!isEqual) {
+        return;
+      }
+      await Ticket.soldTicket(ticket.id, payment_intent);
       await client('user_tickets').insert({
         ticket_id: ticket.id,
         user_id: userId,
       });
+      return 'Success';
     } catch (err) {
       console.log(err);
       throw err;

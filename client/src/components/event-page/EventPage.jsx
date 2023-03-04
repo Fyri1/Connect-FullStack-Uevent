@@ -1,12 +1,12 @@
 import React from "react";
 import { useEvent } from '../../../hooks/useEvent';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 
 import Spinner from '../common/Spinner.jsx';
 import RecommendCard from './RecommendCard.jsx';
 import CommentsSection from "./comments/CommentsSection.jsx";
 
-import CheckoutButton from '../payment/PayForm.jsx';
+import CheckoutButton from '../payment/CheckoutButton.jsx';
 
 import '../css/event-card.css';
 

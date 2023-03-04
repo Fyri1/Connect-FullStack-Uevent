@@ -79,13 +79,6 @@ router.post(
   tryCatch(Events.createComment)
 );
 
-router.post(
-  adminRoutes.eventSellTicketPath(),
-  validationErrorCard,
-  tryCatch(Events.payTicketEvent),
-  Events.payTicketEvent
-);
-
 router.delete(
   adminRoutes.eventIdDeletePath(),
   eventAccessEnied,

@@ -27,15 +27,6 @@ class Events {
     return await eventService.getAllCategoriesByEventId(req.params);
   }
 
-  async payTicketEvent(req, _res) {
-    const { id: eventId } = req.params;
-    const token = req.headers.authorization?.split(' ')[1];
-    const { id: userId } = TokenService.validateAccessToken(token);
-    const body = req.body;
-    const result = await eventService.payTicket(userId, eventId, body);
-    return result;
-  }
-
   async returnTicketEvent(req, _res) {
     const { id: ticketId } = req.params;
     const token = req.headers.authorization?.split(' ')[1];

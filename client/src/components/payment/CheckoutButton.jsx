@@ -158,26 +158,18 @@
 
 // export default MyTicket;
 import React, { useEffect, useState } from 'react';
-import {
-  PaymentElement,
-  LinkAuthenticationElement,
-  useStripe,
-  useElements,
-} from '@stripe/react-stripe-js';
 import $api from '../../../utils/api';
 import apiClientRoutes from '../../routes/api/apiClientRoutes.js';
-import './PayForm.css';
 
 export default ({ eventItem }) => {
   const handleSubmit = async () => {
     try {
       const response = await $api.post(apiClientRoutes.payPath(), {
-        item: eventItem,
+        item: eventItem
       });
-      if (response.data.url) {
-        window.location.href = response.data.url;
+      if (response.data.values.url) {
+        window.location.href = response.data.values.url;
       }
-      console.log(eventItem);
     } catch (err) {
       console.log(err);
     }

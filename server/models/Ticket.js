@@ -6,16 +6,20 @@ class Ticket {
     const data = await client('tickets').select('*');
     return data;
   }
-  // async findTiketId(id) {
-  //   const data = await client('user_tickets')
-  //     .where('id', '=', id)
-  //     .join('user')
-  //     .select('*');
-  //   if (data.length === 0) {
-  //     throw ApiError.NotFound('user not found');
-  //   }
-  //   return data[0];
-  // }
+
+  async findOne(id) {
+    const data = await client('tickets')
+      .where('id', '=', id)
+      .select('payment_intent');
+    return data[0];
+  }
+
+  async isEqualTicket(payment_intent) {
+    const data = await client('tickets')
+      .where('payment_intent', '=', payment_intent)
+      .select('*');
+    return data.length === 0;
+  }
 
   async saveTickets({ id, eventId, price }) {
     try {
@@ -40,9 +44,11 @@ class Ticket {
   //   }
   // }
 
-  async soldTicket(id) {
+  async soldTicket(id, payment_intent) {
     try {
-      await client('tickets').where('id', '=', id).update('is_sold', true);
+      await client('tickets')
+        .where('id', '=', id)
+        .update({ is_sold: true, payment_intent });
     } catch (err) {
       throw err;
     }

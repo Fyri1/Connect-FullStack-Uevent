@@ -27,35 +27,6 @@ class EventService {
     return await Event.getAllCategories(id);
   }
 
-  async payTicket(userId, eventId, infoCard) {
-    const { user_id } = await Event.findOne(eventId);
-    const { id: organozationId, name_organization } =
-      await Organization.findOrganizationByUserId(user_id);
-    const allTicketEvent = await Event.getAllTickets(eventId);
-    const filterNotSoldTicket = allTicketEvent.filter((i) => !i.is_sold);
-    if (filterNotSoldTicket.length === 0) {
-      return 'Empty';
-    }
-    try {
-      const responce = await axios.post('http://localhost:8081/pay', {
-        ...infoCard,
-        organozationId,
-        orderId: filterNotSoldTicket[0].id,
-        amount: filterNotSoldTicket[0].price,
-        products: {
-          name: `${name_organization} ticket`,
-          price: filterNotSoldTicket[0].price,
-        },
-        signature: '',
-      });
-      console.log(responce.data);
-      await Event.sellTicket(userId, filterNotSoldTicket[0]);
-      return responce.data.state;
-    } catch (err) {
-      console.log(err.response.data);
-      throw ApiError.BadRequest(err.response.data.massage);
-    }
-  }
 
   async getAllUsersSellTicketByEventId({ eventId, id }) {
     return await Event.getAllUsersSellTicketByEventId(eventId, id);

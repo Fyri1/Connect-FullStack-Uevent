@@ -20,7 +20,6 @@ const ProfileDataTab = ({ userData, setUserData }) => {
   const [errors, setErrors] = React.useState(temp);
   const [submitData, setSubmitData] = React.useState(userData?.values);
   const [editActive, setEditActive] = React.useState(false);
-  
   const editButtonHandle = () => {
     console.log("edit epta nado");
     setEditActive(!editActive);

@@ -12,7 +12,6 @@ import MainPage from './main-page/MainPage.jsx';
 import EventPage from './event-page/EventPage.jsx';
 import UserProfilePage from './profile/UserProfilePage.jsx';
 import MyTicket from './user/MyTicket.jsx';
-import PayForm from './payment/PayForm.jsx'
 
 // Auth
 import Login from './auth/Login.jsx';
@@ -31,6 +30,7 @@ import clientRoutes from '../routes/client/clientRoutes.js';
 import adminRoutes from '../routes/client/adminRoutes.js';
 import moderatorRoutes from '../routes/client/moderatorRoutes.js';
 import organizationRoutes from '../routes/client/organizationRoutes.js';
+import Success from './common/Success.jsx'
 // import Rules from './auth/RulesUser.jsx';
 
 const lngs = {
@@ -59,7 +59,7 @@ const App = () => {
             {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
             <Route path="/MyTicket" element={<MyTicket />} />
             
-            <Route path="/success" element={<><h2>SUCCESS</h2></>} />
+            <Route path="/success" element={<Success />} />
             {/* neSral Vilsan */}
 
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />
