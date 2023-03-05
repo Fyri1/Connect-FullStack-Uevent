@@ -1,0 +1,32 @@
+.bell {
+
+    position: absolute;
+    background: #E5E5E5; /* Цвет фона */
+    border: 1px solid #000; /* Параметры границы */
+    padding: 3px 3px; /* Поля вокруг картинки */
+
+    margin: 6px ;
+    border-radius: 15px 15px 15px 15px;    
+   }
+
+   .parent {
+    
+    position: relative;
+  }
+
+  .img-div{
+    padding: 10px 10px; /* Поля вокруг картинки */
+
+  }
+  /* Icon when the collapsible content is shown */
+  .button_block_view {
+    margin: 0px  auto;
+    display: block;
+    font-size: 15px;
+    cursor: pointer;
+    color: #22649c;
+    text-decoration: underline;
+  }
+  /* .button_block_view:hover, #button_block_view:focus {
+    color: red;
+  } */

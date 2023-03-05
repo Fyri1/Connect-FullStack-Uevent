@@ -28,17 +28,12 @@ const EventPage = () => {
       <div className="max-w-4xl mx-auto  lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
         <div className="">
           
-            {/* колокольчик */}
-            <button className="inline-block relative"> 
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-              </svg>
-              <span className="animate-ping absolute top-1 right-0.5 block h-1 w-1 rounded-full ring-2 ring-green-400 bg-green-600"></span>
-            </button>
+
         
 
           {/* Event name */}
-          <h1 className="mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white">{ event.title }</h1>
+          {/* mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white */}
+          <h1 className="Event-name-div   ">{ event.title }</h1>
 
           {/* иконка локации */}
           <div className="start flex">
@@ -65,8 +60,8 @@ const EventPage = () => {
               <table className="min-w-full bg-white">
                 <thead className="bg-blue-800 text-white">
                   <tr>
-                    <th className="mt-1 text-lg font-semibold text-white md:text-2xl dark:sm:text-white">Когда?</th>
-                    <th className="mt-1 text-lg font-semibold text-white md:text-2xl dark:sm:text-white">Где?</th>
+                    <th className="mt-1 text-lg font-semibold text-white md:text-2xl dark:sm:text-white">Who buy?</th>
+                    <th className="mt-1 text-lg font-semibold text-white md:text-2xl dark:sm:text-white">When?</th>
                     <th className="mt-1 text-lg font-semibold text-white md:text-2xl dark:sm:text-white">Prise</th>
                     <th className="text-left py-3 px-4 uppercase font-semibold text-sm"></th>
                   </tr>
