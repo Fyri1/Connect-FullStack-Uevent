@@ -7,7 +7,7 @@ import SavedEventsTab from '../tabs/SavedEventsTab.jsx';
 import UserTicketsTab from '../tabs/UserTicketsTab.jsx';
 
 
-const UserEventsTabsSelector = ({ userData, isLoading }) => {
+const UserEventsTabsSelector = ({ userData, setPopupContent, setPopupActive, isLoading }) => {
   // console.log(userSavedEventsData);
   // console.log(userTicketsData);
 
@@ -32,9 +32,9 @@ const UserEventsTabsSelector = ({ userData, isLoading }) => {
           <div className="relative h-[400px] overflow-hidden rounded-lg">
             
             {/* Change to this for prod */}
-            <TabContent id="savedEvents"><SavedEventsTab userData={userData} /></TabContent>
+            <TabContent id="savedEvents"><SavedEventsTab userData={userData} setPopupContent={setPopupContent} setPopupActive={setPopupActive}/></TabContent>
             <TabContent id="phantom2"></TabContent>
-            <TabContent id="tickets"><UserTicketsTab userData={userData} /></TabContent>
+            <TabContent id="tickets"><UserTicketsTab userData={userData} setPopupContent={setPopupContent} setPopupActive={setPopupActive}/></TabContent>
             {/* <TabContent id="tickets">Parasha 2</TabContent> */}
             {/* Change to this for prod */}
             

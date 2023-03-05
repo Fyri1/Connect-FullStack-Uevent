@@ -10,7 +10,7 @@ import memFile from '../../../temp/the-rock-eyebrow-raise-sound-effect-By-Tuna.m
 //// TEMP ////
 
 
-const SavedEventsTab = ({ userData }) => {
+const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
   const [userSavedEventsData, setUserSavedEventsData] = React.useState(user_saved_events);
   // const mem = new Audio("../../../temp/the-rock-eyebrow-raise-sound-effect-By-Tuna.mp3");
   const mem = new Audio(memFile);

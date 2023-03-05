@@ -1,5 +1,5 @@
 .popup {
-    z-index: 1;
+    z-index: 30;
     height: 100vh;
     width: 100%;
     background-color: rgba(26, 24, 24, 0.1);
@@ -15,13 +15,13 @@
 }
 
 .popup.active {
-    z-index: 2;
+    z-index: 30;
     opacity: 1;
     pointer-events: all;
 }
 
 .popup__content {
-    z-index: 3;
+    z-index: 30;
     font-size: 25px;
     padding: 20px;
     border-radius: 17px;
@@ -37,6 +37,6 @@
 }
 
 .popup__content.active {
-    z-index: 4;
+    z-index: 30;
     transform: scale(1);
 }
