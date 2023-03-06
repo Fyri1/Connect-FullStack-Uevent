@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Spinner from '../../common/Spinner.jsx';
-import Popup from '../../common/popup/Popup.jsx';
+import Spinner from '../../../common/Spinner.jsx';
+import Popup from '../../../common/popup/Popup.jsx';
 
-import { useUserTickets } from '../../../../hooks/useUserTickets.js';
+import { useUserTickets } from '../../../../../hooks/useUserTickets.js';
 
 //// TEMP ////
-import user_tickets from '../../../temp/user_tickets.json';
-import memFile from '../../../temp/the-rock-eyebrow-raise-sound-effect-By-Tuna.mp3';
-import $api from '../../../../utils/api.js';
+import user_tickets from '../../../../temp/user_tickets.json';
+import memFile from '../../../../temp/the-rock-eyebrow-raise-sound-effect-By-Tuna.mp3';
+import $api from '../../../../../utils/api.js';
 //// TEMP ////
 
 
@@ -72,6 +72,7 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
 
                   return (
                     <tr key={ticketData.id + "-row"} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <td className="pl-3 py-5"><img className="h-10" src="/1.jpg"></img></td>
                       <td className="py-5">{ticketData.name}</td>
                       <td className="py-5">{ticketData.start}</td>
                       <td className="py-5">{ticketData.price}</td>

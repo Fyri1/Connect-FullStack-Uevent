@@ -24,8 +24,6 @@ const UserProfilePage = () => {
   React.useEffect(() => {
     setUserData(userInfo);
   }, [userInfo]);
-  console.log(userInfo);
-  console.log(isLoading);
 
   // return isLoading ? <Spinner /> : (
   return (

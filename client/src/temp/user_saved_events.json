@@ -28,35 +28,5 @@
         "poster" : null,
         "event_start" : "2023-22-03",
         "event_end" : "2023-22-03"
-    },
-    {
-        "id" : "444444444",
-        "title" : "event_title4",
-        "description" : "description4",
-        "city" : "city4",
-        "address" : "address4",
-        "poster" : null,
-        "event_start" : "2023-22-04",
-        "event_end" : "2023-22-04"
-    },
-    {
-        "id" : "555555555",
-        "title" : "event_title5",
-        "description" : "description5",
-        "city" : "city5",
-        "address" : "address5",
-        "poster" : null,
-        "event_start" : "2023-22-05",
-        "event_end" : "2023-22-05"
-    },
-    {
-        "id" : "666666666",
-        "title" : "event_title6",
-        "description" : "description6",
-        "city" : "city6",
-        "address" : "address6",
-        "poster" : null,
-        "event_start" : "2023-22-06",
-        "event_end" : "2023-22-06"
     }
 ]

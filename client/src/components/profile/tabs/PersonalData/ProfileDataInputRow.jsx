@@ -1,6 +1,6 @@
 import React from "react";
 
-import InputField from '../../common/form/InputField.jsx';
+import InputField from '../../../common/form/InputField.jsx';
 
 
 const ProfileDataInputRow = ({ id, name, value, data, setData, errors, setErrors }) => {

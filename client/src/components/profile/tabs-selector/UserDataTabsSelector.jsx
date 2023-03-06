@@ -3,15 +3,14 @@ import React from 'react';
 import TabButton from './TabButton.jsx';
 import TabContent from './TabContent.jsx';
 
-import ProfileDataTab from '../tabs/ProfileDataTab.jsx';
-import EmailChangeTab from '../tabs/EmailChangeTab.jsx';
-import PassChangeTab from '../tabs/PassChangeTab';
+import ProfileDataTab from '../tabs/PersonalData/ProfileDataTab.jsx';
+import EmailChangeTab from '../tabs/PersonalData/EmailChangeTab.jsx';
+import PassChangeTab from '../tabs/PersonalData/PassChangeTab';
 
 import '../../css/Profile.css';
 
 
 const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
-  console.log("ebat moi hyi!")
   return (
     <div className="my-4 flex flex-col"> 
       <div className="w-full flex flex-col">

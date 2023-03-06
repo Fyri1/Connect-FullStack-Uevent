@@ -1,12 +1,13 @@
 import React from 'react';
 
-import Spinner from '../../common/Spinner.jsx';
+import Spinner from '../../../common/Spinner.jsx';
+import PaginationElement from './Pagination/PaginationElement.jsx';
 
-import '../../css/events-tab.css';
+import '../../../css/events-tab.css';
 
 //// TEMP ////
-import user_saved_events from '../../../temp/user_saved_events.json';
-import memFile from '../../../temp/the-rock-eyebrow-raise-sound-effect-By-Tuna.mp3';
+import user_saved_events from '../../../../temp/user_saved_events.json';
+import memFile from '../../../../temp/the-rock-eyebrow-raise-sound-effect-By-Tuna.mp3';
 //// TEMP ////
 
 
@@ -27,8 +28,8 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
         !user_saved_events || !user_saved_events.length ? (
           <p>You have not purchased tickets yet</p>
         ) : (
-          <div>
-            <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400">
+          <div className="relative">
+            <table className="h-[85%] w-full text-sm text-center text-gray-500 dark:text-gray-400">
               <tbody>
                 {
                   user_saved_events.map((eventData) => {
@@ -70,10 +71,11 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
 
                     return (
                       <tr key={eventData.id + "-row"} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td className="py-5">{ eventData.title }</td>
-                        <td className="py-5">{ eventData.description }</td>
-                        <td className="py-5">{ eventData.city + ", " + eventData.address }</td>
-                        <td className="py-5">{ eventData.event_start + " - " + eventData.event_end }</td>
+                        <td className="pl-3 py-3"><img className="h-20" src="/1.jpg"></img></td>
+                        <td className="py-3">{ eventData.title }</td>
+                        <td className="py-3">{ eventData.description }</td>
+                        <td className="py-3">{ eventData.city + ", " + eventData.address }</td>
+                        <td className="py-3">{ eventData.event_start + " - " + eventData.event_end }</td>
                         
                         <td>
                           <button onClick={redeemButtonClick} className="w-7 h-7">
@@ -88,6 +90,7 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
                 }
               </tbody>
             </table>
+            <PaginationElement />
           </div>
         )
       }

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import InputField from '../../common/form/InputField.jsx';
+import InputField from '../../../common/form/InputField';
 
-import $api from '../../../../utils/api';
-import apiAdminRoutes from '../../../routes/api/apiAdminRoutes';
-import apiClientRoutes from '../../../routes/api/apiClientRoutes';
+import $api from '../../../../../utils/api';
+import apiAdminRoutes from '../../../../routes/api/apiAdminRoutes';
+import apiClientRoutes from '../../../../routes/api/apiClientRoutes';
 
 
 const EmailChangeTab = ({ userData }) => {
@@ -33,7 +33,7 @@ const EmailChangeTab = ({ userData }) => {
   }
 
   return (
-    <div className="items-center justify-center content-center mx-[10%]">
+    <div className="items-center justify-center content-center mx-[10%] py-[35%]">
       <form onSubmit={handleDataSubmit}>
         <InputField id="email" name="New email" type="text" data={submitData} setData={setData} errors={errors} setErrors={setErrors}>
           <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">

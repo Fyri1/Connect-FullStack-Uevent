@@ -1,9 +1,9 @@
 import React from 'react';
 
-import InputField from '../../common/form/InputField.jsx';
+import InputField from '../../../common/form/InputField.jsx';
 
-import $api from '../../../../utils/api.js';
-import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
+import $api from '../../../../../utils/api.js';
+import apiClientRoutes from '../../../../routes/api/apiClientRoutes.js';
 
 
 const PassChangeTab = ({ userData }) => {
@@ -48,7 +48,7 @@ const PassChangeTab = ({ userData }) => {
   }
 
   return (
-    <div className="items-center justify-center content-center mx-[10%]">
+    <div className="items-center justify-center content-center mx-[10%] py-[25%]">
       <form onSubmit={handleDataSubmit}>
         <InputField id="oldPassword" name="Old password" type="text" data={submitData} setData={setData} errors={errors} setErrors={setErrors}>
           <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">

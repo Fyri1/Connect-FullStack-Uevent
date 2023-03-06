@@ -3,8 +3,8 @@ import React from 'react';
 import TabButton from './TabButton.jsx';
 import TabContent from './TabContent.jsx';
 
-import SavedEventsTab from '../tabs/SavedEventsTab.jsx';
-import UserTicketsTab from '../tabs/UserTicketsTab.jsx';
+import SavedEventsTab from '../tabs/UserTicketsData/SavedEventsTab.jsx';
+import UserTicketsTab from '../tabs/UserTicketsData/UserTicketsTab.jsx';
 
 
 const UserEventsTabsSelector = ({ userData, setPopupContent, setPopupActive, isLoading }) => {
