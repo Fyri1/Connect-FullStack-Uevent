@@ -1,20 +1,15 @@
 import React from 'react';
+
+import InputField from '../../common/form/InputField.jsx';
+
 import $api from '../../../../utils/api';
 import apiAdminRoutes from '../../../routes/api/apiAdminRoutes';
 import apiClientRoutes from '../../../routes/api/apiClientRoutes';
 
-import EditForm from '../../common/form/EditForm';
-import InputField from '../../common/form/InputField.jsx';
-
 
 const EmailChangeTab = ({ userData }) => {
-  // console.log(userData);
-  const [errors, setErrors] = React.useState({
-    email: ""
-  });
-  const [submitData, setData] = React.useState({
-    email: ""
-  });
+  const [errors, setErrors] = React.useState({ email: "" });
+  const [submitData, setData] = React.useState({ email: "" });
 
   const handleDataSubmit = async (e) => {
     e.preventDefault();
@@ -50,11 +45,6 @@ const EmailChangeTab = ({ userData }) => {
         </InputField>
 
         <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save</button>
-
-        {/* <div className="flex">
-          <button type="submit" className="w-full mx-3 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save</button>
-          <button type="submit" className="w-full mx-3 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Cancel</button>
-        </div> */}
       </form>
     </div>
   )

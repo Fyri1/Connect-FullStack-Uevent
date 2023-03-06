@@ -1,10 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-import $api from '../../../../utils/api.js';
-import EditForm from '../../common/form/EditForm';
+
 import InputField from '../../common/form/InputField.jsx';
 
+import $api from '../../../../utils/api.js';
 import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
+
 
 const PassChangeTab = ({ userData }) => {
   const [errors, setErrors] = React.useState({

@@ -1,37 +1,37 @@
 [
     {
         "id" : "aaaaaaaaa",
-        "event_title" : "event_title1",
-        "event_start" : "2023-22-01",
+        "name" : "event_title1",
+        "start" : "2023-22-01",
         "price" : "price1",
-        "status" : "bought"
+        "is_sold" : "bought"
     },
     {
         "id" : "bbbbbbbbb",
-        "event_title" : "event_title1",
-        "event_start" : "2023-22-01",
+        "name" : "event_title1",
+        "start" : "2023-22-01",
         "price" : "price1",
-        "status" : "bought"
+        "is_sold" : "bought"
     },
     {
         "id" : "ccccccccc",
-        "event_title" : "event_title1",
-        "event_start" : "2023-22-01",
+        "name" : "event_title1",
+        "start" : "2023-22-01",
         "price" : "price1",
-        "status" : "bought"
+        "is_sold" : "bought"
     },
     {
         "id" : "ddddddddd",
-        "event_title" : "event_title1",
-        "event_start" : "2023-22-01",
+        "name" : "event_title1",
+        "start" : "2023-22-01",
         "price" : "price1",
-        "status" : "bought"
+        "is_sold" : "bought"
     },
     {
         "id" : "eeeeeeeee",
-        "event_title" : "event_title1",
-        "event_start" : "2023-22-01",
+        "name" : "event_title1",
+        "start" : "2023-22-01",
         "price" : "price1",
-        "status" : "bought"
+        "is_sold" : "bought"
     }
 ]
