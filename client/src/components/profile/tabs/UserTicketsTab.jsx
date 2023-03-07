@@ -52,7 +52,6 @@ const UserTicketsTab = ({ userData }) => {
                       id: ticketData.id,
                     }
                   );
-                  console.log(response.data);
                 } catch (e) {
                   console.log(e);
                 }

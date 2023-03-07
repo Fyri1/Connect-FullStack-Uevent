@@ -2,7 +2,7 @@
 
 export const up = (knex) =>
   knex.schema.createTable('user_tickets', (table) => {
-    table.string('ticket_id').unsigned().index().references('ticket.id');
+    table.string('ticket_id').unsigned().index().references('tickets.id');
     table.string('user_id').unsigned().index().references('users.id');
   });
 
