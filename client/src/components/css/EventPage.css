@@ -1,3 +1,18 @@
+.Event-name-div
+{
+    font-family:"Source Sans Pro", Tahoma ;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 45px;
+    text-align: left;
+    
+}
+.back-fon-biographies{
+    margin: 10px 10px 20px 10px;
+  }
+
+
+
 .main-event-content-retracted {
     overflow: hidden;
     height: 100px;
@@ -19,3 +34,4 @@
     height: auto;
     transition: linear 0.3s;
 }
+

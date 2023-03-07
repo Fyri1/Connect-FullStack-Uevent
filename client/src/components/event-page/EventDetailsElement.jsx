@@ -1,5 +1,7 @@
-import React from 'react';
+import '../css/event-details-element.css'; 
 
+
+import React from 'react';
 
 const EventDetailsElement = ({ eventData }) => {
   const unfoldButtonHandle = () => {
@@ -14,40 +16,42 @@ const EventDetailsElement = ({ eventData }) => {
   }
 
   return (
-    <div className='lin2 back-fon-biographies'>
-      <div className="md:flex shadow-lg h-64">
-        <img className="object-cover rounded-lg rounded-r-none" src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag"/>
-
-        {/* Main event content */}
-        <div className="h-25 m-2 bg-white rounded-lg">
-          <div className="child main-event-content-retracted bg-white rounded-lg">
-            <p className="text-retracted text-sm text-gray-700 mt-4">
-              Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam 
-              reiciendis numquam tempore commodi ipsa suscipit laboriosam, 
-              sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam
-              tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
-              Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam 
-              reiciendis numquam tempore commodi ipsa suscipit laboriosam, 
-              sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam
-              tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
-              Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam 
-              reiciendis numquam tempore commodi ipsa suscipit laboriosam, 
-              sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam
-              tempore commodi ipsa suscipit laboriosam, sit earum at sequi.
-            </p>
-            <div className="time-info-div">
-              <div className='time2'>
-                <a className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" > </a>
+    
+    <div className=''>
+                {/* колокольчик */}
+                {/* <button className="bell inline-block relative"> 
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+            <span className="animate-ping absolute top-1 right-0.5 block h-1 w-1 rounded-full ring-2 ring-green-400 bg-green-600"></span>
+          </button> */}
+          
+          <div class="sm:grid grid-cols-4 bg-white shadow-sm p-7  ">
+            <img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Just a flower" class="w-full rounded-lg"/>
+            <div class="pt-5 sm:pt-0 sm:pl-10 col-span-3">
+            <p class="mt-2 text-gray-600 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
+              Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
+              Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
+              Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
+              Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
+              Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
+              Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia</p>
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+                <a href="#"
+                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+                  to cart</a>
               </div>
             </div>
-
-            {/* <div className="flex items-center justify-end mt-4 top-auto"></div> */}
-
-            <div onClick={unfoldButtonHandle} >
-              <button className="w-full border p-2 bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400" type="submit">Развернуть</button>
-            </div>
+            {/* <div class="flex item-center justify-between mt-3">
+              <h1 class="text-gray-700 font-bold text-xl">$220</h1>
+              <button class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Add to Card</button>
+            </div> */}
           </div>
-        </div>
+
+
+      <div onClick={unfoldButtonHandle} >
+              <button class="button_block_view" type="submit">Развернуть</button>
       </div>
     </div>
   );
