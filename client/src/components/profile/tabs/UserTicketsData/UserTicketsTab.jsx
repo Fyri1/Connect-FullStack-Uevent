@@ -2,6 +2,7 @@ import React from 'react';
 
 import Spinner from '../../../common/Spinner.jsx';
 import Popup from '../../../common/popup/Popup.jsx';
+import PaginationElement from './Pagination/PaginationElement.jsx';
 
 import { useUserTickets } from '../../../../../hooks/useUserTickets.js';
 
@@ -30,8 +31,8 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
         !user_tickets || !user_tickets.length ? (
           <p>You have not purchased tickets yet</p>
         ) : (
-        <div>
-          <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400">
+        <div className="relative">
+          <table className="h-[85%] w-full text-sm text-center text-gray-500 dark:text-gray-400">
             <tbody>
               {
                 user_tickets.map((ticketData) => {
@@ -70,13 +71,35 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
                     setPopupActive(true);
                   };
 
+                  const eventClickHandle = () => {
+                    console.log("PIDORASA NADO REDIRECT TO EVENT PAGE");
+                  }
+
+                  const addressClickHandle = () => {
+                    console.log("PIDORASA NADO REDIRECT TO ADDRESS SEARCH");
+                  }
+
+                  const dateClickHandle = () => {
+                    console.log("PIDORASA NADO REDIRECT TO DATE SEARCH");
+                  }
+
                   return (
                     <tr key={ticketData.id + "-row"} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                      <td className="pl-3 py-5"><img className="h-10" src="/1.jpg"></img></td>
-                      <td className="py-5">{ticketData.name}</td>
-                      <td className="py-5">{ticketData.start}</td>
-                      <td className="py-5">{ticketData.price}</td>
-                      <td className="py-5">{ticketData.is_sold ? 'bought' : ''}</td>
+                      <td onClick={eventClickHandle} className="pl-3 py-3 w-[15%] hover:cursor-pointer"><img className="h-20" src="/1.jpg"></img></td>
+                      
+                      <td className="text-left w-[60%]">
+                        <h3 onClick={eventClickHandle} className="text-2xl text-gray-700 hover:cursor-pointer hover:text-blue-600 hover:underline hover:underline-offset-2 hover:decoration-2">
+                          { ticketData.name }
+                        </h3>
+
+                        <p className="text-sm text-gray-700">{ ticketData.start }</p>
+                      </td>
+
+                      <td onClick={dateClickHandle} className="text-sm text-gray-500 hover:cursor-pointer">
+                        { ticketData.price }
+                      </td>
+                      
+                      {/* <td className="py-5">{ticketData.is_sold ? 'bought' : ''}</td> */}
 
                       <td>
                         <button onClick={redeemButtonClick} className="w-7 h-7">
@@ -91,6 +114,7 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
               }
             </tbody>
           </table>
+          <PaginationElement />
         </div>
       )}
     </div>

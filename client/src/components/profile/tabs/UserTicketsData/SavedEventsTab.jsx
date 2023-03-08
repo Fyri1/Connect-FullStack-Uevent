@@ -29,7 +29,7 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
           <p>You have not purchased tickets yet</p>
         ) : (
           <div className="relative">
-            <table className="h-[85%] w-full text-sm text-center text-gray-500 dark:text-gray-400">
+            <table className="h-[85%] w-full text-center text-gray-500 dark:text-gray-400">
               <tbody>
                 {
                   user_saved_events.map((eventData) => {
@@ -69,13 +69,33 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
                       setPopupActive(true);
                     }
 
+                    const eventClickHandle = () => {
+                      console.log("PIDORASA NADO REDIRECT TO EVENT PAGE");
+                    }
+
+                    const addressClickHandle = () => {
+                      console.log("PIDORASA NADO REDIRECT TO ADDRESS SEARCH");
+                    }
+
+                    const dateClickHandle = () => {
+                      console.log("PIDORASA NADO REDIRECT TO DATE SEARCH");
+                    }
+
                     return (
                       <tr key={eventData.id + "-row"} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td className="pl-3 py-3"><img className="h-20" src="/1.jpg"></img></td>
-                        <td className="py-3">{ eventData.title }</td>
-                        <td className="py-3">{ eventData.description }</td>
-                        <td className="py-3">{ eventData.city + ", " + eventData.address }</td>
-                        <td className="py-3">{ eventData.event_start + " - " + eventData.event_end }</td>
+                        <td onClick={eventClickHandle} className="pl-3 py-3 w-[15%] hover:cursor-pointer"><img className="h-20" src="/1.jpg"></img></td>
+                        <td className="text-left w-[60%]">
+                          <h3 onClick={eventClickHandle} className="text-2xl text-gray-700 hover:cursor-pointer hover:text-blue-600 hover:underline hover:underline-offset-2 hover:decoration-2">{ eventData.title }</h3>
+                          <h5 onClick={addressClickHandle} className="text-xs text-gray-500 hover:cursor-pointer hover:underline hover:underline-offset-2 hover:decoration-1">{ eventData.city + ", " + eventData.address }</h5>
+                          <p className="text-sm text-gray-700">
+                            {
+                              eventData.description.length > 80 ?
+                              eventData.description.substring(0, 77) + '...' :
+                              eventData.description
+                            }
+                          </p>
+                        </td>
+                        <td onClick={dateClickHandle} className="text-sm text-gray-500 hover:cursor-pointer">{ eventData.event_start + " - " + eventData.event_end }</td>
                         
                         <td>
                           <button onClick={redeemButtonClick} className="w-7 h-7">
