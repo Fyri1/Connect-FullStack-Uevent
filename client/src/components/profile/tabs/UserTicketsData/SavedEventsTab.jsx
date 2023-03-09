@@ -19,6 +19,13 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
   // const { isLoading, user_saved_events } = useUserTickets(userData.values.id);
   const mem = new Audio(memFile);
 
+  const [currentPageNumber, setCurrentPageNumber] = React.useState(1);
+  const [currentPageEvents, setCurrentPageElements] = React.useState(user_saved_events.slice(0, 3));
+
+  React.useEffect(() => {
+    setCurrentPageElements(user_saved_events.slice((currentPageNumber * 3) - 3, (currentPageNumber * 3)));
+  }, [currentPageNumber]);
+
   // return isLoading ? (
   //   <Spinner />
   // ) : (
@@ -32,7 +39,7 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
             <table className="h-[85%] w-full text-center text-gray-500 dark:text-gray-400">
               <tbody>
                 {
-                  user_saved_events.map((eventData) => {
+                  currentPageEvents.map((eventData) => {
                     const redeemButtonClick = () => {
                       console.log("remove saved event pidorasa");
                       
@@ -110,7 +117,7 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
                 }
               </tbody>
             </table>
-            <PaginationElement />
+            <PaginationElement currentPageNumber={currentPageNumber} setCurrentPageNumber={setCurrentPageNumber} />
           </div>
         )
       }
