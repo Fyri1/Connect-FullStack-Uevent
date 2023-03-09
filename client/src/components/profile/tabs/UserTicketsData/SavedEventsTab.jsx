@@ -82,7 +82,7 @@ const SavedEventsTab = ({ userData, setPopupContent, setPopupActive }) => {
                     }
 
                     return (
-                      <tr key={eventData.id + "-row"} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr key={eventData.id + "-row"} className="h-20 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td onClick={eventClickHandle} className="pl-3 py-3 w-[15%] hover:cursor-pointer"><img className="h-20" src="/1.jpg"></img></td>
                         <td className="text-left w-[60%]">
                           <h3 onClick={eventClickHandle} className="text-2xl text-gray-700 hover:cursor-pointer hover:text-blue-600 hover:underline hover:underline-offset-2 hover:decoration-2">{ eventData.title }</h3>

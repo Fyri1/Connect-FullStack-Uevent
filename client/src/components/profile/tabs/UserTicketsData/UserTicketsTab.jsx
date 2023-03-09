@@ -18,9 +18,16 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
     return <Spinner />;
   }
 
-  // const { isLoading, user_tickets } = useUserTickets(userData.values.id);
   const mem = new Audio(memFile);
-  console.log(user_tickets);
+
+  // const { isLoading, user_tickets } = useUserTickets(userData.values.id);
+  // console.log(user_tickets);
+  const [currentPageNumber, setCurrentPageNumber] = React.useState(1);
+  const [currentPageTickets, setCurrentPageElements] = React.useState(user_tickets.slice(0, 3));
+
+  React.useEffect(() => {
+    setCurrentPageElements(user_tickets.slice((currentPageNumber * 3) - 3, (currentPageNumber * 3)));
+  }, [currentPageNumber]);
 
   // return isLoading ? (
   //   <Spinner />
@@ -35,7 +42,7 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
           <table className="h-[85%] w-full text-sm text-center text-gray-500 dark:text-gray-400">
             <tbody>
               {
-                user_tickets.map((ticketData) => {
+                currentPageTickets.map((ticketData) => {
                   const redeemButtonClick = async () => {
                     console.log('redeem pidorasa');
 
@@ -114,7 +121,7 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
               }
             </tbody>
           </table>
-          <PaginationElement />
+          <PaginationElement currentPageNumber={currentPageNumber} setCurrentPageNumber={setCurrentPageNumber} />
         </div>
       )}
     </div>
