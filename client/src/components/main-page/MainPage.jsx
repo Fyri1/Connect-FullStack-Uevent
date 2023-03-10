@@ -4,7 +4,7 @@ import Spinner from '../common/Spinner.jsx';
 import Sidebar from './Sidebar.jsx';
 import EventElement from './EventElement.jsx';
 
-import { useEvents } from '../../../hooks/useEvents.js';
+import { useEvents } from '../../../hooks/events/useEvents.js';
 import '../css/event-card.css';
 import '../css/main-page.css';
 

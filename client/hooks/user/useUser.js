@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { UsersService } from '../services/users.service';
+import { UsersService } from '../../services/users.service.js';
 
 const useUser = (id) => {
   const { isLoading, data: user } = useQuery(['user', id], () => UsersService.getById(id || ''), {

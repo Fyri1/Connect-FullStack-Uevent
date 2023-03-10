@@ -6,8 +6,14 @@ const EventService = {
     return $api.get(routes.getAllEvent());
   },
   getEventId(id) {
-    return $api.get(routes.getEventById(id))
-  }
+    return $api.get(routes.getEventById(id));
+  },
+  getAllCommentsByEventId(id) {
+    return $api.get(routes.getAllCommentsByEventId(id));
+  },
+  createComment({ eventId, content }) {
+    return $api.post(routes.createComment(eventId), { content });
+  },
 };
 
 export { EventService };

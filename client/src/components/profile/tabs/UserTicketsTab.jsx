@@ -2,7 +2,7 @@ import React from 'react';
 
 import Spinner from '../../common/Spinner.jsx';
 
-import { useUserTickets } from '../../../../hooks/useUserTickets.js';
+import { useUserTickets } from '../../../../hooks/user/useUserTickets.js';
 
 //// TEMP ////
 // import user_tickets from '../../../temp/user_tickets.json';
