@@ -34,7 +34,6 @@ const EventElement = ({ event }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>  
                   <p className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; 12:88</p>
-                  {/* <p className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >&nbsp; - &nbsp;</p> */}
                 </div>
               </div>
               <div className=" bl1 start flex   ">
