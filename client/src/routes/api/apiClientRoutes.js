@@ -13,6 +13,8 @@ export default {
 
   getAllEvent: () => [apiPath, 'event'].join('/'),
   getEventById: (id) => [apiPath, 'event', id].join('/'),
+  getAllCommentsByEventId: (id) => [apiPath, 'event', id, 'comments'].join('/'),
+  createComment: (id) => [apiPath, 'event', id, 'create', 'comment'].join('/'),
 
   userChangeEmail: () => [apiPath, 'user', id, 'update', 'password'].join('/'),
   userChangePasswordPath: (id) =>

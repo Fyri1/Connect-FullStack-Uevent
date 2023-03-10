@@ -1,5 +1,5 @@
 import React from "react";
-import { useEvent } from '../../../hooks/useEvent';
+import { useEvent } from '../../../hooks/events/useEvent';
 import { useParams } from 'react-router-dom';
 
 import Spinner from '../common/Spinner.jsx';
@@ -20,17 +20,11 @@ import '../css/EventPage.css';
 const EventPage = () => {
   const id = useParams()['id'];
   const { isLoading, event } = useEvent(id);
-  console.log(event);
-
 
   return isLoading ? <Spinner /> : (
     <div className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
       <div className="max-w-4xl mx-auto  lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
         <div className="">
-          
-
-        
-
           {/* Event name */}
           {/* mt-1 text-lg font-semibold text-white sm:text-slate-900 md:text-2xl dark:sm:text-white */}
           <h1 className="Event-name-div   ">{ event.title }</h1>
@@ -103,7 +97,7 @@ const EventPage = () => {
             </section>
           
 
-          <CommentsSection />
+          <CommentsSection eventId={id}/>
         </div>
       </div>
     </div>

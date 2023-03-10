@@ -10,7 +10,7 @@ import ToastWarning from '../common/toast/ToastWarning.jsx';
 import ToastError from '../common/toast/ToastError.jsx';
 
 import '../css/Profile.css';
-import { useUserProfile } from '../../../hooks/useUserProfile.js';
+import { useUserProfile } from '../../../hooks/user/useUserProfile.js';
 
 
 const UserProfilePage = () => {

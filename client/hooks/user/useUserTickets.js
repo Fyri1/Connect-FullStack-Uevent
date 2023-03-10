@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { UsersService } from '../services/users.service';
+import { UsersService } from '../../services/users.service.js';
 
 const useUserTickets = (id) => {
     const { isLoading, data: user_tickets } = useQuery(['user', id], () => UsersService.getUserTickets(id || ''), {

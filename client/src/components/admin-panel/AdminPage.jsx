@@ -4,9 +4,9 @@ import Spinner from "../common/Spinner.jsx";
 import NavbarElement from "./NavbarElement.jsx";
 import DataTable from "./table/DataTable.jsx";
 
-import { useUsers } from "../../../hooks/useUsers.js";
+import { useUsers } from "../../../hooks/user/useUsers.js";
 import { useRoles } from "../../../hooks/useRoles.js";
-import { useEvents } from "../../../hooks/useEvents.js";
+import { useEvents } from "../../../hooks/events/useEvents.js";
 import { useCategories } from "../../../hooks/useCategories.js";
 import { useTickets } from "../../../hooks/useTickets.js";
 import { useOrganization } from "../../../hooks/useOrganization.js";
