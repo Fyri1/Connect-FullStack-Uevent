@@ -2,6 +2,8 @@ import React from 'react';
 
 import Spinner from '../common/Spinner.jsx';
 
+import default_ava from '../../temp/avatar.png';
+
 
 const ProfileHead = ({ userData }) => {
   return !userData ? <Spinner /> : (
@@ -11,7 +13,7 @@ const ProfileHead = ({ userData }) => {
       </div>
 
       <div className="flex flex-col items-center -mt-20">
-        <img src="https://vojislavd.com/ta-template-demo/assets/img/profile.jpg" className="w-40 border-4 border-white rounded-full"></img>
+        <img src={default_ava} className="w-40 border-4 border-white rounded-full"></img>
         <div className="flex items-center space-x-2 mt-2">
           <p className="text-2xl">
             { 

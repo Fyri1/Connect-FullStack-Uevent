@@ -7,7 +7,7 @@ import PaginationElement from './Pagination/PaginationElement.jsx';
 import { useUserTickets } from '../../../../../hooks/useUserTickets.js';
 
 //// TEMP ////
-import user_tickets from '../../../../temp/user_tickets.json';
+// import user_tickets from '../../../../temp/user_tickets.json';
 import memFile from '../../../../temp/the-rock-eyebrow-raise-sound-effect-By-Tuna.mp3';
 import $api from '../../../../../utils/api.js';
 //// TEMP ////
@@ -20,19 +20,18 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
 
   const mem = new Audio(memFile);
 
-  // const { isLoading, user_tickets } = useUserTickets(userData.values.id);
-  // console.log(user_tickets);
+  const { isLoading, user_tickets } = useUserTickets(userData.values.id);
   const [currentPageNumber, setCurrentPageNumber] = React.useState(1);
-  const [currentPageTickets, setCurrentPageElements] = React.useState(user_tickets.slice(0, 3));
+  // const [currentPageTickets, setCurrentPageElements] = React.useState(isLoading ? null : user_tickets.slice(0, 3));
 
-  React.useEffect(() => {
-    setCurrentPageElements(user_tickets.slice((currentPageNumber * 3) - 3, (currentPageNumber * 3)));
-  }, [currentPageNumber]);
+  // React.useEffect(() => {
+  //   setCurrentPageElements(isLoading ? null : user_tickets.slice((currentPageNumber * 3) - 3, (currentPageNumber * 3)));
+  // }, [currentPageNumber]);
 
-  // return isLoading ? (
-  //   <Spinner />
-  // ) : (
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
+  // return (
     <div>
       {
         !user_tickets || !user_tickets.length ? (
@@ -42,7 +41,7 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
           <table className="h-[85%] w-full text-sm text-center text-gray-500 dark:text-gray-400">
             <tbody>
               {
-                currentPageTickets.map((ticketData) => {
+                user_tickets.slice((currentPageNumber * 3) - 3, (currentPageNumber * 3)).map((ticketData) => {
                   const redeemButtonClick = async () => {
                     console.log('redeem pidorasa');
 
