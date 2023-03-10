@@ -4,7 +4,7 @@ import Spinner from '../../../common/Spinner.jsx';
 import Popup from '../../../common/popup/Popup.jsx';
 import PaginationElement from './Pagination/PaginationElement.jsx';
 
-import { useUserTickets } from '../../../../../hooks/useUserTickets.js';
+import { useUserTickets } from '../../../../../hooks/user/useUserTickets.js';
 
 //// TEMP ////
 // import user_tickets from '../../../../temp/user_tickets.json';
