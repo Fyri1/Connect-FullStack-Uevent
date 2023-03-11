@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import DropdownElement from "./DropdownElement.jsx";
+import DarkModeSwitch from "./DarkModeSwitch.jsx";
 
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 import adminRoutes from "../../../routes/client/adminRoutes.js";
@@ -42,13 +43,12 @@ const UserDropdownMenu = ({ userDetails }) => {
         <ul className="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
           <DropdownElement name={t('userDropdownMenu.profile')} path={clientRoutes.profilePagePath()} />
           <DropdownElement name={t('userDropdownMenu.eventCreate')} path={adminRoutes.eventsPagePath()} />
+          <li><DarkModeSwitch /></li>
           <li>
-            <div className="button-profile">
-              <button onClick={logoutButtonHandle} className="group text-left relative h-10 w-56 overflow-hidden bg-white text-lg shadow">
-                <div className="absolute inset-0 w-2 bg-blue-600 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                <span className="px-7 relative text-black group-hover:text-white">{t('userDropdownMenu.logout')}</span>
-              </button>
-            </div>
+            <button onClick={logoutButtonHandle} className="group text-left relative h-10 w-56 overflow-hidden bg-white text-lg shadow">
+              <div className="absolute inset-0 w-2 bg-blue-600 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+              <span className="px-7 relative text-black group-hover:text-white">{t('userDropdownMenu.logout')}</span>
+            </button>
           </li>
         </ul>
       </div>

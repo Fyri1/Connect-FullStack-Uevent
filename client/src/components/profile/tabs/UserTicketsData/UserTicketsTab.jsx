@@ -22,12 +22,8 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
 
   const { isLoading, user_tickets } = useUserTickets(userData.values.id);
   const [currentPageNumber, setCurrentPageNumber] = React.useState(1);
-  // const [currentPageTickets, setCurrentPageElements] = React.useState(isLoading ? null : user_tickets.slice(0, 3));
 
-  // React.useEffect(() => {
-  //   setCurrentPageElements(isLoading ? null : user_tickets.slice((currentPageNumber * 3) - 3, (currentPageNumber * 3)));
-  // }, [currentPageNumber]);
-
+  
   return isLoading ? (
     <Spinner />
   ) : (
