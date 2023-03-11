@@ -40,8 +40,6 @@ const lngs = {
 };
   
 const App = () => {
-  // const [ t, i18n ] = useTranslation('header');
-
   return (
     <I18nextProvider i18n={i18next}>
       <BrowserRouter>

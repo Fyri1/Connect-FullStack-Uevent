@@ -3,8 +3,6 @@ import React from 'react';
 
 const DarkModeSwitch = () => {
   const toggleSwitchHandle = (e) => {
-    console.log("switch pidorasa from: " + e.target.checked);
-
     if (localStorage.getItem('color-theme')) {  // if set via local storage previously
       if (localStorage.getItem('color-theme') === 'light') {
         document.documentElement.classList.add('dark');
@@ -31,7 +29,7 @@ const DarkModeSwitch = () => {
           <div className="px-7 text-gray-900 font-medium">Dark mode</div>
 
           <div className="relative cursor-pointer">
-            <input onChange={toggleSwitchHandle} defaultChecked={localStorage.getItem('color-theme') === 'dark'} className="sr-only peer" type="checkbox" name="dark-mode" id="dark-toggle" />
+            <input onChange={toggleSwitchHandle} defaultChecked={localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)} className="sr-only peer" type="checkbox" name="dark-mode" id="dark-toggle" />
             <div className="block border-[1px] border-gray-900 w-11 h-6 rounded-full hover:shadow" />
             <div className="dot absolute left-1 top-1 bg-gray-800 w-4 h-4 rounded-full transition-all peer peer-checked:after:translate-x-full peer-checked:left-6 peer-checked:transition-all" />
           </div>
