@@ -8,10 +8,8 @@ import RecommendCard from './RecommendCard.jsx';
 import CommentsSection from "./comments/CommentsSection.jsx";
 
 import CheckoutButton from '../payment/CheckoutButton.jsx';
+import '../css/event-card.css';
 
-// MAKS BLYA PERENESI VSY HYINU DLYA EVENT PAGE V OTDELNII FILE
-import '../css/event-card.css'; // MAKS BLYA PERENESI VSY HYINU DLYA EVENT PAGE V OTDELNII FILE
-// MAKS BLYA PERENESI VSY HYINU DLYA EVENT PAGE V OTDELNII FILE
 
 // VOT SYDA
 import '../css/EventPage.css';
