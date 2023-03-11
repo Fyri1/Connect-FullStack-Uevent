@@ -1,11 +1,10 @@
 import React from 'react';
-
 import Spinner from '../common/Spinner.jsx';
-
-import default_ava from '../../temp/avatar.png';
-
+import default_avatar from '../../temp/avatar.png';
+import apiClientRoutes from '../../routes/api/apiClientRoutes.js';
 
 const ProfileHead = ({ userData }) => {
+  console.log(userData)
   return !userData ? <Spinner /> : (
     <div className="bg-white rounded-lg shadow-xl pb-8">
       <div className="w-full h-[250px]">
@@ -13,7 +12,7 @@ const ProfileHead = ({ userData }) => {
       </div>
 
       <div className="flex flex-col items-center -mt-20">
-        <img src={default_ava} className="w-40 border-4 border-white rounded-full"></img>
+        <img src={userData.values['picture'] ? apiClientRoutes.getPathAvatar(userData.values['picture']) : default_avatar} className="w-40 border-4 border-white rounded-full"></img>
         <div className="flex items-center space-x-2 mt-2">
           <p className="text-2xl">
             { 

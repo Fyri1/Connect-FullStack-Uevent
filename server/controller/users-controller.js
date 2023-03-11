@@ -45,6 +45,9 @@ class Users {
   async sendCodeUpdateEmail(req, _res) {
     return userService.sendCodeEmail(req);
   }
+  async uploadAvatar(req, _res) {
+    return userService.uploadAvatar(req);
+  }
 }
 
 export default new Users();

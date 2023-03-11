@@ -1,5 +1,5 @@
 import React from 'react';
-import Comment from './Comment';
+import Comment from './Comment.jsx';
 import { useEventComments } from '../../../../hooks/events/useEventComments.js'
 import Spinner from '../../common/Spinner';
 import { EventService } from '../../../../services/events.service';
@@ -13,9 +13,9 @@ const CommentsSection = ({ eventId }) => {
   const [comments, setComments] = React.useState([]);
   const { isLoading, mutateAsync } = useMutation('change info user', (data) => EventService.createComment(data), 
   {
-    onSuccess: () => {
-      console.log('success');
-      setComments([{ content }, ...comments ]);
+    onSuccess: ({ data: { values } }) => {
+      setComments([values.commentInfo, ...comments ]);
+      setContent('');
     },
     onError: (err) => {
       setErrors({
@@ -29,7 +29,8 @@ const CommentsSection = ({ eventId }) => {
       })
     }
   }
-)
+);
+console.log(comments)
 
   const hendelSubmit = async (e) => {
     e.preventDefault();
@@ -57,7 +58,7 @@ const CommentsSection = ({ eventId }) => {
         comments.map(comment => <Comment data={comment}/>)
       }
       {
-        response.comments.length === 0 ? <p>Comment empty</p> : 
+        response.comments.length === 0 ? <></> : 
         response.comments.map(comment => <Comment data={comment}/>)
       }
     </div>

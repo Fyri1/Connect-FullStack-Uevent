@@ -6,6 +6,8 @@ import checkValidation from '../middlewares/auth-validation.js';
 import adminRoutes from '../routes/admin-routes.js';
 import accessDenied from '../middlewares/user.access-enied.js';
 import validationErrorUser from '../middlewares/validationError.user.js';
+import { uploadAvatar } from '../middlewares/upload-file.js'
+
 
 const router = Express.Router();
 
@@ -54,6 +56,12 @@ router.post(
   body('email').isEmail().normalizeEmail().trim(),
   accessDenied,
   tryCatch(User.sendCodeUpdateEmail)
+);
+
+router.patch(
+  adminRoutes.userUploadAvatar(),
+  uploadAvatar.single('image'),
+  tryCatch(User.uploadAvatar)
 );
 
 router.delete(adminRoutes.userIdDeletePath(), tryCatch(User.deleteUser));

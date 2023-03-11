@@ -8,6 +8,7 @@ import LanguageSelectMenu from './LanguageSelectMenu.jsx';
 
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 import '../../css/header.css';
+import { useUserProfile } from '../../../../hooks/user/useUserProfile.js'
 
 
 const lngs = {
@@ -49,7 +50,7 @@ const Header = () => {
           <div className="flex items-center lg:order-2">
             {
               // check whether user is logged in
-              localStorage.getItem("token")
+              localStorage.getItem('token')
               ?
               <div className="flex items-center">
                 <LanguageSelectMenu />

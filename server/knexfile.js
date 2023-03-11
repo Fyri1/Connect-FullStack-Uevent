@@ -1,4 +1,5 @@
 import path from 'path';
+import moment from 'moment';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -12,7 +13,15 @@ export const development = {
   connection: {
     filename: './database.sqlite',
   },
-  useNullAsDefault: true,
+  // pool: {
+  //   afterCreate: (conn, cb) => {
+  //     console.log(conn)
+  //     conn.query(`SET timezone = 'UTC'`, err => {
+  //       cb(err, conn);
+  //     });
+  //   }
+  // },
+  useNullAsDefault: false,
   migrations,
 };
 

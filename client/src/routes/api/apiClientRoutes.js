@@ -22,4 +22,6 @@ export default {
   userTickets: (id) => [apiPath, 'user', id, 'ticket'].join('/'),
 
   payPath: () => [apiPath, 'pay', 'create-session-intent'].join('/'),
+
+  getPathAvatar: (name) => [apiPath, 'avatars', name].join('/')
 };

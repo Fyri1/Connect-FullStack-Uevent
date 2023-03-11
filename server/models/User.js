@@ -19,6 +19,7 @@ class User {
         'second_name',
         'hidden',
         'last_name',
+        'picture',
         'created_at'
       )
       .where('id', '=', id);
@@ -78,6 +79,12 @@ class User {
         throw err;
       }
     }
+  }
+
+  async saveAvatar(userId, filename) {
+    await client('users')
+      .update('picture', filename)
+      .where('id', '=', userId);
   }
 
   async setHidden(id) {

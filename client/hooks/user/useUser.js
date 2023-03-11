@@ -6,7 +6,7 @@ const useUser = (id) => {
     onError: (error) => {
       console.log(error);
     },
-    select: ({ data }) => data,
+    select: ({ data }) => data.values,
     enabled: !!id,
   });
   return { isLoading, user };

@@ -81,6 +81,12 @@ class UserService {
     await User.setLink(id, code);
     return 'send email code';
   }
+
+  async uploadAvatar({ file, headers }) {
+    const token = headers['authorization'].split(' ')[1];
+    const { id } = tokenService.validateAccessToken(token);
+    await User.saveAvatar(id, file['filename'])
+  }
 }
 
 export default new UserService();

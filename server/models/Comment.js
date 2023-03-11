@@ -39,20 +39,22 @@ class Comment {
   }
 
   async createComment(id, event_id, user_id, content) {
+    const created_at = new Date(Date.now());
     try {
       await client('comments').insert({
         id,
         user_id,
         content,
+        created_at,
       });
-      const comment_id = await client('comments')
-        .select('id')
+      const comment = await client('comments')
+        .select('*')
         .where('id', '=', id);
       await client('event_comments').insert({
-        comment_id: comment_id[0].id,
+        comment_id: comment[0].id,
         event_id,
       });
-      return 'create comments';
+      return { massage: 'create comments', commentInfo: comment[0],};
     } catch (err) {
       throw err;
     }

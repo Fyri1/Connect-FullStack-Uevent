@@ -9,7 +9,7 @@ const useEventComments = (id) => {
       onError: (error) => {
         console.log(error);
       },
-      select: ({ data }) => data.values,
+      select: ({ data }) => data.values.reverse(),
       enabled: !!id,
     }
   );
