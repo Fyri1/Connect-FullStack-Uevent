@@ -17,7 +17,7 @@ const LanguageSelectMenu = () => {
 
       <div id="language-change" className="hidden w-12 z-10 bg-white rounded divide-y divide-gray-300 shadow dark:bg-gray-700 dark:divide-gray-600">
         <ul className="p-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-          <LanguageSelectElement i18n={i18n} lng="en" />
+          <LanguageSelectElement  i18n={i18n} lng="en" />
           <LanguageSelectElement i18n={i18n} lng="ru" />
           <LanguageSelectElement i18n={i18n} lng="ua" />
         </ul>
