@@ -16,9 +16,22 @@ import '../css/EventPage.css';
 
 
 const EventPage = () => {
+  const unfoldButtonHandle = () => {
+    console.log("pidorasa nado pokazat");
+    const textElement = document.getElementsByClassName("text-retracted")[0];
+    const textElementDiv = document.getElementsByClassName("main-event-content-retracted")[0];
+    console.log(textElement);
+    textElement.classList.remove("text-retracted");
+    textElement.classList.add("text-unfolded");
+    textElementDiv.classList.remove("main-event-content-retracted");
+    textElementDiv.classList.add("main-event-content-unfolded");
+  }
+  
+
   const id = useParams()['id'];
   const { isLoading, event } = useEvent(id);
 
+  
   return isLoading ? <Spinner /> : (
     <div className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
       <div className="max-w-4xl mx-auto  lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
@@ -78,7 +91,35 @@ const EventPage = () => {
                     <td className="text-left py-3 px-4"><a className="hover:text-blue-500" href="tel:622322662"><button type="button" className="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button></a></td>
                   </tr>
                 </tbody>
+                
+                
+              <div onClick={unfoldButtonHandle} >
+                <button class="button_block_view" type="submit">Развернуть</button>
+              </div>
+              
+              <tbody className="text-gray-700">
+                  <tr>
+                    <td className="w-1/3 text-left py-3 px-4">17.03.2023</td>
+                    <td className="w-1/3 text-left py-3 px-4">Hamburg Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                    <td className="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
+                    <td className="text-left py-3 px-4"><CheckoutButton eventItem={event}/></td>
+                  </tr>
+                  <tr className="bg-gray-100">
+                    <td className="w-1/3 text-left py-3 px-4">17.03.2023</td>
+                    <td className="w-1/3 text-left py-3 px-4">Hamburg Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                    <td className="price-td mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
+                    <td className="text-left py-3 px-4"><a className="hover:text-blue-500" href="tel:622322662"><button type="button" className="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button></a></td>
+                  </tr>
+                  <tr>
+                    <td className="w-1/3 text-left py-3 px-4">17.03.2023</td>
+                    <td className="w-1/3 text-left py-3 px-4">Hamburg Barclaycard Arena, Sylvesterallee 10, 22525</td>
+                    <td className="mt-1 text-lg font-semibold text-white sm:text-slate-800 md:text-2xl dark:sm:text-white">56$</td>
+                    <td className="text-left py-3 px-4"><a className="hover:text-blue-500" href="tel:622322662"><button type="button" className="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg">Buy now</button></a></td>
+                  </tr>
+                </tbody>
               </table>
+
+
             </div>
           </div>
 

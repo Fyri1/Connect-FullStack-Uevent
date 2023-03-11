@@ -7,6 +7,7 @@ import i18next from "i18next";
 import Header from './common/header/Header.jsx';
 import PageNotFound from './common/PageNotFound.jsx';
 import MainPage from './main-page/MainPage.jsx';
+import Footer from './common/header/Footer.jsx';
 
 // FullMainItemPage
 import EventPage from './event-page/EventPage.jsx';
@@ -87,7 +88,9 @@ const App = () => {
             <Route path="*" element={<PageNotFound />} />
           </>
         </Routes>
+        <Footer/>
       </BrowserRouter>
+      
     </I18nextProvider>
   );
 };

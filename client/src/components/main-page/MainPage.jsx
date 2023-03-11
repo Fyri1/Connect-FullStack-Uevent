@@ -28,6 +28,8 @@ const MainPage = () => {
                     <EventElement key={event.id} event={event} />
                   ))}
                 </div>
+
+                
               </div>
             </div>
           </div>
