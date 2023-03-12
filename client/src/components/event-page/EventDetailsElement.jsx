@@ -54,10 +54,7 @@ const EventDetailsElement = ({ eventData }) => {
                   to cart</a>
               </div>
             </div>
-            {/* <div class="flex item-center justify-between mt-3">
-              <h1 class="text-gray-700 font-bold text-xl">$220</h1>
-              <button class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Add to Card</button>
-            </div> */}
+
           </div>
 
 
