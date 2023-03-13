@@ -26,32 +26,32 @@ const EventDetailsElement = ({ eventData }) => {
             <span className="animate-ping absolute top-1 right-0.5 block h-1 w-1 rounded-full ring-2 ring-green-400 bg-green-600"></span>
           </button> */}
           
-          <div class="sm:grid grid-cols-4 bg-white shadow-sm p-7  ">
-            <img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Just a flower" class="w-full rounded-lg"/>
-            <div class="pt-5 sm:pt-0 sm:pl-10 col-span-3">
-            <p class="mt-2 text-gray-600 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
+          <div className="sm:grid grid-cols-4 bg-white shadow-sm p-7  ">
+            <img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Just a flower" className="w-full rounded-lg"/>
+            <div className="pt-5 sm:pt-0 sm:pl-10 col-span-3">
+            <p className="mt-2 text-gray-600 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
               Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
               Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
               Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
               Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
               Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
               Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia</p>
-              <div class="flex items-center justify-between">
-                <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+              <div className="flex items-center justify-between">
+                <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
                 <a href="#"
-                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
                   to cart</a>
               </div>
             </div>
-            {/* <div class="flex item-center justify-between mt-3">
-              <h1 class="text-gray-700 font-bold text-xl">$220</h1>
-              <button class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Add to Card</button>
+            {/* <div className="flex item-center justify-between mt-3">
+              <h1 className="text-gray-700 font-bold text-xl">$220</h1>
+              <button className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Add to Card</button>
             </div> */}
           </div>
 
 
       <div onClick={unfoldButtonHandle} >
-              <button class="button_block_view" type="submit">Развернуть</button>
+              <button className="button_block_view" type="submit">Развернуть</button>
       </div>
     </div>
   );

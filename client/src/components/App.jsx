@@ -19,7 +19,7 @@ import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
 import PartnerRegister from './auth/PartnerRegister.jsx';
-import RulesUser from './auth/RulesUser.jsx';
+// import RulesUser from './auth/RulesUser.jsx';
 
 // Admin panel
 import AdminPage from './admin-panel/AdminPage.jsx';
@@ -32,6 +32,8 @@ import moderatorRoutes from '../routes/client/moderatorRoutes.js';
 import organizationRoutes from '../routes/client/organizationRoutes.js';
 import Success from './common/Success.jsx'
 // import Rules from './auth/RulesUser.jsx';
+import { useUserProfile } from '../../hooks/user/useUserProfile.js'
+import Spinner from './common/Spinner.jsx';
 
 const lngs = {
   en: { nativeName: 'en' },
@@ -40,7 +42,12 @@ const lngs = {
 };
   
 const App = () => {
-  return (
+
+  // const token = localStorage.getItem('token');
+  const { isLoading, userInfo } = useUserProfile();
+  // console.log(token)
+
+  return isLoading ? <Spinner /> : (
     <I18nextProvider i18n={i18next}>
       <BrowserRouter>
         <Header />
@@ -63,7 +70,7 @@ const App = () => {
             <Route path={clientRoutes.registerPagePath()} element={<Register />} />
             <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
 
-            <Route path={clientRoutes.rulesPagePath()} element={<RulesUser />} />
+            {/* <Route path={clientRoutes.rulesPagePath()} element={<RulesUser />} /> */}
 
             <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
             <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />

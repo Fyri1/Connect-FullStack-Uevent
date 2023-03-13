@@ -30,7 +30,6 @@ const CommentsSection = ({ eventId }) => {
     }
   }
 );
-console.log(comments)
 
   const hendelSubmit = async (e) => {
     e.preventDefault();
@@ -44,7 +43,7 @@ console.log(comments)
           <p className="text-xl font-semibold text-blue-900 cursor-pointer transition-all hover:text-black">Add Comment</p>
           {!isLogin ? <> <p className="text-2xl absolute left-1/4 top-1/2">You must be logged in or registered to leave comments!</p> </> : 
              <form onSubmit={hendelSubmit}>
-                <textarea onChange={(e) => setContent(e.target.value)} value={content} className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here"></textarea>
+                <textarea onChange={(e) => setContent(e.target.value)} value={content} className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here" />
                 <div className="flex justify-between mt-2"> 
                   <p className="text-sm text-blue-900 ">Enter atleast 5 characters</p>
                   <button  disabled={isLoading} className="h-12 w-[150px] bg-blue-600 text-sm text-white rounded-lg transition-all cursor-pointer hover:bg-blue-500">Submit comment</button>
