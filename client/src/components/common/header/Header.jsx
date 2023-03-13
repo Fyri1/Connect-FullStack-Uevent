@@ -16,7 +16,7 @@ const lngs = {
   ua: { nativeName: 'ua' },
 };
 
-const Header = () => {
+const Header = ({ data }) => {
   const [ t, i18n ] = useTranslation('header');
   
   const tempUserDetails = {

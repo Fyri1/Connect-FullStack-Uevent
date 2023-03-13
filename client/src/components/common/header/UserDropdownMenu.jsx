@@ -36,7 +36,7 @@ const UserDropdownMenu = ({ userDetails }) => {
         <svg className="w-4 h-4 mx-1.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
       </button>
 
-      <div id={userDetails.id} onFocus={() => setShow(true)} className={`${show ? '' : 'hidden'} absolute right-0 z-10 w-56 bg-white rounded divide-y divide-gray-300 shadow dark:bg-gray-700 dark:divide-gray-600`}>
+      <div id={userDetails.id} className={`${show ? '' : 'hidden'}  absolute right-1 z-10 w-56 bg-white rounded divide-y divide-gray-300 shadow dark:bg-gray-700 dark:divide-gray-600`}>
         <div className="py-3 px-7 text-sm text-gray-900 dark:text-white">
           <div className="absolute inset-0 w-2 bg-blue-600 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
           <div className="font-medium ">{t('userDropdownMenu.welcome')}{userDetails.fullname}</div>

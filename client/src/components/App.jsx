@@ -45,10 +45,10 @@ const lngs = {
 const App = () => {
 
   // const token = localStorage.getItem('token');
-  const { isLoading, userInfo } = useUserProfile();
+  // const { isLoading, userInfo } = useUserProfile();
   // console.log(token)
 
-  return isLoading ? <Spinner /> : (
+  return (
     <I18nextProvider i18n={i18next}>
       <BrowserRouter>
         <Header />
