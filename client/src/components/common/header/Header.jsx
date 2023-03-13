@@ -8,7 +8,6 @@ import LanguageSelectMenu from './LanguageSelectMenu.jsx';
 
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 import '../../css/header.css';
-import { useUserProfile } from '../../../../hooks/user/useUserProfile.js'
 
 
 const lngs = {
