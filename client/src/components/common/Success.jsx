@@ -18,7 +18,41 @@ const Success = () => {
 
   return (
     <div>
-      <div className="bg-gray-200 w-full px-16 md:px-0 h-screen flex items-center justify-center">
+      <div class="h-screen flex items-center justify-center">
+          <card class="flex flex-col rounded-lg shadow-lg w-1/2 p-10 bg-white">
+
+            {/* <!-- Logo --> */}
+            <div class="flex justify-center">
+              <img src="https://ipio-books.com/wp-content/uploads/2018/03/success-icon.png" class="w-20 h-20"/>
+            </div>
+
+            {/* <!-- Title --> */}
+            <p class="text-center text-gray-800 text-4xl mt-8"> Success! </p>
+
+            {/* <!-- Description --> */}
+            <p class="text-center text-gray-700 font-light mt-5"> Your order has been successfully completed go nagyi! </p>
+
+            
+
+            {/* <!-- Buttons --> */}
+            <div class="flex flex-row-reverse mt-14 items-end gap-5">
+
+              <button class="hover:bg-blue-700 bg-blue-600 text-gray-100 p-4 rounded">
+                Good
+              </button>
+
+                {/* добавлб стрелку  */}
+              <button class="text-gray-600 hover:bg-gray-100 hover:text-gray-700 py-4 px-2">
+               Сome back
+              </button>
+
+            </div>
+
+          </card>
+
+        </div>
+
+      {/* <div className="bg-gray-200 w-full px-16 md:px-0 h-screen flex items-center justify-center">
         <div className="bg-white border border-gray-200 flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 py-8 rounded-lg shadow-2xl">
           <p className="text-6xl md:text-7xl lg:text-9xl font-bold tracking-wider text-gray-300">
             Success!{' '}
@@ -68,7 +102,7 @@ const Success = () => {
             <span>Return Home</span>
           </a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
