@@ -11,8 +11,7 @@ const CommentsSection = ({ eventId }) => {
   const [errors, setErrors] = React.useState({});
   const [content, setContent] = React.useState('');
   const [comments, setComments] = React.useState([]);
-  const { isLoading, mutateAsync } = useMutation('change info user', (data) => EventService.createComment(data), 
-  {
+  const { isLoading, mutateAsync } = useMutation('change info user', (data) => EventService.createComment(data), {
     onSuccess: ({ data: { values } }) => {
       setComments([values.commentInfo, ...comments ]);
       setContent('');
@@ -28,10 +27,9 @@ const CommentsSection = ({ eventId }) => {
         }, {})
       })
     }
-  }
-);
+  });
 
-  const hendelSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     await mutateAsync({ eventId, content });
   }
@@ -42,7 +40,7 @@ const CommentsSection = ({ eventId }) => {
         <div className="h-80 px-7 w-full rounded-[12px] bg-white p-4 shadow-md border relative">
           <p className="text-xl font-semibold text-blue-900 cursor-pointer transition-all hover:text-black">Add Comment</p>
           {!isLogin ? <> <p className="text-2xl absolute left-1/4 top-1/2">You must be logged in or registered to leave comments!</p> </> : 
-             <form onSubmit={hendelSubmit}>
+             <form onSubmit={handleSubmit}>
                 <textarea onChange={(e) => setContent(e.target.value)} value={content} className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here" />
                 <div className="flex justify-between mt-2"> 
                   <p className="text-sm text-blue-900 ">Enter atleast 5 characters</p>
@@ -54,11 +52,11 @@ const CommentsSection = ({ eventId }) => {
       </div>
       {
         comments.length === 0 ? <></> : 
-        comments.map(comment => <Comment data={comment}/>)
+        comments.map(comment => <Comment key={comment.id} data={comment}/>)
       }
       {
         response.comments.length === 0 ? <></> : 
-        response.comments.map(comment => <Comment data={comment}/>)
+        response.comments.map(comment => <Comment key={comment.id} data={comment}/>)
       }
     </div>
   )
