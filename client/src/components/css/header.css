@@ -3,9 +3,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.header-div{
 
-}
 .logo-div{
   width:250%;
   display:flex;
@@ -20,32 +18,20 @@ body {
   display: flex;
 }
 
-.center {
-  top: 100px;
-  width: 150px;
-  height: 60px;
-}
-.container-left-button {
-  position: relative;
-}
+
 .container-right-button {
-  margin-left: 2%;
+  margin-left: 5%;
   position: relative;
 }
 .btn-login, .btn-register {
-  width: 150px;
-  height: 60px;
+  width: 140px;
+  height: 50px;
   cursor: pointer;
   background: transparent;
   outline: none;
   transition: 1s ease-in-out;
 }
-.btn-login {
-  border: 1px solid #3ec93e;
-}
-.btn-register {
-  border: 4px solid #3e7ac9;
-}
+
 
 .border-login, .border-register {
   position: absolute;
@@ -56,34 +42,23 @@ body {
   stroke-dashoffset: 150;
   transition: 1s ease-in-out;
 }
-.border-login {
-  stroke: #3ec93e;
-}
-.border-register {
-  stroke: #fff;
-}
 
-.btn-login:hover {
-  transition: 0.5s ease-in-out;
-}
 
-.btn-register:hover {
-  transition: 0.5s ease-in-out;
-  background: #3e7ac9;
-}
 
-.btn-login:hover > svg, .btn-register:hover > svg {
-  stroke-dashoffset: -480;
-}
+
+
+
+
+
 
 .btn-login > p, .btn-register > p {
-  color: black;
+  color: rgba(252, 251, 230, 0.89);
   font-size: 18px;
   font-weight: 100;
 }
 
 .btn-login:hover > p, .btn-register:hover > p {
-  color: black;
+  color: rgba(252, 251, 230, 0.89);
   font-size: 18px;
   font-weight: 100;
 }
