@@ -31,80 +31,39 @@ const Comment = ({ data }) => {
 
 
   return isLoading ? <></> : (
-    <div className="rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
+    <div className="items-center ml-[22%] mr-[22%] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-500">
       <div className="flex items-center space-x-2">
         {/* User ava */}
         <div className="flex flex-shrink-0 self-start cursor-pointer">
           <img className="h-9 w-9 object-fill rounded-full" src={ !user['picture'] ? default_avatar : apiClientRoutes.getPathAvatar(user['picture'])} alt="" />
         </div>
 
-        <div className="flex items-center justify-center space-x-3">
-          <div className="block">
-            <div className="bg-gray-100 w-auto rounded-xl px-2 pb-2">
-              <div className="font-medium">
-                <div className="">
-                  <div className="text-sm font-semibold">
-                    {!user['first_name'] ? user.login : `${user['first_name']} ${user['second_name']}`} • <span className="font-normal">{datePublish}</span>
-                  </div>
-                </div>
+        <div className="flex items-center justify-center w-full space-x-3">
+          <div className="block w-full">
+            <div className="bg-gray-100 w-full rounded px-2 pb-2 pt-1">
+              <div className="flex text-sm font-semibold">
+                <span className="font-bold">{!user['first_name'] ? user.login : `${user['first_name']} ${user['second_name']}`}</span>
+                <span className="font-normal pl-1"> • {datePublish}</span>
+
+                <button className={`flex p-1.5 mr-2 transition-all duration-300 rounded-3xl text-gray-400 hover:bg-gray-200`}>
+                  <svg className="h-2.5 w-2.5" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/>
+                  </svg>
+                </button>
               </div>
-              
+
               <div className="">
-                <p className=" mt-2 text-sm text-gray-600 md:text-base ">{data.content}</p>
+                <p className="text-sm text-gray-600 md:text-base ">{data.content}</p>
               </div>
-            </div>
 
-            <div className="flex justify-start items-center text-xs w-full">
-              <div className="font-semibold text-gray-700 px-3 flex items-center justify-center space-x-1">
-                <div className="flex">
-                  <ReactionElement reactionClickHandle={likeButtonClickHandle} reactionAmount={23}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z"></path>
-                  </ReactionElement>
+              <div className="flex">
+                <ReactionElement reactionClickHandle={likeButtonClickHandle} isActive={true} reactionAmount={23}>
+                  <path d="M2 42h8V18H2v24zm44-22c0-2.21-1.79-4-4-4H29.37l1.91-9.14c.04-.2.07-.41.07-.63 0-.83-.34-1.58-.88-2.12L28.34 2 15.17 15.17C14.45 15.9 14 16.9 14 18v20c0 2.21 1.79 4 4 4h18c1.66 0 3.08-1.01 3.68-2.44l6.03-14.1A4 4 0 0 0 46 24v-3.83l-.02-.02L46 20z"/>
+                </ReactionElement>
 
-                  <ReactionElement reactionClickHandle={dislikeButtonClickHandle} reactionAmount={23}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 15h2.25m8.024-9.75c.011.05.028.1.052.148.591 1.2.924 2.55.924 3.977a8.96 8.96 0 01-.999 4.125m.023-8.25c-.076-.365.183-.75.575-.75h.908c.889 0 1.713.518 1.972 1.368.339 1.11.521 2.287.521 3.507 0 1.553-.295 3.036-.831 4.398C20.613 14.547 19.833 15 19 15h-1.053c-.472 0-.745-.556-.5-.96a8.95 8.95 0 00.303-.54m.023-8.25H16.48a4.5 4.5 0 01-1.423-.23l-3.114-1.04a4.5 4.5 0 00-1.423-.23H6.504c-.618 0-1.217.247-1.605.729A11.95 11.95 0 002.25 12c0 .434.023.863.068 1.285C2.427 14.306 3.346 15 4.372 15h3.126c.618 0 .991.724.725 1.282A7.471 7.471 0 007.5 19.5a2.25 2.25 0 002.25 2.25.75.75 0 00.75-.75v-.633c0-.573.11-1.14.322-1.672.304-.76.93-1.33 1.653-1.715a9.04 9.04 0 002.86-2.4c.498-.634 1.226-1.08 2.032-1.08h.384"></path>
-                  </ReactionElement>
-                  
-                  {/* Edit button */}
-                  <div className="card-block">
-                    <button className={`flex p-1.5 mr-2 transition-all duration-300  "rounded-3xl bg-blue-500 text-white hover:bg-blue-600" : "rounded hover:bg-gray-200 text-blue-600"}`}>
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 23 23" stroke="currentColor" strokeWidth="2" xmlns="http://www.w3.org/2000/svg" >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /> :
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                      </svg>
-                    </button>
-
-                    {/* ДЛЯ ТИМОФЕЯ */} {/* ДЛЯ ТИМОФЕЯ */} {/* ДЛЯ ТИМОФЕЯ */}
-                    {/* <button onClick={ editActive ? saveButtonHandle : editButtonHandle } className={`flex p-1.5 mr-2 transition-all duration-300 ${editActive ? "rounded-3xl bg-blue-500 text-white hover:bg-blue-600" : "rounded hover:bg-gray-200 text-blue-600"}`}>
-                      <svg className="h-5 w-5" fill="none" viewBox="0 0 23 23" stroke="currentColor" strokeWidth="2" xmlns="http://www.w3.org/2000/svg" >
-                        {
-                          editActive ?
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /> :
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                        }
-                      </svg>
-                    </button> */}
-
-                    {/* Моя кнопка */}
-                    {/* <button className="items-center justify-center text-2xl text-white mt-4">
-                      <div className="mx-1 px-3 py-2 
-                      py-2 items-center rounded-xl flex
-                      space-x-2 flex-row bg-gray-200 text-gray-700
-                      hover:bg-blue-400 hover:text-blue-200 rounded-lg ">
-                    
-                      <svg className="h-5 w-5 text-gray-700" ffill="none" strokeWidth="1.5"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path strokeLinecap="round"
-                          strokeLinejoin="round" 
-                          d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z"></path>
-                        <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z"></path>
-                      </svg>
-
-                    
-                      </div>
-                      
-                    </button> */}
-                  </div>
-                </div>
+                <ReactionElement reactionClickHandle={dislikeButtonClickHandle} isActive={false} reactionAmount={23}>
+                  <path d="M30 6H12c-1.66 0-3.08 1.01-3.68 2.44l-6.03 14.1A4 4 0 0 0 2 24v3.83l.02.02L2 28c0 2.21 1.79 4 4 4h12.63l-1.91 9.14c-.04.2-.07.41-.07.63 0 .83.34 1.58.88 2.12L19.66 46l13.17-13.17C33.55 32.1 34 31.1 34 30V10c0-2.21-1.79-4-4-4zm8 0v24h8V6h-8z"/>
+                </ReactionElement>
               </div>
             </div>
           </div>
@@ -112,7 +71,6 @@ const Comment = ({ data }) => {
       </div>
 
       <form onSubmit={handleForm}>
-
         <div className="mt-4">
           {
             show ? (
