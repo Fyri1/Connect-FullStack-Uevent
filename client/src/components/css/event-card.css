@@ -112,11 +112,6 @@ input[name="r"] {
 }
 
 .col-sm-4{
-  float: left;
-  width: 23%;
-
-  position: left;
-  margin: 25px 15px 0px 0px;
 
   transition: 1s; /* Время эффекта */
   text-align: center; 

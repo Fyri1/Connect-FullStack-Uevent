@@ -23,7 +23,7 @@ const MainPage = () => {
                 <h2 className="title text-center">Features Items</h2>
                 <Sidebar />
 
-                <div className="Kokon-na-mazy">
+                <div className="">
                   {events.map((event, i) => (
                     <EventElement key={event.id} event={event} />
                   ))}
