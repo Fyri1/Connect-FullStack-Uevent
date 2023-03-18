@@ -6,7 +6,6 @@ import ReactionElement from './ReactionElement.jsx';
 import $api from '../../../../utils/api.js';
 import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
 import { useUser } from '../../../../hooks/user/useUser.js'
-
 import default_avatar from '../../../temp/avatar.png';
 
 
@@ -28,9 +27,13 @@ const Comment = ({ data }) => {
     console.log("pidoras clicked delete");
   }
 
-  const handleForm = (e) => {
-    e.preventDefault();
-    $api.patch()
+  const handleChangeComment = async () => {
+    try {
+    const response = await $api.patch(apiClientRoutes.changeComment(data.id), { content });
+    console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
 
@@ -54,7 +57,7 @@ const Comment = ({ data }) => {
                   {
                     show ? (
                       <div className="flex">
-                        <button onClick={() => setShow(!show)} className={`flex p-1.5 ml-2 transition-all duration-300 rounded-3xl text-gray-600 hover:bg-gray-200`}>
+                        <button onClick={handleChangeComment} className={`flex p-1.5 ml-2 transition-all duration-300 rounded-3xl text-gray-600 hover:bg-gray-200`}>
                           <svg className="h-3 w-3" fill="none" viewBox="0 0 23 23" stroke="currentColor" strokeWidth="2" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                           </svg>
@@ -82,19 +85,13 @@ const Comment = ({ data }) => {
                   </button>
                 </div>
               </div>
-
-              <form onSubmit={handleForm}>
-                <div>
-                  {
-                    show ? (
-                      <textarea onChange={(e) => setContent(e.target.value)} value={content} className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here" />
-                    ) : ( 
-                      <p className="text-md text-gray-600">{data.content}</p>
-                    )
-                  }
-                </div>
-              </form>
-
+              {
+                show ? (
+                  <textarea onChange={(e) => setContent(e.target.value)} value={content} className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here" />
+                ) : ( 
+                  <p className="text-md text-gray-600">{data.content}</p>
+                )
+              }
               <div className="flex">
                 <ReactionElement reactionClickHandle={likeButtonClickHandle} isActive={true} reactionAmount={23}>
                   <path d="M2 42h8V18H2v24zm44-22c0-2.21-1.79-4-4-4H29.37l1.91-9.14c.04-.2.07-.41.07-.63 0-.83-.34-1.58-.88-2.12L28.34 2 15.17 15.17C14.45 15.9 14 16.9 14 18v20c0 2.21 1.79 4 4 4h18c1.66 0 3.08-1.01 3.68-2.44l6.03-14.1A4 4 0 0 0 46 24v-3.83l-.02-.02L46 20z"/>

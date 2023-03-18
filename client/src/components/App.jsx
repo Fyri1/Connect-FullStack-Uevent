@@ -44,14 +44,13 @@ const lngs = {
   
 const App = () => {
 
-  // const token = localStorage.getItem('token');
-  // const { isLoading, userInfo } = useUserProfile();
-  // console.log(token)
+  const token = localStorage.getItem('token');
+  const { isLoading, userInfo } = !token ? { isLoading: false } : useUserProfile();
 
-  return (
+  return isLoading ? <Spinner /> : (
     <I18nextProvider i18n={i18next}>
       <BrowserRouter>
-        <Header />
+        <Header user={userInfo || {}}/>
         <Routes>
           {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
           {/* {isGuest ? ( */}

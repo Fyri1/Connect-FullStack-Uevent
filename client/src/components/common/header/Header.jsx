@@ -16,15 +16,8 @@ const lngs = {
   ua: { nativeName: 'ua' },
 };
 
-const Header = ({ data }) => {
+const Header = ({ user }) => {
   const [ t, i18n ] = useTranslation('header');
-  
-  const tempUserDetails = {
-    id: "temp_user_id",
-    fullname: "USER NAME", 
-    login: "login", 
-    email: "email@email.com", 
-  };
 
   return (
     <header className='header-div'>
@@ -53,7 +46,7 @@ const Header = ({ data }) => {
               ?
               <div className="flex items-center">
                 <LanguageSelectMenu />
-                <UserDropdownMenu userDetails={tempUserDetails}/>
+                <UserDropdownMenu userDetails={user.values}/>
               </div>
               :
               <div className="authButtons">
