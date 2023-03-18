@@ -7,6 +7,8 @@ import DarkModeSwitch from './DarkModeSwitch.jsx';
 
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 // import adminRoutes from '../../../routes/client/adminRoutes.js';
+import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
+import defaultAvarat from '../../../temp/avatar.png'
 
 import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
@@ -37,7 +39,7 @@ export default ({ userDetails }) => {
         <Menu.Button className="flex items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white">
           <img
             className="mr-2 w-8 h-8 rounded-full"
-            src="/avatar.png"
+            src={userDetails['picture'] ? apiClientRoutes.getPathAvatar(userDetails['picture']) : defaultAvarat}
             alt="user photo"
           />
           <svg
