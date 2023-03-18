@@ -16,6 +16,7 @@ export default {
   createComment: (id) => [apiPath, 'event', id, 'create', 'comment'].join('/'),
 
   changeComment: (id) => [apiPath, 'comment', id, 'update'].join('/'),
+  deleteComment: (id) => [apiPath, 'comment', id, 'delete'].join('/'),
   
   usersGetInfoPath: () => [apiPath, 'user', 'profile'].join('/'),
   userChangeEmail: () => [apiPath, 'user', id, 'update', 'password'].join('/'),

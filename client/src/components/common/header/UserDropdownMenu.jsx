@@ -10,14 +10,18 @@ import clientRoutes from '../../../routes/client/clientRoutes.js';
 import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
 import defaultAvarat from '../../../temp/avatar.png'
 
+import UserContext from '../../../context/UserContext.js';
+
 import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 
-export default ({ userDetails }) => {
+export default () => {
   const [t, i18n] = useTranslation('header');
   const navigate = useNavigate();
 
-  const fullName = `${t('userDropdownMenu.welcome')} ${!userDetails?.name ? userDetails.login : `${userDetails.name} ${userDetails.name}`}`
+  const { currentUser } = React.useContext(UserContext);
+
+  const fullName = `${t('userDropdownMenu.welcome')} ${!currentUser?.name ? currentUser.login : `${currentUser.name} ${currentUser.name}`}`
   const logoutButtonHandle = async (e) => {
     e.preventDefault();
     try {
@@ -39,7 +43,7 @@ export default ({ userDetails }) => {
         <Menu.Button className="flex items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white">
           <img
             className="mr-2 w-8 h-8 rounded-full"
-            src={userDetails['picture'] ? apiClientRoutes.getPathAvatar(userDetails['picture']) : defaultAvarat}
+            src={currentUser['picture'] ? apiClientRoutes.getPathAvatar(currentUser['picture']) : defaultAvarat}
             alt="user photo"
           />
           <svg

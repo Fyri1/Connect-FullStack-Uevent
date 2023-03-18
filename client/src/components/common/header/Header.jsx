@@ -5,7 +5,6 @@ import Navbar from './Navbar.jsx';
 import AuthButton from './AuthButton.jsx';
 import UserDropdownMenu from './UserDropdownMenu.jsx';
 import LanguageSelectMenu from './LanguageSelectMenu.jsx';
-
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 import '../../css/header.css';
 
@@ -16,7 +15,7 @@ const lngs = {
   ua: { nativeName: 'ua' },
 };
 
-const Header = ({ user }) => {
+const Header = () => {
   const [ t, i18n ] = useTranslation('header');
 
   return (
@@ -46,7 +45,7 @@ const Header = ({ user }) => {
               ?
               <div className="flex items-center">
                 <LanguageSelectMenu />
-                <UserDropdownMenu userDetails={user.values}/>
+                <UserDropdownMenu />
               </div>
               :
               <div className="authButtons">
