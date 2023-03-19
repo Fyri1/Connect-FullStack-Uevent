@@ -6,8 +6,9 @@ import ReactionElement from './ReactionElement.jsx';
 import $api from '../../../../utils/api.js';
 import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
 import { useUser } from '../../../../hooks/user/useUser.js'
-
 import default_avatar from '../../../temp/avatar.png';
+
+import UserContext from '../../../context/UserContext.js';
 
 
 const Comment = ({ data }) => {
@@ -15,6 +16,13 @@ const Comment = ({ data }) => {
   const { isLoading, user } = useUser(data.user_id);
   const [show, setShow] = React.useState(false);
   const [content, setContent] = React.useState(data.content);
+  const [currentContent, setCurrentContent] = React.useState(data.content);
+
+  const [isDelete, setDelete] = React.useState(false);
+
+  
+  const { currentUser } = React.useContext(UserContext);
+
 
   const likeButtonClickHandle = () => {
     console.log("pidoras clicked like!");
@@ -24,17 +32,29 @@ const Comment = ({ data }) => {
     console.log("pidoras clicked dislike!");
   }
 
-  const commentDeleteButtonHandle = () => {
+  const commentDeleteButtonHandle = async () => {
     console.log("pidoras clicked delete");
+    try {
+    const response = await $api.delete(apiClientRoutes.deleteComment(data.id));
+    setDelete(!isDelete);
+    console.log(response);
+    }catch(err) {
+      console.log(err)
+    }
   }
 
-  const handleForm = (e) => {
-    e.preventDefault();
-    $api.patch()
+  const handleChangeComment = async () => {
+    try {
+    const response = await $api.patch(apiClientRoutes.changeComment(data.id), { content });
+    setCurrentContent(content)
+    setShow(!show);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
 
-  return isLoading ? <></> : (
+  return isLoading ? <></> : !isDelete ?
     <div className="items-center ml-[20%] mr-[20%] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-500">
       <div className="flex items-center space-x-2">
         {/* User ava */}
@@ -49,12 +69,12 @@ const Comment = ({ data }) => {
                 <span className="font-bold pt-2">{!user['first_name'] ? user.login : `${user['first_name']} ${user['second_name']}`}</span>
                 <span className="font-normal pl-1 pt-2"> • {datePublish}</span>
 
-                <div className="flex pt-1.5">
+               {currentUser.id === data.user_id? <div className="flex pt-1.5">
                   {/* Edit buttons */}
                   {
                     show ? (
                       <div className="flex">
-                        <button onClick={() => setShow(!show)} className={`flex p-1.5 ml-2 transition-all duration-300 rounded-3xl text-gray-600 hover:bg-gray-200`}>
+                        <button onClick={handleChangeComment} className={`flex p-1.5 ml-2 transition-all duration-300 rounded-3xl text-gray-600 hover:bg-gray-200`}>
                           <svg className="h-3 w-3" fill="none" viewBox="0 0 23 23" stroke="currentColor" strokeWidth="2" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                           </svg>
@@ -80,21 +100,16 @@ const Comment = ({ data }) => {
                       <path clipRule="evenodd" fillRule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"></path>
                     </svg>
                   </button>
-                </div>
-              </div>
-
-              <form onSubmit={handleForm}>
-                <div>
-                  {
-                    show ? (
-                      <textarea onChange={(e) => setContent(e.target.value)} value={content} className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here" />
-                    ) : ( 
-                      <p className="text-md text-gray-600">{data.content}</p>
-                    )
-                  }
-                </div>
-              </form>
-
+                </div> : <></>
+                }
+            </div>
+              {
+                show ? (
+                  <textarea onChange={(e) => setContent(e.target.value)} value={content} className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here" />
+                ) : ( 
+                  <p className="text-md text-gray-600">{currentContent}</p>
+                )
+              }
               <div className="flex">
                 <ReactionElement reactionClickHandle={likeButtonClickHandle} isActive={true} reactionAmount={23}>
                   <path d="M2 42h8V18H2v24zm44-22c0-2.21-1.79-4-4-4H29.37l1.91-9.14c.04-.2.07-.41.07-.63 0-.83-.34-1.58-.88-2.12L28.34 2 15.17 15.17C14.45 15.9 14 16.9 14 18v20c0 2.21 1.79 4 4 4h18c1.66 0 3.08-1.01 3.68-2.44l6.03-14.1A4 4 0 0 0 46 24v-3.83l-.02-.02L46 20z"/>
@@ -108,8 +123,8 @@ const Comment = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div> : <></>
+  
 };
 
 export default Comment

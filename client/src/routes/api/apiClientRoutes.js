@@ -7,18 +7,21 @@ export default {
   sendMailResetPassword: () => [apiPath, 'auth', 'password-reset'].join('/'),
   resetPassword: (token) => [apiPath, 'auth', 'password-reset', token].join('/'),
   confirmEmail: (token) => [apiPath, 'auth', 'active', token].join('/'),
-  usersGetInfoPath: () => [apiPath, 'user', 'profile'].join('/'),
   changeUserInfo: (id) => [apiPath, 'user', id, 'update'].join('/'),
   userIdGetPath: (userId) => [apiPath, 'user', userId].join('/'),
-
+  
   getAllEvent: () => [apiPath, 'event'].join('/'),
   getEventById: (id) => [apiPath, 'event', id].join('/'),
   getAllCommentsByEventId: (id) => [apiPath, 'event', id, 'comments'].join('/'),
   createComment: (id) => [apiPath, 'event', id, 'create', 'comment'].join('/'),
 
+  changeComment: (id) => [apiPath, 'comment', id, 'update'].join('/'),
+  deleteComment: (id) => [apiPath, 'comment', id, 'delete'].join('/'),
+  
+  usersGetInfoPath: () => [apiPath, 'user', 'profile'].join('/'),
   userChangeEmail: () => [apiPath, 'user', id, 'update', 'password'].join('/'),
   userChangePasswordPath: (id) =>
-    [apiPath, 'user', id, 'update', 'password'].join('/'),
+  [apiPath, 'user', id, 'update', 'password'].join('/'),
   userTickets: (id) => [apiPath, 'user', id, 'ticket'].join('/'),
 
   payPath: () => [apiPath, 'pay', 'create-session-intent'].join('/'),
