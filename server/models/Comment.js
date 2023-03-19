@@ -73,7 +73,7 @@ class Comment {
 
   async updateComment(id, content) {
     try {
-      await client('comments').where('id', '=', id).update({ content });
+      await client('comments').where('id', '=', id).update({ content, is_change: true });
       return 'update comment :)';
     } catch (err) {
       throw err;

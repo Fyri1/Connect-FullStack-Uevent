@@ -35,9 +35,12 @@ const Comment = ({ data }) => {
 
   const handleChangeComment = async () => {
     try {
-    const response = await $api.patch(apiClientRoutes.changeComment(data.id), { content });
-    setCurrentContent(content)
-    setShow(!show);
+      if (content !== currentContent) {
+        const response = await $api.patch(apiClientRoutes.changeComment(data.id), { content });
+        setCurrentContent(content);
+        console.log(response);
+      }
+      setShow(!show);
     } catch (e) {
       console.log(e);
     }
@@ -100,7 +103,10 @@ const Comment = ({ data }) => {
                   <p className="text-md text-gray-600">{currentContent}</p>
                 )
               }
-             {reaction.isLoading ? <></> : <ReactionComment commentId={data.id} data={reaction.reaction} currentUser={currentUser}/>}
+              <div className="flex items-end justify-between">
+                {reaction.isLoading ? <></> : <ReactionComment commentId={data.id} data={reaction.reaction} currentUser={currentUser}/>}
+                <p className='font-normal text-sm font-semibold pl-1 pt-2'>{!!data.is_change ? 'changed' : ''}</p>
+             </div>
             </div>
           </div>
         </div>
