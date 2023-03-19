@@ -88,14 +88,14 @@ const Login = () => {
 
           <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
 
-          <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+          <p className="text-sm font-light text-gray-500 dark:text-dark-text-400">
             Don't have an account yet?{' '}
             <a href={clientRoutes.fullRegisterPagePath()} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
           </p>
 
           <div className="inline-flex items-center justify-center w-full">
             <hr className="w-96 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-            <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">Or continue using</span>
+            <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-dark-text-400 dark:bg-dark-bg-800">Or continue using</span>
           </div>
           <SocialNetworkIcons />          
         </EditForm>

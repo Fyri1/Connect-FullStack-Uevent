@@ -14,7 +14,7 @@ const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
   return (
     <div className="my-4 flex flex-col"> 
       <div className="w-full flex flex-col">
-        <div className="flex-1 bg-white rounded-lg shadow-xl py-3 px-6" data-carousel="static" id="indicators-carousel">
+        <div className="flex-1 py-3 px-6 bg-white rounded-lg shadow-xl dark:bg-dark-bg-800" data-carousel="static" id="indicators-carousel">
           {/* Tabs selector */}
           <div className="mb-4 border-b border-gray-200 dark:border-gray-700">
             <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">

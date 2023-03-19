@@ -1,20 +1,23 @@
 import React from 'react';
+
 import Spinner from '../common/Spinner.jsx';
-import default_avatar from '../../temp/avatar.png';
+
 import apiClientRoutes from '../../routes/api/apiClientRoutes.js';
+import default_avatar from '../../temp/avatar.png';
+
 
 const ProfileHead = ({ userData }) => {
   console.log(userData)
   return !userData ? <Spinner /> : (
-    <div className="bg-white rounded-lg shadow-xl pb-8">
+    <div className="bg-white rounded-lg shadow-xl pb-8 dark:bg-dark-bg-800">
       <div className="w-full h-[250px]">
         <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" className="w-full h-full rounded-tl-lg rounded-tr-lg"></img>
       </div>
 
       <div className="flex flex-col items-center -mt-20">
-        <img src={userData.values['picture'] ? apiClientRoutes.getPathAvatar(userData.values['picture']) : default_avatar} className="w-40 border-4 border-white rounded-full"></img>
+        <img src={userData.values['picture'] ? apiClientRoutes.getPathAvatar(userData.values['picture']) : default_avatar} className="w-40 border-4 border-white rounded-full dark:bg-dark-bg-900 dark:border-dark-bg-900"></img>
         <div className="flex items-center space-x-2 mt-2">
-          <p className="text-2xl">
+          <p className="text-2xl dark:text-dark-text-100">
             { 
               userData.values?.first_name && userData.values.last_name ? userData.values.first_name + " " + userData.values.last_name :
               userData.values.email
@@ -26,9 +29,10 @@ const ProfileHead = ({ userData }) => {
             </svg>
           </span>
         </div>
-        <p className="text-gray-700">Senior Software Engineer at Tailwind CSS</p>
-        <p className="text-sm text-gray-500">New York, USA</p>
+        <p className="text-gray-700 dark:text-dark-text-400">Senior Software Engineer at Tailwind CSS</p>
+        <p className="text-sm text-gray-500 dark:text-dark-text-500">New York, USA</p>
       </div>
+
       <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
         <div className="flex items-center space-x-4 mt-2">
           <button className="flex items-center bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
