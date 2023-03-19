@@ -9,11 +9,13 @@ import TicketBuySection from './event-details/TicketBuySection.jsx';
 import RecommendSection from './recommendations/RecommendSection.jsx';
 import CommentsSection from './comments/CommentsSection.jsx';
 
+
+
 import '../css/EventPage.css';
 import '../css/event-card.css';
 
 
-const EventPage = () => {
+const EventPage = ({ currentUser }) => {
   const id = useParams()['id'];
   const { isLoading, event } = useEvent(id);
 

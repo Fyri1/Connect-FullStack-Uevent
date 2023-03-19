@@ -1,10 +1,8 @@
-import { body } from 'express-validator';
 import { v4 as uuidv4 } from 'uuid';
 import ApiError from '../exceptions/api-error.js';
 import encrypt from '../encrypt.js';
 import User from '../models/User.js';
 import tokenService from './token-service.js';
-import { validationResult } from 'express-validator';
 import mailService from '../services/send-mail.js';
 import generationCode from '../utils/generation-code.js';
 
@@ -14,7 +12,7 @@ class UserService {
   }
 
   async getInfoUser(bearerToken) {
-    const token = bearerToken.split(' ')[1];
+    const token = bearerToken?.split(' ')[1];
     const { id } = tokenService.validateAccessToken(token);
     return User.findUserId(id);
   }
