@@ -8,11 +8,23 @@ class CommentService {
   }
 
   async getCommentById({ id }) {
-    return await Comment.findCommentId(id);
+    return await Comment.findId(id);
+  }
+
+  async getCommentIdReaction({ id }) {
+    return await Comment.getReactins(id);
+  }
+
+  async createReactionComment({ id, type }, userId) {
+    return await Comment.createReaction(id, userId, type);
+  }
+
+  async deleteReactionComment({ id }, userId) {
+    return await Comment.deleteReaction(id, userId);
   }
 
   async updateCommentData({ params: { id }, body: { content } }, userId) {
-    const { user_id } = await Comment.findCommentId(id);
+    const { user_id } = await Comment.findId(id);
     if (user_id !== userId) {
       throw ApiError.AccessDenied('Access denied, your ne tot User');
     }
@@ -20,7 +32,7 @@ class CommentService {
   }
 
   async deleteComment({ id }, userId) {
-    const { user_id } = await Comment.findCommentId(id);
+    const { user_id } = await Comment.findId(id);
     if (user_id !== userId) {
       throw ApiError.AccessDenied('Access denied, your ne tot User');
     }

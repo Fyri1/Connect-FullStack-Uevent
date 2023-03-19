@@ -5,7 +5,7 @@ export const up = (knex) =>
     table.string('id').primary().notNullable();
     table.string('user_id').unsigned().index().references('users.id');
     table.string('content').notNullable();
-    table.boolean('is_change').notNullable().defaultTo(false);
+    table.boolean('is_change').defaultTo(false);
     table.timestamp('created_at').defaultTo(knex.fn.now());
   });
 

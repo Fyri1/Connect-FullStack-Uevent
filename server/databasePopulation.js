@@ -27,30 +27,35 @@ const users = [
     password: await encrypt('1234'),
     email: 'user1@gmail.com',
     role: 'user',
+    content: "I think it's excellent!",
   },
   {
     login: 'user2',
     password: await encrypt('1234'),
     email: 'user3@gmail.com',
     role: 'user',
+    content: 'I am a macaque :)',
   },
   {
     login: 'user3',
     password: await encrypt('1234'),
     email: 'user4@gmail.com',
     role: 'user',
+    content: 'I peed yesterday XD',
   },
   {
     login: 'user4',
     password: await encrypt('1234'),
     email: 'user4@gmail.com',
     role: 'user',
+    content: 'If you read this text, the pipe will fall off)))))',
   },
   {
     login: 'user5',
     password: await encrypt('1234'),
     email: 'user5@gmail.com',
     role: 'user',
+    content: 'Niggas will always be slaves :O',
   },
 ];
 
@@ -84,6 +89,8 @@ const cleanDatabase = async () => {
     await client('events').del();
     await client('tickets').del();
     await client('categories').del();
+    await client('comments').del();
+    await client('event_comments').del();
     console.log('/--------------------\\');
     console.log('|database clean (^_^)|');
     console.log('|--------------------|');
@@ -105,7 +112,8 @@ const createOrganizarion = async (user_id) => {
     description:
       'Cloud-based small team project management software developed by Fog Creek Software. Trello uses a project management paradigm known as kanban, a method originally popularized by Toyota in the 1980s for supply chain management.',
     link_organization: 'trello.com​',
-    secret_key: 'sk_test_51Mg9UfDxrUTatUeLOCgBTViSh63SKNU7hixzWgz2VTR4ZXaYyxaHd6ccbJjUqmIVc0m9BDwFhyKjI9KNZSynyK4g00jS8lViec',
+    secret_key:
+      'sk_test_51Mg9UfDxrUTatUeLOCgBTViSh63SKNU7hixzWgz2VTR4ZXaYyxaHd6ccbJjUqmIVc0m9BDwFhyKjI9KNZSynyK4g00jS8lViec',
     is_confirmed: true,
   });
 };
@@ -124,8 +132,7 @@ const createTicket = async (event_id, user_id) => {
   });
 };
 
-const createEvent = async (user_id) => {
-  const id = uuidv4();
+const createEvent = async (id, user_id) => {
   await client('events').insert({
     id,
     user_id,
@@ -144,22 +151,41 @@ const createEvent = async (user_id) => {
   for (let i = 0; i < 10; i += 1) {
     await createTicket(id, user_id);
   }
+  return id;
+};
+
+const createComment = async (event_id, user_id, content) => {
+  const id = uuidv4();
+  await client('event_comments').insert({
+    event_id,
+    comment_id: id,
+  })
+  await client('comments').insert({
+    id,
+    user_id,
+    content,
+  });
 };
 
 (async () => {
   try {
     await cleanDatabase();
+    
     const promisesCategories = categories.map(async (data) => {
       const id = uuidv4();
       return client('categories').insert({ ...data, id });
     });
     await Promise.all(promisesCategories);
-    const promisesUsers = users.map(async ({ role, ...data }, count) => {
+    const eventId = uuidv4();
+    const promisesUsers = users.map(async ({ role, content, ...data }, count) => {
       const id = uuidv4();
       await setRole(id, role);
       if (count === 2) {
         await createOrganizarion(id);
-        await createEvent(id);
+        await createEvent(eventId, id);
+      }
+      if (count > 2) {
+        await createComment(eventId, id, content);
       }
       return client('users').insert({ ...data, active: true, id });
     });

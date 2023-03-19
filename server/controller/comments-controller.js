@@ -10,6 +10,21 @@ class Comments {
     return await commentService.getCommentById(req.params);
   }
 
+  async getCommentIdReaction(req, _res) {
+    return await commentService.getCommentIdReaction(req.params);
+  }
+
+  async createReactionComment(req, _res) {
+    const token = req.headers.authorization.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await commentService.createReactionComment(req.params, id);
+  }
+  async deleteReactionComment(req, _res) {
+    const token = req.headers.authorization.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await commentService.deleteReactionComment(req.params, id);
+  }
+
   async updateCommentData(req, _res) {
     const token = req.headers.authorization.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);

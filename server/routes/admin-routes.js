@@ -57,6 +57,10 @@ export default {
   // Comments
   commentsGetPath: () => [apiPath].join('/'),
   commentsIdGetPath: () => [apiPath, ':id'].join('/'),
+  commentIdReactionGetPath: () => [apiPath, ':id', 'reaction'].join('/'),
   commentsIdUpdatePath: () => [apiPath, ':id', 'update'].join('/'),
   commentsIdDeletePath: () => [apiPath, ':id', 'delete'].join('/'),
+
+  commentIdReactionPath: () => [apiPath, ':id', ':type'].join('/'),
+  commentIdDeleteReactionPath: () => [apiPath, ':id', 'delete', 'reaction'].join('/'),
 };
