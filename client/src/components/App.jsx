@@ -47,11 +47,15 @@ const lngs = {
 const App = () => {
 
   const token = localStorage.getItem('token');
-  const { isLoading, userInfo } = !token ? { isLoading: false, userInfo: 'guest' } : useUserProfile();
+  const { isLoading, userInfo, isError } = !token ? { isLoading: false, userInfo: { values: 'guest' } }: useUserProfile();
+  if (isError) {
+    localStorage.removeItem('token');
+    location.href = '/'
+  }
 
   return isLoading ? <Spinner /> : (
     <I18nextProvider i18n={i18next}>
-      <UserContext.Provider value={{currentUser: userInfo.values}}>
+      <UserContext.Provider value={{currentUser: userInfo?.values || 'guest'}}>
         <BrowserRouter>
           <Header />
           <Routes>
