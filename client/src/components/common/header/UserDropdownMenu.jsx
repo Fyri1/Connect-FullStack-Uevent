@@ -40,7 +40,7 @@ export default () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="flex items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white">
+        <Menu.Button className="flex items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white dark:bg-dark-bg-800">
           <img
             className="mr-2 w-8 h-8 rounded-full"
             src={currentUser['picture'] ? apiClientRoutes.getPathAvatar(currentUser['picture']) : defaultAvarat}
@@ -50,6 +50,7 @@ export default () => {
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5 ml-2 -mr-1"
             fill="none"
+            color='white'
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
@@ -72,7 +73,7 @@ export default () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="dark:bg-dark-800 absolute right-0 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
             <Menu.Item>
               {
