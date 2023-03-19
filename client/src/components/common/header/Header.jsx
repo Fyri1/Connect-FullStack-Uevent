@@ -49,11 +49,17 @@ const Header = () => {
               </div>
               :
               <div className="authButtons">
-                <div className="container-left-button">
+                <div className="text-white font-normal  rounded transition duration-300 ease-in-out 
+                  focus:outline-none focus:shadow-outline 
+                  bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
                   <AuthButton name="Sign in" path={clientRoutes.loginPagePath()} type="login" />
                 </div>
                 <div className="container-right-button">
-                  <AuthButton name="Sign up" path={clientRoutes.registerPagePath()} type="register" />
+                  <div className="text-white font-normal  rounded transition duration-300 ease-in-out 
+                    focus:outline-none focus:shadow-outline 
+                    bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
+                    <AuthButton name="Sign up" path={clientRoutes.registerPagePath()} type="register" />
+                  </div>
                 </div>
               </div>
             }
