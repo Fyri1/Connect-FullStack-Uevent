@@ -41,11 +41,11 @@ const CommentsSection = ({ eventId }) => {
 
   return response.isLoading ? <Spinner /> : (
     <div> {/* отвечает за цвет*/}
-      <div className="items-center pl-[20%] pr-[20%]">
+      <div className="items-center pl-[10%] pr-[10%]">
         <div className="h-70 p-4 px-7 w-full rounded-[12px] bg-white shadow-md border relative">
-          <p className="text-xl font-semibold text-blue-900 cursor-pointer transition-all hover:text-black">Add Comment</p>
+          <p className="text-xl font-semibold text-blue-900  transition-all ">Add Comment</p>
           {
-            !isLogin ? <p className="text-2xl absolute left-1/4 top-1/2">You must be logged in or registered to leave comments!</p> :
+            !isLogin ? <p className="text-2xl  absolute left-1/4 top-1/4 ">You must be logged in or registered to leave comments!</p> :
             <form onSubmit={handleSubmit}>
               <textarea onChange={(e) => setContent(e.target.value)} value={content} className="h-40 px-3 text-sm py-1 mt-5 outline-none border-gray-300 w-full resize-none border rounded-lg placeholder:text-sm" placeholder="Add your comments here" />
               <div className="flex justify-between mt-2"> 

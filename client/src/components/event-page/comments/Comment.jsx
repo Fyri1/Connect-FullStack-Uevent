@@ -48,7 +48,7 @@ const Comment = ({ data }) => {
 
 
   return isLoading ? <></> : !isDelete ?
-    <div className="items-center ml-[20%] mr-[20%] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-500">
+    <div className="items-center ml-[10%] mr-[10%] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-500">
       <div className="flex items-center space-x-2">
         {/* User ava */}
         <div className="flex flex-shrink-0 self-start cursor-pointer">
