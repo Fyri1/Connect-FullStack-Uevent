@@ -132,7 +132,7 @@ const createTicket = async (event_id, user_id) => {
   });
 };
 
-const createEvent = async (id, user_id) => {
+const createEventAndComment = async (id, user_id) => {
   await client('events').insert({
     id,
     user_id,
@@ -152,6 +152,28 @@ const createEvent = async (id, user_id) => {
     await createTicket(id, user_id);
   }
   return id;
+};
+
+const createEvent = async (user_id, count) => {
+  const id = uuidv4();
+  await client('events').insert({
+    id,
+    user_id,
+    title: 'amogus' + (count + 1),
+    description: 'abobus abobus' + (count + 1),
+    city: 'Amogusia' + (count + 1),
+    address: 'Amogus' + (count + 1),
+    event_start: '2023-22-0' + (count + 1),
+    event_end: '2023-23-0' + (count + 2),
+  });
+  const category = await client('categories').select('categories.id');
+  await client('event_categories').insert({
+    event_id: id,
+    category_id: category[0].id,
+  });
+  for (let i = 0; i < 10; i += 1) {
+    await createTicket(id, user_id);
+  }
 };
 
 const createComment = async (event_id, user_id, content) => {
@@ -182,7 +204,10 @@ const createComment = async (event_id, user_id, content) => {
       await setRole(id, role);
       if (count === 2) {
         await createOrganizarion(id);
-        await createEvent(eventId, id);
+        await createEventAndComment(eventId, id);
+        for (let i = 1; 3 >= i; i += 1) {
+          await createEvent(id, i);
+        }
       }
       if (count > 2) {
         await createComment(eventId, id, content);
