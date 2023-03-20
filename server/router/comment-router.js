@@ -8,6 +8,12 @@ const router = Express.Router();
 
 router.get(adminRoutes.commentsGetPath(), tryCatch(Comments.getAllComments));
 router.get(adminRoutes.commentsIdGetPath(), tryCatch(Comments.getCommentById));
+
+router.get(adminRoutes.commentIdReactionGetPath(), tryCatch(Comments.getCommentIdReaction));
+
+router.post(adminRoutes.commentIdReactionPath(), tryCatch(Comments.createReactionComment));
+router.delete(adminRoutes.commentIdDeleteReactionPath(), tryCatch(Comments.deleteReactionComment));
+
 router.patch(adminRoutes.commentsIdUpdatePath(), accessDenied, tryCatch(Comments.updateCommentData));
 router.delete(adminRoutes.commentsIdDeletePath(), accessDenied, tryCatch(Comments.deleteComment));
 

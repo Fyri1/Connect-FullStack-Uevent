@@ -15,7 +15,7 @@ const CommentsSection = ({ eventId }) => {
   const [content, setContent] = React.useState('');
   const [comments, setComments] = React.useState([]);
 
-  const { isLoading, mutateAsync } = useMutation('change info user', (data) => EventService.createComment(data), {
+  const { isLoading, mutateAsync } = useMutation('create comment', (data) => EventService.createComment(data), {
     onSuccess: ({ data: { values } }) => {
       setComments([values.commentInfo, ...comments ]);
       setContent('');

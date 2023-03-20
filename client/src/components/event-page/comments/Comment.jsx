@@ -1,15 +1,15 @@
 import React from 'react';
 import moment from 'moment';
 
-import ReactionElement from './ReactionElement.jsx';
+import ReactionComment from './ReactionComment.jsx'
 
 import $api from '../../../../utils/api.js';
 import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
 import { useUser } from '../../../../hooks/user/useUser.js'
 import default_avatar from '../../../temp/avatar.png';
+import { useCommentsReaction } from '../../../../hooks/useCommentReaction.js';
 
 import UserContext from '../../../context/UserContext.js';
-
 
 const Comment = ({ data }) => {
   const datePublish = moment(new Date(data.created_at), "YYYYMMDD").fromNow();
@@ -17,20 +17,10 @@ const Comment = ({ data }) => {
   const [show, setShow] = React.useState(false);
   const [content, setContent] = React.useState(data.content);
   const [currentContent, setCurrentContent] = React.useState(data.content);
-
   const [isDelete, setDelete] = React.useState(false);
-
-  
   const { currentUser } = React.useContext(UserContext);
 
-
-  const likeButtonClickHandle = () => {
-    console.log("pidoras clicked like!");
-  }
-
-  const dislikeButtonClickHandle = () => {
-    console.log("pidoras clicked dislike!");
-  }
+  const reaction = useCommentsReaction(data.id);
 
   const commentDeleteButtonHandle = async () => {
     console.log("pidoras clicked delete");
@@ -45,9 +35,12 @@ const Comment = ({ data }) => {
 
   const handleChangeComment = async () => {
     try {
-    const response = await $api.patch(apiClientRoutes.changeComment(data.id), { content });
-    setCurrentContent(content)
-    setShow(!show);
+      if (content !== currentContent) {
+        const response = await $api.patch(apiClientRoutes.changeComment(data.id), { content });
+        setCurrentContent(content);
+        console.log(response);
+      }
+      setShow(!show);
     } catch (e) {
       console.log(e);
     }
@@ -110,15 +103,10 @@ const Comment = ({ data }) => {
                   <p className="text-md text-gray-600">{currentContent}</p>
                 )
               }
-              <div className="flex">
-                <ReactionElement reactionClickHandle={likeButtonClickHandle} isActive={true} reactionAmount={23}>
-                  <path d="M2 42h8V18H2v24zm44-22c0-2.21-1.79-4-4-4H29.37l1.91-9.14c.04-.2.07-.41.07-.63 0-.83-.34-1.58-.88-2.12L28.34 2 15.17 15.17C14.45 15.9 14 16.9 14 18v20c0 2.21 1.79 4 4 4h18c1.66 0 3.08-1.01 3.68-2.44l6.03-14.1A4 4 0 0 0 46 24v-3.83l-.02-.02L46 20z"/>
-                </ReactionElement>
-
-                <ReactionElement reactionClickHandle={dislikeButtonClickHandle} isActive={false} reactionAmount={23}>
-                  <path d="M30 6H12c-1.66 0-3.08 1.01-3.68 2.44l-6.03 14.1A4 4 0 0 0 2 24v3.83l.02.02L2 28c0 2.21 1.79 4 4 4h12.63l-1.91 9.14c-.04.2-.07.41-.07.63 0 .83.34 1.58.88 2.12L19.66 46l13.17-13.17C33.55 32.1 34 31.1 34 30V10c0-2.21-1.79-4-4-4zm8 0v24h8V6h-8z"/>
-                </ReactionElement>
-              </div>
+              <div className="flex items-end justify-between">
+                {reaction.isLoading ? <></> : <ReactionComment commentId={data.id} data={reaction.reaction} currentUser={currentUser}/>}
+                <p className='font-normal text-sm font-semibold pl-1 pt-2'>{!!data.is_change ? 'changed' : ''}</p>
+             </div>
             </div>
           </div>
         </div>

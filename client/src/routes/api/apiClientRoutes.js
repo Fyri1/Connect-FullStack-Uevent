@@ -17,7 +17,10 @@ export default {
 
   changeComment: (id) => [apiPath, 'comment', id, 'update'].join('/'),
   deleteComment: (id) => [apiPath, 'comment', id, 'delete'].join('/'),
-  
+  getReactionComment: (id) => [apiPath, 'comment', id, 'reaction'].join('/'),
+  deleteCommentReaction: (id) => [apiPath, 'comment', id, 'delete', 'reaction'].join('/'),
+  createCommentReaction: (id, type) => [apiPath, 'comment', id, type].join('/'),
+
   usersGetInfoPath: () => [apiPath, 'user', 'profile'].join('/'),
   userChangeEmail: () => [apiPath, 'user', id, 'update', 'password'].join('/'),
   userChangePasswordPath: (id) =>

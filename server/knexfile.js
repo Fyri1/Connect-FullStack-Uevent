@@ -13,15 +13,7 @@ export const development = {
   connection: {
     filename: './database.sqlite',
   },
-  // pool: {
-  //   afterCreate: (conn, cb) => {
-  //     console.log(conn)
-  //     conn.query(`SET timezone = 'UTC'`, err => {
-  //       cb(err, conn);
-  //     });
-  //   }
-  // },
-  useNullAsDefault: false,
+  useNullAsDefault: true,
   migrations,
 };
 

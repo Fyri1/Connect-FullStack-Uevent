@@ -42,6 +42,6 @@ export default {
   orgaIdGetPath: (ticketId) => [apiPath, 'organization', 'get', ticketId].join('/'),
   orgaPostPath: () => [apiPath, 'organization', 'create'].join('/'),
   orgaIdUpdatePath: (ticketId) => [apiPath, 'organization', 'update', ticketId].join('/'),
-  orgaIdDeletePath: (ticketId) => [apiPath, 'organization', 'delete', ticketId].join('/'),
+  orgaIdDeletePath: (ticketId) => [apiPath, 'organization', 'delete', ticketId].join('/')
 
 };

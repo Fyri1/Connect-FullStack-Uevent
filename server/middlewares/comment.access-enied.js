@@ -7,7 +7,7 @@ export default async (req, _res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);
     const commentId = req.params.id;
-    const dataComment = await Comment.findCommentId(commentId);
+    const dataComment = await Comment.findId(commentId);
     if (dataComment.user_id !== id) {
       next(ApiError.AccessDenied('ne tvoi post, sasi'));
     }
