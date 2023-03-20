@@ -14,7 +14,7 @@ const UserEventsTabsSelector = ({ userData, setPopupContent, setPopupActive, isL
         <div className="flex-1 py-3 px-6 bg-white rounded-lg shadow-xl dark:bg-dark-bg-800" data-carousel="static" id="indicators-carousel">
           {/* Tabs selector */}
           <div className="mb-4 border-b border-gray-200 dark:border-gray-700">
-            <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
+            <ul className="flex flex-wrap text-sm font-medium text-center">
               <TabButton id="savedEvents" slideNumber="1" active={true} category="userEventsData" name="Saved events" />
               <TabButton id="tickets" slideNumber="2" active={false} category="userEventsData" name="Your tickets" />
             </ul>
