@@ -11,11 +11,11 @@ class Event {
     try {
       const data = await client('events').select('*');
       const events = data.map(async (event) => {
-        const tickets = await this.getAllTickets(event.id)
+        const tickets = await this.getAllTickets(event.id);
         const eventCategories = await this.getAllCategories(event.id);
         const priceTicket = tickets[0].price;
-        return { ...event, priceTicket, categories: eventCategories }
-      })
+        return { ...event, priceTicket, categories: eventCategories };
+      });
       return Promise.all(events);
     } catch (err) {
       console.log(err);
@@ -28,11 +28,14 @@ class Event {
     if (data.length === 0) {
       throw ApiError.NotFound('event not found');
     }
-    const tickets = await this.getAllTickets(data[0].id)
+    const tickets = await this.getAllTickets(data[0].id);
     const eventCategories = await this.getAllCategories(data[0].id);
-    return { ...data[0], priceTicket: tickets[0].price, categories: eventCategories };
+    return {
+      ...data[0],
+      priceTicket: tickets[0].price,
+      categories: eventCategories,
+    };
   }
-
 
   async getAllTickets(id) {
     try {
@@ -44,6 +47,20 @@ class Event {
       console.log(err);
       throw err;
     }
+  }
+
+  async recommend(id) {
+    const event = await this.findOne(id);
+    const eventCategories = await this.getAllCategories(id);
+    const promises = eventCategories.flatMap(item => Category.getAllEventByCategoryId(item.id));
+    const eventsSameCategories = await Promise.all(promises);
+    const filterEvent = eventsSameCategories.flat().filter((item) => item.id !== id);
+    const filterCityCategory = filterEvent.filter((item) => {
+
+      // const isEqualCategory = item.categories.find(category => category.id === )
+    });
+    // const filter
+    return { event, filterEvent };
   }
 
   async getAllCategories(id) {
@@ -85,7 +102,6 @@ class Event {
       throw err;
     }
   }
-
 
   async sellTicket(userId, ticket, payment_intent) {
     try {

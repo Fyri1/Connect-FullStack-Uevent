@@ -14,6 +14,10 @@ class EventService {
     return await Event.findOne(id);
   }
 
+  async recommendEvent(id) {
+    return await Event.recommend(id);
+  }
+
   async createComment({ params: { id: eventId }, body: { content } }, userId) {
     const commentId = uuidv4();
     return await Comment.createComment(commentId, eventId, userId, content);

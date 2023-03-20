@@ -58,7 +58,7 @@ class Category {
       .join('event_categories', 'events.id', 'event_categories.event_id')
       .where('event_categories.category_id', '=', categoryId);
     console.log(category);
-    const postsPromises = category.map((item) => Event.findId(item.id));
+    const postsPromises = category.map((item) => Event.findOne(item.id));
     return await Promise.all(postsPromises);
   }
 }
