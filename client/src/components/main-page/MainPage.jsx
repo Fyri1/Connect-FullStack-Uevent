@@ -23,7 +23,7 @@ const MainPage = () => {
                 <h2 className="title text-center">Features Items</h2>
                 <Sidebar />
 
-                <div className="">
+                <div className="flex overflow-hidden  ">
                   {events.map((event, i) => (
                     <EventElement key={event.id} event={event} />
                   ))}

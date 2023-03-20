@@ -9,7 +9,7 @@ const EventElement = ({ event }) => {
       <div className=" px-20 py-10 gap-8 snap-x  cursor-pointer  ">
         {/* сделаю в ряд много картинок */}
         <div className="">
-          <div className="col-sm-4 !z-5 relative flex flex-col rounded-[20px] max-w-[300px] 
+          <div className="col-sm-4 !z-5 relative  flex-col rounded-[20px] max-w-[300px] 
             bg-white bg-clip-border shadow-3xl 
             w-full !p-4 3xl:p-![18px] bg-white undefined">
               <div className="h-full w-full">
