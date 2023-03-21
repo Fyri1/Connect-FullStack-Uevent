@@ -67,20 +67,25 @@ class Event {
       (item) => item.city === event.city && item.id !== id
     );
 
-    const filterSameCityAndSameCategories = filterSameCity.filter(async (item) => {
-      const itemCategories = await this.getAllCategories(item.id);
-      const isEqualCategory = eventCategories.map(i => {
-        for (const category of itemCategories) {
-          if (category.id === i.id) {
-            return i;
+    const filterSameCityAndSameCategories = filterSameCity.filter(
+      async (item) => {
+        const itemCategories = await this.getAllCategories(item.id);
+        const isEqualCategory = eventCategories.map((i) => {
+          for (const category of itemCategories) {
+            if (category.id === i.id) {
+              return i;
+            }
+            return '';
           }
-          return '';
-        }
-      })
-      return item.city === event.city && isEqualCategory.filter(i => i)
-    });
+        });
+        return item.city === event.city && isEqualCategory.filter((i) => i);
+      }
+    );
 
-    return _.uniqBy([...filterSameCityAndSameCategories, ...filterSameCity, ...filterEvent], 'id')
+    return _.uniqBy(
+      [...filterSameCityAndSameCategories, ...filterSameCity, ...filterEvent],
+      'id'
+    );
   }
 
   async getAllCategories(id) {
@@ -218,6 +223,25 @@ class Event {
     } catch (err) {
       throw err;
     }
+  }
+
+  async createFavorite(event_id, user_id) {
+    const isActive = await client('user_favorite_events')
+      .where('event_id', '=', event_id)
+      .andWhere('user_id', '=', user_id);
+    if (isActive.length === 0) {
+      await client('user_favorite_events').insert({
+        event_id,
+        user_id,
+      });
+      return 'create';
+    }
+
+    await client('user_favorite_events')
+      .where('event_id', '=', event_id)
+      .andWhere('user_id', '=', user_id)
+      .del();
+      return 'delete';
   }
 
   async updateCategories(id, categories = []) {

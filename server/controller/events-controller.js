@@ -70,6 +70,14 @@ class Events {
     return await eventService.createComment(req, id);
   }
 
+  async createFavoriteEvent(req, _res) {
+    const { id: eventId } = req.params;
+    const token = req.headers.authorization?.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await eventService.createFavoriteEvent({ eventId, userId: id });
+
+  }
+
   async updateEvent(req, _res) {
     return await eventService.updateEvent(req);
   }

@@ -42,6 +42,10 @@ class User {
     return await client('roles').select('role').where('user_id', '=', id);
   }
 
+  async getFavoriteEvent(id) {
+    return await client('user_favorite_events').select('*').where('user_id', '=', id);
+  }
+
   async getUserTicketById(id) {
     const ids = await client('user_tickets')
       .select('ticket_id')
