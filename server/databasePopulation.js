@@ -89,6 +89,7 @@ const cleanDatabase = async () => {
     await client('events').del();
     await client('tickets').del();
     await client('categories').del();
+    await client('event_categories').del();
     await client('comments').del();
     await client('event_comments').del();
     console.log('/--------------------\\');
@@ -143,10 +144,14 @@ const createEventAndComment = async (id, user_id) => {
     event_start: '2023-22-01',
     event_end: '2023-23-01',
   });
-  const category = await client('categories').select('categories.id');
-  await client('event_categories').insert({
-    event_id: id,
-    category_id: category[0].id,
+  const categories = await client('categories').select('categories.id');
+  categories.map(async (category, count) => {
+    if (count < 3) {
+      await client('event_categories').insert({
+        event_id: id,
+        category_id: category.id,
+      });
+    }
   });
   for (let i = 0; i < 10; i += 1) {
     await createTicket(id, user_id);
@@ -161,7 +166,7 @@ const createEvent = async (user_id, count) => {
     user_id,
     title: 'amogus' + (count + 1),
     description: 'abobus abobus' + (count + 1),
-    city: 'Amogusia' + (count + 1),
+    city: 'Amogusia' + (count !== 3 ? count + 1 : ''),
     address: 'Amogus' + (count + 1),
     event_start: '2023-22-0' + (count + 1),
     event_end: '2023-23-0' + (count + 2),
@@ -169,7 +174,11 @@ const createEvent = async (user_id, count) => {
   const category = await client('categories').select('categories.id');
   await client('event_categories').insert({
     event_id: id,
-    category_id: category[0].id,
+    category_id: category[count].id,
+  });
+  await client('event_categories').insert({
+    event_id: id,
+    category_id: category[count + 1].id,
   });
   for (let i = 0; i < 10; i += 1) {
     await createTicket(id, user_id);
@@ -181,7 +190,7 @@ const createComment = async (event_id, user_id, content) => {
   await client('event_comments').insert({
     event_id,
     comment_id: id,
-  })
+  });
   await client('comments').insert({
     id,
     user_id,
@@ -192,28 +201,30 @@ const createComment = async (event_id, user_id, content) => {
 (async () => {
   try {
     await cleanDatabase();
-    
+
     const promisesCategories = categories.map(async (data) => {
       const id = uuidv4();
       return client('categories').insert({ ...data, id });
     });
     await Promise.all(promisesCategories);
     const eventId = uuidv4();
-    const promisesUsers = users.map(async ({ role, content, ...data }, count) => {
-      const id = uuidv4();
-      await setRole(id, role);
-      if (count === 2) {
-        await createOrganizarion(id);
-        await createEventAndComment(eventId, id);
-        for (let i = 1; 3 >= i; i += 1) {
-          await createEvent(id, i);
+    const promisesUsers = users.map(
+      async ({ role, content, ...data }, count) => {
+        const id = uuidv4();
+        await setRole(id, role);
+        if (count === 2) {
+          await createOrganizarion(id);
+          await createEventAndComment(eventId, id);
+          for (let i = 1; 3 >= i; i += 1) {
+            await createEvent(id, i);
+          }
         }
+        if (count > 2) {
+          await createComment(eventId, id, content);
+        }
+        return client('users').insert({ ...data, active: true, id });
       }
-      if (count > 2) {
-        await createComment(eventId, id, content);
-      }
-      return client('users').insert({ ...data, active: true, id });
-    });
+    );
     await Promise.all(promisesUsers);
     console.log('|     complete :)    |');
     console.log('\\--------------------/');

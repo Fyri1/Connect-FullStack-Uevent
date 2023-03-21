@@ -50,17 +50,40 @@ class Event {
   }
 
   async recommend(id) {
-    const event = await this.findOne(id);
-    const eventCategories = await this.getAllCategories(id);
-    const promises = eventCategories.flatMap(item => Category.getAllEventByCategoryId(item.id));
-    const eventsSameCategories = await Promise.all(promises);
-    const filterEvent = eventsSameCategories.flat().filter((item) => item.id !== id);
-    const filterCityCategory = filterEvent.filter((item) => {
+    const event = await this.findOne(id); //
+    const allEvent = await this.getAll(); // вытаскиваем все ивенты для фільтрации городов
 
-      // const isEqualCategory = item.categories.find(category => category.id === )
+    const eventCategories = await this.getAllCategories(id);
+
+    const promises = eventCategories.flatMap((item) =>
+      Category.getAllEventByCategoryId(item.id)
+    );
+
+    const eventsSameCategories = await Promise.all(promises);
+    const filterEvent = _.uniqBy(eventsSameCategories.flat(), 'id').filter(
+      (item) => item.id !== id
+    );
+    const filterSameCity = allEvent.filter(
+      (item) => item.city === event.city && item.id !== id
+    );
+
+    const filterSameCityAndSameCategories = filterSameCity.filter(async (item) => {
+      const itemCategories = await this.getAllCategories(item.id);
+      const isEqualCategory = eventCategories.map(i => {
+        for (const category of itemCategories) {
+          if (category.id === i.id) {
+            return i;
+          }
+          return '';
+        }
+      })
+      return item.city === event.city && isEqualCategory.filter(i => i)
     });
-    // const filter
-    return { event, filterEvent };
+
+    return {
+      event,
+      recomend: _.uniqBy([...filterSameCityAndSameCategories, ...filterSameCity, ...filterEvent], 'id'),
+    };
   }
 
   async getAllCategories(id) {
@@ -162,7 +185,6 @@ class Event {
     const commentsId = await client('event_comments')
       .select('comment_id')
       .where('event_id', '=', eventId);
-    console.log(commentsId);
     const commentsEvent = commentsId.map(async ({ comment_id }) => {
       const data = await client('comments')
         .select('*')
@@ -240,7 +262,6 @@ class Event {
 
   async deleteEvent(id) {
     try {
-      console.log(id);
       await client('events').where('id', '=', id).del();
       await this.updateCategories(id);
       await Ticket.daleteTickets(id);
