@@ -27,6 +27,7 @@ export default {
   // Events
   eventsGetPath: () => [apiPath].join('/'),
   eventIdGetPath: () => [apiPath, ':id'].join('/'),
+  eventGetRecommendEvent: () => [apiPath, ':id', 'recommend'].join('/'),
   eventPostPath: () => [apiPath, 'create'].join('/'),
   eventCategoriesGetPath: () => [apiPath, ':id', 'categories'].join('/'),
   eventTicketsGetPath: () => [apiPath, ':id', 'tickets'].join('/'),

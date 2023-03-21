@@ -40,6 +40,18 @@ router.get(
   Events.getAllCategoriesByEventId
 );
 
+router.get(
+  adminRoutes.eventGetAllComments(),
+  tryCatch(Events.getAllComments),
+  Events.getAllComments
+);
+
+router.get(
+  adminRoutes.eventGetRecommendEvent(),
+  tryCatch(Events.recommendEvent),
+  Events.recommendEvent
+);
+
 router.post(
   adminRoutes.eventPostPath(),
   body('title').notEmpty().isLength({ min: 3, max: 30 }).trim(),
@@ -65,12 +77,6 @@ router.patch(
   eventAccessEnied,
   tryCatch(Events.updateEvent),
   Events.updateEvent
-);
-
-router.get(
-  adminRoutes.eventGetAllComments(),
-  tryCatch(Events.getAllComments),
-  Events.getAllComments
 );
 
 router.post(

@@ -5,18 +5,16 @@ import Popup from '../../../common/popup/Popup.jsx';
 import PaginationElement from './Pagination/PaginationElement.jsx';
 
 import { useUserTickets } from '../../../../../hooks/user/useUserTickets.js';
+import $api from '../../../../../utils/api.js';
 
 //// TEMP ////
 // import user_tickets from '../../../../temp/user_tickets.json';
 import memFile from '../../../../temp/the-rock-eyebrow-raise-sound-effect-By-Tuna.mp3';
-import $api from '../../../../../utils/api.js';
 //// TEMP ////
 
 
 const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
-  if (!userData) {
-    return <Spinner />;
-  }
+  if (!userData) { return <Spinner /> }
 
   const mem = new Audio(memFile);
 
@@ -24,9 +22,7 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
   const [currentPageNumber, setCurrentPageNumber] = React.useState(1);
 
   
-  return isLoading ? (
-    <Spinner />
-  ) : (
+  return isLoading ? ( <Spinner /> ) : (
   // return (
     <div>
       {
@@ -90,7 +86,7 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
                       <td onClick={eventClickHandle} className="pl-3 py-3 w-[15%] hover:cursor-pointer"><img className="h-20" src="/1.jpg"></img></td>
                       
                       <td className="text-left w-[60%]">
-                        <h3 onClick={eventClickHandle} className="text-2xl text-gray-700 hover:cursor-pointer hover:text-blue-600 hover:underline hover:underline-offset-2 hover:decoration-2">
+                        <h3 onClick={eventClickHandle} className="text-2xl text-gray-700 hover:cursor-pointer hover:text-blue-600 hover:underline hover:underline-offset-2 hover:decoration-1 dark:text-dark-text-200 dark:hover:text-dark-text-400">
                           { ticketData.name }
                         </h3>
 
@@ -124,42 +120,3 @@ const UserTicketsTab = ({ userData, setPopupContent, setPopupActive }) => {
 };
 
 export default UserTicketsTab;
-
-{
-  /* <div className="md:flex shadow-lg  mx-6 max-w-lg md:max-w-2xl h-64">
-  <img className="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src="https://ik.imagekit.io/q5edmtudmz/FB_IMG_15658659197157667_wOd8n5yFyXI.jpg" alt="bag"/>
-  <div className="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
-    <div className="flex items-center">
-      <h2 className="text-xl text-gray-800 font-medium mr-auto">Tiket Name</h2>
-      <p className="text-gray-800 font-semibold tracking-tighter">Price: 48$</p>
-    </div>
-
-    <p className="text-sm text-gray-700 mt-4">Lorem, ipsum dolor sit amet consectetur Amet veritatis ipsam reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequ adipisicing elit. Amet veritatis ipsam reiciendis numquam tempore commodi ipsa suscipit laboriosam, sit earum at sequi.</p>
-    <p>&nbsp; </p>
-    
-    <div>
-      <a className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white">02.03.2023</a>
-    </div>
-
-    <div className="time-info-div">
-      <div className='time2'>
-        <a className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white" >Sturday&nbsp; </a>
-      </div>
-
-      <div className='time2'>
-        <svg className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 25 27" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 12v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      </div>
-
-      <div className='time2'>
-        <a className="text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-white">20:00  </a>
-      </div>
-    </div>
-
-    <div className="flex items-center justify-end mt-4 top-auto">
-      <button className=" bg-blue-600 text-gray-200 px-2 py-2 rounded-md">Return</button>
-    </div>
-  </div>
-</div> */
-}

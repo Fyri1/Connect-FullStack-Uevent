@@ -3,7 +3,8 @@ import React from 'react';
 import RecommendCard from './RecommendCard.jsx';
 
 
-const RecommendSection = () => {
+const RecommendSection = ({ event }) => {
+  
   return (
     <div>
       <h1 className=" text-center bg-white rounded-md py-5 max-w-2xl mx-auto text-2xl font-bold text-gray-500">RECOMMEND</h1>

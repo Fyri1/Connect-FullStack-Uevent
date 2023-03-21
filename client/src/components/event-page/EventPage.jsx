@@ -42,7 +42,7 @@ const EventPage = ({ currentUser }) => {
           <TicketBuySection eventData={event} />
           {/* ebat kakogo govna */}
 
-          <RecommendSection />
+          <RecommendSection event={event}/>
           <CommentsSection eventId={id} />
         </div>
       </div>

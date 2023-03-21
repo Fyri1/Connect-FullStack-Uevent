@@ -11,11 +11,11 @@ class Event {
     try {
       const data = await client('events').select('*');
       const events = data.map(async (event) => {
-        const tickets = await this.getAllTickets(event.id)
+        const tickets = await this.getAllTickets(event.id);
         const eventCategories = await this.getAllCategories(event.id);
         const priceTicket = tickets[0].price;
-        return { ...event, priceTicket, categories: eventCategories }
-      })
+        return { ...event, priceTicket, categories: eventCategories };
+      });
       return Promise.all(events);
     } catch (err) {
       console.log(err);
@@ -28,11 +28,14 @@ class Event {
     if (data.length === 0) {
       throw ApiError.NotFound('event not found');
     }
-    const tickets = await this.getAllTickets(data[0].id)
+    const tickets = await this.getAllTickets(data[0].id);
     const eventCategories = await this.getAllCategories(data[0].id);
-    return { ...data[0], priceTicket: tickets[0].price, categories: eventCategories };
+    return {
+      ...data[0],
+      priceTicket: tickets[0].price,
+      categories: eventCategories,
+    };
   }
-
 
   async getAllTickets(id) {
     try {
@@ -44,6 +47,43 @@ class Event {
       console.log(err);
       throw err;
     }
+  }
+
+  async recommend(id) {
+    const event = await this.findOne(id); //
+    const allEvent = await this.getAll(); // вытаскиваем все ивенты для фільтрации городов
+
+    const eventCategories = await this.getAllCategories(id);
+
+    const promises = eventCategories.flatMap((item) =>
+      Category.getAllEventByCategoryId(item.id)
+    );
+
+    const eventsSameCategories = await Promise.all(promises);
+    const filterEvent = _.uniqBy(eventsSameCategories.flat(), 'id').filter(
+      (item) => item.id !== id
+    );
+    const filterSameCity = allEvent.filter(
+      (item) => item.city === event.city && item.id !== id
+    );
+
+    const filterSameCityAndSameCategories = filterSameCity.filter(async (item) => {
+      const itemCategories = await this.getAllCategories(item.id);
+      const isEqualCategory = eventCategories.map(i => {
+        for (const category of itemCategories) {
+          if (category.id === i.id) {
+            return i;
+          }
+          return '';
+        }
+      })
+      return item.city === event.city && isEqualCategory.filter(i => i)
+    });
+
+    return {
+      event,
+      recomend: _.uniqBy([...filterSameCityAndSameCategories, ...filterSameCity, ...filterEvent], 'id'),
+    };
   }
 
   async getAllCategories(id) {
@@ -85,7 +125,6 @@ class Event {
       throw err;
     }
   }
-
 
   async sellTicket(userId, ticket, payment_intent) {
     try {
@@ -146,7 +185,6 @@ class Event {
     const commentsId = await client('event_comments')
       .select('comment_id')
       .where('event_id', '=', eventId);
-    console.log(commentsId);
     const commentsEvent = commentsId.map(async ({ comment_id }) => {
       const data = await client('comments')
         .select('*')
@@ -224,7 +262,6 @@ class Event {
 
   async deleteEvent(id) {
     try {
-      console.log(id);
       await client('events').where('id', '=', id).del();
       await this.updateCategories(id);
       await Ticket.daleteTickets(id);

@@ -23,6 +23,11 @@ class Events {
     };
   }
 
+  async recommendEvent(req, _res) {
+    const { id } = req.params;
+    return await eventService.recommendEvent(id);
+  }
+
   async getAllCategoriesByEventId(req, _res) {
     return await eventService.getAllCategoriesByEventId(req.params);
   }

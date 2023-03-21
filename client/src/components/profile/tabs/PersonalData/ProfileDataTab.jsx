@@ -7,6 +7,7 @@ import ProfileDataInputRow from './ProfileDataInputRow.jsx';
 
 import { UsersService } from '../../../../../services/users.service.js';
 
+
 const ProfileDataTab = ({ userData, setUserData }) => {
   let temp = {};
   if (!userData) {
@@ -58,7 +59,7 @@ const ProfileDataTab = ({ userData, setUserData }) => {
   return !userData ? <Spinner /> : (
     <div>
       <div className="flex items-center">
-        <h4 className="text-xl pr-3 text-gray-900 font-bold">Personal Info</h4>
+        <h4 className="text-xl pr-3 text-gray-900 font-bold dark:text-dark-text-300">Personal Info</h4>
         <div className="flex items-center">
           {/* Submit button */}
           <button onClick={ editActive ? saveButtonHandle : editButtonHandle } className={`flex p-1.5 mr-2 transition-all duration-300 ${editActive ? "rounded-3xl bg-blue-500 text-white hover:bg-blue-600" : "rounded hover:bg-gray-200 text-blue-600"}`}>
