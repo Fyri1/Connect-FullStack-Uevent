@@ -36,6 +36,10 @@ class EventService {
     return await Event.getAllUsersSellTicketByEventId(eventId, id);
   }
 
+  async createFavoriteEvent({ eventId, userId }) {
+    return await Event.createFavorite(eventId, userId);
+  }
+
   async ticketReturn(ticketId) {
     return await Event.ticketReturn(ticketId);
   }

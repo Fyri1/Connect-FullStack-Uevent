@@ -38,7 +38,7 @@ export default {
   eventCreateCommentPath: () => [apiPath, ':id', 'create', 'comment'].join('/'),
   eventAllUsersSellTicketByEventId: () =>
     [apiPath, ':id', 'ticket', 'users'].join('/'),
-
+    eventCreateFavorite: () => [apiPath, ':id', 'favorite'].join('/'),
   // Categories
   categoriesGetPath: () => [apiPath].join('/'),
   categoryIdGetPath: () => [apiPath, ':id'].join('/'),

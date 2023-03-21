@@ -85,6 +85,11 @@ router.post(
   tryCatch(Events.createComment)
 );
 
+router.post(
+  adminRoutes.eventCreateFavorite(),
+  tryCatch(Events.createFavoriteEvent)
+);
+
 router.delete(
   adminRoutes.eventIdDeletePath(),
   eventAccessEnied,
