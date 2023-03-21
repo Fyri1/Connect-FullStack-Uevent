@@ -17,6 +17,7 @@ export default {
   userHiddenPath: () => [apiPath, 'hidden'].join('/'),
   userGetTicketsById: () => [apiPath, ':id', 'ticket'].join('/'),
   userUploadAvatar: () => [apiPath, 'avatar'].join('/'),
+  userGetFavoriteEvent: () => [apiPath, 'favorite', 'events'].join('/'),
   // Roles
   rolesGetPath: () => [apiPath].join('/'),
   roleIdGetPath: (roleId) => [apiPath, 'get', roleId].join('/'),

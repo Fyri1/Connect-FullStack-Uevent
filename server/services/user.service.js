@@ -24,6 +24,12 @@ class UserService {
     return await User.getUserTicketById(id);
   }
 
+  async favoriteEvent(bearerToken) {
+    const token = bearerToken?.split(' ')[1];
+    const { id } = tokenService.validateAccessToken(token);
+    return await User.getFavoriteEvent(id);
+  }
+
   async hiddenUser(bearerToken) {
     const token = bearerToken?.split(' ')[1];
     const { id } = tokenService.validateAccessToken(token);
