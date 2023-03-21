@@ -11,6 +11,9 @@ const EventService = {
   getAllCommentsByEventId(id) {
     return $api.get(routes.getAllCommentsByEventId(id));
   },
+  getEventRecommend(id) {
+    return $api.get(routes.getEventRecommend(id));
+  },
   createComment({ eventId, content }) {
     return $api.post(routes.createComment(eventId), { content });
   },

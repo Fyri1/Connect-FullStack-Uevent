@@ -25,7 +25,7 @@ const EventDetailsBody = ({ eventData }) => {
 
           <div className="circle">
 
-            <button className="bell  border-gray-400 top-3 right-3  rounded-full bg-white p-2  hover:cursor-pointer"> 
+            <button className="bell border-gray-400 top-3 right-3  rounded-full bg-white p-2  hover:cursor-pointer"> 
                 <svg stroke="currentColor" fill="currentColor" 
                 stroke-width="0" viewBox="0 0 512 512" height="1em"
                  width="1em" xmlns="http://www.w3.org/2000/svg">
