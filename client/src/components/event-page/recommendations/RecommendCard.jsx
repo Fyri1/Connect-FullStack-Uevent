@@ -31,7 +31,6 @@ const RecommendCard = ({ data }) => {
           <h3 className="text-gray-200 font-bold mt-5">{data.title}</h3>
 
           <p className="text-gray-400 font-light mt-2 text-xs"> с {data.event_start}</p>
-          
         </div>
       </div>
     </article>
