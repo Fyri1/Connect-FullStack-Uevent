@@ -9,8 +9,6 @@ import TicketBuySection from './event-details/TicketBuySection.jsx';
 import RecommendSection from './recommendations/RecommendSection.jsx';
 import CommentsSection from './comments/CommentsSection.jsx';
 
-
-
 import '../css/EventPage.css';
 import '../css/event-card.css';
 
@@ -32,19 +30,20 @@ const EventPage = ({ currentUser }) => {
 
 
   return isLoading ? <Spinner /> : (
-    <div className="py-6 px-4 sm:p-6 md:py-10 md:px-8">
+    <div className="py-6 px-4 sm:p-6 md:py-10 md:px-8 dark:bg-dark-bg-900">
       <div className="max-w-4xl mx-auto lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
-        <div className="">
+        <div className="pl-7 pt-5 mb-9 dark:bg-dark-bg-800 rounded-lg">
           <EventDetailsHead eventData={event} />
           <EventDetailsBody eventData={event} />
-
-          {/* govna */}
-          <TicketBuySection eventData={event} />
-          {/* ebat kakogo govna */}
-
-          <RecommendSection event={event}/>
-          <CommentsSection eventId={id} />
         </div>
+        
+
+        {/* govna */}
+        <TicketBuySection eventData={event} />
+        {/* ebat kakogo govna */}
+
+        <RecommendSection event={event}/>
+        <CommentsSection eventId={id} />
       </div>
     </div>
   );
