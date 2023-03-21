@@ -80,10 +80,7 @@ class Event {
       return item.city === event.city && isEqualCategory.filter(i => i)
     });
 
-    return {
-      event,
-      recomend: _.uniqBy([...filterSameCityAndSameCategories, ...filterSameCity, ...filterEvent], 'id'),
-    };
+    return _.uniqBy([...filterSameCityAndSameCategories, ...filterSameCity, ...filterEvent], 'id')
   }
 
   async getAllCategories(id) {
