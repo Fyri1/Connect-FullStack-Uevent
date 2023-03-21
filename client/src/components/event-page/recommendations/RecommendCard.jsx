@@ -4,7 +4,7 @@ import React from "react";
 const RecommendCard = ({ data }) => {
   console.log(data)
   return (
-    <article className="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
+    <article className="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
       <div className=" flex justify-center justify-center ">
         <div className="hover:bg-wh-700 delay-50 duration-100 bg-gray-800 p-2 rounded-lg w-60 group" href="">
           <img src="https://artist-production.de/wp-content/uploads/2023/03/splin-in-europa-2.png" className="w-full rounded shadow" />
