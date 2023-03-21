@@ -17,6 +17,9 @@ const UsersService = {
   },
   getUserTickets(id) {
     return $api.get(clientRoutes.userTickets(id));
+  },
+  getFavoriteEvent() {
+    return $api.get(clientRoutes.userFavoriteEvent());
   }
 };
 

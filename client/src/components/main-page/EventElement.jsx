@@ -15,7 +15,7 @@ const EventElement = ({ event }) => {
               <div className="h-full w-full">
                 {/* тут добавлю размер картинки  */}
                   <div className="relative  w-full h-full "> 
-                      {/* <img src="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/Nft3.3b3e6a4b3ada7618de6c.png" class="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full" alt=""/> */}
+                      {/* <img src="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/Nft3.3b3e6a4b3ada7618de6c.png" className="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full" alt=""/> */}
                       <img src="/1.jpg" alt="" />
                   </div>
 
@@ -23,7 +23,7 @@ const EventElement = ({ event }) => {
                       <div className="mb-3">
                         <p className='name text-navy-700'>{event.title}</p>
 
-                        {/* <p class="text-lg font-bold text-navy-700"> Abstract Colors </p> */}
+                        {/* <p className="text-lg font-bold text-navy-700"> Abstract Colors </p> */}
                         <ul className=" nav nav-pills nav-justified px-2">
                           <div>
                           <div className=" bl1 start flex   ">

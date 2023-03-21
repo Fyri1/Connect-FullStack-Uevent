@@ -18,37 +18,37 @@ const Success = () => {
 
   return (
     <div>
-      <div class="h-screen flex items-center justify-center">
-          <card class="flex flex-col rounded-lg shadow-lg w-1/2 p-10 bg-white">
+      <div className="h-screen flex items-center justify-center">
+          <card className="flex flex-col rounded-lg shadow-lg w-1/2 p-10 bg-white">
 
             {/* <!-- Logo --> */}
-            <div class="flex justify-center">
-              <img src="https://ipio-books.com/wp-content/uploads/2018/03/success-icon.png" class="w-20 h-20"/>
+            <div className="flex justify-center">
+              <img src="https://ipio-books.com/wp-content/uploads/2018/03/success-icon.png" className="w-20 h-20"/>
             </div>
 
             {/* <!-- Title --> */}
-            <p class="text-center text-gray-800 text-4xl mt-8"> Success! </p>
+            <p className="text-center text-gray-800 text-4xl mt-8"> Success! </p>
 
             {/* <!-- Description --> */}
-            <p class="text-center text-gray-700 font-light mt-5"> Your order has been successfully completed go nagyi! </p>
+            <p className="text-center text-gray-700 font-light mt-5"> Your order has been successfully completed go nagyi! </p>
 
-            <div class='flex items-center justify-center  '>
-                <div class="p-10">
-                  <button type="button" class="flex items-center rounded-lg bg-blue-500 px-4 py-2 text-white" disabled>
-                    <svg class="-ml-1 mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            <div className='flex items-center justify-center  '>
+                <div className="p-10">
+                  <button type="button" className="flex items-center rounded-lg bg-blue-500 px-4 py-2 text-white" disabled>
+                    <svg className="-ml-1 mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    <span class="font-medium subpixel-antialiased">Processing...</span>
+                    <span className="font-medium subpixel-antialiased">Processing...</span>
                   </button>
                 </div>
 
             </div>
 
             {/* <!-- Buttons --> */}
-            <div class=" flex justify-center flex-row-reverse mt-14 items-end gap-5">
+            <div className=" flex justify-center flex-row-reverse mt-14 items-end gap-5">
 
-            <button type="button" class="text-blue-700 font-normal py-2 px-4 
+            <button type="button" className="text-blue-700 font-normal py-2 px-4 
             rounded transition duration-300 ease-in-out focus:outline-none 
             focus:shadow-outline border border-blue-700 hover:bg-blue-700 hover:text-white">Выйти НАХУЙ</button>
 
@@ -62,14 +62,14 @@ const Success = () => {
 
         </div>
 
-      {/* <div className="bg-gray-200 w-full px-16 md:px-0 h-screen flex items-center justify-center">
-        <div className="bg-white border border-gray-200 flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 py-8 rounded-lg shadow-2xl">
-          <p className="text-6xl md:text-7xl lg:text-9xl font-bold tracking-wider text-gray-300">
+      {/* <div classNameName="bg-gray-200 w-full px-16 md:px-0 h-screen flex items-center justify-center">
+        <div classNameName="bg-white border border-gray-200 flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 py-8 rounded-lg shadow-2xl">
+          <p classNameName="text-6xl md:text-7xl lg:text-9xl font-bold tracking-wider text-gray-300">
             Success!{' '}
           </p>
-          <div className="bg-green-100 rounded-md p-3 flex">
+          <div classNameName="bg-green-100 rounded-md p-3 flex">
             <svg
-              className="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0"
+              classNameName="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               strokeLinecap="round"
@@ -80,8 +80,8 @@ const Success = () => {
               <path d="M9 12l2 2 4-4" />
             </svg>
 
-            <div className="text-green-700">
-              <div className="font-bold text-xl">
+            <div classNameName="text-green-700">
+              <div classNameName="font-bold text-xl">
                 Your settings has been saved!
               </div>
               <div>
@@ -94,12 +94,12 @@ const Success = () => {
           </div>
           <a
             href="#"
-            className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 mt-6 rounded transition duration-150"
+            classNameName="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 mt-6 rounded transition duration-150"
             title="Return Home"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              classNameName="h-5 w-5"
               viewBox="0 0 20 20"
               fill="currentColor"
             >

@@ -1,5 +1,6 @@
 import React from 'react';
-import { useEvent } from '../../../hooks/events/useEvent';
+import { useEvent } from '../../../hooks/events/useEvent.js';
+import { useUserFavoriteEvent } from '../../../hooks/user/useUserFavoriteEvent.js';
 import { useParams } from 'react-router-dom';
 
 import Spinner from '../common/Spinner.jsx';
@@ -16,7 +17,7 @@ import '../css/event-card.css';
 const EventPage = ({ currentUser }) => {
   const id = useParams()['id'];
   const { isLoading, event } = useEvent(id);
-
+  const favoriteEvent = useUserFavoriteEvent();
   const unfoldButtonHandle = () => {
     console.log("pidorasa nado pokazat");
     const textElement = document.getElementsByClassName("text-retracted")[0];
@@ -34,7 +35,7 @@ const EventPage = ({ currentUser }) => {
       <div className="max-w-4xl mx-auto lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
         <div className="pl-7 pt-5 mb-9 dark:bg-dark-bg-800 rounded-lg">
           <EventDetailsHead eventData={event} />
-          <EventDetailsBody eventData={event} />
+          {favoriteEvent.isLoading ? <></> : <EventDetailsBody eventData={event} isFavorite={favoriteEvent.favorite.find((event) => event.id === id)}/>}
         </div>
         
 

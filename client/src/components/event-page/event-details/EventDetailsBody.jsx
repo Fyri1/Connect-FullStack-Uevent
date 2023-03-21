@@ -1,9 +1,13 @@
 import React from 'react';
 
+import $api from '../../../../utils/api';
+import apiClientRoutes from '../../../routes/api/apiClientRoutes';
+
 import '../../css/event-details-element.css'; 
 
 
-const EventDetailsBody = ({ eventData }) => {
+const EventDetailsBody = ({ eventData, isFavorite }) => {
+  const [isActive, setActive] = React.useState(isFavorite && isFavorite?.length !== 0);
   const unfoldButtonHandle = () => {
     console.log("pidorasa nado pokazat");
     const textElement = document.getElementsByClassName("text-retracted")[0];
@@ -13,6 +17,24 @@ const EventDetailsBody = ({ eventData }) => {
     textElement.classList.add("text-unfolded");
     textElementDiv.classList.remove("main-event-content-retracted");
     textElementDiv.classList.add("main-event-content-unfolded");
+  }
+
+  // if (favorite) {
+  //   const findEvent = favorite.find((event) => event.id === eventData.id)
+  //   console.log('pipap')
+  //   if (findEvent.length !== 0) {
+  //     setActive(!isActive);
+  //   }
+  // }
+
+  const hendelClick = async () => {
+    try {
+    const response = await $api.post(apiClientRoutes.createFavoriteEvent(eventData.id));
+    console.log(response);
+    setActive(!isActive);
+    } catch(err) {
+      console.error(err);
+    }
   }
 
   return (
@@ -25,15 +47,13 @@ const EventDetailsBody = ({ eventData }) => {
 
           <div className="circle">
           {/* bg-white  */}
-            <button className="bell border-indigo-500 text-indigo-500  px-2 py-2 m-2 transition 
-              duration-500 ease select-none hover:text-white 
-              hover:bg-indigo-600 focus:outline-none focus:shadow-outline 
-              rounded-full
-            "> 
+            <button onClick={hendelClick} className={`bell border-indigo-500 text-indigo-500  px-2 py-2 m-2
+              ${isActive ? 'bg-indigo-600 text-slate-50 rounded-full' : 'transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline rounded-full'}
+            `}> 
                 <svg stroke="currentColor" fill="currentColor" 
-                stroke-width="0" viewBox="0 0 512 512" height="1em"
+                strokeWidth="0" viewBox="0 0 512 512" height="1em"
                  width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                  <path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32"
                    d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08
                     96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 
                     183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path>
