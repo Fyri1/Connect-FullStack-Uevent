@@ -15,7 +15,7 @@ const TabButton = ({ id, slideNumber, active, category, name }) => {
 
   return (
     <li className="mr-2" role="presentation">
-      <div id={`${id}-tab-wrapper"`} className={`${category} tab-button-wrapper transition-all ${active ? "tab-button-active" : ""}`}>
+      <div id={`${id}-tab-wrapper`} className={`${category} tab-button-wrapper transition-all ${active ? "tab-button-active" : ""}`}>
         <button
           className={"tab-button group inline-block p-4 rounded-t-lg"}
           onClick={tabChangeAnimationHandle}

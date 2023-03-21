@@ -17,7 +17,7 @@ const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
         <div className="flex-1 py-3 px-6 bg-white rounded-lg shadow-xl dark:bg-dark-bg-800" data-carousel="static" id="indicators-carousel">
           {/* Tabs selector */}
           <div className="mb-4 border-b border-gray-200 dark:border-gray-700">
-            <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
+            <ul className="flex flex-wrap text-sm font-medium text-center">
               <TabButton id="profile" slideNumber="1" active={true} category="userData" name="Personal Info" />
               <TabButton id="emailEdit" slideNumber="2" active={false} category="userData" name="Email" />
               <TabButton id="passEdit" slideNumber="3" active={false} category="userData" name="Password" />
