@@ -31,7 +31,7 @@ const DarkModeSwitch = () => {
 
           <div className="relative cursor-pointer">
             <input onChange={toggleSwitchHandle} defaultChecked={localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)} className="sr-only peer" type="checkbox" name="dark-mode" id="dark-toggle" />
-            <div className="block border-[1px] border-gray-900 w-11 h-6 rounded-full hover:shadow dark:border-dark-text-400" />
+            <div className="block border-[1px] border-gray-900 w-11 h-6 rounded-full hover:shadow dark:border2-dark-text-400" />
             <div className="dot absolute left-1 top-1 bg-gray-800 w-4 h-4 rounded-full transition-all peer peer-checked:after:translate-x-full peer-checked:left-6 peer-checked:transition-all dark:bg-gray-300" />
           </div>
         </label>
