@@ -16,6 +16,8 @@ const router = Express.Router();
 router.get(adminRoutes.usersGetPath(), tryCatch(User.getAllUsers));
 router.get(adminRoutes.usersGetMyInfoPath(), tryCatch(User.getInfoUser));
 
+router.get(adminRoutes.userGetFavoriteEvent(), tryCatch(User.getFavoriteEvent))
+
 router.get(adminRoutes.userIdGetPath(), tryCatch(User.getUserById));
 router.get(adminRoutes.userGetTicketsById(), tryCatch(User.getUserTicketById)); // <----- Access denied add!!!!!!!!
 

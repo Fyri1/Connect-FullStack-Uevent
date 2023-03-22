@@ -16,6 +16,10 @@ class Users {
     return await userService.getUserTicketById(req.params);
   }
 
+  async getFavoriteEvent(req, _res) {
+    return await userService.favoriteEvent(req.headers['authorization']);
+  }
+
   async getUserById(req, _res) {
     return await userService.getUserById(req.params);
   }

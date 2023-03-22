@@ -8,7 +8,7 @@ const RecommendCard = ({ data }) => {
 
 
   return (
-    <article className="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 dark:bg-dark-bg-800">
+    // <article className="relative rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 dark:bg-dark-bg-800">
       <div className=" flex justify-center justify-center ">
         <div className="hover:bg-wh-700 delay-50 duration-100 bg-gray-800 p-2 rounded-lg w-60 group relative" href="">
           <img src="https://artist-production.de/wp-content/uploads/2023/03/splin-in-europa-2.png" className="w-full rounded shadow" />
@@ -30,7 +30,6 @@ const RecommendCard = ({ data }) => {
           <p className="text-gray-400 font-light mt-2 text-xs">{t('recommendations.from')} {data.event_start}</p>
         </div>
       </div>
-    </article>
   );
 }
 

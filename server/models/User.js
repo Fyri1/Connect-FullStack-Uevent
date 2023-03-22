@@ -43,7 +43,9 @@ class User {
   }
 
   async getFavoriteEvent(id) {
-    return await client('user_favorite_events').select('*').where('user_id', '=', id);
+    const eventIds = await client('user_favorite_events').select('event_id').where('user_id', '=', id);
+    const promisEvents = eventIds.map(({ event_id }) => Event.findOne(event_id));
+    return await Promise.all(promisEvents);
   }
 
   async getUserTicketById(id) {

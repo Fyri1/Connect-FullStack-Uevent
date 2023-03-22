@@ -1,12 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import $api from '../../../../utils/api';
+import apiClientRoutes from '../../../routes/api/apiClientRoutes';
+
 import '../../css/event-details-element.css'; 
 
 
-const EventDetailsBody = ({ eventData }) => {
+const EventDetailsBody = ({ eventData, isFavorite }) => {
   const [t, i18n] = useTranslation('eventPage');
-
+  
+  const [isActive, setActive] = React.useState(isFavorite && isFavorite?.length !== 0);
   const unfoldButtonHandle = () => {
     console.log("pidorasa nado pokazat");
     const textElement = document.getElementsByClassName("text-retracted")[0];
@@ -20,6 +24,22 @@ const EventDetailsBody = ({ eventData }) => {
 
   const addToCartButtonHandle = () => {
     console.log('pidoras ho4et kypit bilet!');
+  // if (favorite) {
+  //   const findEvent = favorite.find((event) => event.id === eventData.id)
+  //   console.log('pipap')
+  //   if (findEvent.length !== 0) {
+  //     setActive(!isActive);
+  //   }
+  }
+
+  const hendelClick = async () => {
+    try {
+    const response = await $api.post(apiClientRoutes.createFavoriteEvent(eventData.id));
+    console.log(response);
+    setActive(!isActive);
+    } catch(err) {
+      console.error(err);
+    }
   }
 
   return (

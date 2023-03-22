@@ -5,7 +5,6 @@ import RecommendCard from './RecommendCard.jsx';
 
 import { useEventRecommend } from '../../../../hooks/events/useEventReacomend.js';
 
-
 const RecommendSection = ({ event }) => {
   const [t, i18n] = useTranslation('eventPage');
 
@@ -21,8 +20,7 @@ const RecommendSection = ({ event }) => {
         </div>
       </section>
     </div>
-    
-  )
-}
+  );
+};
 
 export default RecommendSection;

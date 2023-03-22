@@ -15,6 +15,7 @@ export default {
   getEventRecommend: (id) => [apiPath, 'event', id, 'recommend'].join('/'),
   getAllCommentsByEventId: (id) => [apiPath, 'event', id, 'comments'].join('/'),
   createComment: (id) => [apiPath, 'event', id, 'create', 'comment'].join('/'),
+  createFavoriteEvent: (id) => ['event', id, 'favorite'].join('/'),
 
   changeComment: (id) => [apiPath, 'comment', id, 'update'].join('/'),
   deleteComment: (id) => [apiPath, 'comment', id, 'delete'].join('/'),
@@ -27,6 +28,7 @@ export default {
   userChangePasswordPath: (id) =>
   [apiPath, 'user', id, 'update', 'password'].join('/'),
   userTickets: (id) => [apiPath, 'user', id, 'ticket'].join('/'),
+  userFavoriteEvent: () =>[apiPath, 'user', 'favorite', 'events'].join('/'),
 
   payPath: () => [apiPath, 'pay', 'create-session-intent'].join('/'),
 
