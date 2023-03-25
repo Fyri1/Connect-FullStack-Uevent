@@ -20,7 +20,8 @@ const MainPage = () => {
           <div className="main-content">
             <div className="col-sm-9 padding-right">
               <div className="features_items">
-                <h2 className="title text-center">Features Items</h2>
+                <h2 className="box-border my-8 text-2xl font-black leading-tight 
+                tracking-tight text-black border-solid sm:text-2xl md:text-4xl text-center">Афіша і квитки на концерти у Києві, 2023</h2>
                 <Sidebar />
 
                 <div className="ticket-with-main flex overflow-hidden  ">
