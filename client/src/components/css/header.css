@@ -16,12 +16,17 @@ body {
   height: 100%;
   margin: 0;
   display: flex;
-}
+  margin-left: 0%;
 
+}
+.kokon{
+  margin-right: auto;
+
+  margin-left: auto;
+}
 
 .container-right-button {
   margin-left: 5%;
-  position: relative;
 }
 .btn-login, .btn-register {
   width: 140px;

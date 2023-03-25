@@ -83,7 +83,7 @@ const EventElement = ({ event }) => {
               <div class=" absolute bg-black rounded bg-opacity-0 group-hover:bg-opacity-60 
                 w-full h-full right-0 top-0   
                 group-hover:opacity-100 duration-700 transition flex flex-col justify-between">
-                <div  class=" mt-5 hover:scale-10 text-white outline-none opacity-0
+                <div  class=" mt-2 hover:scale-10 text-white outline-none opacity-0
                   group-hover:opacity-100 ">
                     {/* I will think something BLYAT */}
                   <button class="button-rekomend-main p-4 rounded-full transition ease-in duration-200 focus:outline-none">

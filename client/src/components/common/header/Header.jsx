@@ -19,9 +19,9 @@ const Header = () => {
   const [ t, i18n ] = useTranslation('header');
 
   return (
-    <header className='header-div'>
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-dark-bg-800">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+    <header className="">
+      <nav className=" bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-dark-bg-800">
+        <div className=" flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
 
           <a href={clientRoutes.mainPagePath()} className="flex items-center">
            <div>
@@ -38,19 +38,18 @@ const Header = () => {
 
           <Navbar />
           
-          <div className="flex items-center lg:order-2">
+          <div className=" lg:order-1">
             {
               // check whether user is logged in
               localStorage.getItem('token')
               ?
-              <div className="flex items-center">
+              <div className="flex ">
                 <LanguageSelectMenu />
                 <UserDropdownMenu />
               </div>
               :
-              <div className="authButtons">
-                <div className="text-white font-normal  rounded transition duration-300 ease-in-out 
-                  focus:outline-none focus:shadow-outline 
+              <div className=" authButtons">
+                <div className="text-white font-normal   transition duration-300 
                   bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
                   <AuthButton name="Sign in" path={clientRoutes.loginPagePath()} type="login" />
                 </div>
