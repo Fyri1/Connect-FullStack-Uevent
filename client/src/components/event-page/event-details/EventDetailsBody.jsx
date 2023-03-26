@@ -17,14 +17,22 @@ const EventDetailsBody = ({ eventData }) => {
 
   return (
     <div>
-      <div className="sm:grid grid-cols-4 bg-white shadow-sm dark:bg-dark-bg-800">
+      <div class="bg-burger bg-top pt-0.5 pb-32 hidden md:block">
+        <div class="mt-8 flex">
+          <img class="h-44 mx-auto" src="" alt=""/>
+        </div>
+        <nav class="mt-10 flex">
+          
+        </nav>
+      </div>
+
+      {/* <div className="sm:grid grid-cols-4 bg-white shadow-sm dark:bg-dark-bg-800">
         <div className="container">
           <div className="photo">
             <img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Just a flower" className="w-full rounded-lg" />
           </div>
 
           <div className="circle">
-          {/* bg-white  */}
             <button className="bell border-indigo-500 text-indigo-500  px-2 py-2 m-2 transition 
               duration-500 ease select-none hover:text-white 
               hover:bg-indigo-600 focus:outline-none focus:shadow-outline 
@@ -65,7 +73,7 @@ const EventDetailsBody = ({ eventData }) => {
 
       <div onClick={unfoldButtonHandle}>
         <button className="button_block_view" type="submit">Развернуть</button>
-      </div>
+      </div> */}
     </div>
   );
 }
