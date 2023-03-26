@@ -45,6 +45,7 @@ const EventPage = ({ currentUser }) => {
               <div class="rounded-lg md:w-2/3">
               <EventDetailsHead eventData={event} />
 
+
               </div>
               <div className="md:mt-0 md:w-1/4 ">
                 
