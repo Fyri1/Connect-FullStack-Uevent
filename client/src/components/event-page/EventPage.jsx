@@ -18,6 +18,7 @@ const EventPage = ({ currentUser }) => {
   const id = useParams()['id'];
   const { isLoading, event } = useEvent(id);
   const favoriteEvent = useUserFavoriteEvent();
+  console.log(favoriteEvent)
   const unfoldButtonHandle = () => {
     console.log("pidorasa nado pokazat");
     const textElement = document.getElementsByClassName("text-retracted")[0];

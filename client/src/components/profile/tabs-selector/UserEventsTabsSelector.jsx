@@ -7,7 +7,7 @@ import SavedEventsTab from '../tabs/UserTicketsData/SavedEventsTab.jsx';
 import UserTicketsTab from '../tabs/UserTicketsData/UserTicketsTab.jsx';
 
 
-const UserEventsTabsSelector = ({ userData, setPopupContent, setPopupActive, isLoading }) => {
+const UserEventsTabsSelector = ({ userData, setPopupContent, setPopupActive }) => {
   return (
     <div className="my-4 flex flex-col">
       <div className="w-full flex flex-col">
