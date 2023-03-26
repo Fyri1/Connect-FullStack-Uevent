@@ -19,9 +19,9 @@ const Header = () => {
   const [ t, i18n ] = useTranslation('header');
 
   return (
-    <header className='header-div'>
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-dark-bg-800">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+    <header className="h-10">
+      <nav className="fixed z-50 w-full bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-dark-bg-800">
+        <div className=" flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
 
           <a href={clientRoutes.mainPagePath()} className="flex items-center">
            <div>
@@ -38,19 +38,18 @@ const Header = () => {
 
           <Navbar />
           
-          <div className="flex items-center lg:order-2">
+          <div className=" lg:order-1">
             {
               // check whether user is logged in
               localStorage.getItem('token')
               ?
-              <div className="flex items-center">
+              <div className="flex ">
                 <LanguageSelectMenu />
                 <UserDropdownMenu />
               </div>
               :
-              <div className="authButtons">
-                <div className="text-white font-normal  rounded transition duration-300 ease-in-out 
-                  focus:outline-none focus:shadow-outline 
+              <div className=" authButtons">
+                <div className="text-white font-normal   transition duration-300 
                   bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
                   <AuthButton name="Sign in" path={clientRoutes.loginPagePath()} type="login" />
                 </div>
@@ -63,7 +62,6 @@ const Header = () => {
                 </div>
               </div>
             }
-
             <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-dark-text-400 dark:hover:bg-dark-bg-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
