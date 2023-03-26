@@ -59,7 +59,7 @@ const Sidebar = () => {
         </DropdownButton>
       </div>
 
-      <div className="search-div">
+      <div className="w-1/5">
         <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
       </div>
     </div>
