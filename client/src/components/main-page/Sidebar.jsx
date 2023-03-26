@@ -4,7 +4,6 @@ import DropdownButton from "../common/dropdown-menu/DropdownButton.jsx";
 import ToggleSwitchDropdownElement from "../common/dropdown-menu/ToggleSwitchDropdownElement.jsx";
 import SearchInput from "./SearchInput.jsx";
 
-import "../css/sidebar.css";
 import data from "../../temp/categories.json";
 
 
@@ -49,8 +48,8 @@ const Sidebar = () => {
 // </svg>
 
   return (
-    <div className=" sidebar">
-      <div className="search-div flex z-10">
+    <div className="flex w-full p-7">
+      <div className="search-div flex z-10 m-auto">
         <DropdownButton id="dropDownElements">
           {CategoriesElements}
         </DropdownButton>
@@ -59,15 +58,11 @@ const Sidebar = () => {
           {CategoriesElements}
         </DropdownButton>
       </div>
-      
 
       <div className="search-div">
         <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
-      
       </div>
-
     </div>
-    
   );
 }
 
