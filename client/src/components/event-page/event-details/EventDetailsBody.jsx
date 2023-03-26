@@ -44,16 +44,34 @@ const EventDetailsBody = ({ eventData, isFavorite }) => {
 
   return (
     <div>
-      <div className="sm:grid grid-cols-4 bg-white shadow-sm dark:bg-dark-bg-800">
+      <div class="bg-burger bg-top pt-0.5 pb-32 hidden md:block">
+        <div class="mt-8 flex">
+          <img class="h-44 mx-auto" src="" alt=""/>
+        </div>
+        <nav class="mt-10 flex">
+          
+        </nav>
+      </div>
+
+      {/* <div className="sm:grid grid-cols-4 bg-white shadow-sm dark:bg-dark-bg-800">
         <div className="container">
           <div className="photo">
             <img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Just a flower" className="w-full rounded-lg" />
           </div>
 
           <div className="circle">
-            <button className="bell border-indigo-500 text-indigo-500 px-2 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-indigo-600 focus:outline-none focus:shadow-outline rounded-full"> 
-              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                <path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path>
+            <button className="bell border-indigo-500 text-indigo-500  px-2 py-2 m-2 transition 
+              duration-500 ease select-none hover:text-white 
+              hover:bg-indigo-600 focus:outline-none focus:shadow-outline 
+              rounded-full
+            "> 
+                <svg stroke="currentColor" fill="currentColor" 
+                stroke-width="0" viewBox="0 0 512 512" height="1em"
+                 width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                   d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08
+                    96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 
+                    183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path>
               </svg>
             </button>
           </div>
@@ -81,7 +99,7 @@ const EventDetailsBody = ({ eventData, isFavorite }) => {
 
       <div onClick={unfoldButtonHandle}>
         <button className="button_block_view" type="submit">Развернуть</button>
-      </div>
+      </div> */}
     </div>
   );
 }

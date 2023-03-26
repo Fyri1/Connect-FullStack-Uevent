@@ -36,7 +36,7 @@ export default () => {
   };
 
   return (
-    <Menu as="div" className="relative inline-block text-left dark:bg-dark-bg-800">
+    <Menu as="div" className="relative inline-block text-left dark:bg-dark-bg-800 z-10">
       <div>
         <Menu.Button className="flex items-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white dark:bg-dark-bg-800">
           <img className="mr-2 w-8 h-8 rounded-full" src={currentUser['picture'] ? apiClientRoutes.getPathAvatar(currentUser['picture']) : defaultAvarat} alt="user photo" />

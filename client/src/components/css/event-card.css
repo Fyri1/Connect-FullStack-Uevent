@@ -59,11 +59,15 @@ input[name="r"] {
   
 }
 .name{
+  display: block;
   text-align:left;
-  font-family: "Gill Sans", sans-serif;
+  text-transform: uppercase;
+  font-family: "Gill Sans","" sans-serif;
   font-size: 24px;
-  margin:10px 0px 30px 10px;
-
+  margin:10px 20px 30px 10px;
+}
+.location{
+  margin:50px 0px 0px 0px;
 }
 
 .slides {
@@ -105,14 +109,14 @@ input[name="r"] {
 }
 
 
-.col-sm-4:hover {
-  transform: scale(1.02); /* Увеличиваем масштаб */
+/* .col-sm-4:hover {
+  transform: scale(1.02); 
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(48, 47, 47, 0.103);
-}
+} */
 
 .col-sm-4{
+  border: 1px solid rgb(224, 221, 221);
 
-  transition: 1s; /* Время эффекта */
   text-align: center; 
 
 }
@@ -377,3 +381,4 @@ a.btn {
   margin-right: auto;
 
 }
+
