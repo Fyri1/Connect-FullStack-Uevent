@@ -12,8 +12,6 @@
   padding: 0;
 }
 
-
-
 .slider {
   width: 800px;
   height: 500px;
@@ -52,19 +50,19 @@
   transform:scale(1.1);
 }
 
-input[name="r"] {
-  position: absolute;
-  visibility: hidden;
-  
-  
-}
+
 .name{
-  display: block;
-  text-align:left;
+  font-family: 'Oswald', sans-serif;
+  font-size: 50px;
+  letter-spacing: 0px;
+  word-spacing: 0px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
   text-transform: uppercase;
-  font-family: "Gill Sans","" sans-serif;
-  font-size: 24px;
-  margin:10px 20px 30px 10px;
+ 
 }
 .location{
   margin:50px 0px 0px 0px;
@@ -81,38 +79,11 @@ input[name="r"] {
   transition: all 0.6s ease;
 }
 
-.img {
-  width: 100%;
-  height: 100%;
-}
-
-#r1:checked ~ .s1 {
-  margin-left: 0;
-}
-
-#r2:checked ~ .s1 {
-  margin-left: -25%;
-}
-
-#r3:checked ~ .s1 {
-  margin-left: -50%;
-}
-
-#r4:checked ~ .s1 {
-  margin-left: -75%;
-}
-
-
 
 .features_items {
     overflow:hidden;
 }
 
-
-/* .col-sm-4:hover {
-  transform: scale(1.02); 
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(48, 47, 47, 0.103);
-} */
 
 .col-sm-4{
   border: 1px solid rgb(224, 221, 221);
@@ -137,34 +108,7 @@ font-weight: 700;
   margin-top:30px;
 }
 
-.well {
-  background-color: #FFFFFF;
-  border: 1px solid #F7F7F0;
-  border-radius: 4px;
-  box-shadow: none;
-  margin-bottom: 20px;
-  min-height: 20px;
-  padding: 35px;
-}
 
-
-.tooltip-inner {
-  background-color: #FE980F;
-  border-radius: 4px;
-  color: #FFFFFF;
-  max-width: 200px;
-  padding: 3px 8px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.tooltip.top .tooltip-arrow {
-  border-top-color: #FE980F;
-  border-width: 5px 5px 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -5px;
-}
 
 
 
@@ -199,17 +143,7 @@ h2.title {
 
 
 
-.product-overlay {
-  background:#FE980F;
-  top: 0;
-  display: none;
-  height: 0;
-  position: absolute;
-  transition: height 500ms ease 0s;
-  width: 100%;
-  display: block;
 
-}
 
 .single-products:hover .product-overlay {
   display:block;
@@ -271,16 +205,10 @@ a.btn {
 
 
 
-.choose {
-  margin: 0px 0px 0px 15px;
-
-}
 
 
-.category-tab ul  li  a:hover{
-	background:#FE980F;
-	color:#fff;
-}
+
+
 /* ----- */
 
 
@@ -289,12 +217,6 @@ a.btn {
   top: 41%;
 }
 
-.recommended-item-control i {
-  background: none repeat scroll 0 0 #FE980F;
-  color: #FFFFFF;
-  font-size: 20px;
-  padding: 4px 10px;
-}
 
 .recommended-item-control i:hover {
   background: #ccccc6;
@@ -357,28 +279,15 @@ a.btn {
 
 }
 
-/* Ticket */
-.Ticket{
-  float: left;
-  width: 40%;
-  height: 0%;
-  position: left;
-  margin: 5px 15px 0px 0px;
-
-  transition: 1s; /* Время эффекта */
-  text-align: center; 
-
+.slider-event-data{
+  font-family: 'Noto Sans JP', sans-serif;
+font-size: 20px;
+letter-spacing: 0px;
+word-spacing: 0px;
+color: #ffffff;
+font-weight: bold;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: lowercase;
 }
-
-.barcode {
-  left: 50%;
-  box-shadow: 1px 0 0 1px, 5px 0 0 1px, 10px 0 0 1px, 11px 0 0 1px, 15px 0 0 1px, 18px 0 0 1px, 22px 0 0 1px, 23px 0 0 1px, 26px 0 0 1px, 30px 0 0 1px, 35px 0 0 1px, 37px 0 0 1px, 41px 0 0 1px, 44px 0 0 1px, 47px 0 0 1px, 51px 0 0 1px, 56px 0 0 1px, 59px 0 0 1px, 64px 0 0 1px, 68px 0 0 1px, 72px 0 0 1px, 74px 0 0 1px, 77px 0 0 1px, 81px 0 0 1px, 85px 0 0 1px, 88px 0 0 1px, 92px 0 0 1px, 95px 0 0 1px, 96px 0 0 1px, 97px 0 0 1px, 101px 0 0 1px, 105px 0 0 1px, 109px 0 0 1px, 110px 0 0 1px, 113px 0 0 1px, 116px 0 0 1px, 120px 0 0 1px, 123px 0 0 1px, 127px 0 0 1px, 130px 0 0 1px, 131px 0 0 1px, 134px 0 0 1px, 135px 0 0 1px, 138px 0 0 1px, 141px 0 0 1px, 144px 0 0 1px, 147px 0 0 1px, 148px 0 0 1px, 151px 0 0 1px, 155px 0 0 1px, 158px 0 0 1px, 162px 0 0 1px, 165px 0 0 1px, 168px 0 0 1px, 173px 0 0 1px, 176px 0 0 1px, 177px 0 0 1px, 180px 0 0 1px;
-  display: inline-block;
-  transform: translateX(-90px);
-}
-.Tiket-code{
-  margin-left: auto;
-  margin-right: auto;
-
-}
-

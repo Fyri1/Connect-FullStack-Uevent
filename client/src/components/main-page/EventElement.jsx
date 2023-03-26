@@ -22,7 +22,7 @@ const EventElement = ({ event }) => {
               </div>
 
               {/* name event */}
-              <p className="name text-gray-700 font-bold text-2xl mb-3 hover:text-gray-900 hover:cursor-pointer dark:text-dark-text-100">{ event.title }</p>
+              <p className="name text-gray-700 mb-20 font-bold text-2xl   hover:text-gray-900 hover:cursor-pointer dark:text-dark-text-100">{ event.title }</p>
 
               {/* <p className="text-lg font-bold text-navy-700"> Abstract Colors </p> */}
               <div className="nav nav-pills nav-justified px-2">
@@ -54,17 +54,20 @@ const EventElement = ({ event }) => {
           </div>
 
           <div className="hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
-            <a className="text-lg md:text-1xl">14 квитня</a>
+            <a className="slider-event-data ">14 квитня</a>
           </div>
 
           <div className="hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
-            <p className="name text-wight-700 font-bold text-2xl mb-3 hover:text-wight-900 hover:cursor-pointer dark:text-dark-text-200">{ event.title }</p>
+            <p className="name text-wight-700 font-bold text-4xl mb-3 hover:text-wight-900 hover:cursor-pointer dark:text-dark-text-200">{ event.title }</p>
           </div>
 
           <div className="mb-10 hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
             <p className="text-wight-700 text-lg text-white">{ event.city }</p>
             <div className="justify-between md:items-center lg:justify-between">
-              <button onClick={() => { location.href = `/event/${event.id}` }} className="fa fa-shopping-cart p-2 pl-11 pr-11 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
+              <button onClick={() => { location.href = `/event/${event.id}` }} className="fa 
+              fa-shopping-cart p-2 pl-11 pr-11 bg-transparent border-2 border-indigo-500
+               text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform 
+               hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
                 { t('eventCard.buy') }
               </button>
             </div>
