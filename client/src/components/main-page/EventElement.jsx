@@ -48,19 +48,7 @@ const EventElement = ({ event }) => {
                       
 
                   </div>
-                  {/* <div className="justify-between md:items-center lg:justify-between ">
 
-                    <div className='items-center'>
-                      <a href={`/event/${event.id}`} className="">
-                      
-                        <button className="fa fa-shopping-cart p-2 pl-11 pr-11 
-                        bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg 
-                        transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 
-                        focus:border-4 focus:border-indigo-300">Button</button>
-                      </a>
-
-                      </div>     
-                  </div>          */}
               </div>
               {/* slider on ticket */}
               <div class=" rounded-[20px] absolute  bg-transparent  rounded bg-opacity-0 
