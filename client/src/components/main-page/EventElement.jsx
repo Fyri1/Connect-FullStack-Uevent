@@ -44,7 +44,7 @@ const EventElement = ({ event }) => {
 
         {/* slider on ticket  bg-slate-500 bg-[url('https://randomuser.me/api/portraits/men/54.jpg')] */} 
         <div className="rounded-[20px] absolute  bg-transparent rounded bg-opacity-0 hover:bg-opacity-90 bg-slate-600  w-full h-full 
-        right-0 top-0 hover:opacity-100 duration-700  transition flex flex-col justify-between">
+          right-0 top-0 hover:opacity-100 duration-700  transition flex flex-col justify-between">
           <div className="mt-2 hover:scale-10 text-white  outline-none opacity-0 group-hover:opacity-100">
           </div>
 
