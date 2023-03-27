@@ -90,6 +90,7 @@ const cleanDatabase = async () => {
     await client('tickets').del();
     await client('categories').del();
     await client('event_categories').del();
+    await client('organization').del();
     await client('comments').del();
     await client('event_comments').del();
     console.log('/--------------------\\');

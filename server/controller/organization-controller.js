@@ -12,6 +12,12 @@ class Organization {
     return await organizationService.createOrganization(req);
   }
 
+  async createPromoCodes(req, _res) {
+    const token = req.headers.authorization?.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await organizationService.createPromoCodes(id, req.body);
+  }
+
   async subscriptionOrganization(req, _res) {
     const token = req.headers.authorization?.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);

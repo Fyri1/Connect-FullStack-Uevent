@@ -14,6 +14,13 @@ router.post(
   '/subscription/:id',
   tryCatch(Organization.subscriptionOrganization)
 );
+
+router.post(
+  '/create/promocodes',
+  checkOrganization,
+  tryCatch(Organization.createPromoCodes)
+);
+
 router.post(
   '/register-organization/',
   body('name').isLength({ min: 3, max: 30 }).trim(),

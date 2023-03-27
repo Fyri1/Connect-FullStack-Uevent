@@ -8,6 +8,16 @@ class Organization {
     return data;
   }
 
+  async createPromoCode(userId, discount) {
+    const id = uuidv4();
+    const organization = await this.findOrganizationByUserId(userId);
+    await client('promo_codes').insert({
+      id,
+      organization_id: organization.id,
+      discount,
+    });
+  }
+
   async findOrganizationId(id) {
     const data = await client('organization').select('*').where('id', '=', id);
     return data[0];
@@ -17,6 +27,14 @@ class Organization {
     const data = await client('organization')
       .select('*')
       .where('user_id', '=', id);
+    return data[0];
+  }
+
+  async findPromoCodeById(id) {
+    const data = await client('promo_codes').select('*').where('id', '=', id);
+    if (data.length === 0) {
+      throw ApiError.BadRequest('promo code nema takogo dolben')
+    }
     return data[0];
   }
 

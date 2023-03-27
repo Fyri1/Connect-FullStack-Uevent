@@ -9,17 +9,14 @@ import { UsersService } from '../../../../../services/users.service.js';
 
 
 const ProfileDataTab = ({ userData, setUserData }) => {
+  console.log(userData)
   let temp = {};
-  if (!userData) {
-    return <Spinner />
-  } else {
-    Object.keys(userData.values).forEach((key, i) => {
-      temp[key] = "";
-    });
-  }
+  Object.keys(userData.values).forEach((key, i) => {
+    temp[key] = "";
+  });
 
   const [errors, setErrors] = React.useState(temp);
-  const [submitData, setSubmitData] = React.useState(userData?.values);
+  const [submitData, setSubmitData] = React.useState(userData.values);
   const [editActive, setEditActive] = React.useState(false);
   
   const { isLoading, mutateAsync } = useMutation('change info user', (data) => UsersService.updateInfoUser(data), {
@@ -56,7 +53,7 @@ const ProfileDataTab = ({ userData, setUserData }) => {
     setEditActive(false);
   }
   
-  return !userData ? <Spinner /> : (
+  return (
     <div>
       <div className="flex items-center">
         <h4 className="text-xl pr-3 text-gray-900 font-bold dark:text-dark-text-300">Personal Info</h4>

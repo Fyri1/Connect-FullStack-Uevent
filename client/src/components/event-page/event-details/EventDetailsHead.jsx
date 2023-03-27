@@ -1,7 +1,12 @@
 import React from 'react';
 import '../../css/EventDetailsHead.css';
+import { useTranslation } from 'react-i18next';
+
 
 const EventDetailsHead = ({ eventData }) => {
+  const [t, i18n] = useTranslation('eventPage');
+
+
   return (
     <div>
       <h1 className="text-name pb-1  dark:text-dark-text-200" >{ eventData.title }</h1>

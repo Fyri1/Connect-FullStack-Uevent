@@ -9,6 +9,11 @@ class Events {
     return result;
   }
 
+  async searchEvent(req, _res) {
+    const { query } = req.query;
+    return await eventService.searchEvent(query);
+  }
+
   async getEventsById(req, _res) {
     return await eventService.getEventsById(req.params);
   }

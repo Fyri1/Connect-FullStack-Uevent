@@ -1,9 +1,16 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+import $api from '../../../../utils/api';
+import apiClientRoutes from '../../../routes/api/apiClientRoutes';
 
 import '../../css/event-details-element.css'; 
 
 
-const EventDetailsBody = ({ eventData }) => {
+const EventDetailsBody = ({ eventData, isFavorite }) => {
+  const [t, i18n] = useTranslation('eventPage');
+  
+  const [isActive, setActive] = React.useState(isFavorite && isFavorite?.length !== 0);
   const unfoldButtonHandle = () => {
     console.log("pidorasa nado pokazat");
     const textElement = document.getElementsByClassName("text-retracted")[0];
@@ -13,6 +20,26 @@ const EventDetailsBody = ({ eventData }) => {
     textElement.classList.add("text-unfolded");
     textElementDiv.classList.remove("main-event-content-retracted");
     textElementDiv.classList.add("main-event-content-unfolded");
+  }
+
+  const addToCartButtonHandle = () => {
+    console.log('pidoras ho4et kypit bilet!');
+  // if (favorite) {
+  //   const findEvent = favorite.find((event) => event.id === eventData.id)
+  //   console.log('pipap')
+  //   if (findEvent.length !== 0) {
+  //     setActive(!isActive);
+  //   }
+  }
+
+  const hendelClick = async () => {
+    try {
+    const response = await $api.post(apiClientRoutes.createFavoriteEvent(eventData.id));
+    console.log(response);
+    setActive(!isActive);
+    } catch(err) {
+      console.error(err);
+    }
   }
 
   return (
@@ -46,14 +73,13 @@ const EventDetailsBody = ({ eventData }) => {
                     96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 
                     183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path>
               </svg>
-             
             </button>
-
           </div>
         </div>
 
         <div className="pt-5 sm:pt-0 sm:pl-10 col-span-3 text-gray-600 dark:text-dark-text-400">
-          <p className="mt-2 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
+          <p className="mt-2 text-sm">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
             Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
             Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
             Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia
@@ -64,9 +90,9 @@ const EventDetailsBody = ({ eventData }) => {
             
           <div className="flex items-center justify-between">
             <span className="text-3xl font-bold text-gray-900 dark:text-dark-text-200">$599</span>
-            <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Add to cart
-            </a>
+            <button onClick={addToCartButtonHandle} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              {t('eventDetails.addToCart')}
+            </button>
           </div>
         </div>
       </div>

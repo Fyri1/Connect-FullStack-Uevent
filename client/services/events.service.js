@@ -8,6 +8,9 @@ const EventService = {
   getEventId(id) {
     return $api.get(routes.getEventById(id));
   },
+  getSearchEvent(searchElement) {
+    return $api.get(routes.getSearchEvent(searchElement));
+  },
   getAllCommentsByEventId(id) {
     return $api.get(routes.getAllCommentsByEventId(id));
   },
