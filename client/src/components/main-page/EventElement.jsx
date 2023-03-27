@@ -9,7 +9,7 @@ const EventElement = ({ event }) => {
 
   return (
     <div className="px-3 py-5 gap-8 snap-x">
-      <div className="col-sm-4 flex-col rounded-[20px] hover:bg-wh-700 bg-gray-0 p-2 rounded-lg group relative w-full dark:bg-dark-bg-800 dark:border-dark-bg-700 cursor-pointer">
+      <div className="col-sm-4 flex-col rounded-[20px] hover:bg-wh-700 bg-gray-0 p-2 rounded-lg group relative w-full dark:bg-dark-bg-800 dark:border-dark-bg-700 ">
         <div className="h-full w-full">
           <div className="w-full h-full">
             <img className="rounded-[10px]" src="https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg" alt="" />
@@ -22,7 +22,7 @@ const EventElement = ({ event }) => {
               </div>
 
               {/* name event */}
-              <p className="name text-gray-700 mb-20 font-bold text-2xl   hover:text-gray-900 hover:cursor-pointer dark:text-dark-text-100">{ event.title }</p>
+              <p className="name text-gray-700 mb-20 font-bold text-2xl   hover:text-gray-900 hover: dark:text-dark-text-100">{ event.title }</p>
 
               {/* <p className="text-lg font-bold text-navy-700"> Abstract Colors </p> */}
               <div className="nav nav-pills nav-justified px-2">
@@ -43,15 +43,9 @@ const EventElement = ({ event }) => {
         </div>
 
         {/* slider on ticket  bg-slate-500 bg-[url('https://randomuser.me/api/portraits/men/54.jpg')] */} 
-        <div className="rounded-[20px] absolute  bg-transparent rounded bg-opacity-0 hover:bg-opacity-80 bg-slate-500  w-full h-full 
+        <div className="rounded-[20px] absolute  bg-transparent rounded bg-opacity-0 hover:bg-opacity-90 bg-slate-600  w-full h-full 
         right-0 top-0 hover:opacity-100 duration-700  transition flex flex-col justify-between">
           <div className="mt-2 hover:scale-10 text-white  outline-none opacity-0 group-hover:opacity-100">
-            {/* I will think something BLYAT */}
-            <button className="button-rekomend-main p-4 rounded-full transition ease-in duration-200 focus:outline-none">
-              <svg viewBox="0 0 20 20" enableBackground="new 0 0 20 20" className="w-6 h-6">
-                <path fill="#FFFFFF" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-              </svg>
-            </button>
           </div>
 
           <div className="hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
@@ -59,7 +53,7 @@ const EventElement = ({ event }) => {
           </div>
 
           <div className="hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
-            <p className="name text-wight-700 font-bold text-4xl mb-3 hover:text-wight-900 hover:cursor-pointer dark:text-dark-text-200">{ event.title }</p>
+            <p className="name text-wight-700 font-bold text-4xl mb-3 hover:text-wight-900 hover: dark:text-dark-text-200">{ event.title }</p>
           </div>
 
           <div className="mb-10 hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
