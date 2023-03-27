@@ -10,6 +10,10 @@ class EventService {
     return await Event.getAll();
   }
 
+  async searchEvent(searchElement) {
+    return await Event.search(searchElement.toLowerCase());
+  }
+
   async getEventsById({ id }) {
     return await Event.findOne(id);
   }

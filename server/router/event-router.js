@@ -17,6 +17,12 @@ router.get(
 );
 
 router.get(
+  adminRoutes.eventSearch(),
+  tryCatch(Events.searchEvent),
+  Events.searchEvent
+);
+
+router.get(
   adminRoutes.eventIdGetPath(),
   tryCatch(Events.getEventsById),
   Events.getEventsById
