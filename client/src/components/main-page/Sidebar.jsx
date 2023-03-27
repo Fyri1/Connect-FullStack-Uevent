@@ -48,19 +48,21 @@ const Sidebar = () => {
 // </svg>
 
   return (
-    <div className="main-sidebar flex w-full p-7">
-      <div className="main-sidebar flex z-10 ">
-        <DropdownButton id="dropDownElements">
-          {CategoriesElements}
-        </DropdownButton>
+    <div>
+      <div className=" flex w-full p-7">
+        <div className="main-sidebar flex z-10 ">
+          <DropdownButton id="dropDownElements">
+            {CategoriesElements}
+          </DropdownButton>
 
-        <DropdownButton id=" dropDownElements">
-          {CategoriesElements}
-        </DropdownButton>
-      </div>
+          <DropdownButton id=" dropDownElements">
+            {CategoriesElements}
+          </DropdownButton>
+        </div>
 
-      <div className="search-div">
-        <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
+        <div className="main-sidebar search-div">
+          <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
+        </div>
       </div>
     </div>
   );

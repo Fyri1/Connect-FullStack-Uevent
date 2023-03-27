@@ -42,9 +42,10 @@ const EventElement = ({ event }) => {
           </div>
         </div>
 
-        {/* slider on ticket */}
-        <div className="rounded-[20px] absolute bg-transparent rounded bg-opacity-0 hover:bg-opacity-80 bg-slate-500 w-full h-full right-0 top-0 hover:opacity-100 duration-700 transition flex flex-col justify-between">
-          <div className="mt-2 hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
+        {/* slider on ticket  bg-slate-500 bg-[url('https://randomuser.me/api/portraits/men/54.jpg')] */} 
+        <div className="rounded-[20px] absolute  bg-transparent rounded bg-opacity-0 hover:bg-opacity-80 bg-slate-500  w-full h-full 
+        right-0 top-0 hover:opacity-100 duration-700  transition flex flex-col justify-between">
+          <div className="mt-2 hover:scale-10 text-white  outline-none opacity-0 group-hover:opacity-100">
             {/* I will think something BLYAT */}
             <button className="button-rekomend-main p-4 rounded-full transition ease-in duration-200 focus:outline-none">
               <svg viewBox="0 0 20 20" enableBackground="new 0 0 20 20" className="w-6 h-6">
@@ -54,7 +55,7 @@ const EventElement = ({ event }) => {
           </div>
 
           <div className="hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
-            <a className="slider-event-data ">14 квитня</a>
+            <p className="slider-event-data ">14 квитня</p>
           </div>
 
           <div className="hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
