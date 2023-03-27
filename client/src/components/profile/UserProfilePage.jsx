@@ -12,33 +12,30 @@ import ToastError from '../common/toast/ToastError.jsx';
 import '../css/Profile.css';
 import { useUserProfile } from '../../../hooks/user/useUserProfile.js';
 
+import UserContext from '../../context/UserContext.js';
+
 
 const UserProfilePage = () => {
   // const [userData, setUserData] = React.useState(data);
-  const { userInfo, isLoading } = useUserProfile();
-
-  const [userData, setUserData] = React.useState(userInfo);
+  // const { userInfo, isLoading } = useUserProfile();
+  const { currentUser } = React.useContext(UserContext);
+  const [userData, setUserData] = React.useState(currentUser);
   const [popupContent, setPopupContent] = React.useState();
   const [popupActive, setPopupActive] = React.useState(false);
+  console.log(currentUser.currentUser)
 
-  React.useEffect(() => {
-    setUserData(userInfo);
-  }, [userInfo]);
-
-  // return isLoading ? <Spinner /> : (
   return (
     <div>
-      { isLoading ? <Spinner /> : <></> }
       <Popup active={popupActive} setActive={setPopupActive}>
         { popupContent }
       </Popup>
 
       <div className="h-full bg-gray-200 p-8 dark:bg-dark-bg-900">
-        <ProfileHead userData={userInfo} />
+        <ProfileHead userData={{ values: currentUser }} />
         
         <div className="flex w-full">
-          <div className="h-full w-[40%] mr-[1%]"><UserDataTabsSelector userData={userData} setUserData={setUserData} isLoading={isLoading} /></div>
-          <div className="h-full w-[60%] ml-[1%]"><UserEventsTabsSelector userData={userData} setPopupContent={setPopupContent} setPopupActive={setPopupActive} isLoading={isLoading} /></div>
+          <div className="h-full w-[40%] mr-[1%]"><UserDataTabsSelector userData={{ values: userData }} setUserData={setUserData} /></div>
+          <div className="h-full w-[60%] ml-[1%]"><UserEventsTabsSelector userData={{ values: userData }} setPopupContent={setPopupContent} setPopupActive={setPopupActive} /></div>
         </div>
       </div>
     </div>

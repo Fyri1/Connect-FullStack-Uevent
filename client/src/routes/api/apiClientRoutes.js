@@ -12,6 +12,7 @@ export default {
   
   getAllEvent: () => [apiPath, 'event'].join('/'),
   getEventById: (id) => [apiPath, 'event', id].join('/'),
+  getSearchEvent: (search) => [apiPath, 'event', `search?query=${search}`].join('/'),
   getEventRecommend: (id) => [apiPath, 'event', id, 'recommend'].join('/'),
   getAllCommentsByEventId: (id) => [apiPath, 'event', id, 'comments'].join('/'),
   createComment: (id) => [apiPath, 'event', id, 'create', 'comment'].join('/'),

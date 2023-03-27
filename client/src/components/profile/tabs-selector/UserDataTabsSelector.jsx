@@ -10,7 +10,7 @@ import PassChangeTab from '../tabs/PersonalData/PassChangeTab';
 import '../../css/Profile.css';
 
 
-const UserDataTabsSelector = ({ userData, setUserData, isLoading }) => {
+const UserDataTabsSelector = ({ userData, setUserData }) => {
   return (
     <div className="my-4 flex flex-col"> 
       <div className="w-full flex flex-col">

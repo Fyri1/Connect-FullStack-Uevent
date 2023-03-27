@@ -36,6 +36,13 @@ class CategoryService {
     return 'Confirm mail';
   }
 
+  async createPromoCodes(id, { count, discount }) {
+    for (let i = 1; count >= i; i += 1) {
+      await Organization.createPromoCode(id, discount);
+    }
+    return 'Create promo codes';
+  }
+
   async subscriptionOrganization(organizationId, userId) {
     return await Organization.subscription(userId, organizationId);
   }

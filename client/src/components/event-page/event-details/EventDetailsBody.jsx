@@ -44,11 +44,11 @@ const EventDetailsBody = ({ eventData, isFavorite }) => {
 
   return (
     <div>
-      <div class="bg-burger bg-top pt-0.5 pb-32 hidden md:block">
-        <div class="mt-8 flex">
-          <img class="h-44 mx-auto" src="" alt=""/>
+      <div className="bg-burger bg-top pt-0.5 pb-32 hidden md:block">
+        <div className="mt-8 flex">
+          <img className="h-44 mx-auto" src="" alt=""/>
         </div>
-        <nav class="mt-10 flex">
+        <nav className="mt-10 flex">
           
         </nav>
       </div>

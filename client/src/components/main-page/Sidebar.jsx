@@ -5,7 +5,7 @@ import ToggleSwitchDropdownElement from "../common/dropdown-menu/ToggleSwitchDro
 import SearchInput from "./SearchInput.jsx";
 
 import data from "../../temp/categories.json";
-
+import '../css/Sidebar.css';
 
 const Sidebar = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -48,19 +48,21 @@ const Sidebar = () => {
 // </svg>
 
   return (
-    <div className="flex w-full p-7">
-      <div className="search-div flex z-10 m-auto">
-        <DropdownButton id="dropDownElements">
-          {CategoriesElements}
-        </DropdownButton>
+    <div>
+      <div className=" flex w-full p-7">
+        <div className="main-sidebar flex z-10 ">
+          <DropdownButton id="dropDownElements">
+            {CategoriesElements}
+          </DropdownButton>
 
-        <DropdownButton id=" dropDownElements">
-          {CategoriesElements}
-        </DropdownButton>
-      </div>
+          <DropdownButton id=" dropDownElements">
+            {CategoriesElements}
+          </DropdownButton>
+        </div>
 
-      <div className="search-div">
-        <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
+        <div className="main-sidebar w-1/5">
+          <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
+        </div>
       </div>
     </div>
   );

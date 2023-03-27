@@ -5,6 +5,7 @@ import ApiError from '../exceptions/api-error.js';
 import _ from 'lodash';
 import Comment from './Comment.js';
 import User from './User.js';
+import Organization from './Organization.js';
 
 class Event {
   async getAll() {
@@ -21,6 +22,41 @@ class Event {
       console.log(err);
       throw err;
     }
+  }
+
+  async search(str) {
+    const events = await this.getAll();
+    const promises = events.map(async (event) => {
+      const { name_organization } = await Organization.findOrganizationByUserId(
+        event.user_id
+      );
+      return {
+        ...event,
+        name_organization,
+      };
+    });
+    const eventAndOrganizationName = await Promise.all(promises);
+    const filterEventsTitle = eventAndOrganizationName.filter((event) =>
+      _.includes(event.title.toLowerCase(), str)
+    );
+    const filterEventsCity = eventAndOrganizationName.filter((event) =>
+      _.includes(event.city.toLowerCase(), str)
+    );
+    const filterEventsAddress = eventAndOrganizationName.filter((event) =>
+      _.includes(event.address.toLowerCase(), str)
+    );
+    const filterEventsOrganization = eventAndOrganizationName.filter((event) =>
+      _.includes(event.name_organization.toLowerCase(), str)
+    );
+    return _.unionBy(
+      [
+        ...filterEventsTitle,
+        ...filterEventsCity,
+        ...filterEventsAddress,
+        ...filterEventsOrganization,
+      ],
+      'id'
+    );
   }
 
   async findOne(id) {
@@ -241,7 +277,7 @@ class Event {
       .where('event_id', '=', event_id)
       .andWhere('user_id', '=', user_id)
       .del();
-      return 'delete';
+    return 'delete';
   }
 
   async updateCategories(id, categories = []) {
