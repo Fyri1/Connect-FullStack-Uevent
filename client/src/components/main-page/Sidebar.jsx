@@ -1,67 +1,34 @@
-import React from "react";
-
-import DropdownButton from "../common/dropdown-menu/DropdownButton.jsx";
-import ToggleSwitchDropdownElement from "../common/dropdown-menu/ToggleSwitchDropdownElement.jsx";
-import SearchInput from "./SearchInput.jsx";
-import Filter from "./Filter.jsx";
-
-import data from "../../temp/categories.json";
+import React from 'react';
+import SearchInput from './SearchInput.jsx';
+import Filter from './Filter.jsx';
 import '../css/Sidebar.css';
+import { useCategories } from '../../../hooks/useCategories.js'
+import Categories from './filet-items/Categories.jsx';
 
 const Sidebar = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
+  const { isLoading, categories } = useCategories();
 
-  // Change to read from API response
-  const [categoriesData, setCategoriesData] = React.useState([]);
-  const [selectedCategories, setSelectedCategories] = React.useState();
-  const [searchInput, setSearchInput] = React.useState('');
+  return isLoading ? <></> :(
+    <div className="container m-auto flex flex-col">
+      <div className="flex justify-between w-full p-7">
+        <Filter />
 
-  React.useEffect(() => {
-    try {
-      console.log("loading");
-      setCategoriesData(data);
-      
-      const temp = {};
-      data.map((category) => {
-        temp[category.id] = false;
-      });
-      setSelectedCategories(temp);
-      setIsLoading(false);
-    } catch (err) {
-      console.log(err);
-      
-    }
-  }, [isLoading]);
-  
-  React.useEffect(() => {
-    console.log("EBALA");
-  }, [selectedCategories]);
+        {/* <DropdownButton id="dropDownElements">
+          {CategoriesElements}
+        </DropdownButton> */}
 
-  const CategoriesElements = categoriesData.map((category) => {
-    return (
-      <ToggleSwitchDropdownElement key={category.id} 
-      id={category.id} name={category.name} selectedElements={selectedCategories} setSelectedElements={setSelectedCategories} />
-      
-    );
-  });
-
-
-//   <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-//   <path clipRule="evenodd" fillRule="evenodd currentColor" d="M2.628 1.601C5.028 1.206 7.49 1 10 1s4.973.206 7.372.601a.75.75 0 01.628.74v2.288a2.25 2.25 0 01-.659 1.59l-4.682 4.683a2.25 2.25 0 00-.659 1.59v3.037c0 .684-.31 1.33-.844 1.757l-1.937 1.55A.75.75 0 018 18.25v-5.757a2.25 2.25 0 00-.659-1.591L2.659 6.22A2.25 2.25 0 012 4.629V2.34a.75.75 0 01.628-.74z"></path>
-// </svg>
-
-  return (
-    <div className="flex w-full p-7">
-      <Filter categoriesData={categoriesData} />
-        <div>
-          <DropdownButton id=" dropDownElements">
-            {CategoriesElements}
-          </DropdownButton>
+        <SearchInput />
+      </div>
+      <div className="ml-3 p-5 w-full shadow">
+        <p className="text-2xl">Filters:</p>
+        <div className="flex ml-10">
+          <Categories categories={categories.data.values} />
         </div>
+>>>>>>>>> Temporary merge branch 2
 
       <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
     </div>
   );
-}
+};
 
 export default Sidebar;

@@ -2,7 +2,7 @@ import React from "react";
 import { useSearch } from '../../../hooks/events/useSearch';
 import Spinner from '../common/Spinner';
 
-const SearchInput = ({ placeholder, setSearchInput }) => {
+const SearchInput = () => {
 
   const [search, setSearch] = React.useState('');
   const [active, setActive] = React.useState(false);
@@ -10,8 +10,8 @@ const SearchInput = ({ placeholder, setSearchInput }) => {
   console.log(isLoading, searchEvent)
 
   return (
-    <div className="main-sidebar w-1/5">
-      <div className="relative">
+
+      <div className="w-1/5 relative">
         <div className="flex items-center">   
           <label htmlFor="voice-search" className="sr-only">Search</label>
           <div className="relative w-full">
@@ -29,7 +29,6 @@ const SearchInput = ({ placeholder, setSearchInput }) => {
         {!searchEvent ? <div className='p-5'></div> : searchEvent.length === 0 ? <div>No search result</div> :searchEvent.map((item, i)=> <div key={i}>{item.title}</div>)}
         </div>
       </div>
-    </div>
   );
 }
 

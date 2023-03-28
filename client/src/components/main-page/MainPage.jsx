@@ -23,7 +23,7 @@ const MainPage = () => {
 
           <Sidebar />
 
-          <div className="ticket-with-main flex overflow-hidden">
+          <div className="container m-auto flex overflow-hidden">
             { events.map((event, i) => ( <EventElement key={event.id} event={event} /> ))}
           </div>
         </div>
