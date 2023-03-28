@@ -12,7 +12,7 @@ const LanguageSelectMenu = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div className='mr-2'>
-        <Menu.Button className="flex items-center w-10 text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0 dark:text-white">
+        <Menu.Button className="flex items-center w-10 text-sm font-medium text-gray-300 rounded-full hover:text-primary-300 dark:hover:text-blue-500 md:mr-0 dark:text-white">
           {i18n.resolvedLanguage }
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-5 ml-2 -mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
