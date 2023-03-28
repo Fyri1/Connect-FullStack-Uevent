@@ -8,6 +8,17 @@ import Categories from './filet-items/Categories.jsx';
 const Sidebar = () => {
   const { isLoading, categories } = useCategories();
   const [active, setActive] = React.useState(false);
+  const [hidden, setHidden] = React.useState('hidden');
+  
+  React.useEffect(() => {
+    if (active) {
+        setHidden('');
+    } else {
+      setTimeout(() => {
+        setHidden('hidden');
+      }, 100);
+    }
+  }, [active])
 
   return isLoading ? <></> :(
     <div className="container m-auto flex flex-col relative">
@@ -20,7 +31,7 @@ const Sidebar = () => {
 
         <SearchInput />
       </div>
-      <div className={`p-5 w-full shadow absolute bg-white z-10 top-20 ${active ? 'display' : 'hidden'}`}>
+      <div className={`p-5 w-full bg-white shadow absolute opacity-0 z-50 top-20 ${hidden} ${active ? 'animate-active' : 'animate-inactive'}`}>
         <p className="text-2xl">Filters:</p>
         <div className="flex ml-10">
           <Categories categories={categories.data.values} />
