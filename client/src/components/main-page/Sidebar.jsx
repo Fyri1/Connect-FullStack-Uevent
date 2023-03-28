@@ -53,7 +53,7 @@ const Sidebar = () => {
   return (
     <div className="flex w-full p-7">
       <Filter categoriesData={categoriesData} />
-
+        <div>
           <DropdownButton id=" dropDownElements">
             {CategoriesElements}
           </DropdownButton>
