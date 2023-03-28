@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <header className="h-10">
-      <nav className="fixed z-50 w-full bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-dark-bg-800">
+      <nav className="fixed z-50 w-full bg-gray-100 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-dark-bg-800">
         
         <div className=" flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
 
@@ -55,12 +55,12 @@ const Header = () => {
               </div>
               :
               <div className=" authButtons">
-                <div className="text-white font-normal   transition duration-300 
-                  bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
+                <div className="text-white  font-semibold rounded-xl transition duration-300 
+                  bg-indigo-600 border blue-purple-600 hover:bg-indigo-600 hover:border-purple-800">
                   <AuthButton name="Sign in" path={clientRoutes.loginPagePath()} type="login" />
                 </div>
                 <div className="container-right-button">
-                  <div className="text-white font-normal  rounded transition duration-300 ease-in-out 
+                  <div className="text-white font-semibold rounded-xl   transition duration-300 ease-in-out 
                     focus:outline-none focus:shadow-outline 
                     bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
                     <AuthButton name="Sign up" path={clientRoutes.registerPagePath()} type="register" />
