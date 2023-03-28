@@ -3,6 +3,7 @@ import React from "react";
 import DropdownButton from "../common/dropdown-menu/DropdownButton.jsx";
 import ToggleSwitchDropdownElement from "../common/dropdown-menu/ToggleSwitchDropdownElement.jsx";
 import SearchInput from "./SearchInput.jsx";
+import Filter from "./Filter.jsx";
 
 import data from "../../temp/categories.json";
 import '../css/Sidebar.css';
@@ -50,20 +51,15 @@ const Sidebar = () => {
 // </svg>
 
   return (
-    <div>
-      <div className=" flex w-full p-7">
-        <div className="main-sidebar flex z-10 ">
-          <DropdownButton>
+    <div className="flex w-full p-7">
+      <Filter categoriesData={categoriesData} />
+
+          <DropdownButton id=" dropDownElements">
             {CategoriesElements}
           </DropdownButton>
-
-
         </div>
 
-        <div className="main-sidebar w-1/5">
-          <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
-        </div>
-      </div>
+      <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
     </div>
   );
 }

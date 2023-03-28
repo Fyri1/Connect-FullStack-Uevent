@@ -43,10 +43,8 @@ const EventElement = ({ event }) => {
         </div>
 
         {/* slider on ticket  bg-slate-500 bg-[url('https://randomuser.me/api/portraits/men/54.jpg')] */} 
-        <div className="rounded-[20px] absolute  bg-transparent rounded bg-opacity-0 hover:bg-opacity-90 bg-slate-600  w-full h-full 
-          right-0 top-0 hover:opacity-100 duration-700  transition flex flex-col justify-between">
-          <div className="mt-2 hover:scale-10 text-white  outline-none opacity-0 group-hover:opacity-100">
-          </div>
+        <div className="rounded-[20px] absolute  bg-transparent rounded bg-opacity-0 hover:bg-opacity-90 bg-slate-600  w-full h-full right-0 top-0 hover:opacity-100 duration-700  transition flex flex-col justify-between">
+          <div className="mt-2 hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100"></div>
 
           <div className="hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
             <p className="slider-event-data ">14 квитня</p>
@@ -59,10 +57,7 @@ const EventElement = ({ event }) => {
           <div className="mb-10 hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
             <p className="text-wight-700 text-lg text-white">{ event.city }</p>
             <div className="justify-between md:items-center lg:justify-between">
-              <button onClick={() => { location.href = `/event/${event.id}` }} className="fa 
-              fa-shopping-cart p-2 pl-11 pr-11 bg-transparent border-2 border-indigo-500
-               text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform 
-               hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
+              <button onClick={() => { location.href = `/event/${event.id}` }} className="fa fa-shopping-cart p-2 pl-11 pr-11 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
                 { t('eventCard.buy') }
               </button>
             </div>

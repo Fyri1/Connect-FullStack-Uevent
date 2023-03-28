@@ -1,10 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import Logo from './Logo.jsx';
 import Navbar from './Navbar.jsx';
 import AuthButton from './AuthButton.jsx';
 import UserDropdownMenu from './UserDropdownMenu.jsx';
 import LanguageSelectMenu from './LanguageSelectMenu.jsx';
+
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 // C:\Users\maxdz\Desktop\Connect-FullStack-Uevent\client\src\components\main-page\SearchInput.jsx
 import SearchInput from "../../main-page/SearchInput.jsx";
@@ -55,12 +57,12 @@ const Header = () => {
               </div>
               :
               <div className=" authButtons">
-                <div className="text-white  font-semibold rounded-xl transition duration-300 
-                  bg-indigo-600 border blue-purple-600 hover:bg-indigo-600 hover:border-purple-800">
+                <div className="text-white font-normal   transition duration-300 
+                  bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
                   <AuthButton name="Sign in" path={clientRoutes.loginPagePath()} type="login" />
                 </div>
                 <div className="container-right-button">
-                  <div className="text-white font-semibold rounded-xl   transition duration-300 ease-in-out 
+                  <div className="text-white font-normal  rounded transition duration-300 ease-in-out 
                     focus:outline-none focus:shadow-outline 
                     bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
                     <AuthButton name="Sign up" path={clientRoutes.registerPagePath()} type="register" />
@@ -74,7 +76,6 @@ const Header = () => {
               <svg className="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
             </button>
             {/* <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} /> */}
-
           </div>
         </div>
       </nav>
@@ -83,3 +84,19 @@ const Header = () => {
 }
 
 export default Header;
+
+{/* {
+  // check whether user is logged in
+  localStorage.getItem('token') ? <UserDropdownMenu /> : (
+    <div className="authButtons">
+      <div className="text-white font-normal transition duration-300 bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
+        <AuthButton name="Sign in" path={clientRoutes.loginPagePath()} type="login" />
+      </div>
+      <div className="container-right-button">
+        <div className="text-white font-normal rounded transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-blue-600 border blue-purple-600 hover:bg-blue-800 hover:border-purple-800">
+          <AuthButton name="Sign up" path={clientRoutes.registerPagePath()} type="register" />
+        </div>
+      </div>
+    </div>
+  )
+} */}
