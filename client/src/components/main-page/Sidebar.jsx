@@ -28,17 +28,19 @@ const Sidebar = () => {
       setIsLoading(false);
     } catch (err) {
       console.log(err);
+      
     }
   }, [isLoading]);
   
   React.useEffect(() => {
-    // console.log(categoriesData);
-    // console.log(selectedCategories);
+    console.log("EBALA");
   }, [selectedCategories]);
 
   const CategoriesElements = categoriesData.map((category) => {
     return (
-      <ToggleSwitchDropdownElement key={category.id} id={category.id} name={category.name} selectedElements={selectedCategories} setSelectedElements={setSelectedCategories} />
+      <ToggleSwitchDropdownElement key={category.id} 
+      id={category.id} name={category.name} selectedElements={selectedCategories} setSelectedElements={setSelectedCategories} />
+      
     );
   });
 
@@ -51,13 +53,11 @@ const Sidebar = () => {
     <div>
       <div className=" flex w-full p-7">
         <div className="main-sidebar flex z-10 ">
-          <DropdownButton id="dropDownElements">
+          <DropdownButton>
             {CategoriesElements}
           </DropdownButton>
 
-          <DropdownButton id=" dropDownElements">
-            {CategoriesElements}
-          </DropdownButton>
+
         </div>
 
         <div className="main-sidebar w-1/5">

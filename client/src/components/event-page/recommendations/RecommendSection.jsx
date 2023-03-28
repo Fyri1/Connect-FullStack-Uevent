@@ -19,6 +19,7 @@ const RecommendSection = ({ event }) => {
           { recommend.map((item) => <RecommendCard key={item.id} data={item}/>) }
         </div>
       </section>
+      
     </div>
   );
 };
