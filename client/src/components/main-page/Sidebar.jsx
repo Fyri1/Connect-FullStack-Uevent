@@ -24,9 +24,8 @@ const Sidebar = () => {
         <div className="flex ml-10">
           <Categories categories={categories.data.values} />
         </div>
->>>>>>>>> Temporary merge branch 2
+        </div>
 
-      <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} />
     </div>
   );
 };
