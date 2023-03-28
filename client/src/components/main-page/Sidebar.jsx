@@ -10,7 +10,7 @@ const Sidebar = () => {
   const [active, setActive] = React.useState(false);
 
   return isLoading ? <></> :(
-    <div className="container m-auto flex flex-col">
+    <div className="container m-auto flex flex-col relative">
       <div className="flex justify-between w-full py-7">
         <FilterButton setActive={setActive} active={active} />
 
@@ -20,7 +20,7 @@ const Sidebar = () => {
 
         <SearchInput />
       </div>
-      <div className={`p-5 w-full shadow ${active ? 'display' : 'hidden'}`}>
+      <div className={`p-5 w-full shadow absolute bg-white z-10 top-20 ${active ? 'display' : 'hidden'}`}>
         <p className="text-2xl">Filters:</p>
         <div className="flex ml-10">
           <Categories categories={categories.data.values} />
