@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query';
-import { UsersService } from '../services/users.service';
+import { CategoriesService } from '../services/categories.service';
 
 const useCategories = () => {
-  const { isLoading, data: categories } = useQuery('categories', () => UsersService.getAll(), {
+  const { isLoading, data: categories } = useQuery('categories', () => CategoriesService.getAll(), {
     onError: (error) => {
       console.log(error);
     },
