@@ -4,8 +4,8 @@ import { validationResult } from 'express-validator';
 import ApiError from '../exceptions/api-error.js';
 
 class Events {
-  async getAllEvents(_req, _res) {
-    const result = await eventService.getAllEvents();
+  async getAllEvents(req, _res) {
+    const result = await eventService.getAllEvents(req.query);
     return result;
   }
 

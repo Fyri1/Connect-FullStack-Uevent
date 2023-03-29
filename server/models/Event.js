@@ -8,9 +8,8 @@ import User from './User.js';
 import Organization from './Organization.js';
 
 class Event {
-  async getAll() {
-    try {
-      const data = await client('events').select('*');
+  async getAll(filter) {
+      const data = await this.filterEvents(filter);
       const events = data.map(async (event) => {
         const tickets = await this.getAllTickets(event.id);
         const eventCategories = await this.getAllCategories(event.id);
@@ -18,10 +17,19 @@ class Event {
         return { ...event, priceTicket, categories: eventCategories };
       });
       return Promise.all(events);
-    } catch (err) {
-      console.log(err);
-      throw err;
+  }
+
+  async filterEvents(params) {
+console.log()
+    if (_.isEmpty(params)) {
+      return await client('events').select('*');
     }
+    const promise = Object.values(params).map(async (search) => {
+      const { id } = await Category.findCategoryTitle(search);
+      return await Category.getAllEventByCategoryId(id);
+    });
+    const filterEvent = await Promise.all(promise);
+    return filterEvent.flat();
   }
 
   async search(str) {

@@ -16,6 +16,7 @@ const Sidebar = ({ setData, setLoading }) => {
   const handelForm = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setActive(false)
     try {
       const url = new URL(apiClientRoutes.getAllEvent());
       let i = 1;
@@ -26,7 +27,7 @@ const Sidebar = ({ setData, setLoading }) => {
         }
       }
       const response = await $api.get(url.toString());
-      console.log(response);
+      console.log(setData(response.data.values));
     } catch (err) {
       console.error(err);
     } finally {

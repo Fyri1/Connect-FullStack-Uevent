@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 const Categories = ({ categories, filter, setFilter }) => {
-
   useEffect(() => {
     categories.forEach(({ title }) => {
       setFilter((prev) => ({ ...prev, [title]: false }));
@@ -25,7 +24,7 @@ const Categories = ({ categories, filter, setFilter }) => {
               htmlFor={category.title}
               className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
-              {category.title}
+              {category.title} ({category.countEvent})
             </label>
           </div>
         ))}

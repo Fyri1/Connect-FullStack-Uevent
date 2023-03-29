@@ -6,8 +6,8 @@ import Organization from '../models/Organization.js';
 import ApiError from '../exceptions/api-error.js';
 
 class EventService {
-  async getAllEvents() {
-    return await Event.getAll();
+  async getAllEvents(quary) {
+    return await Event.getAll(quary);
   }
 
   async searchEvent(searchElement) {
