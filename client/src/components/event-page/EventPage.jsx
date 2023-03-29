@@ -34,16 +34,16 @@ const EventPage = ({ currentUser }) => {
     <div>          
       <EventDetailsBody eventData={event} />
       
-      <div className="py-6 px-4 sm:p-6 md:py-10 md:px-8 dark:bg-dark-bg-900">
+      <div className="container m-auto py-6 px-4 sm:p-6 md:py-10 md:px-8 dark:bg-dark-bg-900">
         
-        <div className="max-w-4xl mx-auto lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2">
+        <div className="">
           
         {/* <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         </div> */}
 
         <div className=" mb-9 dark:bg-dark-bg-800 rounded-lg">
           <div>
-            <div className="justify-center px-6 md:flex md:space-x-6 xl:px-0">
+            <div className=" px-6 md:flex md:space-x-6 xl:px-0">
               <div className="rounded-lg md:w-2/3">
               <EventDetailsHead eventData={event} />
 
