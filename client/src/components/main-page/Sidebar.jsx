@@ -20,7 +20,7 @@ const Sidebar = () => {
     }
   }, [active])
 
-  return isLoading ? <></> :(
+  return isLoading ? <></> : (
     <div className="container m-auto flex flex-col relative">
       <div className="flex justify-between w-full py-7">
         <FilterButton setActive={setActive} active={active} />
