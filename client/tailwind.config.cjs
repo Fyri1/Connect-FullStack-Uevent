@@ -8,6 +8,20 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      keyframes: {
+        inactive: {
+          '0%': { opacity: '1',  },
+          '100%': { opacity: '0'},
+        },
+        active: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1'},
+        },
+      },
+      animation: {
+        inactive: 'inactive .1s linear alternate forwards',
+        active: 'active .1s linear alternate forwards',
+      },
       colors: {
         light: {
           bg: {"400":"", "500":"", "600":"", "700":"" },
