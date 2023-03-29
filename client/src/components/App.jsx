@@ -5,6 +5,8 @@ import i18next from "i18next";
 
 import UserContext from '../context/UserContext.js'
 
+import './css/app.css';
+
 // Common
 import Header from './common/header/Header.jsx';
 import PageNotFound from './common/PageNotFound.jsx';
@@ -58,49 +60,51 @@ const App = () => {
       <UserContext.Provider value={{currentUser: userInfo?.values || 'guest'}}>
         <BrowserRouter>
           <Header />
-          <Routes>
-            {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
-            {/* {isGuest ? ( */}
-            <>
-              {/* User routes */}
-              <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
-              <Route path={clientRoutes.loginPagePath()} element={<Login />} />
+          <main className='min-h-full relative'>
+            <Routes>
+              {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
+              {/* {isGuest ? ( */}
+              <>
+                {/* User routes */}
+                <Route path={clientRoutes.mainPagePath()} element={<MainPage />} />
+                <Route path={clientRoutes.loginPagePath()} element={<Login />} />
 
-              {/* Sral Vilsan */}
-              <Route path="/event/:id" element={<EventPage />} />
-              {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
-              <Route path="/MyTicket" element={<MyTicket />} />
-              
-              <Route path="/success" element={<Success />} />
-              {/* neSral Vilsan */}
+                {/* Sral Vilsan */}
+                <Route path="/event/:id" element={<EventPage />} />
+                {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
+                <Route path="/MyTicket" element={<MyTicket />} />
+                
+                <Route path="/success" element={<Success />} />
+                {/* neSral Vilsan */}
 
-              <Route path={clientRoutes.registerPagePath()} element={<Register />} />
-              <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
+                <Route path={clientRoutes.registerPagePath()} element={<Register />} />
+                <Route path={clientRoutes.confirmEmailPagePath()} element={<EmailConfirm />} />
 
-              {/* <Route path={clientRoutes.rulesPagePath()} element={<RulesUser />} /> */}
+                {/* <Route path={clientRoutes.rulesPagePath()} element={<RulesUser />} /> */}
 
-              <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
-              <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />
-              <Route path={clientRoutes.profilePagePath()} element={<UserProfilePage />} />
+                <Route path={clientRoutes.passResetPagePath()} element={<PassReset />} />
+                <Route path={clientRoutes.partnershipRegisterPagePath()} element={<PartnerRegister />} />
+                <Route path={clientRoutes.profilePagePath()} element={<UserProfilePage />} />
 
-              {/* Admin routes */}
-              <Route path={adminRoutes.mainPagePath()} element={<AdminPage dataCategory="users" />} />
-              <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
-              <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
-              <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
-              <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
-              <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
-              <Route path={adminRoutes.organizationsPagePath()} element={<AdminPage dataCategory="organizations" />} />
+                {/* Admin routes */}
+                <Route path={adminRoutes.mainPagePath()} element={<AdminPage dataCategory="users" />} />
+                <Route path={adminRoutes.usersPagePath()} element={<AdminPage dataCategory="users" />} />
+                <Route path={adminRoutes.rolesPagePath()} element={<AdminPage dataCategory="roles" />} />
+                <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
+                <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
+                <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
+                <Route path={adminRoutes.organizationsPagePath()} element={<AdminPage dataCategory="organizations" />} />
 
-              {/* Moderator routes */}
-              <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
+                {/* Moderator routes */}
+                <Route path={moderatorRoutes.mainPagePath()} element={<ModeratorPage />} />
 
-              {/* Organization routes */}
-              <Route path={organizationRoutes.mainPagePath()} element={<OrganizationPage />} />
+                {/* Organization routes */}
+                <Route path={organizationRoutes.mainPagePath()} element={<OrganizationPage />} />
 
-              <Route path="*" element={<PageNotFound />} />
-            </>
-          </Routes>
+                <Route path="*" element={<PageNotFound />} />
+              </>
+            </Routes>
+          </main>
           <Footer/>
         </BrowserRouter>
       </UserContext.Provider>
