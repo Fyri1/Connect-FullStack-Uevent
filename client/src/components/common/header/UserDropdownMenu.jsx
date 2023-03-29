@@ -83,7 +83,7 @@ export default () => {
           <Menu.Item>
             <DarkModeSwitch />
           </Menu.Item>
-
+          { localStorage.getItem('token') ?
           <form onSubmit={logoutButtonHandle}>
             <Menu.Item>
               {({ active }) => (
@@ -93,7 +93,7 @@ export default () => {
                 </button>
               )}
             </Menu.Item>
-          </form>
+          </form> : <></>}
         </Menu.Items>
       </Transition>
     </Menu>
