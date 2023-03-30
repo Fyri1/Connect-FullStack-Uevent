@@ -4,6 +4,10 @@ import ToastWarning from '../toast/ToastWarning.jsx';
 
 
 const InputField = ({ id, name, type, data, setData, errors, setErrors, children }) => {
+  console.log(id);
+  console.log(data);
+  console.log(data[id]);
+  
   React.useEffect(() => {
     const errorElement = document.getElementById("error-" + id);
     const classList = errorElement.classList;
