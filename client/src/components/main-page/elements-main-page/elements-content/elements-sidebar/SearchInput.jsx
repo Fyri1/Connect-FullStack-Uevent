@@ -1,13 +1,12 @@
 import React from "react";
-import { useSearch } from '../../../hooks/events/useSearch';
-import Spinner from '../common/Spinner';
+import { useSearch } from '../../../../../../hooks/events/useSearch';
+import Spinner from '../../../../common/Spinner';
 
 const SearchInput = () => {
 
   const [search, setSearch] = React.useState('');
   const [active, setActive] = React.useState(false);
   const { isLoading, searchEvent } = useSearch(search);
-  console.log(isLoading, searchEvent)
 
   return (
 
@@ -24,13 +23,9 @@ const SearchInput = () => {
               <input onFocus={() => setActive(true)} onBlur={() => setActive(false)} type="text" id="voice-search" value={search} onChange={(e) => setSearch(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required></input>
           </div>
         </div>
-
-        <div className={`${active ? '' : 'hidden'} bg-white rounded-lg absolute w-full border shadow z-10`}>
-          {!searchEvent ? <div className='p-5'></div> : searchEvent.length === 0 ? 
-          <div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 text-gray-900" >No search result</div> :searchEvent.map((item, i)=> 
-          <a href="#" key={i } className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 text-gray-900">{item.title}</a >)}
+        <div className={`${active ? '' : 'hidden'} z-20 bg-white rounded-lg absolute w-full border shadow z-10`}>
+        {!searchEvent ? <div className='p-5'></div> : searchEvent.length === 0 ? <div>No search result</div> :searchEvent.map((item, i)=> <div key={i}>{item.title}</div>)}
         </div>
-        
       </div>
   );
 }

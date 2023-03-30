@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from 'react-i18next';
 
 import NavbarElement from "./NavbarElement.jsx";
-import SearchInput from "../../main-page/SearchInput.jsx";
 
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 

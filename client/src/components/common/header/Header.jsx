@@ -9,7 +9,6 @@ import LanguageSelectMenu from './LanguageSelectMenu.jsx';
 
 import clientRoutes from '../../../routes/client/clientRoutes.js';
 // C:\Users\maxdz\Desktop\Connect-FullStack-Uevent\client\src\components\main-page\SearchInput.jsx
-import SearchInput from "../../main-page/SearchInput.jsx";
 
 import '../../css/header.css';
 

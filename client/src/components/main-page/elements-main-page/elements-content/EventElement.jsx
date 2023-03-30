@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import '../css/event-card.css';
+// import '../css/event-card.css';
 
 
 const EventElement = ({ event }) => {

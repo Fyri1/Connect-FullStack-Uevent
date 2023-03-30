@@ -1,8 +1,4 @@
 import React from 'react';
-import { Menu, Transition } from '@headlessui/react';
-
-import ToggleSwitchDropdownElement from '../common/dropdown-menu/ToggleSwitchDropdownElement.jsx';
-
 
 const FilterButton = ({ setActive, active }) => {
 
