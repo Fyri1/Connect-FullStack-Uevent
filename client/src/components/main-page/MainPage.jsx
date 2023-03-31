@@ -15,7 +15,8 @@ const MainPage = () => {
     <div className="main-content dark:bg-dark-bg-900">
       <div className="col-sm-9 padding-right">
         <div className="features_items">
-          <h2 className="box-border my-8 text-2xl font-black leading-tight tracking-tight text-black border-solid sm:text-2xl md:text-4xl text-center dark:text-dark-text-200">
+          <h2 className="box-border my-8 text-2xl font-black leading-tight 
+          tracking-tight text-black border-solid sm:text-2xl md:text-4xl text-center dark:text-dark-text-200">
             { t('head.zamanyxa') }
           </h2>
           <Content data={events} />

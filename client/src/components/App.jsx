@@ -36,6 +36,8 @@ import adminRoutes from '../routes/client/adminRoutes.js';
 import moderatorRoutes from '../routes/client/moderatorRoutes.js';
 import organizationRoutes from '../routes/client/organizationRoutes.js';
 import Success from './common/Success.jsx'
+
+import PromoPage from './profile/promo/PromoPage.jsx'
 // import Rules from './auth/RulesUser.jsx';
 import { useUserProfile } from '../../hooks/user/useUserProfile.js'
 import Spinner from './common/Spinner.jsx';
@@ -73,8 +75,10 @@ const App = () => {
                 <Route path="/event/:id" element={<EventPage />} />
                 {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
                 <Route path="/MyTicket" element={<MyTicket />} />
-                
                 <Route path="/success" element={<Success />} />
+                <Route path="/PromoPage" element={<PromoPage />} />
+
+
                 {/* neSral Vilsan */}
 
                 <Route path={clientRoutes.registerPagePath()} element={<Register />} />
