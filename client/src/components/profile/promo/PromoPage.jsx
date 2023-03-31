@@ -6,29 +6,41 @@ const PromoPage = () => {
       <div class="flex flex-wrap -mx-4">
          <div class="w-full px-4">
             <div class="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">
-               <h2
-                  class="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4">
+							
+               <h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4">
                   Our Pricing Plan
                </h2>
 
             </div>
+
+						
          </div>
+				 
       </div>
+			
 				{/* Search */}
-        <div class="relative">
+        <div class="relative flex items-center p-6 space-x-6  rounded-xl  ">
             <div class="absolute top-0 bottom-0 left-0 flex items-center px-5">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </div>
             <input type="text" placeholder="Search for elixir..." class="pl-16 pr-4 py-4 rounded-md shadow-md bg-white border-0 w-full outline-none" />
-        </div>
+						<button class="w-10 h-10 border rounded-lg p-1 cursor-pointer transition duration-200 text-blue-800 hover:bg-blue-100">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+							</svg>
+						</button>
+			  </div>
+									
+
+				
 				{/* Active Promo */}
 				<ul class="   left-0 right-0 -bottom-18 mt-3 p-3">
             <li class="text-xs uppercase text-gray-400 border-b border-gray border-solid py-2 px-5 mb-2">
 						Active
             </li>
-					<div className="bg-gray-100 mx-auto border-gray-500 border rounded-sm  text-gray-700 mb-0.5">
+					<div className=" shadow-lg  hover:shadow-xl transform hover: transition duration-500 bg-gray-100 mx-auto border-gray-500 border rounded-sm  text-gray-700 mb-0.5">
 						<div className="flex p-3  border-l-8 border-green-600">
 								<div className="space-y-1 border-r-2 pr-3">
 									<div className="text-sm leading-5 font-semibold"><span className="text-xs leading-4 font-normal text-gray-500"> Release #</span> LTC08762304</div>
