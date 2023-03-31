@@ -9,27 +9,43 @@ import Organization from './Organization.js';
 
 class Event {
   async getAll(filter) {
-      const data = await this.filterEvents(filter);
-      const events = data.map(async (event) => {
-        const tickets = await this.getAllTickets(event.id);
-        const eventCategories = await this.getAllCategories(event.id);
-        const priceTicket = tickets[0].price;
-        return { ...event, priceTicket, categories: eventCategories };
-      });
-      return Promise.all(events);
+    const filtersName = _.uniq(
+      Object.keys(filter).map((item) => item.split(/\d/)[0])
+    );
+    const data = await this.filterEvents(filter, filtersName);
+    const events = data.map(async (event) => {
+      const tickets = await this.getAllTickets(event.id);
+      const eventCategories = await this.getAllCategories(event.id);
+      const priceTicket = tickets[0].price;
+      return { ...event, priceTicket, categories: eventCategories };
+    });
+    return Promise.all(events);
   }
 
-  async filterEvents(params) {
-console.log()
+  async filterEvents(params, names) {
     if (_.isEmpty(params)) {
       return await client('events').select('*');
     }
-    const promise = Object.values(params).map(async (search) => {
-      const { id } = await Category.findCategoryTitle(search);
-      return await Category.getAllEventByCategoryId(id);
-    });
-    const filterEvent = await Promise.all(promise);
-    return filterEvent.flat();
+    const filterValue = Object.keys(params).reduce((acc, key) => {
+        if (key.split(/\d/)[0] === 'category') {
+          return { categories: [...acc.categories, params[key]], cities: acc.cities }
+        } else {
+          return { categories: acc.categories, cities: [...acc.cities, params[key]] }
+        }
+      }, { categories: [], cities: [] });
+
+    console.log(filterValue);
+    if (names.length > !1) {
+      const promise = Object.values(params).map(async (search) => {
+        const { id } = await Category.findCategoryTitle(search);
+        return await Category.getAllEventByCategoryId(id);
+      });
+      const filterEvent = await Promise.all(promise);
+      const flatFilterEvent = filterEvent.flat();
+
+      return flatFilterEvent;
+    }
+    // const filterCityAndCategoryEvent = flatFilterEvent.filter(({ city }) => )
   }
 
   async search(str) {
