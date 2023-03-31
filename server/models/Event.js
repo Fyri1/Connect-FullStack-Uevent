@@ -26,36 +26,46 @@ class Event {
     if (_.isEmpty(params)) {
       return await client('events').select('*');
     }
-    const filterValue = Object.keys(params).reduce((acc, key) => {
-      if (key.split(/\d/)[0] === 'category') {
-          return { category: [...acc.category, params[key]], city: acc?.city ? acc.city : [] }
+    const filterValue = Object.keys(params).reduce(
+      (acc, key) => {
+        if (key.split(/\d/)[0] === 'category') {
+          return {
+            category: [...acc.category, params[key]],
+            city: acc?.city ? acc.city : [],
+          };
         } else {
-          return { category: acc?.category ? acc.category : [], city: [...acc.city, params[key]] }
+          return {
+            category: acc?.category ? acc.category : [],
+            city: [...acc.city, params[key]],
+          };
         }
-      }, { category: [], city: [] });
-      if (names.length === 1) {
+      },
+      { category: [], city: [] }
+    );
+    if (names.length === 1) {
       const promise = filterValue[names[0]].map(async (search) => {
-          if (names[0] === 'category') {
-            const { id } = await Category.findCategoryTitle(search);
-            return await Category.getAllEventByCategoryId(id);
-          }
-          return await this.getEventsByCityName(search);
+        if (names[0] === 'category') {
+          const { id } = await Category.findCategoryTitle(search);
+          return await Category.getAllEventByCategoryId(id);
+        }
+        return await this.getEventsByCityName(search);
       });
       const filterEvent = await Promise.all(promise);
-      const flatFilterEvent = filterEvent.flat();
+      // const flatFilterEvent = filterEvent;
 
-      return flatFilterEvent;
+      return filterEvent.flat();
     }
     console.log(filterValue);
-    const promiseCategoriesEvent = filterValue['category']
-    .map(async (search) => {
-      const { id } = await Category.findCategoryTitle(search);
-      return await Category.getAllEventByCategoryId(id);
-  });
-  const categoriesEvent = await Promise.all(promiseCategoriesEvent);
-    const flatcategoriesEvent = categoriesEvent.flat();
-    // console.log(categoriesEvent)
-    const filterCityAndCategoryEvent = flatcategoriesEvent.filter(({ city }) => filterValue['city'].includes(city))
+    const promiseCategoriesEvent = filterValue['category'].map(
+      async (search) => {
+        const { id } = await Category.findCategoryTitle(search);
+        return await Category.getAllEventByCategoryId(id);
+      }
+    );
+    const categoriesEvent = await Promise.all(promiseCategoriesEvent);
+    const filterCityAndCategoryEvent = categoriesEvent.flat().filter(({ city }) =>
+      filterValue['city'].includes(city)
+    );
     return filterCityAndCategoryEvent;
   }
 
