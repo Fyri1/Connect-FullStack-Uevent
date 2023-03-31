@@ -4,15 +4,29 @@ import ApiError from '../exceptions/api-error.js';
 
 class Category {
   async getAllCategory() {
-    return await client('categories').select('*');
+    const categories = await client('categories').select('*');
+    const numberEventInCategories = categories.map(async (category) => {
+      const eventsWithCategory = await this.getAllEventByCategoryId(category.id);
+      return {
+        ...category,
+        countEvent: eventsWithCategory.length,
+      }
+    });
+    return await Promise.all(numberEventInCategories);
   }
   async findCategoryId(id) {
-    const post = await client('categories').select('*').where('id', '=', id);
-    if (post.length === 0) {
+    const category = await client('categories').select('*').where('id', '=', id);
+    if (category.length === 0) {
       throw ApiError.NotFound('Category not found');
     }
-    return post[0];
+    return category[0];
   }
+
+  async findCategoryTitle(title) {
+    const category = await client('categories').select('*').where('title', '=', title);
+    return category[0];
+  }
+
   async isEqualCategory(title) {
     const category = await client('categories')
       .select('*')

@@ -133,14 +133,13 @@ const createTicket = async (event_id, user_id) => {
     price: 150,
   });
 };
-
 const createEventAndComment = async (id, user_id) => {
   await client('events').insert({
     id,
     user_id,
     title: 'amogus1',
     description: 'abobus abobus',
-    city: 'Amogusia',
+    city: cities[0],
     address: 'Amogus1',
     event_start: '2023-22-01',
     event_end: '2023-23-01',
@@ -160,6 +159,8 @@ const createEventAndComment = async (id, user_id) => {
   return id;
 };
 
+const cities = ['Kyiv', 'Kharkiv', 'Ivano-Frankivsk', 'Donetsk'];
+
 const createEvent = async (user_id, count) => {
   const id = uuidv4();
   await client('events').insert({
@@ -167,7 +168,7 @@ const createEvent = async (user_id, count) => {
     user_id,
     title: 'amogus' + (count + 1),
     description: 'abobus abobus' + (count + 1),
-    city: 'Amogusia' + (count !== 3 ? count + 1 : ''),
+    city: count !== 3 ? cities[count] : cities[0],
     address: 'Amogus' + (count + 1),
     event_start: '2023-22-0' + (count + 1),
     event_end: '2023-23-0' + (count + 2),
@@ -231,6 +232,7 @@ const createComment = async (event_id, user_id, content) => {
     console.log('\\--------------------/');
     process.exit();
   } catch (err) {
-    console.log(err);
+    console.err(err);
+    process.exit();
   }
 })();

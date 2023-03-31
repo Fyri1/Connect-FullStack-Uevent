@@ -12,9 +12,11 @@ import commentRouter from './router/comment-router.js';
 import adminRouter from './router/admin-router.js';
 import categoryRouter from './router/category-router.js';
 import organozationRouter from './router/organization-router.js';
+import cityRouter from './router/city-route.js'
 import payRouter from './router/pay-router.js'
 import errorMiddleware from './middlewares/error-middleware.js';
 import ApiError from './exceptions/api-error.js';
+
 
 export default () => {
   dotenv.config();
@@ -35,6 +37,7 @@ export default () => {
   app.use('/api/auth', authRouter);
   app.use('/api/event', eventRouter);
   app.use('/api/ticket', ticketRouter);
+  app.use('/api/city', cityRouter);
   app.use('/api/category', categoryRouter);
   app.use('/api/comment', commentRouter);
   app.use('/api/organization', organozationRouter);

@@ -33,5 +33,7 @@ export default {
 
   payPath: () => [apiPath, 'pay', 'create-session-intent'].join('/'),
 
-  getPathAvatar: (name) => [apiPath, 'avatars', name].join('/')
+  getPathAvatar: (name) => [apiPath, 'avatars', name].join('/'),
+
+  getCities: () => [apiPath, 'city'].join('/'),
 };

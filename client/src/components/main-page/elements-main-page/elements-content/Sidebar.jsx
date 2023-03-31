@@ -4,36 +4,49 @@ import FilterButton from './elements-sidebar/FilterButton.jsx';
 // import '../css/Sidebar.css';
 import { useCategories } from '../../../../../hooks/useCategories.js';
 import Categories from './elements-sidebar/filter-items/Categories.jsx';
+import Cities from './elements-sidebar/filter-items/Cities.jsx';
 import apiClientRoutes from '../../../../routes/api/apiClientRoutes.js';
 import $api from '../../../../../utils/api.js';
+import { useCities } from '../../../../../hooks/useCities.js';
 
 const Sidebar = ({ setData, setLoading }) => {
   const { isLoading, categories } = useCategories();
+  const response = useCities();
   const [active, setActive] = React.useState(false);
   const [hidden, setHidden] = React.useState('hidden');
-  const [filter, setFilter] = React.useState({});
+  const [filter, setFilter] = React.useState({
+    categories: {},
+    cities: {},
+  });
 
   const handelForm = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const url = new URL(apiClientRoutes.getAllEvent());
-      let i = 1;
-      for (const index in filter) {
-        if (filter[index]) {
-          url.searchParams.set('search' + i, index);
+    // setLoading(true);
+    // setActive(false);
+    // try {
+    const url = new URL(apiClientRoutes.getAllEvent());
+    let i = 1;
+    for (const index1 in filter) {
+      const items = filter[index1];
+      for (const itemIndex in items)
+        if (items[itemIndex]) {
+          url.searchParams.set(
+            (index1 !== 'cities' ? 'category' : 'city') + i,
+            itemIndex
+          );
           i += 1;
         }
-      }
-      const response = await $api.get(url.toString());
-      console.log(response);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000)
     }
+    console.log(url.toString());
+    //   const response = await $api.get(url.toString());
+    //   console.log(setData(response.data.values));
+    // } catch (err) {
+    //   console.error(err);
+    // } finally {
+    //   setTimeout(() => {
+    //     setLoading(false);
+    //   }, 1000);
+    // }
   };
 
   React.useEffect(() => {
@@ -55,19 +68,31 @@ const Sidebar = ({ setData, setLoading }) => {
         <SearchInput />
       </div>
       <div
-        className={`p-5 w-full bg-white shadow absolute opacity-0 z-10 top-20 ${hidden} ${
+        className={`p-5 w-full h-[27em] bg-white shadow absolute opacity-0 z-10 top-20 ${hidden} ${
           active ? 'animate-active' : 'animate-inactive'
         }`}
       >
         <p className="text-2xl">Filters:</p>
-        <form onSubmit={handelForm} className="flex flex-col items-end">
+        <form
+          onSubmit={handelForm}
+          className="flex h-[92%] flex-col justify-between items-end"
+        >
           <div className="flex w-full">
-            <div className="flex ml-10">
+            <div className="flex ml-10 w-full">
               <Categories
                 categories={categories.data.values}
                 filter={filter}
                 setFilter={setFilter}
               />
+              {response.isLoading ? (
+                <></>
+              ) : (
+                <Cities
+                  cities={response.cities.data.values}
+                  filter={filter}
+                  setFilter={setFilter}
+                />
+              )}
             </div>
           </div>
           <button className="py-2 px-3 rounded-lg text-sm font-medium text-gray-200 dark:text-gray-300 bg-blue-600 dark:bg-dark-bg-800">
