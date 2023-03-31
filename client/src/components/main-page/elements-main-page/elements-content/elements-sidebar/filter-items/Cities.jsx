@@ -66,7 +66,7 @@ const Cities = ({ cities, filter, setFilter }) => {
                     categories: { ...prev.categories },
                     cities: {
                       ...prev.cities,
-                      [city.name.en]: !filter[city.name.en],
+                      [city.name.en]: !filter.cities[city.name.en],
                     },
                   }))
                 }

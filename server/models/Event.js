@@ -27,25 +27,40 @@ class Event {
       return await client('events').select('*');
     }
     const filterValue = Object.keys(params).reduce((acc, key) => {
-        if (key.split(/\d/)[0] === 'category') {
-          return { categories: [...acc.categories, params[key]], cities: acc.cities }
+      if (key.split(/\d/)[0] === 'category') {
+          return { category: [...acc.category, params[key]], city: acc?.city ? acc.city : [] }
         } else {
-          return { categories: acc.categories, cities: [...acc.cities, params[key]] }
+          return { category: acc?.category ? acc.category : [], city: [...acc.city, params[key]] }
         }
-      }, { categories: [], cities: [] });
-
-    console.log(filterValue);
-    if (names.length > !1) {
-      const promise = Object.values(params).map(async (search) => {
-        const { id } = await Category.findCategoryTitle(search);
-        return await Category.getAllEventByCategoryId(id);
+      }, { category: [], city: [] });
+      if (names.length === 1) {
+      const promise = filterValue[names[0]].map(async (search) => {
+          if (names[0] === 'category') {
+            const { id } = await Category.findCategoryTitle(search);
+            return await Category.getAllEventByCategoryId(id);
+          }
+          return await this.getEventsByCityName(search);
       });
       const filterEvent = await Promise.all(promise);
       const flatFilterEvent = filterEvent.flat();
 
       return flatFilterEvent;
     }
-    // const filterCityAndCategoryEvent = flatFilterEvent.filter(({ city }) => )
+    console.log(filterValue);
+    const promiseCategoriesEvent = filterValue['category']
+    .map(async (search) => {
+      const { id } = await Category.findCategoryTitle(search);
+      return await Category.getAllEventByCategoryId(id);
+  });
+  const categoriesEvent = await Promise.all(promiseCategoriesEvent);
+    const flatcategoriesEvent = categoriesEvent.flat();
+    // console.log(categoriesEvent)
+    const filterCityAndCategoryEvent = flatcategoriesEvent.filter(({ city }) => filterValue['city'].includes(city))
+    return filterCityAndCategoryEvent;
+  }
+
+  async getEventsByCityName(name) {
+    return await client('events').select('*').where('city', '=', name);
   }
 
   async search(str) {
