@@ -21,9 +21,9 @@ const Sidebar = ({ setData, setLoading }) => {
 
   const handelForm = async (e) => {
     e.preventDefault();
-    // setLoading(true);
-    // setActive(false);
-    // try {
+    setLoading(true);
+    setActive(false);
+    try {
     const url = new URL(apiClientRoutes.getAllEvent());
     let i = 1;
     for (const index1 in filter) {
@@ -37,16 +37,15 @@ const Sidebar = ({ setData, setLoading }) => {
           i += 1;
         }
     }
-    console.log(url.toString());
-    //   const response = await $api.get(url.toString());
-    //   console.log(setData(response.data.values));
-    // } catch (err) {
-    //   console.error(err);
-    // } finally {
-    //   setTimeout(() => {
-    //     setLoading(false);
-    //   }, 1000);
-    // }
+      const response = await $api.get(url.toString());
+      setData(response.data.values);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
   };
 
   React.useEffect(() => {

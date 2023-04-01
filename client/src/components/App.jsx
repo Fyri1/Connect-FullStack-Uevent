@@ -37,7 +37,7 @@ import moderatorRoutes from '../routes/client/moderatorRoutes.js';
 import organizationRoutes from '../routes/client/organizationRoutes.js';
 import Success from './common/Success.jsx'
 
-import PromoPage from './profile/promo/PromoPage.jsx'
+import Coupon from './profile/coupon/Coupon.jsx'
 // import Rules from './auth/RulesUser.jsx';
 import { useUserProfile } from '../../hooks/user/useUserProfile.js'
 import Spinner from './common/Spinner.jsx';
@@ -76,7 +76,7 @@ const App = () => {
                 {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
                 <Route path="/MyTicket" element={<MyTicket />} />
                 <Route path="/success" element={<Success />} />
-                <Route path="/PromoPage" element={<PromoPage />} />
+                <Route path="/coupon" element={<Coupon />} />
 
 
                 {/* neSral Vilsan */}

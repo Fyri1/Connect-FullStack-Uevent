@@ -24,7 +24,7 @@ const Categories = ({ categories, filter, setFilter }) => {
                 setFilter((prev) => ({
                   categories: {
                     ...prev.categories,
-                    [category.title]: !filter[category.title],
+                    [category.title]: !filter.categories[category.title],
                   },
                   cities: { ...prev.cities },
                 }))
