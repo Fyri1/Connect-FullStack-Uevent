@@ -3,7 +3,7 @@ const PromoPage = () => {
 	return (
 		<div>
 			<div className="container mx-auto bg-gray-50 min-h-screen p-8 antialiased" >
-      <div class="flex flex-wrap -mx-4">
+      <div className="flex flex-wrap -mx-4">
          <div class="w-full px-4">
             <div class="text-center mx-auto mb-[60px] lg:mb-20 max-w-[510px]">
 							
@@ -19,18 +19,24 @@ const PromoPage = () => {
       </div>
 			
 				{/* Search */}
-        <div class="relative flex items-center p-6 space-x-6  rounded-xl  ">
-            <div class="absolute top-0 bottom-0 left-0 flex items-center px-5">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </div>
-            <input type="text" placeholder="Search for elixir..." class="pl-16 pr-4 py-4 rounded-md shadow-md bg-white border-0 w-full outline-none" />
+
+        <div class=" flex items-center p-6 space-x-6  rounded-xl  ">
+						<div className="relative ">
+							<div class="absolute top-0 bottom-0 left-0 flex items-center px-5">
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+									</svg>
+									
+							</div>
+							<input type="text" placeholder="Search for elixir..." class="pl-16 pr-4 py-4 rounded-md shadow-md bg-white border-0 w-full outline-none" />
+
+						</div>
 						<button class="w-10 h-10 border rounded-lg p-1 cursor-pointer transition duration-200 text-blue-800 hover:bg-blue-100">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
 							</svg>
 						</button>
+						
 			  </div>
 									
 
