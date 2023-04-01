@@ -4,8 +4,8 @@
         "subscribe" : "Добавити до обраних",
         "addToCart" : "В корзину"
     },
-    "ticketsSection" : {
-
+    "button-ckeckout" : {
+        "name": "Купити зараз"
     },
     "recommendations" : {
         "recommend" : "Рекомендації",

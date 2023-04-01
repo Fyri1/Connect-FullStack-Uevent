@@ -51,9 +51,11 @@ const Cities = ({ cities, filter, setFilter }) => {
           />
         </div>
       </div>
-      <div className="flex pt-10 flex-wrap">
+      <div className="flex pt-5 ">
+        <p className="text-lg mb-6">City:</p>
+        <div className="flex flex-wrap pt-1">
         {currentCities.length === 0 ? (
-          <></>
+          <p className="pl-6">None</p>
         ) : (
           currentCities.map((city, i) => (
             <div key={i} className={`flex items-center mb-4 ml-4 ${''}`}>
@@ -81,6 +83,7 @@ const Cities = ({ cities, filter, setFilter }) => {
             </div>
           ))
         )}
+      </div>
       </div>
     </div>
   );

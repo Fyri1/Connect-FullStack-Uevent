@@ -2,6 +2,8 @@ import React from 'react';
 import { useEvent } from '../../../hooks/events/useEvent.js';
 import { useUserFavoriteEvent } from '../../../hooks/user/useUserFavoriteEvent.js';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 import Spinner from '../common/Spinner.jsx';
 import EventDetailsHead from './event-details/EventDetailsHead.jsx';
@@ -17,6 +19,7 @@ import '../css/event-card.css';
 
 const EventPage = ({ currentUser }) => {
   const id = useParams()['id'];
+  const [t, i18n] = useTranslation('eventPage');
   const { isLoading, event } = useEvent(id);
   const favoriteEvent = useUserFavoriteEvent();
   console.log(favoriteEvent)
@@ -130,7 +133,7 @@ const EventPage = ({ currentUser }) => {
 
                     </div>
                   </div>
-                  <CheckoutButton eventItem={event}/>
+                  <CheckoutButton eventItem={event} name={t('button-ckeckout.name')}/>
                 </div>
               </div>
             </div>

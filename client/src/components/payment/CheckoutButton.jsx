@@ -1,7 +1,7 @@
 import $api from '../../../utils/api';
 import apiClientRoutes from '../../routes/api/apiClientRoutes.js';
 
-export default ({ eventItem }) => {
+export default ({ eventItem, name }) => {
   const handleSubmit = async () => {
     try {
       const response = await $api.post(apiClientRoutes.payPath(), {
@@ -22,7 +22,7 @@ export default ({ eventItem }) => {
         type="button"
         className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
       >
-        Buy now
+        {name}
       </button>
     </>
   );
