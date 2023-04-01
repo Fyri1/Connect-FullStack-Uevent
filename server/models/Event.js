@@ -9,10 +9,8 @@ import Organization from './Organization.js';
 
 class Event {
   async getAll(filter) {
-    const filtersName = _.uniq(
-      Object.keys(filter).map((item) => item.split(/\d/)[0])
-    );
-    const data = await this.filterEvents(filter, filtersName);
+
+    const data = await this.filterEvents(filter);
     const events = data.map(async (event) => {
       const tickets = await this.getAllTickets(event.id);
       const eventCategories = await this.getAllCategories(event.id);
@@ -22,10 +20,13 @@ class Event {
     return Promise.all(events);
   }
 
-  async filterEvents(params, names) {
+  async filterEvents(params) {
     if (_.isEmpty(params)) {
       return await client('events').select('*');
     }
+    const names = _.uniq(
+      Object.keys(filter)?.map((item) => item.split(/\d/)[0])
+    );
     const filterValue = Object.keys(params).reduce(
       (acc, key) => {
         if (key.split(/\d/)[0] === 'category') {

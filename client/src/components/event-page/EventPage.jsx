@@ -71,8 +71,7 @@ const EventPage = ({ currentUser }) => {
                 
                 <div className="sticky top-20 mt-6 rounded-lg border bg-white p-0 shadow-md  ">
 
-                  <div className="   ">
-                  {/* fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" */}
+                  <div>
                     <div className="  bg-blue-500 ">
                       <div className=" start flex">
                         <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" strokeWidth={1.5}  className=" ml-4 my-4 h-6 w-6 ">

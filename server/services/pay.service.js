@@ -45,7 +45,7 @@ class PayService {
       line_items: [
         {
           price_data: {
-            currency: 'usd',
+            currency: 'uah',
             product_data: {
               name: `Tiket - ${title}`,
               description: description,
