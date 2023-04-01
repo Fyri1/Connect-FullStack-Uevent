@@ -1,5 +1,3 @@
-
-import React, { useEffect, useState } from 'react';
 import $api from '../../../utils/api';
 import apiClientRoutes from '../../routes/api/apiClientRoutes.js';
 
@@ -22,7 +20,7 @@ export default ({ eventItem }) => {
       <button
         onClick={handleSubmit}
         type="button"
-        className="bg-indigo-600 text-white text-sm leading-7 font-medium py-2 px-4 rounded-lg"
+        className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
       >
         Buy now
       </button>

@@ -9,6 +9,8 @@ import EventDetailsBody from './event-details/EventDetailsBody.jsx';
 import RecommendSection from './recommendations/RecommendSection.jsx';
 import CommentsSection from './comments/CommentsSection.jsx';
 
+import CheckoutButton from '../payment/CheckoutButton.jsx'
+
 import '../css/EventPage.css';
 import '../css/event-card.css';
 
@@ -128,9 +130,7 @@ const EventPage = ({ currentUser }) => {
 
                     </div>
                   </div>
-  
-
-                  <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+                  <CheckoutButton eventItem={event}/>
                 </div>
               </div>
             </div>
