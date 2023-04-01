@@ -4,10 +4,10 @@ import Organization from '../models/Organization.js';
 import * as dotenv from 'dotenv';
 import ApiError from '../exceptions/api-error.js';
 import Ticket from '../models/Ticket.js';
+import User from '../models/User.js';
 dotenv.config();
 
 class PayService {
-  constructor() {}
 
   async getCoupons(user_id) {
     const { secret_key } = await Organization.findOrganizationByUserId(user_id);
@@ -77,6 +77,7 @@ class PayService {
       if (filterNotSoldTicket.length === 0) {
         return 'Empty';
       }
+      console.log(session.customer_details.email, session.customer_details.name);
       return await Event.sellTicket(
         userId,
         filterNotSoldTicket[0],
