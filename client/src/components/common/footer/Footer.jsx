@@ -36,7 +36,7 @@ const Footer = ({ i18n, lng }) => {
           <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Github.com</h2>
           <nav class="list-none mb-10">
             <li>
-              <a href="https://github.com/Fyri" class="text-gray-600 hover:text-gray-800">Fyri</a>
+              <a href="https://github.com/Fyri1" class="text-gray-600 hover:text-gray-800">Fyri</a>
             </li>
             <li>
               <a href="https://github.com/Herman2201" class="text-gray-600 hover:text-gray-800">Herman2201</a>
