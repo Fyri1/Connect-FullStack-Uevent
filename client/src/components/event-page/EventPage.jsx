@@ -128,9 +128,10 @@ const EventPage = ({ currentUser }) => {
 
                     </div>
                   </div>
-  
 
-                  <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+                <div className="flex  w-full items-center justify-center ">
+                  <button className=" rounded-2xl   group mt-6 w-48 -md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+                </div>
                 </div>
               </div>
             </div>
