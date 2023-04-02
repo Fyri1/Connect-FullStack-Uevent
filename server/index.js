@@ -44,7 +44,7 @@ export default () => {
   app.use('/api/organization', organozationRouter);
   app.use('/api/user', adminRouter);
   app.use('/api/pay', payRouter);
-  app.use('/api/text', async (req, res) => {
+  app.post('/api/text', async (req, res) => {
     const { email } = req.body;
     const massage = new SendMail();
     const response = await massage.send(email, {}, 'ticket')
