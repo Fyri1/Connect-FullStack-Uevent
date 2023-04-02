@@ -25,11 +25,11 @@ const Header = () => {
   return (
     <header className="h-10">
       <nav className="fixed z-50 w-full bg-blue-600 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-dark-bg-800">
-        <div className="flex flex-wrap justify-between items-center mx-auto container">
+        <div className="flex flex-wrap justify-between items-center w-full mx-auto container">
           <Logo />
           <Navbar />
           
-          <div className="flex lg:order-1 items-center justify-center w-[8%]">
+          <div className="flex lg:order-1 items-center justify-end w-[10%]">
             <LanguageSelectMenu />
             <UserDropdownMenu />
 
