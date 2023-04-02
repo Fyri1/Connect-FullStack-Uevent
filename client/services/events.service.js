@@ -20,6 +20,9 @@ const EventService = {
   createComment({ eventId, content }) {
     return $api.post(routes.createComment(eventId), { content });
   },
+  getTicketsByEventId(id) {
+    return $api.get(routes.getTicketsEvent(id))
+  }
 };
 
 export { EventService };

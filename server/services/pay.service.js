@@ -4,7 +4,7 @@ import Organization from '../models/Organization.js';
 import * as dotenv from 'dotenv';
 import ApiError from '../exceptions/api-error.js';
 import Ticket from '../models/Ticket.js';
-import User from '../models/User.js';
+import SendMail from './send-mail.js'
 dotenv.config();
 
 class PayService {
@@ -66,6 +66,7 @@ class PayService {
   }
   async createSessionRetrive(userId, eventId, sessionId) {
     try {
+      const mail = new SendMail();
       const userOrganizationId = await Event.findOne(eventId);
       const { secret_key } = await Organization.findOrganizationByUserId(
         userOrganizationId.user_id
@@ -77,12 +78,15 @@ class PayService {
       if (filterNotSoldTicket.length === 0) {
         return 'Empty';
       }
-      console.log(session.customer_details.email, session.customer_details.name);
-      return await Event.sellTicket(
+      const result = await Event.sellTicket(
         userId,
         filterNotSoldTicket[0],
         session.payment_intent
       );
+      const userEmail = session.customer_details.email;
+      const price = (session.amount_total / 100).toFixed(2);
+      const name = session.customer_details.name;
+      return result === 'Success' ? await mail.send(userEmail, { price, name }, 'ticket') : 'Ok';
     } catch (err) {
       console.log(err);
       throw ApiError.BadRequest('Reject');

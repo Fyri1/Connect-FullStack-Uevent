@@ -56,7 +56,7 @@ const RecommendCard = ({ data }) => {
       </div>
 
       <div className="mb-10 hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
-        <p className="text-wight-700 text-lg text-white">Прасак сити</p>
+        <p className="text-wight-700 text-lg text-white">{data.city}</p>
         <div className="justify-between md:items-center lg:justify-between">
           {/* <button onClick={() => { location.href = `/event/${event.id}` }} className="fa 
           fa-shopping-cart p-2 pl-11 pr-11 bg-transparent border-2 border-indigo-500

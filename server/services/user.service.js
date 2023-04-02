@@ -81,7 +81,7 @@ class UserService {
       throw ApiError.BadRequest('email uje uzaut');
     }
     const code = generationCode();
-    await sendEmail.send(email, code, 'code');
+    await sendEmail.send(email, { code }, 'code');
     await User.setLink(id, code);
     return 'send email code';
   }

@@ -38,7 +38,7 @@ class Authorization {
         link,
         active: false,
       });
-      sendMassege.send(email, link, 'activate').then(() => {
+      sendMassege.send(email, { link }, 'activate').then(() => {
         res.json({ massage: 'Confirm mail' });
       });
     } catch (err) {
@@ -114,7 +114,7 @@ class Authorization {
       const user = await User.initUser('email', email);
       const link = uuidv4();
       await User.setLink(user.id, link);
-      sendMassage.send(email, link, 'reset').then(() => {
+      sendMassage.send(email, { link }, 'reset').then(() => {
         res.json({ massage: 'Send massage reset' });
       });
     } catch (err) {

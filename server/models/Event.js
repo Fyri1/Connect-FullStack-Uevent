@@ -25,7 +25,7 @@ class Event {
       return await client('events').select('*');
     }
     const names = _.uniq(
-      Object.keys(filter)?.map((item) => item.split(/\d/)[0])
+      Object.keys(params)?.map((item) => item.split(/\d/)[0])
     );
     const filterValue = Object.keys(params).reduce(
       (acc, key) => {

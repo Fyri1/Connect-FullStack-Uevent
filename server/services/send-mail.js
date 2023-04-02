@@ -7,7 +7,7 @@ class SendMail {
     this.password = 'madoasxztqtjarpn';
     this.origin = 'http://localhost:8080/';
   }
-  send(to, uuid, type) {
+  async send(to, data, type) {
     const massageEmail = {};
     switch (type) {
       case 'activate':
@@ -17,7 +17,7 @@ class SendMail {
        <div>
             <p>
                 Thank you for registering, for confirmation  email follow the
-                    <a href="${this.origin}api/auth/confirm-email/${uuid}">
+                    <a href="${this.origin}api/auth/confirm-email/${data.uuid}">
                     link
                     </a>
             </p>
@@ -32,7 +32,7 @@ class SendMail {
         <div>
             <p>
                 You requested for reset password, kindly use this to reset your password
-                <a href="${this.origin}reset-password/${uuid}">link</a>
+                <a href="${this.origin}reset-password/${data.uuid}">link</a>
             </p>
         </div>
         `;
@@ -40,29 +40,9 @@ class SendMail {
         break;
       case 'ticket':
         {
-          // const qart = new QArt({
-          //   value: value,
-          //   imagePath: './example.png',
-          //   filter: filter,
-          //   size: 195,
-          // });
-          massageEmail.subject = 'Reset password link - usof-backend.com';
-          massageEmail.html = `
-        <div>
-            <p>
-                You requested for reset password, kindly use this to reset your password
-                <a href="${this.origin}reset-password/${uuid}">link</a>
-            </p>
-        </div>
-        <div class="qart"></div>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/qartjs/1.0.2/qart.min.js"></script>
-        <script>
-          new QArt({
-            value: ${uuid},
-            size: 195
-	        }).make(document.getElementById('qart'));
-        </script>
-        `;
+          massageEmail.subject = 'Thanks for buying the ticket';
+          massageEmail.html = "" // <-- сюда свою html страницу
+          // <p>${data.name} - ${data.price} - ${new Date()}</p>
         }
         break;
       case 'code':
@@ -75,7 +55,7 @@ class SendMail {
               </p>
               <p align="center" style="
               font-size: 40px;
-          "><b>${uuid
+          "><b>${data.uuid
             .split('')
             .map((item, i) => {
               if (i === 3) {
@@ -107,7 +87,8 @@ class SendMail {
       text: '',
       html: massageEmail.html,
     };
-    return mail.sendMail(mailOptions);
+    const isReject = (await mail.sendMail(mailOptions)).rejected
+    return isReject.length !== 0 ? isReject : 'Success';
   }
 }
 
