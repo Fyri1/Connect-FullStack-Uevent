@@ -2,6 +2,8 @@ import React from 'react';
 import { useEvent } from '../../../hooks/events/useEvent.js';
 import { useUserFavoriteEvent } from '../../../hooks/user/useUserFavoriteEvent.js';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 import Spinner from '../common/Spinner.jsx';
 import EventDetailsHead from './event-details/EventDetailsHead.jsx';
@@ -9,15 +11,20 @@ import EventDetailsBody from './event-details/EventDetailsBody.jsx';
 import RecommendSection from './recommendations/RecommendSection.jsx';
 import CommentsSection from './comments/CommentsSection.jsx';
 
+import CheckoutButton from '../payment/CheckoutButton.jsx'
+
 import '../css/EventPage.css';
 import '../css/event-card.css';
+import { useEventTickets } from '../../../hooks/events/useEventTicket.js';
 
 
 const EventPage = ({ currentUser }) => {
   const id = useParams()['id'];
+  const [t, i18n] = useTranslation('eventPage');
   const { isLoading, event } = useEvent(id);
-  const favoriteEvent = useUserFavoriteEvent();
-  console.log(favoriteEvent)
+  const eventTickets = useEventTickets(id);
+  // const favoriteEvent = useUserFavoriteEvent();
+  // console.log(favoriteEvent)
   const unfoldButtonHandle = () => {
     console.log("pidorasa nado pokazat");
     const textElement = document.getElementsByClassName("text-retracted")[0];
@@ -85,13 +92,13 @@ const EventPage = ({ currentUser }) => {
                   </div>
                   <div className=" ml-4 mt-3">
                     <div className="mb-2 justify-between">
-                      <div className="pb-1  text-indigo-600 flex items-center dark:text-indigo-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"  strokeWidth={1.5} stroke="currentColor" className="-mt-12 h-12 w-12 ">
+                      <div className="flex items-center pb-1 text-indigo-600 flex items-center dark:text-indigo-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"  strokeWidth={1.5} stroke="currentColor" className="h-8 w-8 ">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path>
                         
                         </svg>
-                        <p className="pl-2 text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:text-dark-text-300">МЦКМ (Жовтневий палац) Київ, Алея Героїв Небесної Сотні, 1</p>
+                        <p className="pl-2 text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:text-dark-text-300">{event.city}, {event.address}</p>
                       </div>
                     </div>
 
@@ -123,15 +130,12 @@ const EventPage = ({ currentUser }) => {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"></path>
                         </svg>
-                        <p className="pl-2 text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:text-dark-text-300">Tickets left: 1488</p>
+                        <p className="pl-2 text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:text-dark-text-300">Tickets left: {eventTickets.isLoading ? <></> : eventTickets.tickets.ticketsLeft}</p>
                       </div>
 
                     </div>
                   </div>
-
-                <div className="flex  w-full items-center justify-center ">
-                  <button className=" rounded-2xl   group mt-6 w-48 -md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
-                </div>
+                  <CheckoutButton eventItem={event} name={t('button-ckeckout.name')}/>
                 </div>
               </div>
             </div>

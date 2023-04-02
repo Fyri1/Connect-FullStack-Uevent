@@ -1,7 +1,4 @@
 import userService from '../services/user.service.js';
-import encrypt from '../encrypt.js';
-import { v4 as uuidv4 } from 'uuid';
-import User from '../models/User.js';
 
 class Users {
   async getAllUsers(_req, _res) {

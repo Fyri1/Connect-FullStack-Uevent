@@ -4,8 +4,8 @@
         "subscribe" : "Add to favorites",
         "addToCart" : "Add to cart"
     },
-    "ticketsSection" : {
-
+    "button-ckeckout" : {
+        "name": "Buy now"
     },
     "recommendations" : {
         "recommend" : "Featured events",

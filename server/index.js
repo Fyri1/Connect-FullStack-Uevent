@@ -16,6 +16,7 @@ import cityRouter from './router/city-route.js'
 import payRouter from './router/pay-router.js'
 import errorMiddleware from './middlewares/error-middleware.js';
 import ApiError from './exceptions/api-error.js';
+import SendMail from './services/send-mail.js';
 
 
 export default () => {
@@ -42,7 +43,13 @@ export default () => {
   app.use('/api/comment', commentRouter);
   app.use('/api/organization', organozationRouter);
   app.use('/api/user', adminRouter);
-  app.use('/api/pay', payRouter)
+  app.use('/api/pay', payRouter);
+  app.post('/api/text', async (req, res) => {
+    const { email } = req.body;
+    const massage = new SendMail();
+    const response = await massage.send(email, {}, 'ticket')
+    res.json({ response });
+  });
 
   app.use('*', () => {
     throw ApiError.NotFound();
