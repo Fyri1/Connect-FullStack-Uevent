@@ -3,12 +3,15 @@ import React, { useEffect } from 'react';
 const Categories = ({ categories, filter, setFilter }) => {
   useEffect(() => {
     categories.forEach(({ title }) => {
-      setFilter((prev) => ({ ...prev, [title]: false }));
+      setFilter((prev) => ({
+        categories: { ...prev.categories, [title]: false },
+        cities: { ...prev.cities },
+      }));
     });
   }, []);
 
   return (
-    <div className="mt-5 flex items-start">
+    <div className="mt-5 w-1/2 flex items-start">
       <p className="text-lg mr-5">Categories: </p>
       <div className="flex flex-col pt-1">
         {categories.map((category, i) => (
@@ -16,8 +19,16 @@ const Categories = ({ categories, filter, setFilter }) => {
             <input
               id={category.title}
               type="checkbox"
-              checked={filter[category.title] || false}
-              onChange={() => setFilter((prev) => ({ ...prev, [category.title]: !filter[category.title] }))}
+              checked={filter.categories[category.title] || false}
+              onChange={() =>
+                setFilter((prev) => ({
+                  categories: {
+                    ...prev.categories,
+                    [category.title]: !filter.categories[category.title],
+                  },
+                  cities: { ...prev.cities },
+                }))
+              }
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
             <label

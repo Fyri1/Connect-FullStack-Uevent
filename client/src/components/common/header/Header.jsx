@@ -29,7 +29,7 @@ const Header = () => {
           <Logo />
           <Navbar />
           
-          <div className="flex lg:order-1 items-center justify-center">
+          <div className="flex lg:order-1 items-center justify-center w-[8%]">
             <LanguageSelectMenu />
             <UserDropdownMenu />
 

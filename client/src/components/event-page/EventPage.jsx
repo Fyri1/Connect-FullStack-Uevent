@@ -71,8 +71,7 @@ const EventPage = ({ currentUser }) => {
                 
                 <div className="sticky top-20 mt-6 rounded-lg border bg-white p-0 shadow-md  ">
 
-                  <div className="   ">
-                  {/* fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" */}
+                  <div>
                     <div className="  bg-blue-500 ">
                       <div className=" start flex">
                         <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" strokeWidth={1.5}  className=" ml-4 my-4 h-6 w-6 ">
@@ -99,7 +98,7 @@ const EventPage = ({ currentUser }) => {
                     <div className="mb-2 flex justify-between">
                       <div className="pb-1 text-indigo-600 flex items-center dark:text-indigo-400">
                         {/* <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
- */}
+                           */}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"  viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" -mt-6 h-8 w-8 ">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
                         </svg>
