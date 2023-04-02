@@ -2,12 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 
-const CreateCupon = () => {
+const CreateCoupon = () => {
   return (
     <div>
-
+      pidor!
     </div>
   );
 };
 
-export default CreateCupon;
+export default CreateCoupon;

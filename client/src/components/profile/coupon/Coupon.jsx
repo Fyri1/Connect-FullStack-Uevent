@@ -2,11 +2,19 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Active from './Active.jsx';
+import Popup from '../../common/popup/Popup.jsx';
+import CreateCoupon from './CreateCoupon.jsx';
 
 
 const Coupon = () => {
+  const [couponCreatePopupActive, setCouponCreatePopupActive] = React.useState();
+
   return (
     <div>
+      <Popup active={couponCreatePopupActive} setActive={setCouponCreatePopupActive}>
+        <CreateCoupon />
+      </Popup>
+
       <div className="container mx-auto bg-gray-50 min-h-screen p-8 antialiased">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full px-4">
@@ -19,7 +27,7 @@ const Coupon = () => {
         </div>
 
         {/* Search */}
-        <div className="relative flex items-center p-6 space-x-6  rounded-xl  ">
+        <div className="relative flex items-center p-6 space-x-6 rounded-xl">
           <div className="absolute top-0 bottom-0 left-0 flex items-center px-5">
             <svg className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -39,9 +47,9 @@ const Coupon = () => {
           <Active />
         {/* no active */}
 
-        <ul className="   left-0 right-0 -bottom-18 mt-3 p-3">
+        <ul className="left-0 right-0 -bottom-18 mt-3 p-3">
           <li className="text-xs uppercase text-gray-400 border-b border-gray border-solid py-2 px-5 mb-2">
-            NO Active
+            Inactive
           </li>
           
           <div className="bg-gray-100 mx-auto border-gray-500 border rounded-sm  text-gray-700 mb-0.5">
