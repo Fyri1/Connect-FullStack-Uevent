@@ -5,7 +5,7 @@ import clientRoutes from '../../../routes/client/clientRoutes.js';
 
 const Logo = () => {
   return (
-    <div className="mb-2 sm:mb-0 flex flex-row flex items-center justify-center">
+    <div className="mb-2 sm:mb-0 flex flex-row flex items-center justify-center w-[12%]">
       <div className="h-10 w-10 self-center mr-2">
         <div onClick={() => { location.href = clientRoutes.mainPagePath() }} className='logo-div cursor-pointer'>
           <svg width="41" height="39" viewBox="0 0 41 39" fill="none" xmlns="http://www.w3.org/2000/svg">
