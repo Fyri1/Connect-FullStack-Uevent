@@ -17,10 +17,15 @@ module.exports = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1'},
         },
+        liner: {
+          '0%': { width: '0%' },
+          '100%': { width: '100%'},
+        },
       },
       animation: {
         inactive: 'inactive .1s linear alternate forwards',
         active: 'active .1s linear alternate forwards',
+        liner: 'liner 1.1s linear alternate forwards',
       },
       colors: {
         light: {

@@ -1,7 +1,7 @@
 {
   "name": "react",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,11 +12,6 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@headlessui/react": "^1.7.13",
-    "@mui/material": "^5.11.15",
-    "@react-email/components": "^0.0.4",
-    "@react-email/html": "^0.0.4",
-    "@react-email/render": "0.0.6",
-    "@react-email/text": "^0.0.5",
     "@stripe/react-stripe-js": "^1.16.5",
     "@stripe/stripe-js": "^1.47.0",
     "axios": "^1.2.2",
