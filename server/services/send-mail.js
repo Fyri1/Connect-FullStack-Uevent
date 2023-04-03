@@ -41,83 +41,330 @@ class SendMail {
       case 'ticket':
         {
           massageEmail.subject = 'Thanks for buying the ticket';
-          massageEmail.html = `<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-          <html>
-           <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-            <link href="/dist/output.css" rel="stylesheet">
-            <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-            <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-          
-            <title>Пример веб-страницы</title>
-          
-           </head>
-           <body>
-            <script src="https://cdn.tailwindcss.com"></script>
-            <section class="pt-16 bg-blueGray-50">
-              <div class="w-full lg:w-4/12 px-4 mx-auto">
-                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
-                  <div class="px-6">
-                    <div class="flex flex-wrap justify-center">
-          
-                      <div class="flex-wrap md:flex">
+          massageEmail.html = `<html lang="en">
+          <head>
+            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+          </head>
+          <body
+            style="
+              background-color: rgb(255, 255, 255);
+              font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+                'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+                'Noto Color Emoji';
+                padding-left: 20rem;
+                padding-right:20rem;
+                
+            "
+          >
+            <section style="">
+              <div
+                style="
+                "
+              >
+                <div
+                  style="
+                    position: relative;
+                    margin-bottom: 20rem;
+                   
+                    display: flex;
+                    width: 100%;
+                
+                    flex-direction: column;
+                    overflow-wrap: break-word;
+                    border-radius: 0.5rem;
+                    background-color: rgb(255, 255, 255);
+                    box-shadow: 0 0 #0000, 0 0 #0000, 0 20px 25px -5px rgb(0, 0, 0, 0.1),
+                      0 8px 10px -6px rgb(0, 0, 0, 0.1);
+                  "
+                >
+                  <div style="padding-left: 1.5rem; padding-right: 1.5rem">
+                    <div
+                      style="display: flex; flex-wrap: wrap; justify-content: center"
+                    >
+                      <div style="flex-wrap: wrap">
                         <div class="">
-                          <img class="mx-auto mt-12 h-80 w-80 rounded-lg border p-2 md:mt-0" src="https://i.imgur.com/FQS7fFC.png" alt="step" />
+                          <img
+                            src="https://i.imgur.com/FQS7fFC.png"
+                            alt="step"
+                            style="
+                              margin-left: auto;
+                              margin-right: auto;
+                              margin-top: 5rem;
+                              height: 20rem;
+                              width: 20rem;
+                              border:solid #7a7777; /* Ширина,  стиль и цвет рамки */
+                              border-width: 0.5px;
+                              padding: 0.5rem;
+                              border-radius: 15px;
+                            "
+                          />
                           <div>
-                            <p class="mt-2 text-center font-semibold text-gray-600">#KON4AVPIZDE</p>
-                            <p class="mt-1 text-center font-medium text-red-500">040-12-00-01166166-001</p>
+                            <p
+                              style="
+                            margin-top: 0.5rem; 
+                            color: #4B5563; 
+                            font-weight: 600; 
+                            text-align: center; 
+        
+                              "
+                            >
+                              #KON4AVPIZDE
+                            </p>
+                            <p
+                              style="
+                            margin-top: 0.25rem; 
+                            color: #EF4444; 
+                            font-weight: 500; 
+                            text-align: center; 
+                              "
+                            >
+                              040-12-00-01166166-001
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
-                    
-                    <div class="text-center mt-12">
-                      <h3 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                    <div style="
+                          margin-top: 3rem;
+                          text-align: center;
+                                ">
+                      <p
+                        style="
+                          margin-bottom: 0.5rem;
+                          font-size: 1.25rem;
+                          line-height: 1.5;
+                          font-weight: 600;
+                          color: rgb(29, 78, 216);
+                        "
+                      >
                         Jenna Stones
-                      </h3>
-                      <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                        <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                        Los Angeles, California
+                      </p>
+                      
+                      <div style="
+                            display: inline-block;    
+                        ">
+                      <div
+                        style="
+                          margin-left:50px;
+                          margin-bottom: 0.5rem;
+                          margin-top: 0px;
+                          font-size: 0.875rem;
+                          line-height: 0.1;
+                          font-weight: 700;
+                          text-transform: uppercase;
+                          color: rgb(96, 165, 250);
+                          display: flex;
+                               
+                        "
+                      >
+                          <div style="
+        
+                            display: inline-block;
+                            height: 1.5rem;
+                            width: 1.5rem;">
+                            <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                              <path clip-rule="evenodd" fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"></path>
+                            </svg>
+                          </div>
+        
+                          <p>Los Angeles, California</p>
                       </div>
-                      <div class="mb-2 text-blueGray-600 ">
-                        <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                        Solution Manager - Creative Tim Officer
+                      <div style="
+                            margin-bottom: 0.5rem;
+                            line-height: 0.1;
+                            font-weight: 600;
+                            color: rgb(37, 99, 235);
+                            display: flex;
+                            ">
+                          <div style="
+                            display: inline-block;
+                            height: 1.5rem;
+                            width: 1.5rem;">
+                            <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                              <path clip-rule="evenodd" fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-5.5-2.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM10 12a5.99 5.99 0 00-4.793 2.39A6.483 6.483 0 0010 16.5a6.483 6.483 0 004.793-2.11A5.99 5.99 0 0010 12z"></path>
+                            </svg>
+                          </div>
+                        <p>Solution Manager - Creative Tim Officer</p>
                       </div>
-                      <div class="mb-2 text-blueGray-600">
-                        <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                        University of Computer Science
+                      <div style="
+                            margin-left:20px;
+                            margin-bottom: 0.5rem;
+                            line-height: 0.1;
+                            font-weight: 600;
+                            color: rgb(37, 99, 235);
+                            display: flex;
+                            ">
+                          <div style="
+                            display: inline-block;
+                            height: 1.5rem;
+                            width: 1.5rem;">
+                            <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                              <path clip-rule="evenodd" fill-rule="evenodd" d="M9.674 2.075a.75.75 0 01.652 0l7.25 3.5A.75.75 0 0117 6.957V16.5h.25a.75.75 0 010 1.5H2.75a.75.75 0 010-1.5H3V6.957a.75.75 0 01-.576-1.382l7.25-3.5zM11 6a1 1 0 11-2 0 1 1 0 012 0zM7.5 9.75a.75.75 0 00-1.5 0v5.5a.75.75 0 001.5 0v-5.5zm3.25 0a.75.75 0 00-1.5 0v5.5a.75.75 0 001.5 0v-5.5zm3.25 0a.75.75 0 00-1.5 0v5.5a.75.75 0 001.5 0v-5.5z"></path>
+                            </svg>
+                          </div>
+                        <p>University of Computer Science</p>
+                      </div>
                       </div>
                     </div>
-                    <div class="mt-8 py-8 border-t border-blueGray-200 text-center">
-                      <div class="flex flex-wrap justify-center">
-                        <h1 class=" text-center text-xl font-bold">Time</h1>
-                          <div class="md:py-8 py-5 md:px-16 px-5 dark:bg-gray-700 bg-gray-50 rounded-b">
-                              <div class="px-4">
-                                  <div class="border-b pb-4 border-gray-400 border-dashed">
-                                      <p class="text-xs font-light leading-3 text-gray-500 dark:text-gray-300">9:00 AM</p>
-                                      <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 dark:text-gray-100 mt-2">Zoom call with design team</a>
-                                      <p class="text-sm pt-2 leading-4 leading-none text-gray-600 dark:text-gray-300">Discussion on UX sprint and Wireframe review</p>
-                                  </div>
-                                  <div class="border-b pb-4 border-gray-400 border-dashed pt-5">
-                                      <p class="text-xs font-light leading-3 text-gray-500 dark:text-gray-300">10:00 AM</p>
-                                      <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 dark:text-gray-100 mt-2">Orientation session with new hires</a>
-                                  </div>
-                                  <div class="border-b pb-4 border-gray-400 border-dashed pt-5">
-                                      <p class="text-xs font-light leading-3 text-gray-500 dark:text-gray-300">9:00 AM</p>
-                                      <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 dark:text-gray-100 mt-2">Zoom call with design team</a>
-                                      <p class="text-sm pt-2 leading-4 leading-none text-gray-600 dark:text-gray-300">Discussion on UX sprint and Wireframe review</p>
-                                  </div>
-                              </div>
+                    
+                    
+                    
+                    <div
+                      style="
+                        margin-top: 2rem;
+                        border-top-width: 1px;
+                        border-color: rgb(191, 219, 254);
+                        padding-top: 2rem;
+                        padding-bottom: 2rem;
+                        text-align: center;
+                      "
+                    >
+                       <p
+                          style="
+                            text-align: center;
+                            font-size: 1.25rem;
+                            line-height: 1.75rem;
+                            font-weight: 700;
+                          "
+                        >
+                          Time
+                        </p> 
+                      <div
+                        style="display: flex; flex-wrap: wrap; justify-content: center"
+                      >
+        
+                        <div
+                          style="
+                            border-bottom-right-radius: 0.25rem;
+                            border-bottom-left-radius: 0.25rem;
+                            background-color: rgb(249, 250, 251);
+                            padding-left: 1.25rem;
+                            padding-right: 1.25rem;
+                            padding-top: 1.25rem;
+                            padding-bottom: 1.25rem;
+                          "
+                        >
+                          
+                          <div style="padding-left: 1rem; padding-right: 1rem
+                                      ">
+                            <div
+                              style="
+                              width: 280px;
+                              height: 100px;
+                              border-bottom:2px dashed  #888B8B;
+                              "
+                            >
+                              <p
+                                style="
+                                  font-size: 0.75rem;
+                                  line-height: 0.75rem;
+                                  font-weight: 300;
+                                "
+                              >
+                                9:00 AM
+                              </p>
+                              <a
+                                tabindex="0"
+                                style="
+                                  margin-top: 0.5rem;
+                                  font-size: 1.125rem;
+                                  line-height: 1.25rem;
+                                  font-weight: 500;
+                                  color: rgb(31, 41, 55);
+                                "
+                                >Zoom call with design team</a
+                              >
+                              <p
+                                style="
+                                  padding-top: 0.5rem;
+                                  font-size: 0.875rem;
+                                  line-height: 1;
+                                  color: rgb(75, 85, 99);
+                                "
+                              >
+                                Discussion on UX sprint and Wireframe review
+                              </p>
+                            </div>
+                            <div
+                              style="
+                              width: 280px;
+                              height: 100px;
+                              border-bottom:2px dashed  #888B8B;
+                              "
+                            >
+                              <p
+                                style="
+                                  font-size: 0.75rem;
+                                  line-height: 0.75rem;
+                                  font-weight: 300;
+                                  color: rgb(107, 114, 128);
+                                "
+                              >
+                                10:00 AM
+                              </p>
+                              <a
+                                tabindex="0"
+                                style="
+                                  margin-top: 0.5rem;
+                                  font-size: 1.125rem;
+                                  line-height: 1.25rem;
+                                  font-weight: 500;
+                                  color: rgb(31, 41, 55);
+                                "
+                                >Orientation session with new hires</a
+                              >
+                            </div>
+                            <div
+                              style="
+                              width: 280px;
+                              height: 100px;
+                              border-bottom:2px dashed  #888B8B;
+                              "
+                            >
+                              <p
+                                style="
+                                  font-size: 0.75rem;
+                                  line-height: 0.75rem;
+                                  font-weight: 300;
+                                  color: rgb(107, 114, 128);
+                                "
+                              >
+                                9:00 AM
+                              </p>
+                              <a
+                                tabindex="0"
+                                style="
+                                  margin-top: 0.5rem;
+                                  font-size: 1.125rem;
+                                  line-height: 1.25rem;
+                                  font-weight: 500;
+                                  color: rgb(31, 41, 55);
+                                "
+                                >Zoom call with design team</a
+                              >
+                              <p
+                                style="
+                                  padding-top: 0.5rem;
+                                  font-size: 0.875rem;
+                                  line-height: 1;
+                                  color: rgb(75, 85, 99);
+                                "
+                              >
+                                Discussion on UX sprint and Wireframe review
+                              </p>
+                            </div>
                           </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              </section>
-           </body>
-          </html>`;
+            </section>
+          </body>
+        </html>
+        `;
 
           // <p>${data.name} - ${data.price} - ${new Date()}</p>
         }
