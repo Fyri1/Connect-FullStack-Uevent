@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthForm = ({ formMessage, children }) => {
+const EditForm = ({ formMessage, children }) => {
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen ">
       <div className="w-full bg-transparent md:mt-0 sm:max-w-md">
@@ -19,4 +19,4 @@ const AuthForm = ({ formMessage, children }) => {
   );
 }
 
-export default AuthForm;
+export default EditForm;
