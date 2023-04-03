@@ -1,16 +1,20 @@
 import nodemailer from 'nodemailer';
-import getHtml from '../utils/get-html';
+
+import getHtml from '../utils/get-html.js';
 // import QArt from 'qartjs';
+
 
 class SendMail {
   constructor() {
-    this.from = 'usof.test1@gmail.com';
-    this.password = 'madoasxztqtjarpn';
+    // this.from = 'usof.test1@gmail.com';
+    this.from = 'maxine.hudson@ethereal.email';
+    this.password = 'ypYxQqFGRMZZp2PUSK';
   }
   async send(to, data, type) {
     const { subject, html }  = getHtml[type](data);
     const mail = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
+      // host: 'smtp.gmail.com',
+      host: 'smtp.ethereal.email',
       port: 587,
       auth: {
         user: this.from,
@@ -20,9 +24,9 @@ class SendMail {
     const mailOptions = {
       from: this.from,
       to,
-      subject: massageEmail.subject,
+      subject: subject,
       text: '',
-      html: massageEmail.html,
+      html: html,
     };
     const isReject = (await mail.sendMail(mailOptions)).rejected
     return isReject.length !== 0 ? isReject : 'Success';
