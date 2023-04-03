@@ -3,16 +3,22 @@ import { useTranslation } from 'react-i18next';
 
 import Active from './Active.jsx';
 import Popup from '../../common/popup/Popup.jsx';
-import CreateCoupon from './CreateCoupon.jsx';
+import editForms from '../../../../utils/editForms.jsx';
 
 
 const Coupon = () => {
   const [couponCreatePopupActive, setCouponCreatePopupActive] = React.useState();
 
+  const temp = {
+    discount: "",
+    amount: "",
+    created_at: ""
+  };
+
   return (
     <div>
       <Popup active={couponCreatePopupActive} setActive={setCouponCreatePopupActive}>
-        <CreateCoupon />
+        { editForms(temp).coupons }
       </Popup>
 
       <div className="container mx-auto bg-gray-50 min-h-screen p-8 antialiased">
@@ -36,9 +42,10 @@ const Coupon = () => {
 
           <input type="text" placeholder="Search for elixir..." className="pl-16 pr-4 py-4 rounded-md shadow-md bg-white border-0 w-full outline-none" />
 
-          <button className="w-10 h-10 border rounded-lg p-1 cursor-pointer transition duration-200 text-blue-800 hover:bg-blue-100">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+          <button onClick={() => {setCouponCreatePopupActive(true)}} className="w-10 h-10 border rounded-lg p-1 cursor-pointer transition duration-200 text-blue-800 hover:bg-blue-100">
+            <svg fill="gray" viewBox="0 0 442 512" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+              {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" /> */}
+              <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
             </svg>
           </button>
         </div>
