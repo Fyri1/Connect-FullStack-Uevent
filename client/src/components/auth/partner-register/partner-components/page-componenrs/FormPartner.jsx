@@ -59,8 +59,7 @@ const FormPartner = () => {
   };
 
   return (
-    <form onSubmit={handleRegisterSubmit}>
-      <section className="bg-gray-50 dark:bg-gray-900">
+    <form onSubmit={handleRegisterSubmit} className="animate-active-page">
         <EditForm formMessage="Upgrade to a partner account">
           <InputField id="name_organization" name="Organization name" type="text" data={partnerData} setData={setPartnerData} errors={errors} setErrors={setErrors}>
             <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
@@ -116,7 +115,6 @@ const FormPartner = () => {
             Submit
           </button>
         </EditForm>
-      </section>
     </form>
   );
 };
