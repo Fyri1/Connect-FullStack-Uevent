@@ -17,10 +17,20 @@ module.exports = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1'},
         },
+        "stape-line-active": {
+          '0%': { width: '0%', "z-index": "10" },
+          '100%': { width: '100%', "z-index": "10"},
+        },
+        "stape-shape-active": {
+          '0%': { width: '0%' },
+          '100%': { width: '100%'},
+        },
       },
       animation: {
         inactive: 'inactive .1s linear alternate forwards',
         active: 'active .1s linear alternate forwards',
+        "stape-line-active": 'stape-line-active 1.1s 0.6s linear alternate forwards',
+        "stape-shape-active": 'stape-shape-active 0.6s linear alternate forwards',
       },
       colors: {
         light: {

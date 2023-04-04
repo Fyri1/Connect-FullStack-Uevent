@@ -12,6 +12,7 @@ class SendMail {
   }
   async send(to, data, type) {
     const { subject, html }  = getHtml[type](data);
+
     const mail = nodemailer.createTransport({
       // host: 'smtp.gmail.com',
       host: 'smtp.ethereal.email',

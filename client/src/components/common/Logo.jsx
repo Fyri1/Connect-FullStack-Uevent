@@ -1,6 +1,6 @@
 import React from 'react';
 
-import clientRoutes from '../../../routes/client/clientRoutes.js';
+import clientRoutes from '../../routes/client/clientRoutes.js';
 
 
 const Logo = () => {

@@ -23,7 +23,7 @@ import Login from './auth/Login.jsx';
 import Register from './auth/Register.jsx';
 import EmailConfirm from './auth/EmailConfirm.jsx';
 import PassReset from './auth/PassReset.jsx';
-import PartnerRegister from './auth/PartnerRegister.jsx';
+import PartnerRegister from './auth/partner-register/PartnerRegister.jsx';
 // import RulesUser from './auth/RulesUser.jsx';
 
 // Admin panel

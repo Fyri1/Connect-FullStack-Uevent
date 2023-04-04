@@ -8,24 +8,9 @@ import '../css/main-page.css';
 import Content from './elements-main-page/Content.jsx';
 
 
-import BuyEmailConfirm from './BuyEmailConfirm.jsx';
-import { render } from '@react-email/render';
-
-
 const MainPage = () => {
   const [t, i18n] = useTranslation('mainPage');
   const { isLoading, events } = useEvents();
-
-  // React.useEffect(() => {
-  //   const fileData = render(<BuyEmailConfirm />, {pretty: true});
-
-  //   const blob = new Blob([fileData], { type: "text/plain" });
-  //   const url = URL.createObjectURL(blob);
-  //   const link = document.createElement("a");
-  //   link.download = "user-info.txt";
-  //   link.href = url;
-  //   link.click();
-  // }, []);
 
   return isLoading ? <Spinner /> : (
     <div className="main-content dark:bg-dark-bg-900">
