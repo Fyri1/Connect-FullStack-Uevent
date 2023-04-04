@@ -25,12 +25,17 @@ module.exports = {
           '0%': { width: '0%' },
           '100%': { width: '100%'},
         },
+        "active-page": {
+          '0%': { opacity: '0', transform: 'translateY(50px)' },
+          '100%': { opacity: '1'},
+        },
       },
       animation: {
         inactive: 'inactive .1s linear alternate forwards',
         active: 'active .1s linear alternate forwards',
         "stape-line-active": 'stape-line-active 1.1s 0.6s linear alternate forwards',
         "stape-shape-active": 'stape-shape-active 0.6s linear alternate forwards',
+        "active-page": 'active-page 0.6s linear alternate forwards',
       },
       colors: {
         light: {

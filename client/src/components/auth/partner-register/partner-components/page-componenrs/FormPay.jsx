@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FormPay = () => {
-  return <p>Form pay</p>;
+  return <div className="animate-active-page"><p>Form pay</p></div>;
 };
 
 export default FormPay;
