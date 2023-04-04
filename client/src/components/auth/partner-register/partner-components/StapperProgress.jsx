@@ -4,7 +4,8 @@ import CompliteLine from './steppet-components/CompliteLine.jsx';
 const StapperProgress = ({ stapper, setStapper }) => {
   return (
     <>
-      <div className="mt-20">
+    <div className="flex items-center mt-20">
+      <div className="w-[90%]">
         <ol className="flex items-center w-full">
           {!stapper.stape1 ? (
             <StapperLine>
@@ -143,10 +144,9 @@ const StapperProgress = ({ stapper, setStapper }) => {
             </CompliteLine>
           )}
         </ol>
-      </div>
-      <div className="flex flex-row-reverse justify-between">
+        </div>
         <button
-          className="ml-10 mt-10 p-10 text-white bg-primary-600 hover:bg-primary-700 
+          className="p-10 text-white bg-primary-600 hover:bg-primary-700 
         focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg 
         text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 
         dark:focus:ring-primary-800"
@@ -167,23 +167,7 @@ const StapperProgress = ({ stapper, setStapper }) => {
         >
           {stapper.iter <= 3 ? 'next' : 'finish'}
         </button>
-        <button
-          className="ml-10 mt-10 p-10 text-white bg-primary-600 hover:bg-primary-700 
-        focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg 
-        text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 
-        dark:focus:ring-primary-800"
-          disabled={stapper.iter <= 1}
-          onClick={() => {
-            setStapper((prev) => ({
-              ...prev,
-              ['stape' + (stapper.iter - 1)]:
-                !stapper['stape' + (stapper.iter - 1)],
-              iter: stapper.iter - 1,
-            }));
-          }}
-        >
-          Back
-        </button>
+        
       </div>
     </>
   );
