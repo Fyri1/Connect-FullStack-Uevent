@@ -4,7 +4,7 @@ const RulesUser = () => {
   return (
   <div>
 
-<div className="font-sans antialiased bg-gray-50 dark:bg-gray-900">
+{/* <div className="font-sans antialiased bg-gray-50 dark:bg-gray-900">
 	<div className="container w-full md:max-w-3xl mx-auto">
 		<div className="p-4 md:pt-32">
 			<div className="md:shadow-xl md:rounded-lg">
@@ -234,12 +234,12 @@ const RulesUser = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> */}
   </div>
 
 
 
-  </div>
+
   );
 }
 
