@@ -8,8 +8,21 @@ class Organization {
   async getAllOrganization(req, _res) {
     return await organizationService.getAllOrganization();
   }
+
+  async getSteps(req, _res) {
+    const token = req.headers.authorization?.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await organizationService.getStep(id);
+  }
+
   async authRegisterOrganization(req, _res) {
     return await organizationService.createOrganization(req);
+  }
+
+  async createNewOrganization(req, _res) {
+    const token = req.headers.authorization?.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await organizationService.createOrganization(id);
   }
 
   async createPromoCodes(req, _res) {

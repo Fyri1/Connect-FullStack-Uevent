@@ -43,6 +43,7 @@ $api.interceptors.response.use(
         localStorage.setItem('jwt', response.data.accessToken);
         return $api.request(originalRequest);
       } catch (err) {
+        location.href = '/';
         console.log(err);
       }
     }

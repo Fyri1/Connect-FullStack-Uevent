@@ -6,9 +6,10 @@ import organizationValidate from '../middlewares/organization-validation.js';
 import tryCatch from '../utils/try-catch.event.js';
 const router = Express.Router();
 
-// router.get('/test-qr/', Authorization.testQR);
 
 router.get('/', tryCatch(Organization.getAllOrganization));
+
+router.get('/steps', tryCatch(Organization.getSteps));
 
 router.post(
   '/subscription/:id',
@@ -32,6 +33,10 @@ router.post(
   checkOrganization,
   organizationValidate,
   tryCatch(Organization.authRegisterOrganization)
+);
+
+router.post(
+  '/create', tryCatch(Organization.createNewOrganization)
 );
 
 export default router;

@@ -1,9 +1,23 @@
-import AccordionComponent from '../../../../common/Accordion';
-import textTermUse1 from '../../../../../text/text-term-use-1';
-import textTermUse2 from '../../../../../text/text-term-use-2';
 import React from 'react';
+import AccordionComponent from '../../../../common/Accordion.jsx';
+import textTermUse1 from '../../../../../other/text-term-use-1.js';
+import textTermUse2 from '../../../../../other/text-term-use-2.js';
+import $api from '../../../../../../utils/api.js';
+import apiClientRoutes from '../../../../../routes/api/apiClientRoutes.js';
 
-const TermUse = ({ setCompleteStape }) => {
+const TermUse = ({ setCompleteStep, completeStep }) => {
+ React.useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await $api.post(apiClientRoutes.createOrganization());
+        console.log(response.data.values);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetch();
+  }, [completeStep.step1.isComplete]);
+
   const [open, setOpen] = React.useState(0);
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -27,7 +41,7 @@ const TermUse = ({ setCompleteStape }) => {
               {textTermUse1().map(({ head, body }, i) => {
                 const [read, setRead] = React.useState(false);
                 return (
-                  <div className="mb-4">
+                  <div className="mb-4" key={i}>
                     <AccordionComponent
                       handleOpen={handleOpen}
                       open={open}
@@ -40,11 +54,11 @@ const TermUse = ({ setCompleteStape }) => {
                         <button
                           onClick={() => {
                             setRead(!read);
-                            setCompleteStape((prev) => ({
+                            setCompleteStep((prev) => ({
                               ...prev,
-                              stape1: {
-                                reading: [...prev.stape1.reading, head],
-                                isComplete: prev.stape1.reading.length === 5,
+                              step1: {
+                                reading: [...prev.step1.reading, head],
+                                isComplete: prev.step1.reading.length === 5,
                               },
                             }));
                           }}
@@ -71,7 +85,7 @@ const TermUse = ({ setCompleteStape }) => {
               {textTermUse2().map(({ head, body }, i) => {
                 const [read, setRead] = React.useState(false);
                 return (
-                  <div className="mb-4">
+                  <div className="mb-4" key={i}>
                     <AccordionComponent
                       handleOpen={handleOpen}
                       open={open}
@@ -84,11 +98,11 @@ const TermUse = ({ setCompleteStape }) => {
                         <button
                           onClick={() => {
                             setRead(!read);
-                            setCompleteStape((prev) => ({
+                            setCompleteStep((prev) => ({
                               ...prev,
-                              stape1: {
-                                reading: [...prev.stape1.reading, head],
-                                isComplete: prev.stape1.reading.length === 5,
+                              step1: {
+                                reading: [...prev.step1.reading, head],
+                                isComplete: prev.step1.reading.length === 5,
                               },
                             }));
                           }}

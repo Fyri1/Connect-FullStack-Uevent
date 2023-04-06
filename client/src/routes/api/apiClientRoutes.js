@@ -37,4 +37,7 @@ export default {
   getPathAvatar: (name) => [apiPath, 'avatars', name].join('/'),
 
   getCities: () => [apiPath, 'city'].join('/'),
+
+  getStepComplete: () => [apiPath, 'organization', 'steps'].join('/'),
+  createOrganization: () => [apiPath, 'organization', 'create'].join('/'),
 };

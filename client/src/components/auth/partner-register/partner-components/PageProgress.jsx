@@ -4,18 +4,18 @@ import TermUse from './page-componenrs/TermUse.jsx';
 import Finish from './page-componenrs/Finish.jsx';
 import FormPay from './page-componenrs/FormPay.jsx';
 import Agreement from './page-componenrs/Agreement.jsx';
-const getPageStape = (setter) => {
+const getPageStape = (setter, completeStep) => {
   return {
-    1: <TermUse setCompleteStape={setter} />,
-    2: <FormPay />,
+    1: <TermUse setCompleteStep={setter} completeStep={completeStep} />,
+    2: <FormPay setCompleteStep={setter} completeStep={completeStep}/>,
     3: <FormPartner />,
     4: <Agreement />,
     5: <Finish />,
   };
 };
 
-const PageProgress = ({ stape, setCompleteStape }) => {
-  return getPageStape(setCompleteStape)[stape];
+const PageProgress = ({ step, setCompleteStep, completeStep }) => {
+  return getPageStape(setCompleteStep, completeStep)[step];
 };
 
 export default PageProgress;

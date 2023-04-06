@@ -2,45 +2,61 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import StapperProgress from './partner-components/StapperProgress';
 import PageProgress from './partner-components/PageProgress.jsx';
+import Spinner from '../../common/Spinner.jsx';
+import $api from '../../../../utils/api.js';
+import apiClientRoutes from '../../../routes/api/apiClientRoutes';
 export default () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [stapper, setStaper] = React.useState({
-    stape1: false,
-    stape2: false,
-    stape3: false,
-    stape4: false,
-    iter: 1,
-  });
-  const [completeStape, setCompleteStape] = React.useState({
-    stape1: {
+
+  const [isLoading, setLoading] = React.useState(true);
+  const [stepper, setStepper] = React.useState();
+  const [currentStep, setCurrentStep] = React.useState(1);
+  const [completeStep, setCompleteStep] = React.useState({
+    step1: {
       reading: [],
+      isComplete: true,
+    },
+    step2: {
       isComplete: false,
     },
-    stape2: '',
-    stape3: '',
-    stape4: '',
+    step3: '',
+    step4: '',
   });
 
   React.useEffect(() => {
-    const search = new URLSearchParams(location.search);
-    const stapeIter = search.get('stape');
-    setStaper((prev) => ({ ...prev, iter: stapeIter }));
+    const fetch = async () => {
+      try {
+        setLoading(true);
+        const response = await $api.get(apiClientRoutes.getStepComplete());
+        console.log(response.data.values);
+        setStepper(response.data.values);
+        setCurrentStep(response.data.values.iter);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetch();
   }, []);
 
-  React.useEffect(() => {
-    navigate(location.pathname + '?stape=' + stapper.iter);
-    console.log(location.search);
-  }, [stapper.iter]);
-
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <div className="container m-auto flex flex-col">
       <StapperProgress
-        stapper={stapper}
-        setStapper={setStaper}
-        completeStape={completeStape}
+        stepper={stepper}
+        setStepper={setStepper}
+        completeStep={completeStep}
+        setCurrentStep={setCurrentStep}
+        currentStep={currentStep}
       />
-      <PageProgress stape={stapper.iter} setCompleteStape={setCompleteStape} />
+      <PageProgress
+        step={currentStep}
+        completeStep={completeStep}
+        setCompleteStep={setCompleteStep}
+      />
     </div>
   );
 };
