@@ -27,6 +27,10 @@ import profile_en from './en/profile.json';
 import profile_ru from './ru/profile.json';
 import profile_ua from './ua/profile.json';
 
+import term_use_en from './en/term_use.json'
+import term_use_ru from './ru/term_use.json'
+import term_use_ua from './ua/term_use.json'
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
@@ -42,6 +46,7 @@ i18n
         mainPage: mainPage_en,
         profile: profile_en,
         eventPage: eventPage_en,
+        "term-use": term_use_en
       },
       ru: {
         header: header_ru,
@@ -50,6 +55,7 @@ i18n
         mainPage: mainPage_ru,
         profile: profile_ru,
         eventPage: eventPage_ru,
+        "term-use": term_use_ru
       },
       ua: {
         header: header_ua,
@@ -58,6 +64,7 @@ i18n
         mainPage: mainPage_ua,
         profile: profile_ua,
         eventPage: eventPage_ua,
+        "term-use": term_use_ua
       },
   }});
 

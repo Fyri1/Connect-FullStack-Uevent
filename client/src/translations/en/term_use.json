@@ -1,0 +1,30 @@
+{
+    "info1": {
+        "text1": {
+            "head": "How to correctly copy forms?",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+        },
+        "text2": {
+            "head": "How to not make a button look like a link?",
+            "body": "Just don't write it :D"
+        },
+        "text3": {
+            "head": "How to capture Ukraine in 3 days?",
+            "body": "Ask Max."
+        }
+    },
+    "info2": {
+        "text1": {
+            "head": "How to suck?",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+        },
+        "text2": {
+            "head": "How to eat shit?",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+        },
+        "text3": {
+            "head": "How to annoy the admin?",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "info1": {
+        "text1": {
+            "head": "как правльно копировать формы?",
+            "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+        },
+        "text2": {
+            "head": "как не писать кнопку в ссылке?",
+            "body": "Берешь и не пишешь :D"
+        },
+        "text3": {
+            "head": "как захватить Украину за 3 дня?",
+            "body": "Спросить у Макса."
+        }
+    },
+    "info2": {
+        "text1": {
+            "head": "как пососал?",
+            "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+        },
+        "text2": {
+            "head": "как поесть говна?",
+            "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+        },
+        "text3": {
+            "head": "как обосрать админа?",
+            "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+        }
+    }
+}
