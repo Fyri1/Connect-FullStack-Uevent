@@ -13,15 +13,10 @@ export default () => {
   const [stepper, setStepper] = React.useState();
   const [currentStep, setCurrentStep] = React.useState(1);
   const [completeStep, setCompleteStep] = React.useState({
-    step1: {
-      reading: [],
-      isComplete: true,
-    },
-    step2: {
-      isComplete: false,
-    },
-    step3: '',
-    step4: '',
+    step1: { isComplete: false },
+    step2: { isComplete: false },
+    step3: { isComplete: false },
+    step4: { isComplete: false },
   });
 
   React.useEffect(() => {
@@ -29,7 +24,16 @@ export default () => {
       try {
         setLoading(true);
         const response = await $api.get(apiClientRoutes.getStepComplete());
-        console.log(response.data.values);
+
+        Object.entries(response.data.values)
+          .filter((item) => item[0] !== 'iter')
+          .forEach(([key, value]) => {
+            console.log({ [key]: value });
+            setCompleteStep((prev) => ({
+              ...prev,
+              [key]: { isComplete: value },
+            }));
+          });
         setStepper(response.data.values);
         setCurrentStep(response.data.values.iter);
       } catch (err) {

@@ -1,12 +1,67 @@
 import React from 'react';
 import AccordionComponent from '../../../../common/Accordion.jsx';
-import textTermUse1 from '../../../../../other/text-term-use-1.js';
-import textTermUse2 from '../../../../../other/text-term-use-2.js';
+import textTermUse from '../../../../../other/text-term-use.js';
 import $api from '../../../../../../utils/api.js';
 import apiClientRoutes from '../../../../../routes/api/apiClientRoutes.js';
 
+const RenderItemAccordion = ({
+  setReading,
+  reading,
+  head,
+  body,
+  setCompleteStep,
+  completeStep,
+  count,
+  open,
+  handleOpen,
+}) => {
+  const [read, setRead] = React.useState(false || completeStep.step1.isComplete);
+
+  return (
+    <div className="mb-4" key={count}>
+      <AccordionComponent
+        handleOpen={handleOpen}
+        open={open}
+        head={head}
+        body={body}
+        style={read ? 'bg-green-100' : 'bg-gray-100'}
+        count={count + 1}
+      >
+        <div className="w-full flex justify-end">
+          <button
+            onClick={() => {
+              if (reading.length === 5) {
+                setCompleteStep((prev) => ({
+                  ...prev,
+                  step1: {
+                    isComplete: true,
+                  },
+                }));
+              }
+              setRead(!read);
+              setReading((prev) => [...prev, head]);
+            }}
+            disabled={read}
+            className={`transition px-4 py-2 text-white 
+                          ${
+                            read
+                              ? 'bg-green-600'
+                              : 'bg-primary-600 hover:bg-primary-700 dark:bg-primary-60 dark:hover:bg-primary-700'
+                          } 
+                          font-medium rounded-lg 
+                          text-sm text-center 
+                          dark:focus:ring-primary-800`}
+          >
+            {read ? 'Complete!' : 'I read'}
+          </button>
+        </div>
+      </AccordionComponent>
+    </div>
+  );
+};
+
 const TermUse = ({ setCompleteStep, completeStep }) => {
- React.useEffect(() => {
+  React.useEffect(() => {
     const fetch = async () => {
       try {
         const response = await $api.post(apiClientRoutes.createOrganization());
@@ -14,11 +69,15 @@ const TermUse = ({ setCompleteStep, completeStep }) => {
       } catch (err) {
         console.log(err);
       }
+    };
+    if (!completeStep['step1'].isComplete) {
+      fetch();
+      console.log('1');
     }
-    fetch();
   }, [completeStep.step1.isComplete]);
 
   const [open, setOpen] = React.useState(0);
+  const [reading, setReading] = React.useState([]);
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
@@ -37,94 +96,27 @@ const TermUse = ({ setCompleteStep, completeStep }) => {
             </p>
           </div>
           <div className="flex flex-wrap sm:mx-auto -mx-2">
-            <div className="w-full lg:w-1/2 lg:px-4 lg:py-2">
-              {textTermUse1().map(({ head, body }, i) => {
-                const [read, setRead] = React.useState(false);
-                return (
-                  <div className="mb-4" key={i}>
-                    <AccordionComponent
-                      handleOpen={handleOpen}
-                      open={open}
+            {textTermUse().map((item, i) => (
+              <div key={i} className="w-full lg:w-1/2 lg:px-4 lg:py-2">
+                {item[`text${i + 1}`].map(({ head, body, iter }) => {
+                  return (
+                    <RenderItemAccordion
+                      reading={reading}
+                      setReading={setReading}
+                      key={iter}
                       head={head}
                       body={body}
-                      style={read ? 'bg-green-100' : 'bg-gray-100'}
-                      count={i + 1}
-                    >
-                      <div className="w-full flex justify-end">
-                        <button
-                          onClick={() => {
-                            setRead(!read);
-                            setCompleteStep((prev) => ({
-                              ...prev,
-                              step1: {
-                                reading: [...prev.step1.reading, head],
-                                isComplete: prev.step1.reading.length === 5,
-                              },
-                            }));
-                          }}
-                          disabled={read}
-                          className={`transition px-4 py-2 text-white 
-                          ${
-                            read
-                              ? 'bg-green-600'
-                              : 'bg-primary-600 hover:bg-primary-700 dark:bg-primary-60 dark:hover:bg-primary-700'
-                          } 
-                          font-medium rounded-lg 
-                          text-sm text-center 
-                          dark:focus:ring-primary-800`}
-                        >
-                          {read ? 'Complete!' : 'I read'}
-                        </button>
-                      </div>
-                    </AccordionComponent>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="w-full lg:w-1/2 lg:px-4 lg:py-2">
-              {textTermUse2().map(({ head, body }, i) => {
-                const [read, setRead] = React.useState(false);
-                return (
-                  <div className="mb-4" key={i}>
-                    <AccordionComponent
-                      handleOpen={handleOpen}
+                      setCompleteStep={setCompleteStep}
+                      completeStep={completeStep}
+                      count={iter}
                       open={open}
-                      head={head}
-                      body={body}
-                      style={read ? 'bg-green-100' : 'bg-gray-100'}
-                      count={i + 4}
-                    >
-                      <div className="w-full flex justify-end">
-                        <button
-                          onClick={() => {
-                            setRead(!read);
-                            setCompleteStep((prev) => ({
-                              ...prev,
-                              step1: {
-                                reading: [...prev.step1.reading, head],
-                                isComplete: prev.step1.reading.length === 5,
-                              },
-                            }));
-                          }}
-                          disabled={read}
-                          className={`transition px-4 py-2 text-white 
-                          ${
-                            read
-                              ? 'bg-green-600'
-                              : 'bg-primary-600 hover:bg-primary-700 dark:bg-primary-60 dark:hover:bg-primary-700'
-                          } 
-                          font-medium rounded-lg 
-                          text-sm text-center 
-                          dark:focus:ring-primary-800`}
-                        >
-                          {read ? 'Complete!' : 'I read'}
-                        </button>
-                      </div>
-                    </AccordionComponent>
-                  </div>
-                );
-              })}
-            </div>
+                      setOpen={setOpen}
+                      handleOpen={handleOpen}
+                    />
+                  );
+                })}
+              </div>
+            ))}
           </div>
         </div>
       </section>

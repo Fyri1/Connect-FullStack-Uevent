@@ -2,7 +2,7 @@ import React from 'react';
 
 const StapperLine = ({setCurrentStep, iter, currentStep, step, children, isEnd = false }) => {
   return (
-    <li
+    <li 
       className={`flex items-center
     ${
       isEnd

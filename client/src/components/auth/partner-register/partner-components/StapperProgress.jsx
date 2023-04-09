@@ -33,9 +33,9 @@ const StapperProgress = ({
               return (
               <>
                 {!stepper['step' + (iter + 1)] ? (
-                  <StapperLine setCurrentStep={setCurrentStep} currentStep={currentStep} iter={iter + 1} step={stepper.iter} isEnd={isEnd}> {start} </StapperLine>
+                  <StapperLine  setCurrentStep={setCurrentStep} currentStep={currentStep} iter={iter + 1} step={stepper.iter} isEnd={isEnd}> {start} </StapperLine>
                 ) : (
-                  <CompliteLine setCurrentStep={setCurrentStep} step={iter + 1} isEnd={isEnd}> {end} </CompliteLine>
+                  <CompliteLine  setCurrentStep={setCurrentStep} step={iter + 1} isEnd={isEnd}> {end} </CompliteLine>
                 )}
               </>
             )})}
