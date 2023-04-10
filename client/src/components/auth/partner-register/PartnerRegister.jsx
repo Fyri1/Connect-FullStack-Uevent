@@ -6,8 +6,9 @@ import Spinner from '../../common/Spinner.jsx';
 import $api from '../../../../utils/api.js';
 import apiClientRoutes from '../../../routes/api/apiClientRoutes';
 
+export default () => {
   const [isLoading, setLoading] = React.useState(true);
-  const [stepper, setStepper] = React.useState();
+  const [stepper, setStepper] = React.useState({});
   const [currentStep, setCurrentStep] = React.useState(1);
   const [completeStep, setCompleteStep] = React.useState({
     step1: { isComplete: false },
