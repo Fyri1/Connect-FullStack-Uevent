@@ -5,9 +5,6 @@ import PageProgress from './partner-components/PageProgress.jsx';
 import Spinner from '../../common/Spinner.jsx';
 import $api from '../../../../utils/api.js';
 import apiClientRoutes from '../../../routes/api/apiClientRoutes';
-export default () => {
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const [isLoading, setLoading] = React.useState(true);
   const [stepper, setStepper] = React.useState();
@@ -22,13 +19,10 @@ export default () => {
   React.useEffect(() => {
     const fetch = async () => {
       try {
-        setLoading(true);
         const response = await $api.get(apiClientRoutes.getStepComplete());
-
         Object.entries(response.data.values)
           .filter((item) => item[0] !== 'iter')
           .forEach(([key, value]) => {
-            console.log({ [key]: value });
             setCompleteStep((prev) => ({
               ...prev,
               [key]: { isComplete: value },
