@@ -37,8 +37,14 @@ module.exports = {
           '0%': {  height: '77px' },
           '100%': { height: '0px' },
         },
+        "kokon":{
+          '0%':{  transform:'translateY(120%)'},
+          '100%':{  transform:'translateY(0%)'}
+          
+        }
       },
       animation: {
+        "kokon": 'inactive .1s linear alternate forwards',
         inactive: 'inactive .1s linear alternate forwards',
         active: 'active .1s linear alternate forwards',
         "slide-active": 'slide-active 1.1s linear alternate forwards',

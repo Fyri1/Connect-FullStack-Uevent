@@ -5,5 +5,24 @@ body {
 }
 
 #root {
-    height: 100%;
+  height: 100%;
+}
+
+.first-elem-div:hover .second-elem-div {
+  animation-name: kokon;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  
+}
+
+@keyframes kokon {
+  0% {
+    transform: translateY(120%)
+  } 
+
+  100% {
+    transform: translateY(0%)
+  }
+
 }
