@@ -1,26 +1,26 @@
 {
     "info1": {
         "text1": {
-            "head": "How to correctly copy forms?",
-            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+            "head": "Why should you choose us?",
+            "body": "1. Quality of services. Our service always provides high-quality services from trusted sources.\nConvenience of use. Our service offers a convenient and intuitive interface, as well as easy navigation and guaranteed ease of use.\n Price. Our service offers affordable prices and provides opportunities to receive discount coupons for various events.\nQuality of support. Our support operators work 24/7 and are always ready to help even in the most difficult situations."
         },
         "text2": {
-            "head": "How to not make a button look like a link?",
-            "body": "Just don't write it :D"
+            "head": "How to buy a ticket?",
+            "body": "After registration, you will have access to several sections on this page with forms. You just need to fill them out, after which we will notify you of a successful purchase!"
         },
         "text3": {
-            "head": "How to capture Ukraine in 3 days?",
-            "body": "Ask Max."
+            "head": "What to do in case of event cancellation?",
+            "body": "In case of event cancellation, we will automatically refund the payment to the payment method you previously specified. If there are any problems with this, our operator will contact you."
         }
     },
     "info2": {
         "text1": {
-            "head": "How to suck?",
-            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+            "head": "How to return a ticket?",
+            "body": "You can return a ticket through your personal account or through our support service!"
         },
         "text2": {
-            "head": "How to eat shit?",
-            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+            "head": "What payment methods are available?",
+            "body": "Our service accepts all possible payment methods, including Visa and Mastercard!"
         },
         "text3": {
             "head": "How to annoy the admin?",

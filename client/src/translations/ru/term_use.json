@@ -1,30 +1,30 @@
 {
     "info1": {
         "text1": {
-            "head": "как правльно копировать формы?",
-            "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+            "head": "Почему вы должны выбрать нас ?",
+            "body": "1. Качество услуг. Наш сервис предоставляет всегда качественные услуги от проверенных источников.\n 2. Удобство использования. Наш сервис предлагает удобный и интуитивно понятный интерфейс, а также легкую навигацию и гарантированную простату использования.\n3. Цена. Наш сервис предлагает доступные цены, и дает возможность получать скидочные купоны на различные события!\n4. Качество поддержки. Наши операторы поддержи работают в режиме 24/7 и готовы всегда помочь даже в самых сложных ситуациях."
         },
         "text2": {
-            "head": "как не писать кнопку в ссылке?",
-            "body": "Берешь и не пишешь :D"
+            "head": "Как купить билет ?",
+            "body": "После регистрации вам будут доступны несколько пунктов на этой странице с формами. Вам достаточно будет их заполнить после чего мы вас уведомим о успешной покупке!"
         },
         "text3": {
-            "head": "как захватить Украину за 3 дня?",
-            "body": "Спросить у Макса."
+            "head": "Что делать в случае отмены события ?",
+            "body": "В слуае отмены события, мы в автоматическом режиме вернем вам средства на указаный вами способ оплаты ранее. Если с этим возникнут проблемы - наш оператор свами свяжется. "
         }
     },
     "info2": {
         "text1": {
-            "head": "как пососал?",
-            "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+            "head": "Как вернуть билет ?",
+            "body": "Вернуть билет вы можете через свой личный кабинет, или же через через нашу службу поддержки!"
         },
         "text2": {
-            "head": "как поесть говна?",
-            "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+            "head": "Какие способы оплаты доступны ?",
+            "body": "Наш сервис принимает все возможные способы оплаты включая Visa и Mastercard!"
         },
         "text3": {
             "head": "как обосрать админа?",
-            "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus minus, veritatis, voluptatem ex fugit unde rem quasi doloribus consectetur ducimus quis molestias esse cum nemo eveniet maxime, debitis voluptatum nam!"
+            "body": "Разрещаю срать прям в лс админу https://t.me/bogomolllll !"
         }
     }
 }
