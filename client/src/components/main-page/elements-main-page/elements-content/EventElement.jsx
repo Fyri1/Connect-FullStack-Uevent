@@ -11,12 +11,12 @@ const EventElement = ({ event }) => {
     <div className="px-3 py-5 gap-8 snap-x">
       {/*  */}
       {/* <div className="col-sm-4 flex-col rounded-[20px] hover: bg-wh-700 bg-gray-100 "> */}
-      <div className="  col-sm-4 flex-col rounded-[20px] 
-               duration-700  hover:bg-gray-800 p-2 rounded-lg group relative w-full ">
+      <div className=" col-sm-4 flex-col rounded-[20px]  
+               duration-700 hover:bg-gray-700 p-2 rounded-lg group relative w-full  ">
 
-        <div className="h-full w-full">
-          <div className="w-full h-full">
-            <img className="rounded-[10px]" src="https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg" alt="" />
+        <div className="h-full w-full ">
+          <div className="w-full h-full ">
+            <img className="rounded-[10px]  " src="https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg" alt="" />
           </div>
 
           <div className="mb-3 flex items-center justify-between px-0 md:items-start">
