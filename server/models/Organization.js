@@ -88,7 +88,20 @@ class Organization {
     await client('organization').insert(data);
   }
 
-  async createOrganization(user_id) {
+  async saveOrganizationStep2({ user_id, orgData }) {
+    await PayService.checkValidKey(orgData.secretKey);
+    const org = await this.findOrganizationByUserId(user_id);
+    await client('organization')
+      .update({
+        secret_key: orgData.secretKey,
+      })
+      .where('id', '=', org.id);
+      return {
+        status: "Success"
+      }
+  }
+
+  async saveOrganizationStep1({ user_id }) {
     const org = await this.findOrganizationByUserId(user_id);
     if (!_.isEmpty(org)) {
       return;
