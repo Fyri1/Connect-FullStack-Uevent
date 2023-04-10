@@ -17,6 +17,7 @@ const StapperProgress = ({
       }));
       return;
     }
+    setCurrentStep(currentStep + 1);
     setStepper((prev) => ({
       ...prev,
       ['step' + stepper.iter]: !stepper['step' + stepper.iter],
