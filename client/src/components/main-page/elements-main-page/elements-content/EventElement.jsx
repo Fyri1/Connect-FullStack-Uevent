@@ -8,12 +8,12 @@ const EventElement = ({ event }) => {
   const [t, i18n] = useTranslation('mainPage');
 
   return (
-    <div className="first-elem-div px-3 py-5 gap-8 snap-x   ">
+    <div className="px-3 py-5 gap-8 snap-x   ">
       {/*  dark:border-dark-bg-700  */}
       {/* <div className="col-sm-4 flex-col rounded-[20px] bg-white-700 duration-700 relative p-2  group relative w-full
        after:absolute  after:top-0 after:right-0  hover:after:bg-gray-700 after:z-10
        after:transition  hover:after:w-full after:h-full  after:content-[''] "> */}
-        <div className=" col-sm-4 flex-col rounded-[20px] bg-white-700 duration-700 relative p-2  group relative w-full ">
+        <div className="first-elem-div col-sm-4 flex-col rounded-[20px] bg-white-700 relative p-2 group relative w-full ">
 
         <div className="h-full w-full">
           <div className="w-full h-full ">
@@ -51,9 +51,9 @@ const EventElement = ({ event }) => {
         {/* <div className="rounded-[20px] absolute  bg-transparent rounded bg-opacity-0 hover:bg-opacity-90 bg-slate-600  w-full h-full 
           right-0 top-0 hover:opacity-100 duration-700  transition flex flex-col justify-between z-50
           "> */}
-        <div className="second-elem-div rounded-[20px] absolute  rounded  w-full h-full 
-          right-0 top-0  duration-700  transition flex flex-col justify-between z-50
-         bg-gray-700 translate-y-[120%] hover:animate-kokon">
+        <div className="second-elem-div rounded-[20px] absolute rounded w-full h-full 
+          right-0 top-0 flex flex-col justify-between bg-gray-700 transition duration-700 translate-y-[120%]">
+
           <div className="mt-2 scale-10 text-white  outline-none ">
           </div>
 
