@@ -84,7 +84,7 @@ class Organization {
     return data.length !== 0;
   }
 
-  async saveOrganization(data) {
+  async saveOrganization3(data) {
     await client('organization').insert(data);
   }
 
