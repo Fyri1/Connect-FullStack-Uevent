@@ -9,10 +9,10 @@ const EventElement = ({ event }) => {
 
   return (
     <div className="px-3 py-5 gap-8 snap-x">
-      {/*  dark:border-dark-bg-700  */}
+      {/*  */}
       {/* <div className="col-sm-4 flex-col rounded-[20px] hover: bg-wh-700 bg-gray-100 "> */}
       <div className="  col-sm-4 flex-col rounded-[20px] 
-               duration-700 transform hover:bg-gray-600   p-2 rounded-lg  group relative w-full ">
+               duration-700  hover:bg-gray-800 p-2 rounded-lg group relative w-full ">
 
         <div className="h-full w-full">
           <div className="w-full h-full">
@@ -22,7 +22,7 @@ const EventElement = ({ event }) => {
           <div className="mb-3 flex items-center justify-between px-0 md:items-start">
             <div className="mb-3">
               <div className="bl1 flex pt-5">
-                <p className="text-lg pl-3 font-semibold text-gray-600 md:text-1xl dark:text-dark-text-400">14 квитня 18:00, ПТ</p>
+                <p className="text-lg pl-3 font-semibold text-gray-700 md:text-1xl dark:text-dark-text-400">14 квитня 18:00, ПТ</p>
               </div>
 
               {/* name event */}
@@ -63,9 +63,9 @@ const EventElement = ({ event }) => {
           <div className="mb-10 hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
             <p className="text-wight-700 text-lg text-white">{ event.city }</p>
             <div className="justify-between md:items-center lg:justify-between">
-              <button onClick={() => { location.href = `/event/${event.id}` }} className="fa fa-shopping-cart p-2 pl-11 pr-11 ї
-              bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg 
-              transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
+              <button onClick={() => { location.href = `/event/${event.id}` }} className="fa fa-shopping-cart p-2 pl-11 pr-11 
+             bg-indigo-500 border-2 border-indigo-500 text-gray-100  text-lg rounded-lg 
+              transition-colors duration-700 transform  ">
                 { t('eventCard.buy') }
               </button>
             </div>
