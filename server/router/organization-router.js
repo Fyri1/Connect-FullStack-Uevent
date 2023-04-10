@@ -36,7 +36,7 @@ router.post(
 );
 
 router.post(
-  '/create', tryCatch(Organization.createNewOrganization)
+  '/create/:step', tryCatch(Organization.saveNewOrganization)
 );
 
 export default router;
