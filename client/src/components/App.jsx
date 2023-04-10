@@ -62,7 +62,7 @@ const App = () => {
       <UserContext.Provider value={{currentUser: userInfo?.values || 'guest'}}>
         <BrowserRouter>
           <Header />
-          <main className='min-h-full relative'>
+          <main className='flex-initial'>
             <Routes>
               {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
               {/* {isGuest ? ( */}
@@ -109,7 +109,7 @@ const App = () => {
               </>
             </Routes>
           </main>
-          <Footer/>
+          <Footer />
         </BrowserRouter>
       </UserContext.Provider>
     </I18nextProvider>
