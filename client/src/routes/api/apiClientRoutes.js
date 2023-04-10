@@ -39,5 +39,5 @@ export default {
   getCities: () => [apiPath, 'city'].join('/'),
 
   getStepComplete: () => [apiPath, 'organization', 'steps'].join('/'),
-  createOrganization: () => [apiPath, 'organization', 'create'].join('/'),
+  createOrganization: (step) => [apiPath, 'organization', 'create', step].join('/'),
 };
