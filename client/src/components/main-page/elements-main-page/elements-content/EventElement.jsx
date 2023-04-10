@@ -9,7 +9,11 @@ const EventElement = ({ event }) => {
 
   return (
     <div className="px-3 py-5 gap-8 snap-x">
-      <div className="col-sm-4 flex-col rounded-[20px] hover:bg-wh-700 bg-gray-0 p-2 rounded-lg group relative w-full dark:bg-dark-bg-800 dark:border-dark-bg-700 ">
+      {/*  dark:border-dark-bg-700  */}
+      {/* <div className="col-sm-4 flex-col rounded-[20px] hover: bg-wh-700 bg-gray-100 "> */}
+      <div className="  col-sm-4 flex-col rounded-[20px] 
+               duration-700 transform hover:bg-gray-600   p-2 rounded-lg  group relative w-full ">
+
         <div className="h-full w-full">
           <div className="w-full h-full">
             <img className="rounded-[10px]" src="https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg" alt="" />
@@ -59,7 +63,9 @@ const EventElement = ({ event }) => {
           <div className="mb-10 hover:scale-10 text-white outline-none opacity-0 group-hover:opacity-100">
             <p className="text-wight-700 text-lg text-white">{ event.city }</p>
             <div className="justify-between md:items-center lg:justify-between">
-              <button onClick={() => { location.href = `/event/${event.id}` }} className="fa fa-shopping-cart p-2 pl-11 pr-11 bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
+              <button onClick={() => { location.href = `/event/${event.id}` }} className="fa fa-shopping-cart p-2 pl-11 pr-11 ї
+              bg-transparent border-2 border-indigo-500 text-indigo-500 text-lg rounded-lg 
+              transition-colors duration-700 transform hover:bg-indigo-500 hover:text-gray-100 focus:border-4 focus:border-indigo-300">
                 { t('eventCard.buy') }
               </button>
             </div>
