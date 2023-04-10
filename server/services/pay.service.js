@@ -4,10 +4,19 @@ import Organization from '../models/Organization.js';
 import * as dotenv from 'dotenv';
 import ApiError from '../exceptions/api-error.js';
 import Ticket from '../models/Ticket.js';
-import SendMail from './send-mail.js'
+import SendMail from './send-mail.js';
 dotenv.config();
 
 class PayService {
+  async checkValidKey(key) {
+    try {
+      const stripe = new Stripe(key);
+      const charge = await stripe.charges.list();
+      return charge;
+    } catch (err) {
+      throw ApiError.BadRequest(err);
+    }
+  }
 
   async getCoupons(user_id) {
     const { secret_key } = await Organization.findOrganizationByUserId(user_id);
@@ -86,7 +95,9 @@ class PayService {
       const userEmail = session.customer_details.email;
       const price = (session.amount_total / 100).toFixed(2);
       const name = session.customer_details.name;
-      return result === 'Success' ? await mail.send(userEmail, { price, name }, 'ticket') : 'Ok';
+      return result === 'Success'
+        ? await mail.send(userEmail, { price, name }, 'ticket')
+        : 'Ok';
     } catch (err) {
       console.log(err);
       throw ApiError.BadRequest('Reject');
@@ -142,7 +153,6 @@ class PayService {
       }
     }
   }
-
 }
 
 export default new PayService();
