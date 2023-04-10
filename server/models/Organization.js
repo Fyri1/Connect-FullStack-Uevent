@@ -1,5 +1,5 @@
 import client from '../client.js';
-import { stringify, v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import ApiError from '../exceptions/api-error.js';
 import _ from 'lodash';
 
