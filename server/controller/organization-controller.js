@@ -20,6 +20,7 @@ class Organization {
   }
 
   async createNewOrganization(req, _res) {
+    const { step } = req.params;
     const token = req.headers.authorization?.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);
     return await organizationService.createOrganization(id);
