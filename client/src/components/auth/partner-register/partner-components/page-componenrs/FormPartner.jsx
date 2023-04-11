@@ -31,7 +31,24 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
     link_organization: '',
   });
 
+  React.useEffect(() => {
 
+    const fetch = async () => {
+      setLoading(true);
+      try {
+        const response = await $api.get('http://localhost:8080/api/organization/info');
+        setPartnerData(response.data.values)
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    if (completeStep.step3.isComplete) {
+      fetch();
+    }
+  }, []);
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
