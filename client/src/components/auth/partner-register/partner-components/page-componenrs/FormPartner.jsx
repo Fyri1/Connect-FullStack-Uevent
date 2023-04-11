@@ -7,6 +7,7 @@ import TextField from '../../../../common/form/TextField.jsx';
 
 import clientRoutes from '.././../../../../routes/client/clientRoutes.js';
 import apiRoutes from '.././../../../../routes/api/apiClientRoutes.js';
+import Spinner from '../../../../common/Spinner.jsx'
 
 const FormPartner = () => {
   const navigate = useNavigate();
