@@ -47,8 +47,6 @@ const TextField = ({ id, name, type, min, data, setData, errors, setErrors, chil
     }
   };
 
-  console.log(id)
-
   return (
     <div className="w-full px-[5%]">
       <div data-popover-target={"error-" + id} data-popover-placement="right" data-popover-trigger="none" className="relative z-0 w-full mb-1 group">
