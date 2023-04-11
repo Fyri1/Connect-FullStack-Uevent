@@ -6,9 +6,9 @@ import FormPay from './page-componenrs/FormPay.jsx';
 import Agreement from './page-componenrs/Agreement.jsx';
 const getPageStape = (setter, completeStep) => {
   return {
-    1: <TermUse setCompleteStep={setter} completeStep={completeStep} />,
+    1: <FormPartner />,
     2: <FormPay setCompleteStep={setter} completeStep={completeStep}/>,
-    3: <FormPartner />,
+    3: <TermUse setCompleteStep={setter} completeStep={completeStep} />,
     4: <Agreement />,
     5: <Finish />,
   };
