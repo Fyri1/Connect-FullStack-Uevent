@@ -3,6 +3,7 @@ const clientPath = 'http://127.0.0.1:5173';
 export default {
   fullMainPagePath: () => clientPath,
   mainPagePath: () => '/',
+  contact: () => '/contact',
 
   // Auth
   fullLoginPagePath: () => [clientPath, 'login'].join('/'),

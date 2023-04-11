@@ -15,7 +15,7 @@ const Navbar = () => {
         <NavbarElement name={t('navButtons.mainPage')} path={clientRoutes.mainPagePath()}/>
         <NavbarElement name={t('navButtons.partnerRegister')} path={clientRoutes.partnershipRegisterPagePath()}/>
         <NavbarElement name={t('navButtons.about')} path={clientRoutes.mainPagePath()}/>
-        <NavbarElement name={t('navButtons.contact')} path={clientRoutes.mainPagePath()}/>
+        <NavbarElement name={t('navButtons.contact')} path={clientRoutes.contact()}/>
 
         {/* <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} /> */}
         {/* с вот такой хуйней не отображает */}
