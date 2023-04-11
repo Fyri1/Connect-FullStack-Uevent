@@ -1,6 +1,6 @@
 import React from "react";
 
-import editForms from "../../../../utils/editForms.jsx";
+import editForms from "../../../../../utils/editForms.jsx";
 
 
 const TableRows = ({ data, dataCategory, setPopupActive, setPopupContent }) => {  
