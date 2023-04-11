@@ -52,10 +52,7 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // const response = await axios.post(apiRoutes.createOrganization(3), partnerData);
-      // console.log(response);
     } catch (e) {
       console.log(e);
       setErrors({
