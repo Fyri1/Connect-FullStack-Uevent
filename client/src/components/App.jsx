@@ -40,6 +40,7 @@ import Success from './common/Success.jsx'
 import Coupon from './profile/coupon/Coupon.jsx'
 
 import Contact from "./common/header/Contact.jsx"
+import About from  "./common/header/About.jsx"
 
 
 // import Rules from './auth/RulesUser.jsx';
@@ -83,6 +84,7 @@ const App = () => {
                 <Route path="/coupon" element={<Coupon />} />
 
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
 
 
                 {/* neSral Vilsan */}

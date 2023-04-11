@@ -4,6 +4,7 @@ export default {
   fullMainPagePath: () => clientPath,
   mainPagePath: () => '/',
   contact: () => '/contact',
+  about: () => '/about',
 
   // Auth
   fullLoginPagePath: () => [clientPath, 'login'].join('/'),
