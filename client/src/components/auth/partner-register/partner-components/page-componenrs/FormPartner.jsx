@@ -31,13 +31,7 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
     link_organization: '',
   });
 
-  // React.useEffect(() => {
-  //   console.log(errors);
-  // }, [errors]);
 
-  // React.useEffect(() => {
-  //   console.log(partnerData);
-  // }, [partnerData]);
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
