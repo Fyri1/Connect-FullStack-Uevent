@@ -10,6 +10,8 @@ import apiRoutes from '.././../../../../routes/api/apiClientRoutes.js';
 import Spinner from '../../../../common/Spinner.jsx'
 
 const FormPartner = ({ setCompleteStep, completeStep }) => {
+  const [isLoadingButton, setLoadingButton] = React.useState(false);
+  const [isLoading, setLoading] = React.useState(false)
 
   const [partnerData, setPartnerData] = React.useState({
     name_organization: '',
