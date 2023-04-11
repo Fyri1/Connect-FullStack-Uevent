@@ -7,8 +7,8 @@ import Agreement from './page-componenrs/Agreement.jsx';
 const getPageStape = (setter, completeStep) => {
   return {
     1: <TermUse setCompleteStep={setter} completeStep={completeStep} />,
-    2: <FormPay setCompleteStep={setter} completeStep={completeStep}/>,
-    3: <FormPartner />,
+    2: <FormPay setCompleteStep={setter} completeStep={completeStep} />,
+    3: <FormPartner setCompleteStep={setter} completeStep={completeStep} />,
     4: <Agreement />,
     5: <Finish />,
   };
