@@ -9,8 +9,7 @@ import clientRoutes from '.././../../../../routes/client/clientRoutes.js';
 import apiRoutes from '.././../../../../routes/api/apiClientRoutes.js';
 import Spinner from '../../../../common/Spinner.jsx'
 
-const FormPartner = () => {
-  const navigate = useNavigate();
+const FormPartner = ({ setCompleteStep, completeStep }) => {
 
   const [partnerData, setPartnerData] = React.useState({
     name_organization: '',
