@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import $api from '../../../../../../utils/api.js'
 import { useNavigate } from 'react-router-dom';
 
 import InputField from '../../../../common/form/InputField.jsx';
