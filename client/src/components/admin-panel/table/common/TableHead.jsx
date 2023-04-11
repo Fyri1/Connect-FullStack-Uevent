@@ -1,9 +1,9 @@
 import React from 'react';
 
-import DropdownButton from '../../common/dropdown-menu/DropdownButton.jsx';
-import ToggleSwitchDropdownElement from '../../common/dropdown-menu/ToggleSwitchDropdownElement.jsx';
-import RadioDropdownElement from '../../common/dropdown-menu/RadioDropdownElement.jsx';
-import editForms from '../../../../utils/editForms.jsx';
+import DropdownButton from '../../../common/dropdown-menu/DropdownButton.jsx';
+import ToggleSwitchDropdownElement from '../../../common/dropdown-menu/ToggleSwitchDropdownElement.jsx';
+import RadioDropdownElement from '../../../common/dropdown-menu/RadioDropdownElement.jsx';
+import editForms from '../../../../../utils/editForms.jsx';
 
 
 const TableHead = ({ data, dataCategory, setPopupContent, setPopupActive }) => {
