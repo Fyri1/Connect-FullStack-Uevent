@@ -2,7 +2,7 @@ import multer from 'multer';
 
 const fileStorageEngineAvatar = multer.diskStorage({
   destination: (_req, _file, cb) => {
-    cb(null, './avatars');
+    cb(null, './assets/avatars');
   },
   filename: (_req, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`);
@@ -10,13 +10,13 @@ const fileStorageEngineAvatar = multer.diskStorage({
 });
 const fileStorageEnginePost = multer.diskStorage({
   destination: (_req, _file, cb) => {
-    cb(null, './picture-post');
+    cb(null, './assets/picture-post');
   },
   filename: (_req, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
 const uploadAvatar = multer({ storage: fileStorageEngineAvatar });
-const uploadPost = multer({ storage: fileStorageEnginePost });
+const uploadFile = multer({ storage: fileStorageEnginePost });
 
-export { uploadAvatar, uploadPost };
+export { uploadAvatar, uploadFile };

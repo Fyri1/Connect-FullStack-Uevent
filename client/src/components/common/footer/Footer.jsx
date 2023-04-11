@@ -7,7 +7,7 @@ import WebsiteSocials from "./WebsiteSocials.jsx";
 
 const Footer = ({ i18n, lng }) => {
   return (
-    <footer className="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-00 ">
+    <footer className="flex-[0_0_auto] bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-00 ">
       <div className="container md:px-6 md:py-14 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
           <Logo />

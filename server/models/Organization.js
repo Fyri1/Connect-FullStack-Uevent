@@ -1,7 +1,8 @@
 import client from '../client.js';
-import { stringify, v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import ApiError from '../exceptions/api-error.js';
 import _ from 'lodash';
+import PayService from '../services/pay.service.js';
 
 class Organization {
   async getAllOrganization() {
@@ -83,11 +84,41 @@ class Organization {
     return data.length !== 0;
   }
 
-  async saveOrganization(data) {
-    await client('organization').insert(data);
+  async saveOrganization3({ orgData, user_id }) {
+    const {
+      name_organization,
+      phone_organization,
+      phone_staff,
+      address,
+      email,
+      description,
+      link_organization,
+    } = orgData;
+    await client('organization').update({
+      name_organization,
+      phone_organization,
+      phone_staff,
+      address,
+      email,
+      description,
+      link_organization,
+    }).where('user_id', '=', user_id);
   }
 
-  async createOrganization(user_id) {
+  async saveOrganizationStep2({ user_id, orgData }) {
+    await PayService.checkValidKey(orgData.secretKey);
+    const org = await this.findOrganizationByUserId(user_id);
+    await client('organization')
+      .update({
+        secret_key: orgData.secretKey,
+      })
+      .where('id', '=', org.id);
+    return {
+      status: 'Success',
+    };
+  }
+
+  async saveOrganizationStep1({ user_id }) {
     const org = await this.findOrganizationByUserId(user_id);
     if (!_.isEmpty(org)) {
       return;

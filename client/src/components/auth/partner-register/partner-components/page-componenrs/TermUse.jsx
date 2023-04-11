@@ -6,16 +6,16 @@ import apiClientRoutes from '../../../../../routes/api/apiClientRoutes.js';
 
 const RenderItemAccordion = ({
   setReading,
-  reading,
   head,
   body,
-  setCompleteStep,
   completeStep,
   count,
   open,
   handleOpen,
 }) => {
-  const [read, setRead] = React.useState(false || completeStep.step1.isComplete);
+  const [read, setRead] = React.useState(
+    false || completeStep.step1.isComplete
+  );
 
   return (
     <div className="mb-4" key={count}>
@@ -30,14 +30,6 @@ const RenderItemAccordion = ({
         <div className="w-full flex justify-end">
           <button
             onClick={() => {
-              if (reading.length === 5) {
-                setCompleteStep((prev) => ({
-                  ...prev,
-                  step1: {
-                    isComplete: true,
-                  },
-                }));
-              }
               setRead(!read);
               setReading((prev) => [...prev, head]);
             }}
@@ -61,23 +53,27 @@ const RenderItemAccordion = ({
 };
 
 const TermUse = ({ setCompleteStep, completeStep }) => {
-  React.useEffect(() => {
-    const fetch = async () => {
-      try {
-        const response = await $api.post(apiClientRoutes.createOrganization());
-        console.log(response.data.values);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    if (!completeStep['step1'].isComplete) {
-      fetch();
-      console.log('1');
-    }
-  }, [completeStep.step1.isComplete]);
-
   const [open, setOpen] = React.useState(0);
   const [reading, setReading] = React.useState([]);
+
+  const handleForm = async (e) => {
+    e.preventDefault();
+    if (reading.length === 6) {
+      try {
+        const response = await $api.post(apiClientRoutes.createOrganization(1));
+        setCompleteStep((prev) => ({
+          ...prev,
+          step1: {
+            isComplete: true,
+          },
+        }));
+        console.log(response);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
+
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
@@ -95,18 +91,19 @@ const TermUse = ({ setCompleteStep, completeStep }) => {
               can do for you.
             </p>
           </div>
-          <div className="flex flex-wrap sm:mx-auto -mx-2">
+          <form
+            onSubmit={handleForm}
+            className="flex flex-wrap sm:mx-auto -mx-2"
+          >
             {textTermUse().map((item, i) => (
               <div key={i} className="w-full lg:w-1/2 lg:px-4 lg:py-2">
                 {item[`text${i + 1}`].map(({ head, body, iter }) => {
                   return (
                     <RenderItemAccordion
-                      reading={reading}
                       setReading={setReading}
                       key={iter}
                       head={head}
                       body={body}
-                      setCompleteStep={setCompleteStep}
                       completeStep={completeStep}
                       count={iter}
                       open={open}
@@ -117,7 +114,7 @@ const TermUse = ({ setCompleteStep, completeStep }) => {
                 })}
               </div>
             ))}
-          </div>
+          </form>
         </div>
       </section>
     </div>

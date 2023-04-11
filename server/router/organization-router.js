@@ -22,8 +22,8 @@ router.post(
   tryCatch(Organization.createPromoCodes)
 );
 
-router.post(
-  '/register-organization/',
+router.patch(
+  '/organization/update',
   body('name').isLength({ min: 3, max: 30 }).trim(),
   body('phone_org').isLength({ min: 4, max: 13 }).trim(),
   body('phone_staff').isLength({ min: 4, max: 13 }).trim(),
@@ -36,7 +36,7 @@ router.post(
 );
 
 router.post(
-  '/create', tryCatch(Organization.createNewOrganization)
+  '/create/:step', tryCatch(Organization.saveNewOrganization)
 );
 
 export default router;

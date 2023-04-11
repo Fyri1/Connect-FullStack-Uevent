@@ -40,8 +40,8 @@ class CategoryService {
     return await Organization.getStep(userId);
   }
 
-  async createOrganization (userId) {
-    return await Organization.createOrganization(userId);
+  async saveNewOrganization (data) {
+    return await Organization['saveOrganizationStep' + data.step](data);
   }
 
   async createPromoCodes(id, { count, discount }) {

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TableHead from './TableHead.jsx';
-import TableRows from './TableRow.jsx';
+import TableHead from './common/TableHead.jsx';
+import TableRows from './common/TableRow.jsx';
 import Popup from '../../common/popup/Popup.jsx';
 
 
