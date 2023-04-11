@@ -11,6 +11,7 @@ import Content from './elements-main-page/Content.jsx';
 const MainPage = () => {
   const [t, i18n] = useTranslation('mainPage');
   const { isLoading, events } = useEvents();
+  console.log(events);
 
   return isLoading ? <Spinner /> : (
     <div className="main-content dark:bg-dark-bg-900">

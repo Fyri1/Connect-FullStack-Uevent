@@ -41,9 +41,8 @@ const FormPartner = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(apiRoutes.registerPath(), partnerData);
+      // const response = await axios.post(apiRoutes.createOrganization(3), partnerData);
       // console.log(response);
-      navigate(clientRoutes.mainPagePath());
     } catch (e) {
       console.log(e);
       setErrors({

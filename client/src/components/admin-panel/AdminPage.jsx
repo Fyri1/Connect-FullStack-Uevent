@@ -11,6 +11,7 @@ import { useCategories } from "../../../hooks/useCategories.js";
 import { useTickets } from "../../../hooks/useTickets.js";
 import { useOrganization } from "../../../hooks/useOrganization.js";
 
+
 const AdminPage = ({ dataCategory }) => {
   const dataHook = {
     users: useUsers,
@@ -31,7 +32,6 @@ const AdminPage = ({ dataCategory }) => {
         :
         <div>
           <h1>Welcome to Admin control panel СЛАВА УКРАИНЕ</h1>
-          <NavbarElement />
           <DataTable data={displayData[dataCategory].data.values} dataCategory={dataCategory} />
         </div>
       }

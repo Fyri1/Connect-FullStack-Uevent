@@ -8,18 +8,21 @@ const users = [
     login: 'Admin1',
     password: await encrypt('1234'),
     email: 'admin1@gmail.com',
+    phone_number: '+380409318431',
     role: 'admin',
   },
   {
     login: 'moderator',
     password: await encrypt('1234'),
     email: 'moder@gmail.com',
+    phone_number: '+380409318432',
     role: 'moderator',
   },
   {
     login: 'organization',
     password: await encrypt('1234'),
     email: 'organization@gmail.com',
+    phone_number: '+380409318433',
     role: 'organization',
   },
   {
@@ -27,6 +30,7 @@ const users = [
     password: await encrypt('1234'),
     email: 'user1@gmail.com',
     role: 'user',
+    phone_number: '+380409318434',
     content: "I think it's excellent!",
   },
   {
@@ -34,6 +38,7 @@ const users = [
     password: await encrypt('1234'),
     email: 'user3@gmail.com',
     role: 'user',
+    phone_number: '+380409318435',
     content: 'I am a macaque :)',
   },
   {
@@ -41,6 +46,7 @@ const users = [
     password: await encrypt('1234'),
     email: 'user4@gmail.com',
     role: 'user',
+    phone_number: '+380409318436',
     content: 'I peed yesterday XD',
   },
   {
@@ -48,6 +54,7 @@ const users = [
     password: await encrypt('1234'),
     email: 'user4@gmail.com',
     role: 'user',
+    phone_number: '+380409318437',
     content: 'If you read this text, the pipe will fall off)))))',
   },
   {
@@ -55,6 +62,7 @@ const users = [
     password: await encrypt('1234'),
     email: 'user5@gmail.com',
     role: 'user',
+    phone_number: '+380409318438',
     content: 'Niggas will always be slaves :O',
   },
 ];

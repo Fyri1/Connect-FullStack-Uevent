@@ -80,7 +80,10 @@ class Events {
     const token = req.headers.authorization?.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);
     return await eventService.createFavoriteEvent({ eventId, userId: id });
+  }
 
+  async eventEploadFile(req, _res) {
+    return { filename: req.file['filename'] };
   }
 
   async updateEvent(req, _res) {

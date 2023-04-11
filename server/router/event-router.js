@@ -6,7 +6,7 @@ import adminRoutes from '../routes/admin-routes.js';
 import validationErrorEvent from '../middlewares/validationError.event.js';
 import tryCatch from '../utils/try-catch.event.js';
 import eventAccessEnied from '../middlewares/event.access-enied.js';
-import validationErrorCard from '../middlewares/validationError.event-card.js';
+import { uploadFile } from '../middlewares/upload-file.js'
 
 const router = Express.Router();
 
@@ -89,6 +89,12 @@ router.post(
   adminRoutes.eventCreateCommentPath(),
   body('content').not().isEmpty().escape().trim(),
   tryCatch(Events.createComment)
+);
+
+router.post(
+  adminRoutes.eventEploadFile(),
+  uploadFile.single('image'),
+  tryCatch(Events.eventEploadFile)
 );
 
 router.post(

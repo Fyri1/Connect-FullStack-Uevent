@@ -41,6 +41,7 @@ export default {
   eventAllUsersSellTicketByEventId: () =>
     [apiPath, ':id', 'ticket', 'users'].join('/'),
     eventCreateFavorite: () => [apiPath, ':id', 'favorite'].join('/'),
+    eventEploadFile: () => [apiPath, ':id', 'upload'].join('/'),
   // Categories
   categoriesGetPath: () => [apiPath].join('/'),
   categoryIdGetPath: () => [apiPath, ':id'].join('/'),

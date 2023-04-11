@@ -40,7 +40,6 @@ const TableHead = ({ data, dataCategory, setPopupContent, setPopupActive }) => {
     setPopupActive(true);
   }
 
-
   const headColumnNameElements = keys.map((key, i) => {
     return <th scope="col" className=" p-4" key={i}>{key}</th>;
   });
