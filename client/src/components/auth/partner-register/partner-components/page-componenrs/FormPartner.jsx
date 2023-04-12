@@ -63,10 +63,10 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
         }
       }))
     } catch (e) {
-      console.log(e);
+      // console.log(e.response.data.errors.errors);
       setErrors({
         ...errors,
-        ...e.response.partnerData.errors.errors.reduce((acc, i) => {
+        ...e.response.data.errors.errors.reduce((acc, i) => {
           return {
             ...acc,
             [i.param]: i.msg,
