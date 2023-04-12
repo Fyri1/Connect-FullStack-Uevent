@@ -52,7 +52,16 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
+    setLoadingButton(true);
     try {
+      const response = await $api.post(apiRoutes.createOrganization(3), partnerData);
+      console.log(response);
+      setCompleteStep((prev) => ({
+        ...prev,
+        step3: {
+          isComplete: true,
+        }
+      }))
     } catch (e) {
       console.log(e);
       setErrors({
