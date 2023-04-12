@@ -6,7 +6,6 @@ import organizationValidate from '../middlewares/organization-validation.js';
 import tryCatch from '../utils/try-catch.event.js';
 const router = Express.Router();
 
-
 router.get('/', tryCatch(Organization.getAllOrganization));
 router.get('/info', tryCatch(Organization.getOrganizationByUserId));
 
