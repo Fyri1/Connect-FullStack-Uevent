@@ -7,6 +7,10 @@ class CategoryService {
     return await Organization.getAllOrganization();
   }
 
+  async getOrganizationByUserId(userId) {
+    return await Organization.findOrganizationByUserId(userId);
+  }
+
   // async createOrganization({
   //   body: {
   //     name,

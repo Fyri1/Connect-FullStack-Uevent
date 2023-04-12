@@ -8,6 +8,7 @@ const router = Express.Router();
 
 
 router.get('/', tryCatch(Organization.getAllOrganization));
+router.get('/info', tryCatch(Organization.getOrganizationByUserId));
 
 router.get('/steps', tryCatch(Organization.getSteps));
 

@@ -9,6 +9,12 @@ class Organization {
     return await organizationService.getAllOrganization();
   }
 
+  async getOrganizationByUserId(req, _res) {
+    const token = req.headers.authorization?.split(' ')[1];
+    const { id } = TokenService.validateAccessToken(token);
+    return await organizationService.getOrganizationByUserId(id);
+  }
+
   async getSteps(req, _res) {
     const token = req.headers.authorization?.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);
