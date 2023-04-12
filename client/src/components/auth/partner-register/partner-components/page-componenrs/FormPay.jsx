@@ -26,6 +26,10 @@ const FormPay = ({completeStep, setCompleteStep}) => {
   };
 
   return (
+    // сделать текст красиво расписать почему страйп регистр 
+    // почему именно страйп , ссылка на него 
+    // пищем чтобі ввели ключ
+    // кнопку и поле нормально сделать
     <div className="animate-active-page">
       <div className="bg-white dark:bg-gray-900">
         <div className="flex">

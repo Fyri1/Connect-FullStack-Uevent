@@ -20,7 +20,7 @@ const Header = () => {
   const [ t, i18n ] = useTranslation('header');
 
   return (
-    <header className="h-64">
+    <header className="h-10">
       <nav className="fixed z-50 w-full bg-blue-600 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-dark-bg-800">
         <div className="flex flex-wrap justify-between items-center w-full mx-auto container">
           <Logo />
