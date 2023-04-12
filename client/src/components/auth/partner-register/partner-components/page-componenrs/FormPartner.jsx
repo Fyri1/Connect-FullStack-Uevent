@@ -78,7 +78,7 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
     }
   };
 
-  return (
+  return isLoading ? <Spinner /> : (
     <form onSubmit={handleRegisterSubmit} className="animate-active-page">
       <div className="w-full bg-transparent px-[25%] pt-10 space-y-4">
         <div className="w-full bg-white rounded-lg shadow dark:border dark:bg-dark-bg-800 dark:border-dark-bg-700">
