@@ -2,4 +2,4 @@
 node_modules
 requast.js
 assets
-database.sqlite
+*.sqlite
