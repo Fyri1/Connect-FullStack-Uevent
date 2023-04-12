@@ -97,7 +97,7 @@ class Organization {
     await client('organization').update({
       name_organization,
       phone_organization,
-      phone_staff,
+      phone_staff: user.phone_number,
       address,
       email,
       description,
