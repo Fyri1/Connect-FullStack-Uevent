@@ -73,6 +73,8 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
           };
         }, {}),
       });
+    } finally {
+      setLoadingButton(false)
     }
   };
 
