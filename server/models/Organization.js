@@ -85,6 +85,7 @@ class Organization {
   }
 
   async saveOrganizationStep3({ orgData, user_id }) {
+    const user = await User.findUserId(user_id);
     const {
       name_organization,
       phone_organization,
