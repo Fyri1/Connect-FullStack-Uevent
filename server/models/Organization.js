@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ApiError from '../exceptions/api-error.js';
 import _ from 'lodash';
 import PayService from '../services/pay.service.js';
+import User from './User.js';
 
 class Organization {
   async getAllOrganization() {
