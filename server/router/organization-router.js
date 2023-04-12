@@ -25,8 +25,8 @@ router.post(
 
 router.patch(
   '/organization/update',
-  body('name').isLength({ min: 3, max: 30 }).trim(),
-  body('phone_org').isLength({ min: 4, max: 13 }).trim(),
+  body('name_organization').isLength({ min: 3, max: 30 }).trim(),
+  body('phone_organization').isLength({ min: 4, max: 13 }).trim(),
   body('phone_staff').isLength({ min: 4, max: 13 }).trim(),
   body('address').isLength({ min: 3 }).trim(),
   body('email').isEmail().normalizeEmail().trim(),
