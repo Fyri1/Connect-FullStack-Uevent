@@ -84,7 +84,7 @@ class Organization {
     return data.length !== 0;
   }
 
-  async saveOrganization3({ orgData, user_id }) {
+  async saveOrganizationStep3({ orgData, user_id }) {
     const {
       name_organization,
       phone_organization,
