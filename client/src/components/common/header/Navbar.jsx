@@ -14,8 +14,8 @@ const Navbar = () => {
       <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
         <NavbarElement name={t('navButtons.mainPage')} path={clientRoutes.mainPagePath()}/>
         <NavbarElement name={t('navButtons.partnerRegister')} path={clientRoutes.partnershipRegisterPagePath()}/>
-        <NavbarElement name={t('navButtons.about')} path={clientRoutes.mainPagePath()}/>
-        <NavbarElement name={t('navButtons.contact')} path={clientRoutes.mainPagePath()}/>
+        <NavbarElement name={t('navButtons.about')} path={clientRoutes.about()}/>
+        <NavbarElement name={t('navButtons.contact')} path={clientRoutes.contact()}/>
 
         {/* <SearchInput placeholder="Enter event name" setSearchInput={setSearchInput} /> */}
         {/* с вот такой хуйней не отображает */}

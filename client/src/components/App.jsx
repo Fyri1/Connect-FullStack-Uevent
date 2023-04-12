@@ -38,6 +38,11 @@ import organizationRoutes from '../routes/client/organizationRoutes.js';
 import Success from './common/Success.jsx'
 
 import Coupon from './profile/coupon/Coupon.jsx'
+
+import Contact from "./common/header/Contact.jsx"
+import About from  "./common/header/About.jsx"
+
+
 // import Rules from './auth/RulesUser.jsx';
 import { useUserProfile } from '../../hooks/user/useUserProfile.js'
 import Spinner from './common/Spinner.jsx';
@@ -77,6 +82,9 @@ const App = () => {
                 <Route path="/MyTicket" element={<MyTicket />} />
                 <Route path="/success" element={<Success />} />
                 <Route path="/coupon" element={<Coupon />} />
+
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
 
 
                 {/* neSral Vilsan */}

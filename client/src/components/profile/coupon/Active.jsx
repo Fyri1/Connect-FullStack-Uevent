@@ -5,9 +5,7 @@ import { useTranslation } from 'react-i18next';
 const Active = () => {
   return (
     <div>
-			{/* Прежде чем пытаться пофиксить - подумай "надо ли оно тебе ?" */}
-			{/* Before trying to fix - will think "do you need it?" */}
-			{/* I dont know how i will fix my arrow. But its problem future's me */}
+
     	<ul className="left-0 right-0 -bottom-18 mt-3 p-3">
       	<li className="text-xs uppercase text-gray-400 border-b border-gray border-solid py-2 px-5 mb-2">
         	Active
