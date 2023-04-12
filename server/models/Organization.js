@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ApiError from '../exceptions/api-error.js';
 import _ from 'lodash';
 import PayService from '../services/pay.service.js';
+import User from './User.js';
 
 class Organization {
   async getAllOrganization() {
@@ -84,11 +85,11 @@ class Organization {
     return data.length !== 0;
   }
 
-  async saveOrganization3({ orgData, user_id }) {
+  async saveOrganizationStep3({ orgData, user_id }) {
+    const user = await User.findUserId(user_id);
     const {
       name_organization,
       phone_organization,
-      phone_staff,
       address,
       email,
       description,
@@ -97,7 +98,7 @@ class Organization {
     await client('organization').update({
       name_organization,
       phone_organization,
-      phone_staff,
+      phone_staff: user.phone_number,
       address,
       email,
       description,

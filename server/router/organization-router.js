@@ -6,8 +6,8 @@ import organizationValidate from '../middlewares/organization-validation.js';
 import tryCatch from '../utils/try-catch.event.js';
 const router = Express.Router();
 
-
 router.get('/', tryCatch(Organization.getAllOrganization));
+router.get('/info', tryCatch(Organization.getOrganizationByUserId));
 
 router.get('/steps', tryCatch(Organization.getSteps));
 
@@ -24,8 +24,8 @@ router.post(
 
 router.patch(
   '/organization/update',
-  body('name').isLength({ min: 3, max: 30 }).trim(),
-  body('phone_org').isLength({ min: 4, max: 13 }).trim(),
+  body('name_organization').isLength({ min: 3, max: 30 }).trim(),
+  body('phone_organization').isLength({ min: 4, max: 13 }).trim(),
   body('phone_staff').isLength({ min: 4, max: 13 }).trim(),
   body('address').isLength({ min: 3 }).trim(),
   body('email').isEmail().normalizeEmail().trim(),
@@ -36,7 +36,17 @@ router.patch(
 );
 
 router.post(
-  '/create/:step', tryCatch(Organization.saveNewOrganization)
+  '/create/:step',
+  body('name_organization').isLength({ min: 3, max: 30 }).trim(),
+  body('phone_organization')
+    .isLength({ min: 4, max: 13 })
+    .matches(/^((\+?3)?8)?((0\(\d{2}\)?)|(\(0\d{2}\))|(0\d{2}))\d{7}$/)
+    .trim(),
+  body('address').isLength({ min: 3 }).trim(),
+  body('email').isEmail().normalizeEmail().trim(),
+  body('description').isLength({ min: 10, max: 150 }).trim(),
+  organizationValidate,
+  tryCatch(Organization.saveNewOrganization)
 );
 
 export default router;
