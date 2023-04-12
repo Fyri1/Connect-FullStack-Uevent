@@ -89,7 +89,6 @@ class Organization {
     const {
       name_organization,
       phone_organization,
-      phone_staff,
       address,
       email,
       description,
