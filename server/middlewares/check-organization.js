@@ -4,7 +4,7 @@ import User from '../models/User.js';
 
 const validRoles = ['admin', 'organization'];
 
-export default async (req, res, next) => {
+export default async (req, _res, next) => {
   try {
     const token = req.headers['authorization'].split(' ')[1];
     const { id: userId } = TokenService.validateAccessToken(token);
