@@ -7,6 +7,9 @@ import UserContext from '../context/UserContext.js'
 
 import './css/app.css';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Common
 import Header from './common/header/Header.jsx';
 import PageNotFound from './common/PageNotFound.jsx';
@@ -118,6 +121,7 @@ const App = () => {
             </Routes>
           </main>
           <Footer />
+          <ToastContainer limit={1}/>
         </BrowserRouter>
       </UserContext.Provider>
     </I18nextProvider>
