@@ -14,6 +14,7 @@ const StapperProgress = ({
 }) => {
   const [t, i18n] = useTranslation('header');
   const isCompleteStep = completeStep['step' + stepper.iter].isComplete;
+  const stepTextWar = completeStep['step' + stepper.iter].textWarning;
   const handleClick = () => {
     if (stepper.iter === 5) {
       setStepper((prev) => ({
@@ -72,7 +73,7 @@ const StapperProgress = ({
           onClick={(e) => {
             if (!isCompleteStep) {
               
-              const id = toast.warning("Вы не прочитали все правила");
+              const id = toast.warning(stepTextWar);
               toast.clearWaitingQueue({ containerId: id });
               console.log(id)
               return;
