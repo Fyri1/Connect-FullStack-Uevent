@@ -13,8 +13,8 @@ const StapperProgress = ({
   currentStep,
 }) => {
   const [t, i18n] = useTranslation('header');
-  const isCompleteStep = completeStep['step' + stepper.iter].isComplete;
-  const stepTextWar = completeStep['step' + stepper.iter].textWarning;
+  const isCompleteStep = completeStep['step' + stepper.iter]?.isComplete || true;
+  const stepTextWar = completeStep['step' + stepper.iter]?.textWarning;
   const handleClick = () => {
     if (stepper.iter === 5) {
       setStepper((prev) => ({
