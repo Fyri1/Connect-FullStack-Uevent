@@ -9,7 +9,7 @@ const getPageStape = (setter, completeStep) => {
     1: <TermUse setCompleteStep={setter} completeStep={completeStep} />,
     2: <FormPay setCompleteStep={setter} completeStep={completeStep} />,
     3: <FormPartner setCompleteStep={setter} completeStep={completeStep} />,
-    4: <Agreement />,
+    4: <Agreement setCompleteStep={setter} completeStep={completeStep}/>,
     5: <Finish />,
   };
 };
