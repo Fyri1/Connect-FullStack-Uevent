@@ -21,6 +21,7 @@ const StapperProgress = ({
         ...prev,
         ['step' + stepper.iter]: true,
       }));
+      location.href = '/admin'
       return;
     }
     setCurrentStep(currentStep + 1);
