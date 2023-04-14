@@ -63,7 +63,6 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
         }
       }))
     } catch (e) {
-      // console.log(e.response.data.errors.errors);
       setErrors({
         ...errors,
         ...e.response.data.errors.errors.reduce((acc, i) => {
@@ -138,7 +137,7 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
               </TextField>
 
               <div className="w-full flex justify-center">
-                <button disabled={completeStep.step3.isComplete} type="submit" className="w-[50%] flex justify-center items-center px-5 mt-5 py-2.5 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                <button disabled={completeStep.step3.isComplete} type="submit" className="w-[50%] flex justify-center items-center px-5 mt-5 py-2.5 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:opacity-80">
                 {!isLoadingButton ? (
                 'submit'
                 ) : (
