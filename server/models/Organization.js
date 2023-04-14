@@ -118,6 +118,18 @@ class Organization {
       status: 'Success',
     };
   }
+  async saveOrganizationStep4({ user_id, orgData }) {
+    const org = await this.findOrganizationByUserId(user_id);
+    await client('organization')
+      .update({
+        is_confirmed: orgData.isConfirmed,
+      })
+      .where('id', '=', org.id);
+      await User.updateRole(user_id, 'organization');
+    return {
+      status: 'Success',
+    };
+  }
 
   async saveOrganizationStep1({ user_id }) {
     const org = await this.findOrganizationByUserId(user_id);
