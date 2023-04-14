@@ -16,7 +16,7 @@ export default () => {
     step3: { isComplete: false },
     step4: { isComplete: false },
   });
-
+  
   React.useEffect(() => {
     const fetch = async () => {
       try {
