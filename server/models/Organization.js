@@ -45,7 +45,7 @@ class Organization {
         iter: countSteps,
       };
     }
-    return { isConfirm: organization.is_confirmed };
+    return { isRegister: true };
   }
 
   async createPromoCode(userId, discount) {
