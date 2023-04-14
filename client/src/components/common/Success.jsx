@@ -15,7 +15,7 @@ const Success = () => {
           'http://localhost:8080/api/pay/create-session-retrieve',
           { sessionId, eventId }
         );
-        console.log(response.data);
+        console.log(response);
       } catch (err) {
         console.error(err);
       } finally {
@@ -24,7 +24,6 @@ const Success = () => {
     };
     fetch();
   }, []);
-  console.log(isLoading);
   return (
     <div>
       <div className="h-screen flex items-center justify-center">
