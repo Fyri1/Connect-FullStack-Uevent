@@ -29,6 +29,24 @@ class User {
     return data[0];
   }
 
+  async getUserInfo(id) {
+    const data = await client('users')
+      .select(
+        'id',
+        'login',
+        'email',
+        'first_name',
+        'second_name',
+        'hidden',
+        'last_name',
+        'picture',
+        'created_at'
+      )
+      .where('id', '=', id);
+    const userRole = await this.getRole(id);
+    return { ...userRole[0], ...data[0] };
+  }
+
   async getAllUsers() {
     // ya tak ponimau ti eto spizdil iz usofa ibo zapros hyinya
     const data = await client('users').select('*');
@@ -43,8 +61,12 @@ class User {
   }
 
   async getFavoriteEvent(id) {
-    const eventIds = await client('user_favorite_events').select('event_id').where('user_id', '=', id);
-    const promisEvents = eventIds.map(({ event_id }) => Event.findOne(event_id));
+    const eventIds = await client('user_favorite_events')
+      .select('event_id')
+      .where('user_id', '=', id);
+    const promisEvents = eventIds.map(({ event_id }) =>
+      Event.findOne(event_id)
+    );
     return await Promise.all(promisEvents);
   }
 
@@ -88,9 +110,7 @@ class User {
   }
 
   async saveAvatar(userId, filename) {
-    await client('users')
-      .update('picture', filename)
-      .where('id', '=', userId);
+    await client('users').update('picture', filename).where('id', '=', userId);
   }
 
   async setHidden(id) {
@@ -114,6 +134,10 @@ class User {
     } catch (err) {
       throw err;
     }
+  }
+
+  async updateRole(user_id, role) {
+    await client('roles').update({ role }).where('user_id', '=', user_id);
   }
 
   async isEqualLogin(login) {
