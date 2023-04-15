@@ -32,7 +32,7 @@ export default () => {
         setStepper(response.data.values);
         setCurrentStep(response.data.values.iter);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       } finally {
         setLoading(false);
       }

@@ -14,7 +14,7 @@ class UserService {
   async getInfoUser(bearerToken) {
     const token = bearerToken?.split(' ')[1];
     const { id } = tokenService.validateAccessToken(token);
-    return User.findUserId(id);
+    return await User.getUserInfo(id);
   }
 
   async getUserById({ id }) {

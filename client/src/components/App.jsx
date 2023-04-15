@@ -121,7 +121,7 @@ const App = () => {
             </Routes>
           </main>
           <Footer />
-          <ToastContainer limit={1}/>
+          <ToastContainer />
         </BrowserRouter>
       </UserContext.Provider>
     </I18nextProvider>

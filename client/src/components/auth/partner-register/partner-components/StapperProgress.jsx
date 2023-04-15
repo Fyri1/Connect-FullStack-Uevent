@@ -13,14 +13,15 @@ const StapperProgress = ({
   currentStep,
 }) => {
   const [t, i18n] = useTranslation('header');
-  const isCompleteStep = completeStep['step' + stepper.iter].isComplete;
-  const stepTextWar = completeStep['step' + stepper.iter].textWarning;
+  const isCompleteStep = completeStep['step' + stepper.iter]?.isComplete || true;
+  const stepTextWar = completeStep['step' + stepper.iter]?.textWarning;
   const handleClick = () => {
     if (stepper.iter === 5) {
       setStepper((prev) => ({
         ...prev,
         ['step' + stepper.iter]: true,
       }));
+      location.href = '/admin'
       return;
     }
     setCurrentStep(currentStep + 1);
@@ -72,10 +73,8 @@ const StapperProgress = ({
           transition p-10 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center  `}
           onClick={(e) => {
             if (!isCompleteStep) {
-              
-              const id = toast.warning(stepTextWar);
-              toast.clearWaitingQueue({ containerId: id });
-              console.log(id)
+              toast.dismiss();
+              toast.warning('stepTextWar');
               return;
             }
             handleClick(e)

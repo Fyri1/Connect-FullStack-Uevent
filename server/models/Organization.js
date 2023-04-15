@@ -45,7 +45,7 @@ class Organization {
         iter: countSteps,
       };
     }
-    return { isConfirm: organization.is_confirmed };
+    return { isRegister: true };
   }
 
   async createPromoCode(userId, discount) {
@@ -114,6 +114,18 @@ class Organization {
         secret_key: orgData.secretKey,
       })
       .where('id', '=', org.id);
+    return {
+      status: 'Success',
+    };
+  }
+  async saveOrganizationStep4({ user_id, orgData }) {
+    const org = await this.findOrganizationByUserId(user_id);
+    await client('organization')
+      .update({
+        is_confirmed: orgData.isConfirmed,
+      })
+      .where('id', '=', org.id);
+      await User.updateRole(user_id, 'organization');
     return {
       status: 'Success',
     };
