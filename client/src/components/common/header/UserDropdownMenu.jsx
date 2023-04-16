@@ -11,6 +11,7 @@ import apiClientRoutes from '../../../routes/api/apiClientRoutes.js';
 import UserContext from '../../../context/UserContext.js';
 
 import defaultAvarat from '../../../temp/avatar.png';
+import $api from '../../../../utils/api.js';
 
 
 export default () => {
@@ -23,15 +24,13 @@ export default () => {
   const logoutButtonHandle = async (e) => {
     e.preventDefault();
     try {
-      // const JWTToken = localStorage.getItem("token")
-      // const instansAxios = axios.create();
-      // instansAxios.defaults.headers['Authorization'] = 'Bearer ' + JWTToken;
-      // await instansAxios.post(apiClientRouter.logoutPath());
+      const response = await $api.post(apiClientRoutes.logoutPath());
+      console.log(response);
       localStorage.removeItem('token');
-      location.href = '/';
+      // location.href = '/';
     } catch (err) {
       console.log(err);
-      navigate('/*');
+      navigate('/404');
     }
   };
 

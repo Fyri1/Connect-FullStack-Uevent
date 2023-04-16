@@ -6,9 +6,8 @@ const BASE_URL = 'http://localhost:8080';
 // Создать инстанс axios
 const $api = axios.create({
   baseURL: `${BASE_URL}/api`,
-  // withCredentials: true,
+  withCredentials: true,
 });
-
 function apiSetHeader(name, value) {
   if (value) {
     $api.defaults.headers[name] = value;
@@ -35,15 +34,16 @@ $api.interceptors.response.use(
   },
   async (error) => {
     const originalRequest = error.config;
-
     if (error.response.status === 401) {
       try {
-        const response = await axios.get(`${BASE_URL}/api/auth/refresh`);
-        console.log('abnoba');
-        localStorage.setItem('jwt', response.data.accessToken);
-        return $api.request(originalRequest);
+        const response = await axios.get(`${BASE_URL}/api/auth/refresh`, { withCredentials: true });
+        localStorage.setItem('token', response.data.accessToken);
+        console.log(response);
+        // return $api.request(originalRequest, {
+        //   "Authorization": 'Bearer ' + response.data.accessToken,
+        // });
       } catch (err) {
-        location.href = '/';
+        // location.href = '/';
         console.log(err);
       }
     }

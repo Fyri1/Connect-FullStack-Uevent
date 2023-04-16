@@ -24,6 +24,9 @@ const users = [
     email: 'organization@gmail.com',
     phone_number: '+380409318433',
     role: 'organization',
+    first_name: "Amogus",
+    second_name: "Abobus",
+    last_name: "Nigers",
   },
   {
     login: 'user1',
@@ -149,8 +152,8 @@ const createEventAndComment = async (id, user_id) => {
     description: 'abobus abobus',
     city: cities[0],
     address: 'Amogus1',
-    event_start: '2023-22-01',
-    event_end: '2023-23-01',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
   });
   const categories = await client('categories').select('categories.id');
   categories.map(async (category, count) => {
@@ -178,8 +181,8 @@ const createEvent = async (user_id, count) => {
     description: 'abobus abobus' + (count + 1),
     city: count !== 3 ? cities[count] : cities[0],
     address: 'Amogus' + (count + 1),
-    event_start: '2023-22-0' + (count + 1),
-    event_end: '2023-23-0' + (count + 2),
+    event_start: '2023-04-1' + (count + 1),
+    event_end: '2023-04-1' + (count + 2),
   });
   const category = await client('categories').select('categories.id');
   await client('event_categories').insert({
@@ -240,7 +243,7 @@ const createComment = async (event_id, user_id, content) => {
     console.log('\\--------------------/');
     process.exit();
   } catch (err) {
-    console.err(err);
+    console.error(err);
     process.exit();
   }
 })();
