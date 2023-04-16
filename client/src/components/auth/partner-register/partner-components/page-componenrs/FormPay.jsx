@@ -25,7 +25,7 @@ const FormPay = ({ completeStep, setCompleteStep }) => {
   };
 
   return (
-    <div className="animate-active-page">
+    <div className="animate-active-page ">
       <div class="bg-white relative flex flex-col justify-center overflow-hidden  py-12  dark:bg-gray-900 ">
         <div class="relative bg-white px-6 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl">
           <div class="mx-auto flex w-full max-w-md flex-col space-y-16">
