@@ -12,23 +12,25 @@ import commentRouter from './router/comment-router.js';
 import adminRouter from './router/admin-router.js';
 import categoryRouter from './router/category-router.js';
 import organozationRouter from './router/organization-router.js';
-import cityRouter from './router/city-route.js'
-import payRouter from './router/pay-router.js'
+import cityRouter from './router/city-route.js';
+import payRouter from './router/pay-router.js';
 import errorMiddleware from './middlewares/error-middleware.js';
 import ApiError from './exceptions/api-error.js';
 import SendMail from './services/send-mail.js';
 
-
 export default () => {
+  const corsConfig = {
+    origin: 'http://localhost:5173',
+    credentials: true,
+  };
+
   dotenv.config();
+
   const app = new Express({ logger: true });
   app.use(cookieParser());
-  app.use(
-    cors({
-      origin: '*',
-      credentials: true,
-    })
-  );
+
+  app.use(cors(corsConfig));
+  // app.options('Access-Control-Allow-Origin', cors(corsConfig));
 
   app.use(morgan('dev'));
   app.use(bodyParser.json());
@@ -47,7 +49,7 @@ export default () => {
   app.post('/api/text', async (req, res) => {
     const { email } = req.body;
     const massage = new SendMail();
-    const response = await massage.send(email, {}, 'ticket')
+    const response = await massage.send(email, {}, 'ticket');
     res.json({ response });
   });
 

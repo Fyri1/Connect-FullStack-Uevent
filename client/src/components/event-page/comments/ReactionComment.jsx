@@ -23,7 +23,6 @@ const ReactionComment = ({ commentId, data, currentUser }) => {
 
   useEffect(() => {
     const userReaction = data.find((item) => item.user_id === currentUser.id);
-    console.log(userReaction);
     setActiveReaction({
       like: !!userReaction?.is_like,
       dislike: _.isUndefined(userReaction?.is_like) ? false : !userReaction?.is_like, 
@@ -32,7 +31,6 @@ const ReactionComment = ({ commentId, data, currentUser }) => {
 
   const likeButtonClickHandle = async () => {
     try {
-      console.log('pidoras clicked like!');
       if (activeReactions.like) {
         await $api.delete(apiClientRoutes.deleteCommentReaction(commentId));
         setActiveReaction((prev) => ({ ...prev, like: false }));
@@ -52,7 +50,6 @@ const ReactionComment = ({ commentId, data, currentUser }) => {
 
   const dislikeButtonClickHandle = async () => {
     try {
-      console.log('pidoras clicked dislike!');
       if (activeReactions.dislike) {
         await $api.delete(apiClientRoutes.deleteCommentReaction(commentId));
         setActiveReaction((prev) => ({ ...prev, dislike: false }));
