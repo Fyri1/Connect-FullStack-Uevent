@@ -32,7 +32,6 @@ const FormPartner = ({ setCompleteStep, completeStep }) => {
   });
 
   React.useEffect(() => {
-
     const fetch = async () => {
       setLoading(true);
       try {

@@ -21,6 +21,9 @@ export default () => {
     const fetch = async () => {
       try {
         const response = await $api.get(apiClientRoutes.getStepComplete());
+        if (response.data.values.isRegister) {
+          location.href = '/admin';
+        }
         Object.entries(response.data.values)
           .filter((item) => item[0] !== 'iter')
           .forEach(([key, value]) => {

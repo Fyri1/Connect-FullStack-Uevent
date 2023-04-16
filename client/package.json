@@ -24,11 +24,12 @@
     "react-dom": "^18.2.0",
     "react-email": "^1.9.0",
     "react-i18next": "^12.1.1",
-    "react-jwt": "^1.1.8",
+    "react-mde": "^11.5.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.6.0",
     "react-select": "^5.7.2",
-    "react-toastify": "^9.1.2"
+    "react-toastify": "^9.1.2",
+    "showdown": "^2.1.0"
   },
   "devDependencies": {
     "@material-tailwind/react": "^1.4.2",

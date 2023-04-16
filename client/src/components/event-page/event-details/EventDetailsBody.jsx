@@ -11,26 +11,6 @@ const EventDetailsBody = ({ eventData, isFavorite }) => {
   const [t, i18n] = useTranslation('eventPage');
   
   const [isActive, setActive] = React.useState(isFavorite && isFavorite?.length !== 0);
-  const unfoldButtonHandle = () => {
-    console.log("pidorasa nado pokazat");
-    const textElement = document.getElementsByClassName("text-retracted")[0];
-    const textElementDiv = document.getElementsByClassName("main-event-content-retracted")[0];
-    console.log(textElement);
-    textElement.classList.remove("text-retracted");
-    textElement.classList.add("text-unfolded");
-    textElementDiv.classList.remove("main-event-content-retracted");
-    textElementDiv.classList.add("main-event-content-unfolded");
-  }
-
-  const addToCartButtonHandle = () => {
-    console.log('pidoras ho4et kypit bilet!');
-  // if (favorite) {
-  //   const findEvent = favorite.find((event) => event.id === eventData.id)
-  //   console.log('pipap')
-  //   if (findEvent.length !== 0) {
-  //     setActive(!isActive);
-  //   }
-  }
 
   const hendelClick = async () => {
     try {
@@ -46,6 +26,24 @@ const EventDetailsBody = ({ eventData, isFavorite }) => {
     <div>
       <div className="bg-burger bg-top pt-0.5 pb-32 hidden md:block">
         <div className="mt-8 flex">
+        <div className="circle">
+            <button className="bell border-indigo-500 text-indigo-500  px-2 py-2 m-2 transition 
+              duration-500 ease select-none hover:text-white 
+              hover:bg-indigo-600 focus:outline-none focus:shadow-outline 
+              rounded-full
+            "
+            onClick={hendelClick}
+            > 
+                <svg stroke="currentColor" fill="currentColor" 
+                strokeWidth="0" viewBox="0 0 512 512" height="1em"
+                 width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32"
+                   d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08
+                    96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 
+                    183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path>
+              </svg>
+            </button>
+          </div>
           <img className="h-44 mx-auto" src="" alt=""/>
         </div>
         <nav className="mt-10 flex">
@@ -59,23 +57,7 @@ const EventDetailsBody = ({ eventData, isFavorite }) => {
             <img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Just a flower" className="w-full rounded-lg" />
           </div>
 
-          <div className="circle">
-            <button className="bell border-indigo-500 text-indigo-500  px-2 py-2 m-2 transition 
-              duration-500 ease select-none hover:text-white 
-              hover:bg-indigo-600 focus:outline-none focus:shadow-outline 
-              rounded-full
-            "> 
-                <svg stroke="currentColor" fill="currentColor" 
-                strokeWidth="0" viewBox="0 0 512 512" height="1em"
-                 width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32"
-                   d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08
-                    96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 
-                    183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
+          
 
         <div className="pt-5 sm:pt-0 sm:pl-10 col-span-3 text-gray-600 dark:text-dark-text-400">
           <p className="mt-2 text-sm">

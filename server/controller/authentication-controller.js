@@ -72,7 +72,6 @@ class Authorization {
         httpOnly: true,
       });
       res.status(200);
-      console.log(accessToken);
       res.json({
         massage: 'You authorization, welcome!',
         accessToken,
@@ -83,20 +82,16 @@ class Authorization {
     }
   }
   async authLogout(req, res, next) {
-    // const { refreshToken } = req.cookies;
-    // if (!refreshToken) {
-    //   return res.status(401).end('GG');
-    // }
+    const { refreshToken } = req.cookies;
+    if (!refreshToken) {
+      return res.status(401).end('GG');
+    }
     try {
-      console.log(req.headers);
-      const token = req.headers.authorization?.split(' ');
-      console.log(token);
+      const token = req.headers.authorization?.split(' ')[1];
       TokenService.validateAccessToken(token);
-    //   res.clearCookie('refreshToken');
+      res.clearCookie('refreshToken');
       res.status(200);
-      res.json({
-        massage: `${user.login} logout, see you later`,
-      });
+      res.send('Ok');
     } catch (err) {
       res.clearCookie('refreshToken');
       next(err);
@@ -170,7 +165,6 @@ class Authorization {
   }
   async refreshToken(req, res, next) {
     const { refreshToken } = req.cookies;
-    console.log(refreshToken);
     if (!refreshToken) {
       next(ApiError.UnauthorizedError());
       return;
