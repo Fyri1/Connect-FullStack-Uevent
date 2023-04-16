@@ -11,12 +11,12 @@ export default () => {
   const [stepper, setStepper] = React.useState({});
   const [currentStep, setCurrentStep] = React.useState(1);
   const [completeStep, setCompleteStep] = React.useState({
-    step1: { isComplete: false },
-    step2: { isComplete: false },
-    step3: { isComplete: false },
-    step4: { isComplete: false },
+    step1: { isComplete: false, textWarning: '' },
+    step2: { isComplete: false, textWarning: '' },
+    step3: { isComplete: false, textWarning: '' },
+    step4: { isComplete: false, textWarning: '' },
   });
-
+  
   React.useEffect(() => {
     const fetch = async () => {
       try {
@@ -32,7 +32,7 @@ export default () => {
         setStepper(response.data.values);
         setCurrentStep(response.data.values.iter);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       } finally {
         setLoading(false);
       }

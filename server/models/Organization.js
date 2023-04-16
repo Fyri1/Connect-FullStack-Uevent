@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ApiError from '../exceptions/api-error.js';
 import _ from 'lodash';
 import PayService from '../services/pay.service.js';
+import User from './User.js';
 
 class Organization {
   async getAllOrganization() {
@@ -44,7 +45,7 @@ class Organization {
         iter: countSteps,
       };
     }
-    return { isConfirm: organization.is_confirmed };
+    return { isRegister: true };
   }
 
   async createPromoCode(userId, discount) {
@@ -84,8 +85,25 @@ class Organization {
     return data.length !== 0;
   }
 
-  async saveOrganization3(data) {
-    await client('organization').insert(data);
+  async saveOrganizationStep3({ orgData, user_id }) {
+    const user = await User.findUserId(user_id);
+    const {
+      name_organization,
+      phone_organization,
+      address,
+      email,
+      description,
+      link_organization,
+    } = orgData;
+    await client('organization').update({
+      name_organization,
+      phone_organization,
+      phone_staff: user.phone_number,
+      address,
+      email,
+      description,
+      link_organization,
+    }).where('user_id', '=', user_id);
   }
 
   async saveOrganizationStep2({ user_id, orgData }) {
@@ -96,9 +114,21 @@ class Organization {
         secret_key: orgData.secretKey,
       })
       .where('id', '=', org.id);
-      return {
-        status: "Success"
-      }
+    return {
+      status: 'Success',
+    };
+  }
+  async saveOrganizationStep4({ user_id, orgData }) {
+    const org = await this.findOrganizationByUserId(user_id);
+    await client('organization')
+      .update({
+        is_confirmed: orgData.isConfirmed,
+      })
+      .where('id', '=', org.id);
+      await User.updateRole(user_id, 'organization');
+    return {
+      status: 'Success',
+    };
   }
 
   async saveOrganizationStep1({ user_id }) {

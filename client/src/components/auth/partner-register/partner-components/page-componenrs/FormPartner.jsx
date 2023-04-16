@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import $api from '../../../../../../utils/api.js'
 import { useNavigate } from 'react-router-dom';
 
 import InputField from '../../../../common/form/InputField.jsx';
@@ -7,9 +7,11 @@ import TextField from '../../../../common/form/TextField.jsx';
 
 import clientRoutes from '.././../../../../routes/client/clientRoutes.js';
 import apiRoutes from '.././../../../../routes/api/apiClientRoutes.js';
+import Spinner from '../../../../common/Spinner.jsx'
 
-const FormPartner = () => {
-  const navigate = useNavigate();
+const FormPartner = ({ setCompleteStep, completeStep }) => {
+  const [isLoadingButton, setLoadingButton] = React.useState(false);
+  const [isLoading, setLoading] = React.useState(false)
 
   const [partnerData, setPartnerData] = React.useState({
     name_organization: '',
@@ -29,36 +31,53 @@ const FormPartner = () => {
     link_organization: '',
   });
 
-  // React.useEffect(() => {
-  //   console.log(errors);
-  // }, [errors]);
+  React.useEffect(() => {
 
-  // React.useEffect(() => {
-  //   console.log(partnerData);
-  // }, [partnerData]);
+    const fetch = async () => {
+      setLoading(true);
+      try {
+        const response = await $api.get('http://localhost:8080/api/organization/info');
+        setPartnerData(response.data.values)
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    if (completeStep.step3.isComplete) {
+      fetch();
+    }
+  }, []);
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-
+    setLoadingButton(true);
     try {
-      const response = await axios.post(apiRoutes.registerPath(), partnerData);
-      // console.log(response);
-      navigate(clientRoutes.mainPagePath());
+      const response = await $api.post(apiRoutes.createOrganization(3), partnerData);
+      console.log(response);
+      setCompleteStep((prev) => ({
+        ...prev,
+        step3: {
+          isComplete: true,
+        }
+      }))
     } catch (e) {
-      console.log(e);
       setErrors({
         ...errors,
-        ...e.response.partnerData.errors.errors.reduce((acc, i) => {
+        ...e.response.data.errors.errors.reduce((acc, i) => {
           return {
             ...acc,
             [i.param]: i.msg,
           };
         }, {}),
       });
+    } finally {
+      setLoadingButton(false)
     }
   };
 
-  return (
+  return isLoading ? <Spinner /> : (
     <form onSubmit={handleRegisterSubmit} className="animate-active-page">
       <div className="w-full bg-transparent px-[25%] pt-10 space-y-4">
         <div className="w-full bg-white rounded-lg shadow dark:border dark:bg-dark-bg-800 dark:border-dark-bg-700">
@@ -117,9 +136,21 @@ const FormPartner = () => {
                 </div>
               </TextField>
 
-              <div className="w-full text-center">
-                <button onClick={() => { console.log(partnerData) }} type="submit" className="w-[50%] px-5 mt-5 py-2.5 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                  Submit
+              <div className="w-full flex justify-center">
+                <button disabled={completeStep.step3.isComplete} type="submit" className="w-[50%] flex justify-center items-center px-5 mt-5 py-2.5 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:opacity-80">
+                {!isLoadingButton ? (
+                'submit'
+                ) : (
+                  <>
+                    <svg className="-ml-1 mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span className="font-medium subpixel-antialiased">
+                      Processing...
+                    </span>
+                  </>
+                )}
                 </button>
               </div>
             </div>
