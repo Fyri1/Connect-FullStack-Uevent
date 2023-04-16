@@ -9,6 +9,7 @@
     },
     "eventCard" : {
         "buy" : "Buy ticket",
-        "from" : "from"
+        "from" : "from",
+        "": ""
     }
 }

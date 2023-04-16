@@ -6,7 +6,7 @@ import _ from 'lodash';
 import Comment from './Comment.js';
 import User from './User.js';
 import Organization from './Organization.js';
-
+import City from './City.js';
 class Event {
   async getAll(filter) {
 
@@ -15,7 +15,11 @@ class Event {
       const tickets = await this.getAllTickets(event.id);
       const eventCategories = await this.getAllCategories(event.id);
       const priceTicket = tickets[0].price;
-      return { ...event, priceTicket, categories: eventCategories };
+      
+      const cityEvent = await City.findCityName(event.city) ;
+      // console.log(cityEvent);
+       
+      return { ...event, priceTicket, categories: eventCategories, city:cityEvent };
     });
     return Promise.all(events);
   }

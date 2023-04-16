@@ -7,6 +7,16 @@ class City {
     const cities = JSON.parse(dataFile);
     return cities;
   }
+  async findCityName(title){
+    const allCity = await this.getAll()
+    const city = allCity.find(item => 
+    {   
+        return item.name.en === title + " region";
+        
+    } )
+    console.log(city.name);
+    return city.name ;
+  }
 }
 
 export default new City();

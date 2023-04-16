@@ -23,14 +23,14 @@ const EventPage = () => {
   const organizator = useUser(event?.user_id);
   const eventTickets = useEventTickets(id);
   const [edit, setEdit] = React.useState({})
-  const favoriteEvent = useUserFavoriteEvent();
-  if (isLoading || favoriteEvent.isLoading || eventTickets.isLoading || organizator.isLoading) {
+  // const favoriteEvent = useUserFavoriteEvent();
+  if (isLoading  || eventTickets.isLoading || organizator.isLoading) {
     return <Spinner />;
   }
 
   return (
     <div>          
-      <EventDetailsBody eventData={event} isFavorite={favoriteEvent.favorite.find((event) => event.id === id)}/>
+      {/* <EventDetailsBody eventData={event} isFavorite={favoriteEvent.favorite.find((event) => event.id === id)}/> */}
       
       <div className="container m-auto py-6 px-4 sm:p-6 md:py-10 md:px-8 dark:bg-dark-bg-900">
         <div className=" mb-9 dark:bg-dark-bg-800 rounded-lg">

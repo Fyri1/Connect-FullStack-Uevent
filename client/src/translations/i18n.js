@@ -31,6 +31,8 @@ import term_use_en from './en/term_use.json'
 import term_use_ru from './ru/term_use.json'
 import term_use_ua from './ua/term_use.json'
 
+
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
