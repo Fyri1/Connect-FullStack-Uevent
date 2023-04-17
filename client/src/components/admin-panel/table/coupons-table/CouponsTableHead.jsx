@@ -5,7 +5,7 @@ import RadioDropdownElement from '../../../common/dropdown-menu/RadioDropdownEle
 import editForms from '../../../../../utils/editForms.jsx';
 
 
-const EventsTableHead = ({ data, dataCategory, setPopupContent, setPopupActive }) => {
+const CouponsTableHead = ({ data, dataCategory, setPopupContent, setPopupActive }) => {
   const timePeriods = {
     day: {
       name: "Last day",
@@ -75,18 +75,15 @@ const EventsTableHead = ({ data, dataCategory, setPopupContent, setPopupActive }
           </div>
         </th>
         
-        <th scope="col" className="p-4">Poster</th>
-        <th scope="col" className="p-4">Title</th>
-        <th scope="col" className="p-4">City</th>
-        <th scope="col" className="p-4">Address</th>
-        <th scope="col" className="p-4">Date</th>
-        <th scope="col" className="p-4">Created at</th>
-        <th scope="col" className="p-4">Price</th>
-        <th scope="col" className="p-4">Tags</th>
+        <th scope="col" className="p-4">ID</th>
+        <th scope="col" className="p-4">Discount</th>
+        <th scope="col" className="p-4">Duration</th>
+        <th scope="col" className="p-4">Times used</th>
+        <th scope="col" className="p-4">Valid</th>
         <th scope="col" className="p-4">Actions</th>
       </tr>
     </thead>
   )
 }
 
-export default EventsTableHead;
+export default CouponsTableHead;
