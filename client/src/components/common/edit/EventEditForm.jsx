@@ -78,14 +78,14 @@ const EventEditPage = ({ originData, formMessage }) => {
             </InputField>
 
             <Select
-            className="w-full"
-            isClearable={true}
-            onChange={(category) => setTarget(category?.value ? category.value : '')}
-            options={categories.data.values.map((category) => ({
-              label: category.title,
-              value: category.title,
-            }))}
-          />
+              className="w-full px-6"
+              
+              isClearable={true}
+              onChange={(category) => setTarget(category?.value ? category.value : '')}
+              options={categories.data.values.map((category) => ({
+                label: category.title,
+                value: category.title,
+            }))}/>
 
             <InputField id="city" name="City:" type="text" placeholder="sasi" data={data} setData={setData} errors={errors} setErrors={setErrors}>
               <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
@@ -111,7 +111,7 @@ const EventEditPage = ({ originData, formMessage }) => {
               </div>
             </TextField> */}
 
-            <div className="max-w-full">
+            <div className="max-w-full px-6">
               <ReactMde
                 value={value}
                 onChange={setValue}
@@ -128,7 +128,7 @@ const EventEditPage = ({ originData, formMessage }) => {
 
             <FileUpload name={"Upload poster image"} />
 
-            <div className="grid pt-1 md:grid-cols-2">
+            <div className="grid pt-1 px-3 md:grid-cols-2">
               <InputField id="event_start" name="Event start:" type="date" placeholder="" data={data} setData={setData} errors={errors} setErrors={setErrors}>
                 <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
                   <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
