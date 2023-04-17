@@ -13,12 +13,12 @@ const EventElement = ({ event }) => {
 
 
   return (
-    <div className="px-3 py-5 gap-8 snap-x   ">
+    <div className="px-3 py-5 gap-8 snap-x w-[350px] overflow-hidden ">
         <div className="first-elem-div col-sm-4 flex-col rounded-[20px] bg-white-700 relative p-2 group relative w-full ">
 
         <div className="h-full w-full">
           <div className="w-full h-full ">
-            <img className="rounded-[10px] " src="https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg" alt="" />
+            <img className="rounded-[10px] " src={event.poster?`http://localhost:8080/api/picture-post/${event.poster}`:`https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg`} alt="" />
           </div>
 
           <div className="mb-3 flex items-center justify-between px-0 md:items-start">

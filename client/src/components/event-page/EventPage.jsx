@@ -32,7 +32,7 @@ const EventPage = () => {
     <div>          
       {/* <EventDetailsBody eventData={event} isFavorite={favoriteEvent.favorite.find((event) => event.id === id)}/> */}
       
-      <div className="container m-auto py-6 px-4 sm:p-6 md:py-10 md:px-8 dark:bg-dark-bg-900">
+      <div className="container  m-auto py-6 px-4 sm:p-6 md:py-10 md:px-8 dark:bg-dark-bg-900">
         <div className=" mb-9 dark:bg-dark-bg-800 rounded-lg">
           <div className=" px-6 md:flex md:space-x-6 xl:px-0">
             <div className="rounded-lg md:w-2/3">

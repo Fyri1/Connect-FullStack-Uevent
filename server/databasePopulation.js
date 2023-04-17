@@ -69,7 +69,79 @@ const users = [
     content: 'Niggas will always be slaves :O',
   },
 ];
+const events= [
+  {
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    description: 'abobus abobus',
+    city: 'Kyiv',
+    address: 'Amogus1',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
+    poster: '1.png',
+  },
+  {
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    description: 'abobus abobus',
+    city: 'Kyiv',
+    address: 'Amogus1',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
+    poster: '2.png',
+  },
+  {
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    description: 'abobus abobus',
+    city: 'Kyiv',
+    address: 'Amogus1',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
+    poster: '3.png',
+  },
+  {
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    description: 'abobus abobus',
+    city: 'Kyiv',
+    address: 'Amogus1',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
+    poster: '4.png',
+  },
+  {
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    description: 'abobus abobus',
+    city: 'Kyiv',
+    address: 'Amogus1',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
+  },
+  {
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    description: 'abobus abobus',
+    city: 'Kyiv',
+    address: 'Amogus1',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
+  },
+  {
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    description: 'abobus abobus',
+    city: 'Kyiv',
+    address: 'Amogus1',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
+  },
+  {
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    description: 'abobus abobus',
+    city: 'Kyiv',
+    address: 'Amogus1',
+    event_start: Date.parse('2023-01-22T18:00'),
+    event_end: Date.parse('2023-01-23T18:00'),
+  }
 
+
+  
+]
 const categories = [
   {
     title: 'amogus 1',
@@ -148,12 +220,13 @@ const createEventAndComment = async (id, user_id) => {
   await client('events').insert({
     id,
     user_id,
-    title: 'amogus1',
+    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
     description: 'abobus abobus',
     city: cities[0],
     address: 'Amogus1',
     event_start: Date.parse('2023-01-22T18:00'),
     event_end: Date.parse('2023-01-23T18:00'),
+    
   });
   const categories = await client('categories').select('categories.id');
   categories.map(async (category, count) => {
@@ -172,46 +245,21 @@ const createEventAndComment = async (id, user_id) => {
 
 const cities = ['Kyiv', 'Kharkiv', 'Ivano-Frankivsk', 'Donetsk'];
 
-const createEvent = async (user_id, count) => {
+const createEvent = async (user_id, count, data) => {
   const id = uuidv4();
   await client('events').insert({
     id,
-    user_id, 
-    title: 'amogus' + (count + 1),
-    description: `Доброго времени суток, друзья!
-    Хочу поделиться опытом по борьбе с PHPUnit/DbUnit в связке с MySQL. Далее небольшая предыстория.
-    
-    Краткая предыстория
-    
-    В процессе написания одного веб-приложения возникла необходимость тестировать код на PHP, интенсивно взаимодействующий с БД MySQL. В проекте в качестве фреймворка модульного тестирования использовался порт xUnit — PHPUnit. В результате было принято решение писать тесты для модулей, непосредственно взаимодействующих с базой, подцепив плагин PHPUnit/DbUnit. Дальше я расскажу о тех трудностях, которые возникли при написании тестов и о том, каким способом я их преодолел. В ответ же хотелось бы получить комментарии знающих людей относительно корректности моих решений.
-    
-    Как работает DbUnit
-    
-    Подпункт предназначен для тех, кто не знаком с методикой тестирования с использованием PHPUnit и/или DbUnit. Кому не интересно, смело можно переходить к следующему.
-    
-    Далее по тексту:
-    
-        тестовый класс — класс, содержащий код модульных тестов, наследник любой из реализаций PHPUnit::TestCase;
-        тестируемый класс — класс, который необходимо протестировать.
-    
-    Так как подпункт для начинающих, то для начала будет рассмотрена процедура модульного тестирования обычных классов PHP, а потом описаны отличия при тестировании кода, взаимодействующего с БД.
-    
-    Тестирование обычных классов PHP
-    
-    Чтобы протестировать класс, написанный на PHP, с использованием фреймворка PHPUnit, необходимо создать тестовый класс, расширяющий базовый класс PHPUnit_Framework_TestCase. Затем создать в этом классе публичные методы, начинающиеся со слова test (если создать метод, который будет называться по-другому, он не будет автоматически вызван при прогоне тестов), и поместить в них код, выполняющий действия с объектами тестируемого класса и проверяющий результат. На этом можно закончить и скормить полученный класс phpunit, который, в свою очередь, последовательно вызовет все тестовые методы и любезно предоставит отчет об их работе. Однако в большинстве случаев в каждом из тестовых методов будет повторяющийся код, подготавливающий систему для работы с тестируемым объектом. Для того, чтобы избежать дублирования кода, в классе PHPUnit_Framework_TestCase созданы защищенные методы setUp и tearDown, имеющие пустую реализацию. Эти методы вызываются перед и после запуска очередного тестового метода соответственно и служат для подготовки системы к выполнению тестовых действий и очистки ее после завершения каждого теста. В тестовом классе, расширяющем PHPUnit_Framework_TestCase, можно переопределить эти методы и поместить повторяющийся ранее в каждом тестовом методе код в них. В результате последовательность вызова методов при прогонке тестов будет следующая:`,
-    city: count !== 3 ? cities[count] : cities[0],
-    address: 'Amogus' + (count + 1),
-    event_start: '2023-04-1' + (count + 1),
-    event_end: '2023-04-1' + (count + 2),
+    user_id,
+    ...data
   });
   const category = await client('categories').select('categories.id');
   await client('event_categories').insert({
     event_id: id,
-    category_id: category[count].id,
+    category_id: category[count>4 ? 1:count].id,
   });
   await client('event_categories').insert({
     event_id: id,
-    category_id: category[count + 1].id,
+    category_id: category[(count>3 ? 1:count) + 1 ].id,
   });
   for (let i = 0; i < 10; i += 1) {
     await createTicket(id, user_id);
@@ -248,9 +296,10 @@ const createComment = async (event_id, user_id, content) => {
         if (count === 2) {
           await createOrganizarion(id);
           await createEventAndComment(eventId, id);
-          for (let i = 1; 3 >= i; i += 1) {
-            await createEvent(id, i);
-          }
+          const kokon = events.map(async (item, i)  =>  await createEvent(id,i, item))
+         await Promise.all(kokon)
+       
+    
         }
         if (count > 2) {
           await createComment(eventId, id, content);
