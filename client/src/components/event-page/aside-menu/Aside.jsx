@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import moment from 'moment/min/moment-with-locales';
 
 const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
-  console.log(eventData)
   const { city, address, priceTicket, event_start, event_end, first_name, last_name, second_name } = eventData;
   const currentLang = localStorage.getItem('i18nextLng')
   const date = moment(event_start).locale(currentLang === 'ua' ? 'uk' : currentLang).format('D MMMM YYYY, ddd HH:mm').split(' ').map((i) => i[0].toUpperCase() + i.slice(1)).join(' ')
@@ -135,7 +134,7 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
           </div>
         </div>
       </div>
-      <CheckoutButton eventItem={event} name={t('button-ckeckout.name')} />
+      <CheckoutButton eventItem={eventData} name={t('button-ckeckout.name')} />
     </div>
   );
 };

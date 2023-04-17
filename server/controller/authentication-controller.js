@@ -144,7 +144,6 @@ class Authorization {
   async authActiveEmail(req, res, next) {
     try {
       const { link } = req.params;
-      console.log(link);
       const user = await User.initUser('event_link', link);
       if (user.active) {
         next(ApiError.ActiveEmail('You have already activated your email'));

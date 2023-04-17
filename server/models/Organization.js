@@ -31,7 +31,6 @@ class Organization {
     if (!organization.is_confirmed) {
       let countSteps = 1;
       for (const key in organization) {
-        console.log(organization[key]);
         if (!_.isNull(organization[key]) && organization[key]) {
           countSteps += 1;
         }

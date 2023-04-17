@@ -28,6 +28,7 @@ class Pay {
 
   async createSessionIntent(req, _res) {
     const { item } = req.body;
+    console.log(item)
     const token = req.headers.authorization?.split(' ')[1];
     TokenService.validateAccessToken(token);
     const data = await PayService.createSessionIntent(item);

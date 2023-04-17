@@ -14,7 +14,6 @@ class City {
         return item.name.en === title + " region";
         
     } )
-    console.log(city.name);
     return city.name ;
   }
 }
