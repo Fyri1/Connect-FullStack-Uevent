@@ -42,6 +42,9 @@ export default {
   orgaIdGetPath: (ticketId) => [apiPath, 'organization', 'get', ticketId].join('/'),
   orgaPostPath: () => [apiPath, 'organization', 'create'].join('/'),
   orgaIdUpdatePath: (ticketId) => [apiPath, 'organization', 'update', ticketId].join('/'),
-  orgaIdDeletePath: (ticketId) => [apiPath, 'organization', 'delete', ticketId].join('/')
+  orgaIdDeletePath: (ticketId) => [apiPath, 'organization', 'delete', ticketId].join('/'),
+  // Pay
+  getCoupons: () => [apiPath, 'pay', 'coupons'].join('/'),
+  getPromocodes: (id) => [apiPath, 'pay', 'coupons', id, 'promo-codes'].join('/'),
 
 };

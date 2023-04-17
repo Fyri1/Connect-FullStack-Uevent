@@ -7,7 +7,7 @@ import editForms from '../../../../../utils/editForms.jsx';
 const EventsTableRows = ({ data, setPopupActive, setPopupContent }) => {
   console.log(data);
   const currentLang = localStorage.getItem("i18nextLng");
-
+  
   const editButtonClick = (eventData) => {
     console.log("edit " + eventData.id);
     setPopupContent(editForms(eventData)["events"]);
@@ -51,7 +51,10 @@ const EventsTableRows = ({ data, setPopupActive, setPopupContent }) => {
           </button>
         </td>
 
-        <ActionsButtons editButtonClick={() => editButtonClick(eventData)} deleteButtonClick={() => deleteButtonClick(eventData)} />
+        <ActionsButtons editButtonClick={() => {
+          editButtonClick(eventData)
+        }
+          } deleteButtonClick={() => deleteButtonClick(eventData)} />
       </tr>
     )
   });
