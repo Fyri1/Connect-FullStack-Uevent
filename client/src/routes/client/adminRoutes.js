@@ -38,6 +38,11 @@ export default {
   ticketsPagePath: () => '/admin/tickets',
   // Tickets
 
+  // Promo
+  fullPromoPagePath: () => [clientPath, 'admin', 'coupons'].join('/'),
+  promoPagePath: () => '/admin/coupons',
+  // Promo
+
   // Organizations
   fullOrganizationsPagePath: () => [clientPath, 'admin', 'organizations'].join('/'),
   organizationsPagePath: () => '/admin/organizations',

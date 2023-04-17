@@ -1,7 +1,6 @@
 import React from 'react';
 
 import ActionsButtons from '../common/ActionsButtons.jsx';
-
 import editForms from '../../../../../utils/editForms.jsx';
 
 
