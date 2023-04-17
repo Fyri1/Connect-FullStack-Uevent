@@ -7,6 +7,7 @@ import editForms from '../../../../../utils/editForms.jsx';
 
 const EventsTableRows = ({ data, setPopupActive, setPopupContent }) => {
   console.log(data);
+  const currentLang = localStorage.getItem("i18nextLng");
 
   const editButtonClick = (eventData) => {
     console.log("edit " + eventData.id);
@@ -30,7 +31,7 @@ const EventsTableRows = ({ data, setPopupActive, setPopupContent }) => {
 
         <td className="px-6 py-4">{eventData.poster}</td>
         <td className="px-6 py-4">{eventData.title}</td>
-        <td className="px-6 py-4">{eventData.city}</td>
+        <td className="px-6 py-4">{eventData.city[currentLang]}</td>
         <td className="px-6 py-4">{eventData.address}</td>
         <td className="px-6 py-4">{eventData.event_start} - {eventData.event_end}</td>
         <td className="px-6 py-4">{eventData.created_at}</td>
