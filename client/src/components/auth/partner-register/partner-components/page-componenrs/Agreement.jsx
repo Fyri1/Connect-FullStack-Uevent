@@ -25,15 +25,15 @@ const Agreement = ({ setCompleteStep, completeStep }) => {
   return (
     <div className="animate-active-page ">
       <div className="p-8">
-        <div className="bg-white p-4 rounded-lg shadow-xl py-8 mt-12 ">
-          <h4 className="text-4xl font-bold text-gray-800 tracking-widest uppercase text-center">
+        <div className="bg-white p-4 rounded-lg shadow-xl py-8 mt-12 dark:bg-gray-800 ">
+          <h4 className="text-4xl font-bold text-gray-800 tracking-widest uppercase text-center  dark:text-gray-200">
             FAQ
           </h4>
-          <p className="text-center text-gray-600 text-sm mt-2">
+          <p className="text-center text-gray-600 text-sm mt-2  dark:text-gray-200">
             Here are some of the frequently asked questions
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 px-2 xl:px-12 mt-4">
-            <div className="flex space-x-8 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 px-2 xl:px-12 mt-4 ">
+            <div className="flex space-x-8 mt-8 ">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +53,10 @@ const Agreement = ({ setCompleteStep, completeStep }) => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-700">
+                <h4 className="text-xl font-bold text-gray-700  dark:text-gray-200">
                   Lorem ipsum dolor sit amet?
                 </h4>
-                <p className="text-gray-600 my-2">
+                <p className="text-gray-600 my-2  dark:text-gray-400">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
                   dignissimos. Neque eos, dignissimos provident reiciendis
                   debitis repudiandae commodi perferendis et itaque, similique
@@ -90,10 +90,10 @@ const Agreement = ({ setCompleteStep, completeStep }) => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-700">
+                <h4 className="text-xl font-bold text-gray-700  dark:text-gray-200 ">
                   Consectetur adipisicing elit?
                 </h4>
-                <p className="text-gray-600 my-2">
+                <p className="text-gray-600 my-2 dark:text-gray-400">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
                   dignissimos. Neque eos, dignissimos provident reiciendis
                   debitis repudiandae commodi perferendis et itaque, similique
@@ -127,10 +127,10 @@ const Agreement = ({ setCompleteStep, completeStep }) => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-700">
+                <h4 className="text-xl font-bold text-gray-700  dark:text-gray-200">
                   Neque eos, dignissimos provident reiciendis debitis?
                 </h4>
-                <p className="text-gray-600 my-2">
+                <p className="text-gray-600 my-2  dark:text-gray-400">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
                   dignissimos. Neque eos, dignissimos provident reiciendis
                   debitis repudiandae commodi perferendis et itaque, similique
@@ -164,10 +164,10 @@ const Agreement = ({ setCompleteStep, completeStep }) => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-700">
+                <h4 className="text-xl font-bold text-gray-700  dark:text-gray-200">
                   Repudiandae commodi perferendis et itaque?
                 </h4>
-                <p className="text-gray-600 my-2">
+                <p className="text-gray-600 my-2 dark:text-gray-400">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
                   dignissimos. Neque eos, dignissimos provident reiciendis
                   debitis repudiandae commodi perferendis et itaque, similique
@@ -201,10 +201,10 @@ const Agreement = ({ setCompleteStep, completeStep }) => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-700">
+                <h4 className="text-xl font-bold text-gray-700  dark:text-gray-200">
                   Similique fugiat cumque?
                 </h4>
-                <p className="text-gray-600 my-2">
+                <p className="text-gray-600 my-2 dark:text-gray-400">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
                   dignissimos. Neque eos, dignissimos provident reiciendis
                   debitis repudiandae commodi perferendis et itaque, similique
@@ -238,10 +238,10 @@ const Agreement = ({ setCompleteStep, completeStep }) => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-xl font-bold text-gray-700">
+                <h4 className="text-xl font-bold text-gray-700  dark:text-gray-200">
                   Impedit iusto vitae dolorum, nostrum fugit?
                 </h4>
-                <p className="text-gray-600 my-2">
+                <p className="text-gray-600 my-2 dark:text-gray-400">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
                   dignissimos. Neque eos, dignissimos provident reiciendis
                   debitis repudiandae commodi perferendis et itaque, similique
