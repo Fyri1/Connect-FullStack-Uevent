@@ -61,8 +61,8 @@ const App = () => {
   const token = localStorage.getItem('token');
   const { isLoading, userInfo, isError } = !token ? { isLoading: false, userInfo: { values: 'guest' } }: useUserProfile();
   if (isError) {
-    localStorage.removeItem('token');
-    location.href = '/'
+    // localStorage.removeItem('token');
+    // location.href = '/'
   }
 
   return isLoading ? <Spinner /> : (

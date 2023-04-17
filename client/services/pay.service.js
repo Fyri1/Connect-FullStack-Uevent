@@ -4,7 +4,7 @@ import adminRoutes from '../src/routes/api/apiAdminRoutes.js'
 
 const PayService = {
   getCoupons() {
-    return $api.get(adminRoutes.categoriesGetPath());
+    return $api.get(adminRoutes.getCoupons());
   },
   getPromoCodes(id) {
     return $api.get(adminRoutes.getPromocodes(id));

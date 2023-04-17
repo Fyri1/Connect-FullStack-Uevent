@@ -13,6 +13,7 @@ class UserService {
 
   async getInfoUser(bearerToken) {
     const token = bearerToken?.split(' ')[1];
+    console.log(token);
     const { id } = tokenService.validateAccessToken(token);
     return await User.getUserInfo(id);
   }

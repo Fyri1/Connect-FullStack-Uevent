@@ -27,7 +27,7 @@ export default () => {
       const response = await $api.post(apiClientRoutes.logoutPath());
       console.log(response);
       localStorage.removeItem('token');
-      // location.href = '/';
+      location.href = '/';
     } catch (err) {
       console.log(err);
       navigate('/404');
