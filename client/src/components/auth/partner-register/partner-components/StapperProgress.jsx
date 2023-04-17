@@ -34,7 +34,7 @@ const StapperProgress = ({
 
   return (
     <>
-      <div className="flex justify-between items-center mt-20">
+      <div className="flex justify-between items-center mt-20 ">
         <div className="w-[90%]">
           <ol className="flex items-center w-full">
             {svgStep.map(({ start, end, isEnd }, iter) => {

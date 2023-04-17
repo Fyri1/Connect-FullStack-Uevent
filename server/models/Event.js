@@ -118,11 +118,13 @@ class Event {
     }
     const tickets = await this.getAllTickets(data[0].id);
     const eventCategories = await this.getAllCategories(data[0].id);
+    const city = await City.findCityName(data[0].city)
     return {
       ...data[0],
       priceTicket: tickets[0]?.price,
       categories: eventCategories || [],
     };
+    
   }
 
   async getAllTickets(id) {

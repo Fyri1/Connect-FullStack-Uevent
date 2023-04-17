@@ -16,7 +16,7 @@ const getPageStape = (setter, completeStep) => {
 
 const PageProgress = ({ step, setCompleteStep, completeStep }) => {
   return (
-    <div className="mb-7">
+    <div className="mb-7 ">
       {getPageStape(setCompleteStep, completeStep)[step]}
     </div>
   );

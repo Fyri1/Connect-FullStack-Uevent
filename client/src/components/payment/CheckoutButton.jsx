@@ -32,7 +32,7 @@ export default ({ eventItem, name }) => {
               }
         }
         type="button"
-        className="flex justify-center items-center mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
+        className="flex justify-center items-center mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600 dark:bg-blue-900  dark:hover:bg-blue-800"
         disabled={isLoading}
       >
         {!isLoading ? (
