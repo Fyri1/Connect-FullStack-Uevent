@@ -26,7 +26,8 @@ $api.interceptors.response.use(
       try {
         const response = await axios.get(`${BASE_URL}/api/auth/refresh`, { withCredentials: true });
         localStorage.setItem('token', response.data.accessToken);
-        return  await $api.request(originalRequest);
+        console.log('1')
+        return await $api.request(originalRequest);
       } catch (err) {
         // location.href = '/';
         console.log(err);

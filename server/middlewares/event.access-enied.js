@@ -7,7 +7,7 @@ export default async (req, _res, next) => {
     const token = req.headers.authorization.split(' ')[1];
     const { id } = TokenService.validateAccessToken(token);
     const eventId = req.params.id;
-    const dataEvent = await Event.findId(eventId);
+    const dataEvent = await Event.findOne(eventId);
     if (dataEvent.user_id !== id) {
       next(ApiError.AccessDenied('ne tvoi post, sasi'));
     }

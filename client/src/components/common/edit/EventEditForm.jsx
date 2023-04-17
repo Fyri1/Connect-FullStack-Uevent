@@ -12,6 +12,7 @@ import EditForm from '../../common/form/EditForm.jsx';
 import adminRoutes from '../../../routes/client/adminRoutes.js';
 import apiAdminRoutes from '../../../routes/api/apiAdminRoutes.js';
 import 'react-mde/lib/styles/css/react-mde-all.css';
+import $api from '../../../../utils/api.js';
 
 const converter = new Showdown.Converter({
   tables: true,
@@ -40,7 +41,7 @@ const EventEditPage = ({ originData, formMessage }) => {
 
     try {
       data.description = value;
-      const response = await axios.post(apiAdminRoutes.eventPostPath(), data);
+      const response = await $api.post(apiAdminRoutes.eventPostPath(), data);
       console.log(response);
       navigate(adminRoutes.mainPagePath());
     } catch (e) {

@@ -17,7 +17,8 @@ class Category {
   async findCategoryId(id) {
     const category = await client('categories').select('*').where('id', '=', id);
     if (category.length === 0) {
-      throw ApiError.NotFound('Category not found');
+      return [];
+      // throw ApiError.NotFound('Category not found');
     }
     return category[0];
   }
