@@ -39,8 +39,8 @@ export default {
   // Tickets
 
   // Promo
-  fullPromoPagePath: () => [clientPath, 'admin', 'promo'].join('/'),
-  promoPagePath: () => '/admin/promo',
+  fullPromoPagePath: () => [clientPath, 'admin', 'coupons'].join('/'),
+  promoPagePath: () => '/admin/coupons',
   // Promo
 
   // Organizations

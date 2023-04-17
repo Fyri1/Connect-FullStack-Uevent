@@ -108,7 +108,7 @@ const App = () => {
                 <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
                 <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
                 <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
-                <Route path={adminRoutes.promoPagePath()} element={<AdminPage dataCategory="promo" />} />
+                <Route path={adminRoutes.promoPagePath()} element={<AdminPage dataCategory="coupons" />} />
                 <Route path={adminRoutes.organizationsPagePath()} element={<AdminPage dataCategory="organizations" />} />
 
                 {/* Moderator routes */}

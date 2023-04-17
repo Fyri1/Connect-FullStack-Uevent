@@ -1,25 +1,22 @@
 import React from 'react';
 
 import TableHead from '../common/TableHead.jsx';
-import PromocodesTableRows from './PromocodesTableRows.jsx';
+import PromocodesTableRows from './CouponsTableRows.jsx';
 import editForms from '../../../../../utils/editForms.jsx';
 import Popup from '../../../common/popup/Popup.jsx';
 
 
-const PromocodesTable = () => {
+const CouponsTable = ({ data }) => {
   const [dataReviewPopupActive, setDataReviewPopupActive] = React.useState();
   const [dataCreatePopupActive, setDataCreatePopupActive] = React.useState();
   const [popupContent, setPopupContent] = React.useState();
 
   const tableHeadColumnNames = [{
-    "Poster":"",
-    "Title":"",
-    "City":"",
-    "Address":"",
-    "Date":"",
-    "Created at":"",
-    "Price":"",
-    "Tags":""
+    "ID":"",
+    "Discount":"",
+    "Duration":"",
+    "Times used":"",
+    "Valid":""
   }];
 
   return (
@@ -45,4 +42,4 @@ const PromocodesTable = () => {
   );
 }
 
-export default PromocodesTable;
+export default CouponsTable;
