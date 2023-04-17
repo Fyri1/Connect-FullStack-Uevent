@@ -41,7 +41,7 @@ const Cities = ({ cities, filter, setFilter }) => {
         <p className="text-lg mr-5 ">Region: </p>
         <div className="flex w-1/2 flex-col pt-1  ">
           <Select
-            className="w-full dark:bg-gray-500 dark:text-gray-200  "
+            className="w-full dark:bg-gray-500 dark:text  "
             isClearable={true}
             onChange={(event) => setTarget(event?.value ? event.value : '')}
             options={sortCities.map((city) => ({
