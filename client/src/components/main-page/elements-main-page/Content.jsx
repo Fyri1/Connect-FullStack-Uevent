@@ -13,7 +13,7 @@ const Content = ({ data }) => {
       <Sidebar setData={setEvents} setLoading={setLoading}/>
 
       {isLoading ? <Spinner /> : <div className="container m-auto flex overflow-hidden">
-        {events.map((event) => (
+        {events.data.values.map((event) => (
           <EventElement key={event.id} event={event} />
         ))}
       </div>}

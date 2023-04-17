@@ -10,11 +10,12 @@ import CouponEditForm from '../src/components/common/edit/CouponEditForm.jsx';
 
 
 const editForms = (data) => {
-  // console.log(data);
+  console.log(data);
+  
   return ({
     users: <UserEditForm originData={data} formMessage={"Edit user"} />,
     roles: <RoleEditForm originData={data} formMessage={"Edit role"} />,
-    events: <EventEditForm originData={data} formMessage={"Edit event"} />,
+    events: <EventEditForm originData={data} formMessage={data ? "Edit event" : "Create event"} />,
     categories: <CategoryEditForm originData={data} formMessage={"Edit category"} />,
     tickets: <TicketEditForm originData={data} formMessage={"Edit ticket"} />,
     organization: <OrganizationEditForm originData={data} formMessage={"Edit organization"} />,
