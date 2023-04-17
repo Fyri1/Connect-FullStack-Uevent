@@ -9,9 +9,7 @@ const EventElement = ({ event }) => {
 
   const date = moment(event.event_start).locale(currentLang === 'ua' ? 'uk' : currentLang).format('D MMMM,HH:mm ddd').split(' ').map((i) => i[0].toUpperCase() + i.slice(1)).join(' ')
   const date2 = moment(event.event_start).locale(currentLang === 'ua' ? 'uk' : currentLang).format('D MMMM').split(' ').map((i) => i[0].toUpperCase() + i.slice(1)).join(' ')
-  const city6 = event.city[currentLang] ;
-  console.log(city6);
-  console.log(event.city);
+  const city = event.city[currentLang];
 
 
   return (
@@ -39,7 +37,7 @@ const EventElement = ({ event }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                   </svg>
-                  <p className="text-l font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-dark-text-300">{ city6 }</p>
+                  <p className="text-l font-semibold text-white sm:text-slate-900 md:text-1xl dark:sm:text-dark-text-300">{ city }</p>
                 </div>
 
                 <div className="start flex px-1">
@@ -65,7 +63,7 @@ const EventElement = ({ event }) => {
           </div>
 
           <div className="mb-10 scale-10 text-white outline-none ">
-            <p className="text-wight-700 text-lg text-white">{ event.city[currentLang] }</p>
+            <p className="text-wight-700 text-lg text-white">{ city }</p>
             <div className="justify-between md:items-center lg:justify-between">
               <button onClick={() => { location.href = `/event/${event.id}` }} className="fa fa-shopping-cart p-2 pl-11 pr-11 
              bg-indigo-500 border-2 border-indigo-500 text-gray-100  text-lg rounded-lg 
