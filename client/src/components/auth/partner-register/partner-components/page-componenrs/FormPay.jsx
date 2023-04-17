@@ -27,14 +27,14 @@ const FormPay = ({ completeStep, setCompleteStep }) => {
   return (
     <div className="animate-active-page ">
       <div class="bg-white relative flex flex-col justify-center overflow-hidden  py-12  dark:bg-gray-900 ">
-        <div class="relative bg-white px-6 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl">
-          <div class="mx-auto flex w-full max-w-md flex-col space-y-16">
-            <div class="flex flex-col items-center justify-center text-center space-y-2">
+        <div class="relative bg-white px-6 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl dark:bg-gray-800" >
+          <div class="mx-auto flex w-full max-w-md flex-col space-y-16 ">
+            <div class="flex flex-col items-center justify-center text-center space-y-2 ">
               <div class="font-semibold text-3xl">
                 <p> Get your free account now.</p>
               </div>
               <div class="flex flex-row text-sm font-medium text-gray-400">
-                <p className="mt-4 text-center text-gray-500 dark:text-gray-400">
+                <p className="mt-4 text-center text-gray-500 dark:text-gray-400 ">
                   Let’s get you all set up so you can verify your personal
                   account and begin setting up your profile.
                 </p>

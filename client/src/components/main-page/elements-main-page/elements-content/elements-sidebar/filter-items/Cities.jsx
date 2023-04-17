@@ -36,12 +36,12 @@ const Cities = ({ cities, filter, setFilter }) => {
   console.log(filter);
 
   return (
-    <div className="mt-5 w-1/2 flex flex-col items-start">
-      <div className="flex items-center w-full">
-        <p className="text-lg mr-5">Region: </p>
-        <div className="flex w-1/2 flex-col pt-1">
+    <div className="mt-5 w-1/2 flex flex-col items-start ">
+      <div className="flex items-center w-full ">
+        <p className="text-lg mr-5 ">Region: </p>
+        <div className="flex w-1/2 flex-col pt-1  ">
           <Select
-            className="w-full"
+            className="w-full dark:bg-gray-500 dark:text-gray-200  "
             isClearable={true}
             onChange={(event) => setTarget(event?.value ? event.value : '')}
             options={sortCities.map((city) => ({
@@ -51,7 +51,7 @@ const Cities = ({ cities, filter, setFilter }) => {
           />
         </div>
       </div>
-      <div className="flex pt-5 ">
+      <div className="flex pt-5  ">
         <p className="text-lg mb-6">City:</p>
         <div className="flex flex-wrap pt-1">
         {currentCities.length === 0 ? (

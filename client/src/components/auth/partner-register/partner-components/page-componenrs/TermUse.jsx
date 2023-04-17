@@ -3,6 +3,7 @@ import AccordionComponent from '../../../../common/Accordion.jsx';
 import textTermUse from '../../../../../other/text-term-use.js';
 import $api from '../../../../../../utils/api.js';
 import apiClientRoutes from '../../../../../routes/api/apiClientRoutes.js';
+import { AccordionBody } from '@material-tailwind/react';
 
 const RenderItemAccordion = ({
   setReading,
@@ -18,16 +19,22 @@ const RenderItemAccordion = ({
   );
 
   return (
-    <div className="mb-4" key={count}>
-      <AccordionComponent
+    <div className="mb-4 " key={count} >
+      <AccordionComponent 
         handleOpen={handleOpen}
         open={open}
         head={head}
-        body={body}
-        style={read ? 'bg-green-100' : 'bg-gray-100'}
+        style={read ? 'bg-green-100 ' : 'bg-gray-100 dark:bg-gray-700 dark:text-gray-200'}
         count={count + 1}
       >
-        <div className="w-full flex justify-end">
+        <AccordionBody  >
+          <p className='dark:text-gray-200'>
+          {
+            body
+          }
+          </p>
+          </AccordionBody>
+        <div className="w-full flex justify-end ">
           <button
             onClick={() => {
               setRead(!read);
@@ -38,11 +45,11 @@ const RenderItemAccordion = ({
                           ${
                             read
                               ? 'bg-green-600'
-                              : 'bg-primary-600 hover:bg-primary-700 dark:bg-primary-60 dark:hover:bg-primary-700'
+                              : 'bg-primary-600 hover:bg-primary-700 dark:bg-primary-60 dark:hover:bg-primary-700 '
                           } 
                           font-medium rounded-lg 
                           text-sm text-center 
-                          dark:focus:ring-primary-800`}
+                          dark:focus:ring-primary-800 `}
           >
             {read ? 'Complete!' : 'I read'}
           </button>
@@ -79,24 +86,24 @@ const TermUse = ({ setCompleteStep, completeStep }) => {
   };
 
   return (
-    <div className="animate-active-page min-h-full">
+    <div className="animate-active-page min-h-full  ">
       <section className="text-gray-700">
         <div className="container px-5 pt-16 mx-auto">
           <div className="text-center mb-14">
-            <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
+            <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4  dark:text-gray-200">
               Frequently Asked Question
             </h1>
-            <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+            <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto dark:text-gray-400">
               The most common questions about how our business works and what
               can do for you.
             </p>
           </div>
           <form
             onSubmit={handleForm}
-            className="flex flex-wrap sm:mx-auto -mx-2"
+            className="flex flex-wrap sm:mx-auto -mx-2 "
           >
             {textTermUse().map((item, i) => (
-              <div key={i} className="w-full lg:w-1/2 lg:px-4 lg:py-2">
+              <div key={i} className="w-full lg:w-1/2 lg:px-4 lg:py-2 ">
                 {item[`text${i + 1}`].map(({ head, body, iter }) => {
                   return (
                     <RenderItemAccordion

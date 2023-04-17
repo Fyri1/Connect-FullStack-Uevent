@@ -70,7 +70,7 @@ const App = () => {
       <UserContext.Provider value={{currentUser: userInfo?.values || 'guest'}}>
         <BrowserRouter>
           <Header />
-          <main className='flex-[1_0_auto]'>
+          <main className='flex-[1_0_auto] dark:bg-gray-900 '>
             <Routes>
               {/* ya tak ponimau ety dro4 bydem uzat dlya checka user role */}
               {/* {isGuest ? ( */}
