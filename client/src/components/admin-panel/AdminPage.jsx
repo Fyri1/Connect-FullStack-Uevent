@@ -3,6 +3,7 @@ import React from "react";
 import Spinner from "../common/Spinner.jsx";
 import NavbarElement from "./NavbarElement.jsx";
 import DataTable from "./table/DataTable.jsx";
+import EventsTable from "./table/events-table/EventsTable.jsx";
 
 import { useUsers } from "../../../hooks/user/useUsers.js";
 import { useRoles } from "../../../hooks/useRoles.js";
@@ -32,7 +33,7 @@ const AdminPage = ({ dataCategory }) => {
         :
         <div>
           <NavbarElement />
-          <DataTable data={displayData[dataCategory].data.values} dataCategory={dataCategory} />
+          { dataCategory === "events" ? <EventsTable data={displayData[dataCategory].data.values} /> : <DataTable data={displayData[dataCategory].data.values} dataCategory={dataCategory} /> }
         </div>
       }
     </div>
