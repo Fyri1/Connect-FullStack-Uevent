@@ -61,11 +61,11 @@ router.get(
 router.post(
   adminRoutes.eventPostPath(),
   body('title').notEmpty().isLength({ min: 3, max: 30 }).trim(),
-  body('description').notEmpty().isLength({ min: 10, max: 150 }).trim(),
+  body('description').notEmpty().isLength({ min: 10, max: 255 }).trim(),
   body('city').notEmpty().isLength({ min: 2, max: 30 }).trim(),
   body('address').notEmpty().isLength({ min: 3, max: 30 }).trim(),
-  body('eventStart').notEmpty().trim(),
-  body('eventEnd').notEmpty().trim(),
+  body('event_start').notEmpty().trim(),
+  body('event_end').notEmpty().trim(),
   validationErrorEvent,
   tryCatch(Events.createEvent),
   Events.createEvent

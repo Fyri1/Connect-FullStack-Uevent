@@ -9,9 +9,13 @@ import TextField from '../form/TextField.jsx';
 import FileUpload from '../../common/form/FileUpload.jsx';
 import EditForm from '../../common/form/EditForm.jsx';
 
+import Select from 'react-select';
+
 import adminRoutes from '../../../routes/client/adminRoutes.js';
 import apiAdminRoutes from '../../../routes/api/apiAdminRoutes.js';
 import 'react-mde/lib/styles/css/react-mde-all.css';
+import $api from '../../../../utils/api.js';
+import { useCategories } from '../../../../hooks/useCategories.js'
 
 const converter = new Showdown.Converter({
   tables: true,
@@ -24,6 +28,8 @@ const converter = new Showdown.Converter({
 const EventEditPage = ({ originData, formMessage }) => {
   const [value, setValue] = React.useState(originData.description);
   const [selectedTab, setSelectedTab] = React.useState('write');
+  const [target, setTarget] = React.useState('');
+  const { isLoading, categories } = useCategories();
   const navigate = useNavigate();
   const keys = Object.keys(originData);
 
@@ -36,9 +42,11 @@ const EventEditPage = ({ originData, formMessage }) => {
 
   const handleDataSubmit = async (e) => {
     e.preventDefault();
+    console.log(data);
 
     try {
-      const response = await axios.post(apiAdminRoutes.eventPostPath(), data);
+      data.description = value;
+      const response = await $api.post(apiAdminRoutes.eventPostPath(), data);
       console.log(response);
       navigate(adminRoutes.mainPagePath());
     } catch (e) {
@@ -55,7 +63,7 @@ const EventEditPage = ({ originData, formMessage }) => {
     }
   };
 
-  return (
+  return isLoading ? <></> : (
     <form onSubmit={handleDataSubmit}>
       <div className="w-full bg-transparent">
         <div className="w-full bg-white rounded-lg shadow dark:border dark:bg-dark-bg-800 dark:border-dark-bg-700">
@@ -69,14 +77,15 @@ const EventEditPage = ({ originData, formMessage }) => {
               </div>
             </InputField>
 
-            <InputField id="category" name="Category:" type="text" placeholder="category name :)" data={data} setData={setData} errors={errors} setErrors={setErrors}>
-              <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
-                <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 3a1 1 0 00-1 1v1a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1H2z"></path>
-                  <path clipRule="evenodd" fillRule="evenodd" d="M2 7.5h16l-.811 7.71a2 2 0 01-1.99 1.79H4.802a2 2 0 01-1.99-1.79L2 7.5zM7 11a1 1 0 011-1h4a1 1 0 110 2H8a1 1 0 01-1-1z"></path>
-                </svg>
-              </div>
-            </InputField>
+            <Select
+              className="w-full px-6"
+              
+              isClearable={true}
+              onChange={(category) => setTarget(category?.value ? category.value : '')}
+              options={categories.data.values.map((category) => ({
+                label: category.title,
+                value: category.title,
+            }))}/>
 
             <InputField id="city" name="City:" type="text" placeholder="sasi" data={data} setData={setData} errors={errors} setErrors={setErrors}>
               <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
@@ -102,7 +111,7 @@ const EventEditPage = ({ originData, formMessage }) => {
               </div>
             </TextField> */}
 
-            <div className="max-w-full">
+            <div className="max-w-full px-6">
               <ReactMde
                 value={value}
                 onChange={setValue}
@@ -119,7 +128,7 @@ const EventEditPage = ({ originData, formMessage }) => {
 
             <FileUpload name={"Upload poster image"} />
 
-            <div className="grid pt-1 md:grid-cols-2">
+            <div className="grid pt-1 px-3 md:grid-cols-2">
               <InputField id="event_start" name="Event start:" type="date" placeholder="" data={data} setData={setData} errors={errors} setErrors={setErrors}>
                 <div className="absolute inset-y-0 left-0 flex items-center pl-1 pointer-events-none">
                   <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

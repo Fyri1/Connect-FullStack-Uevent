@@ -14,11 +14,11 @@ class Event {
     const events = data.map(async (event) => {
       const tickets = await this.getAllTickets(event.id);
       const eventCategories = await this.getAllCategories(event.id);
-      const priceTicket = tickets[0].price;
+      const priceTicket = tickets[0]?.price;
       
       const cityEvent = await City.findCityName(event.city) ;
        
-      return { ...event, priceTicket, categories: eventCategories, city:cityEvent };
+      return { ...event, priceTicket: priceTicket, categories: eventCategories, city:cityEvent };
     });
     return Promise.all(events);
   }
@@ -92,7 +92,7 @@ class Event {
       _.includes(event.title.toLowerCase(), str)
     );
     const filterEventsCity = eventAndOrganizationName.filter((event) =>
-      _.includes(event.city.toLowerCase(), str)
+      _.includes(event.city['en'].toLowerCase(), str)
     );
     const filterEventsAddress = eventAndOrganizationName.filter((event) =>
       _.includes(event.address.toLowerCase(), str)
@@ -121,10 +121,8 @@ class Event {
     const city = await City.findCityName(data[0].city)
     return {
       ...data[0],
-      priceTicket: tickets[0].price,
-      categories: eventCategories,
-      city
-      
+      priceTicket: tickets[0]?.price,
+      categories: eventCategories || [],
     };
     
   }
@@ -246,8 +244,8 @@ class Event {
     city,
     address,
     poster,
-    eventStart,
-    eventEnd,
+    event_start,
+    event_end,
     ...category
   }) {
     try {
@@ -259,8 +257,8 @@ class Event {
         city,
         address,
         poster,
-        event_start: eventStart,
-        event_end: eventEnd,
+        event_start,
+        event_end,
       });
       const promises = Object.values(category).map((categoryId) =>
         client('event_categories').insert({
@@ -364,7 +362,8 @@ class Event {
       const data = await client('events')
         .select('*')
         .where('title', '=', title);
-      if (data[0].id === id) {
+        console.log(data)
+      if (data[0]?.id === id && data) {
         return false;
       }
       return data.length !== 0;

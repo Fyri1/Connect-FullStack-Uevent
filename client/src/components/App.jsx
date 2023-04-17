@@ -81,15 +81,11 @@ const App = () => {
 
                 {/* Sral Vilsan */}
                 <Route path="/event/:id" element={<EventPage />} />
-                {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
                 <Route path="/MyTicket" element={<MyTicket />} />
                 <Route path="/success" element={<Success />} />
                 <Route path="/coupon" element={<Coupon />} />
-
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
-
-
                 {/* neSral Vilsan */}
 
                 <Route path={clientRoutes.registerPagePath()} element={<Register />} />
@@ -108,7 +104,7 @@ const App = () => {
                 <Route path={adminRoutes.eventsPagePath()} element={<AdminPage dataCategory="events" />} />
                 <Route path={adminRoutes.categoriesPagePath()} element={<AdminPage dataCategory="categories" />} />
                 <Route path={adminRoutes.ticketsPagePath()} element={<AdminPage dataCategory="tickets" />} />
-                <Route path={adminRoutes.promoPagePath()} element={<AdminPage dataCategory="coupons" />} />
+                <Route path={adminRoutes.couponsPagePath()} element={<AdminPage dataCategory="coupons" />} />
                 <Route path={adminRoutes.organizationsPagePath()} element={<AdminPage dataCategory="organizations" />} />
 
                 {/* Moderator routes */}

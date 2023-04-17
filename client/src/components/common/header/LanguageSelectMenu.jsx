@@ -22,7 +22,7 @@ const LanguageSelectMenu = () => {
 
       <Transition as={React.Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
         <Menu.Items className="absolute right-0 w-13 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="">
+          <div>
             <Menu.Item>
               <LanguageSelectElement i18n={i18n} lng="en" />
             </Menu.Item>

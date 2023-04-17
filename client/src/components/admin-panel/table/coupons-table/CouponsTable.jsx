@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TableHead from '../common/TableHead.jsx';
+import CouponsTableHead from './CouponsTableHead.jsx';
 import PromocodesTableRows from './CouponsTableRows.jsx';
 import editForms from '../../../../../utils/editForms.jsx';
 import Popup from '../../../common/popup/Popup.jsx';
@@ -34,7 +34,7 @@ const CouponsTable = ({ data }) => {
       {/* Controls and table itself */}
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <TableHead data={tableHeadColumnNames} dataCategory={"events"} setPopupContent={setPopupContent} setPopupActive={setDataReviewPopupActive} />
+          <CouponsTableHead data={tableHeadColumnNames} dataCategory={"events"} setPopupContent={setPopupContent} setPopupActive={setDataReviewPopupActive} />
           <PromocodesTableRows data={data} dataCategory={"events"} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
         </table>
       </div>
