@@ -36,8 +36,10 @@ const EventEditPage = ({ originData, formMessage }) => {
 
   const handleDataSubmit = async (e) => {
     e.preventDefault();
+    console.log(data);
 
     try {
+      data.description = value;
       const response = await axios.post(apiAdminRoutes.eventPostPath(), data);
       console.log(response);
       navigate(adminRoutes.mainPagePath());
