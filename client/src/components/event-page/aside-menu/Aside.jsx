@@ -10,9 +10,9 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
   const [t, i18n] = useTranslation('eventPage');
 
   return (
-    <div className="sticky top-20 mt-6 rounded-lg border bg-white p-0 shadow-md  ">
+    <div className="sticky top-20 mt-6 rounded-lg border bg-white p-0 shadow-md dark:bg-dark-bg-800 dark:border-black ">
       <div>
-        <div className="  bg-blue-500 ">
+        <div className="  bg-blue-500  dark:bg-dark-bg-900">
           <div className=" start flex">
             <svg
               fill="currentColor"
@@ -20,7 +20,7 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
               strokeWidth={1.5}
-              className=" ml-4 my-4 h-6 w-6 "
+              className=" ml-4 my-4 h-6 w-6 dark:text-dark-text-300 "
             >
               <path d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>
               <path
@@ -29,13 +29,13 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
                 d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z"
               ></path>
             </svg>
-            <p className="text-date-ticket my-4 pl-2 ">{date}</p>
+            <p className="text-date-ticket my-4 pl-2  dark:text-dark-text-400">{date}</p>
           </div>
         </div>
       </div>
-      <div className=" ml-4 mt-3">
-        <div className="mb-2 justify-between">
-          <div className="flex items-center pb-1 text-indigo-600 flex items-center dark:text-indigo-400">
+      <div className=" ml-4 mt-3 ">
+        <div className="mb-2 justify-between ">
+          <div className="flex items-center pb-1 text-indigo-600 flex items-center dark:text-indigo-400 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -56,7 +56,7 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
               ></path>
             </svg>
             <p className="pl-2 text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:text-dark-text-300">
-              {city}, {address}
+              {city[currentLang]}, {address}
             </p>
           </div>
         </div>
