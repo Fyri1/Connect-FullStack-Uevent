@@ -3,8 +3,7 @@ import React from 'react';
 import ActionsButtons from '../common/ActionsButtons.jsx';
 import editForms from '../../../../../utils/editForms.jsx';
 
-
-const EventsTableRows = ({ data, setPopupActive, setPopupContent }) => {
+const PromocodesTableRows = ({ data, setPopupActive, setPopupContent }) => {
   console.log(data);
   const currentLang = localStorage.getItem("i18nextLng");
 
@@ -63,4 +62,4 @@ const EventsTableRows = ({ data, setPopupActive, setPopupContent }) => {
   )
 }
 
-export default EventsTableRows;
+export default PromocodesTableRows;

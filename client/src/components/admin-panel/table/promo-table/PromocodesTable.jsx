@@ -1,12 +1,12 @@
 import React from 'react';
 
 import TableHead from '../common/TableHead.jsx';
-import EventsTableRows from './EventsTableRows.jsx';
+import PromocodesTableRows from './PromocodesTableRows.jsx';
 import editForms from '../../../../../utils/editForms.jsx';
 import Popup from '../../../common/popup/Popup.jsx';
 
 
-const EventsTable = ({ data }) => {
+const PromocodesTable = () => {
   const [dataReviewPopupActive, setDataReviewPopupActive] = React.useState();
   const [dataCreatePopupActive, setDataCreatePopupActive] = React.useState();
   const [popupContent, setPopupContent] = React.useState();
@@ -38,11 +38,11 @@ const EventsTable = ({ data }) => {
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <TableHead data={tableHeadColumnNames} dataCategory={"events"} setPopupContent={setPopupContent} setPopupActive={setDataReviewPopupActive} />
-          <EventsTableRows data={data} dataCategory={"events"} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
+          <PromocodesTableRows data={data} dataCategory={"events"} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
         </table>
       </div>
     </div>
   );
 }
 
-export default EventsTable;
+export default PromocodesTable;
