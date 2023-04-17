@@ -1,8 +1,7 @@
 import React from 'react';
 
-import TableHead from '../common/TableHead.jsx';
+import EventsTableHead from './EventsTableHead.jsx';
 import EventsTableRows from './EventsTableRows.jsx';
-import editForms from '../../../../../utils/editForms.jsx';
 import Popup from '../../../common/popup/Popup.jsx';
 
 
@@ -10,17 +9,6 @@ const EventsTable = ({ data }) => {
   const [dataReviewPopupActive, setDataReviewPopupActive] = React.useState();
   const [dataCreatePopupActive, setDataCreatePopupActive] = React.useState();
   const [popupContent, setPopupContent] = React.useState();
-
-  const tableHeadColumnNames = [{
-    "Poster":"",
-    "Title":"",
-    "City":"",
-    "Address":"",
-    "Date":"",
-    "Created at":"",
-    "Price":"",
-    "Tags":""
-  }];
 
   return (
     <div>
@@ -37,7 +25,7 @@ const EventsTable = ({ data }) => {
       {/* Controls and table itself */}
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <TableHead data={tableHeadColumnNames} dataCategory={"events"} setPopupContent={setPopupContent} setPopupActive={setDataReviewPopupActive} />
+          <EventsTableHead data={data} dataCategory={"events"} setPopupContent={setPopupContent} setPopupActive={setDataReviewPopupActive} />
           <EventsTableRows data={data} dataCategory={"events"} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
         </table>
       </div>
