@@ -8,7 +8,6 @@ export default async (req, _res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];
     const { id: userId } = TokenService.validateAccessToken(token);
     const userData = await User.findUserId(userId);
-    console.log(await User.getRole(userId));
     const [{ role }] = await User.getRole(userId);
     const userDataId = userData.id;
     if (userDataId !== id && role !== 'admin') {

@@ -10,7 +10,6 @@ import CouponEditForm from '../src/components/common/edit/CouponEditForm.jsx';
 
 
 const editForms = (data) => {
-  console.log(data);
   
   return ({
     users: <UserEditForm originData={data} formMessage={"Edit user"} />,

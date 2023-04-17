@@ -4,18 +4,14 @@ import React from 'react';
 const PageArrorSelector = ({ currentPageNumber, setCurrentPageNumber, type, children }) => {
   const leftArrowHandle = () => {
     if (currentPageNumber === 1) {
-      console.log("NIHYA NE SETAEM");
     } else {
-      console.log("SETAEM PAGE-1");
       setCurrentPageNumber(currentPageNumber - 1);
     }
   }
 
   const rightArrowHandle = () => {
     if (currentPageNumber === 6) {
-      console.log("NIHYA NE SETAEM");
     } else {
-      console.log("SETAEM PAGE+1");
       setCurrentPageNumber(currentPageNumber + 1);
     }
   }

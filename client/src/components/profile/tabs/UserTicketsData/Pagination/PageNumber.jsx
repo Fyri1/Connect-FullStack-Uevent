@@ -3,7 +3,6 @@ import React from 'react';
 
 const PageNumber = ({ pageNumber, currentPageNumber, setCurrentPageNumber }) => {
   const pageNumberClickHandle = () => {
-    console.log("pidoras selected page number: " + pageNumber);
     setCurrentPageNumber(pageNumber);
   }
 

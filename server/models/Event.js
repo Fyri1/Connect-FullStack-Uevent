@@ -17,7 +17,6 @@ class Event {
       const priceTicket = tickets[0].price;
       
       const cityEvent = await City.findCityName(event.city) ;
-      // console.log(cityEvent);
        
       return { ...event, priceTicket, categories: eventCategories, city:cityEvent };
     });
@@ -60,7 +59,6 @@ class Event {
 
       return filterEvent.flat();
     }
-    console.log(filterValue);
     const promiseCategoriesEvent = filterValue['category'].map(
       async (search) => {
         const { id } = await Category.findCategoryTitle(search);
