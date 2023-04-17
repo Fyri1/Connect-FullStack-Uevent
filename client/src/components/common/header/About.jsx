@@ -3,8 +3,8 @@ import React from 'react';
 const About = () => {
   return (
     <div>
-			<section class="pt-20 pb-20">
-				<div class="flex flex-wrap justify-center text-center mb-24">
+			<section class="pt-20 pb-20 dark:bg-gray-900 dark:text-gray-200 ">
+				<div class="flex flex-wrap justify-center text-center mb-24 ">
 										<div class="w-full lg:w-6/12 px-4">
 										<h2 class="text-4xl font-semibold  text-blueGray-700">About us </h2>
 										<p class="text-lg leading-relaxed m-4 text-blueGray-500">

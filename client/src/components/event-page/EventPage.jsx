@@ -38,7 +38,6 @@ const EventPage = () => {
             <div className="rounded-lg md:w-2/3">
               <EventDetailsHead edit={edit} setEdit={setEdit} eventData={event} />
               <div className="Map">
-                <h1 className="text-center bg-white rounded-md py-5 max-w-2xl mx-auto text-2xl font-bold text-gray-500 dark:text-dark-text-400 dark:bg-dark-bg-900">MAP</h1>
                 <div className="flex flex-row items-center">
                   <div className='flex flex-col justify-center items-center'>
                     <div className='bg-[#8e5f27] h-4 w-8 rounded-t-md'></div>

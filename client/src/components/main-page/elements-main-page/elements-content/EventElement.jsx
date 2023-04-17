@@ -55,7 +55,7 @@ const EventElement = ({ event }) => {
           </div>
 
           <div className=" scale-10 text-white outline-none  ">
-            <p className="slider-event-data  ">{date2}</p>
+            <p className="АА  ">{date2}</p>
           </div>
 
           <div className="scale-10 text-white outline-none">
@@ -73,6 +73,7 @@ const EventElement = ({ event }) => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

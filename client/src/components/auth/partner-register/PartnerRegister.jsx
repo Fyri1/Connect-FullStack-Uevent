@@ -46,7 +46,7 @@ export default () => {
   return isLoading ? (
     <Spinner />
   ) : (
-    <div className="container m-auto flex flex-col">
+    <div className="container m-auto flex flex-col dark:bg-gray-900">
       <StapperProgress
         stepper={stepper}
         setStepper={setStepper}

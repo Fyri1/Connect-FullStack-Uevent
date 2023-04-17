@@ -23,9 +23,9 @@ const Agreement = ({ setCompleteStep, completeStep }) => {
   };
 
   return (
-    <div className="animate-active-page">
+    <div className="animate-active-page ">
       <div className="p-8">
-        <div className="bg-white p-4 rounded-lg shadow-xl py-8 mt-12">
+        <div className="bg-white p-4 rounded-lg shadow-xl py-8 mt-12 ">
           <h4 className="text-4xl font-bold text-gray-800 tracking-widest uppercase text-center">
             FAQ
           </h4>
