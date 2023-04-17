@@ -26,7 +26,7 @@ const Header = () => {
           <Logo />
           <Navbar />
           
-          <div className="flex lg:order-1 items-center justify-end w-[10%]">
+          <div className="flex lg:order-1 items-center justify-end w-[10%] ">
             <LanguageSelectMenu />
             <UserDropdownMenu />
 
