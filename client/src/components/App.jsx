@@ -81,15 +81,11 @@ const App = () => {
 
                 {/* Sral Vilsan */}
                 <Route path="/event/:id" element={<EventPage />} />
-                {/* <Route path="/UserProfilePage" element={<UserProfilePage />} /> */}
                 <Route path="/MyTicket" element={<MyTicket />} />
                 <Route path="/success" element={<Success />} />
                 <Route path="/coupon" element={<Coupon />} />
-
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
-
-
                 {/* neSral Vilsan */}
 
                 <Route path={clientRoutes.registerPagePath()} element={<Register />} />
