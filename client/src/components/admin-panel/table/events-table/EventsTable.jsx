@@ -26,7 +26,7 @@ const EventsTable = ({ data }) => {
   return (
     <div>
       {/* Data review Popup */}
-      <Popup active={dataReviewPopupActive} setActive={setDataReviewPopupActive}>
+      <Popup active={dataReviewPopupActive} setActive={setDataReviewPopupActive} popupContent={popupContent}>
         { popupContent }
       </Popup>
 

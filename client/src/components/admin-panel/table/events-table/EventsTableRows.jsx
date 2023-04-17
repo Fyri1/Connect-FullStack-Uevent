@@ -2,21 +2,23 @@ import React from 'react';
 
 import ActionsButtons from '../common/ActionsButtons.jsx';
 
+import editForms from '../../../../../utils/editForms.jsx';
+
 
 const EventsTableRows = ({ data, setPopupActive, setPopupContent }) => {
   console.log(data);
 
-  const editButtonClick = () => {
-    console.log("edit");
-    setPopupContent(editForms(dataElement)[dataCategory]);
+  const editButtonClick = (eventData) => {
+    console.log("edit " + eventData.id);
+    setPopupContent(editForms(eventData)["events"]);
     setPopupActive(true);
   }
 
-  const deleteButtonClick = () => {
-    console.log("delete");
+  const deleteButtonClick = (eventData) => {
+    console.log("delete " + eventData.id);
   }
 
-  const tableRowsElements = data.map((eventData) => { 
+  const tableRowsElements = data.map((eventData) => {
     return (
       <tr key={eventData.id}>
         <td key={-1} className="w-4 p-4">
@@ -38,15 +40,18 @@ const EventsTableRows = ({ data, setPopupActive, setPopupContent }) => {
           {
             !eventData.categories ? <></> : eventData.categories.map((category) => {
               return (
-                <span key={category.id} className="px-1 rounded bg-gray-200">
+                <span key={category.id} className="px-2 py-1 mx-1 rounded-xl bg-gray-200">
                   {category.title}
                 </span>
               );
             })
           }
+          <button className="px-1 py-1 rounded-xl bg-gray-200">
+            <span>+</span>
+          </button>
         </td>
 
-        <ActionsButtons editButtonClick={editButtonClick} deleteButtonClick={deleteButtonClick} />
+        <ActionsButtons editButtonClick={() => editButtonClick(eventData)} deleteButtonClick={() => deleteButtonClick(eventData)} />
       </tr>
     )
   });
