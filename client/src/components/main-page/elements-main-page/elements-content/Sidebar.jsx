@@ -67,7 +67,7 @@ const Sidebar = ({ setData, setLoading }) => {
         <SearchInput />
       </div>
       <div
-        className={`p-5 w-full h-[27em] bg-white shadow absolute opacity-0 z-10 top-20 ${hidden} ${
+        className={`p-5 w-full h-[27em] bg-white shadow absolute opacity-0 z-10 top-20  dark:bg-gray-800 dark:text-gray-200 ${hidden} ${
           active ? 'animate-active' : 'animate-inactive'
         }`}
       >
@@ -76,7 +76,7 @@ const Sidebar = ({ setData, setLoading }) => {
           onSubmit={handelForm}
           className="flex h-[92%] flex-col justify-between items-end"
         >
-          <div className="flex w-full">
+          <div className="flex w-full ">
             <div className="flex ml-10 w-full">
               <Categories
                 categories={categories.data.values}
