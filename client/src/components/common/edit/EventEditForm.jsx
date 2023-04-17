@@ -28,26 +28,39 @@ const converter = new Showdown.Converter({
 const EventEditPage = ({ originData, formMessage }) => {
   const [value, setValue] = React.useState(originData.description);
   const [selectedTab, setSelectedTab] = React.useState('write');
-  const [target, setTarget] = React.useState('');
+  const [target, setTarget] = React.useState();
   const { isLoading, categories } = useCategories();
   const navigate = useNavigate();
   const keys = Object.keys(originData);
+  console.log(categories);
+
 
   let temp = {};
   keys.forEach((key, i) => {
     temp[key] = "";
   });
   const [errors, setErrors] = React.useState(temp);
+  delete originData.id;
+  delete originData.categories;
+  delete originData.priceTicket;
+  delete originData.user_id;
+  delete originData.created_at;
   const [data, setData] = React.useState(originData);
 
   const handleDataSubmit = async (e) => {
     e.preventDefault();
-    console.log(data);
 
     try {
+      const normalizeCategories = target.reduce((acc, category) => {
+        return {
+          ...acc,
+          [category.label]: category.value,
+        };
+      }, {});
+
       data.description = value;
-      const response = await $api.post(apiAdminRoutes.eventPostPath(), data);
-      console.log(response);
+      console.log({ ...data, ...normalizeCategories });
+      const response = await $api.post(apiAdminRoutes.eventPostPath(), { ...data, ...normalizeCategories });
       navigate(adminRoutes.mainPagePath());
     } catch (e) {
       console.log(e);
@@ -79,12 +92,16 @@ const EventEditPage = ({ originData, formMessage }) => {
 
             <Select
               className="w-full px-6"
-              
+              isMulti={true}
               isClearable={true}
-              onChange={(category) => setTarget(category?.value ? category.value : '')}
+              onChange={(categories) => {
+                // console.log(categories.map((category, i) => { return category.value }));
+                // setTarget(categories.map((category) => { return category.value}));
+                setTarget(categories);
+              }}
               options={categories.data.values.map((category) => ({
                 label: category.title,
-                value: category.title,
+                value: category.id,
             }))}/>
 
             <InputField id="city" name="City:" type="text" placeholder="sasi" data={data} setData={setData} errors={errors} setErrors={setErrors}>
@@ -157,15 +174,5 @@ const EventEditPage = ({ originData, formMessage }) => {
   );
 };
 
-/*
-  title,
-  description,
-  category,
-  city,
-  address,
-  poster,
-  eventStart,
-  eventEnd,
-*/
 
 export default EventEditPage;
