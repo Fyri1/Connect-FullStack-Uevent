@@ -73,6 +73,7 @@ const EventElement = ({ event }) => {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   );
