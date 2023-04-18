@@ -9,16 +9,18 @@ import Organization from './Organization.js';
 import City from './City.js';
 class Event {
   async getAll(filter) {
-
     const data = await this.filterEvents(filter);
     const events = data.map(async (event) => {
       const tickets = await this.getAllTickets(event.id);
       const eventCategories = await this.getAllCategories(event.id);
       const priceTicket = tickets[0]?.price;
-      
-      const cityEvent = await City.findCityName(event.city) ;
-       
-      return { ...event, priceTicket: priceTicket, categories: eventCategories, city:cityEvent };
+      const cityEvent = await City.findCityName(event?.city);
+      return {
+        ...event,
+        priceTicket: priceTicket,
+        categories: eventCategories,
+        city: cityEvent,
+      };
     });
     return Promise.all(events);
   }
@@ -66,9 +68,9 @@ class Event {
       }
     );
     const categoriesEvent = await Promise.all(promiseCategoriesEvent);
-    const filterCityAndCategoryEvent = categoriesEvent.flat().filter(({ city }) =>
-      filterValue['city'].includes(city)
-    );
+    const filterCityAndCategoryEvent = categoriesEvent
+      .flat()
+      .filter(({ city }) => filterValue['city'].includes(city));
     return filterCityAndCategoryEvent;
   }
 
@@ -118,13 +120,12 @@ class Event {
     }
     const tickets = await this.getAllTickets(data[0].id);
     const eventCategories = await this.getAllCategories(data[0].id);
-    const city = await City.findCityName(data[0].city)
+    const city = await City.findCityName(data[0].city);
     return {
       ...data[0],
       priceTicket: tickets[0]?.price,
       categories: eventCategories || [],
     };
-    
   }
 
   async getAllTickets(id) {
@@ -362,7 +363,7 @@ class Event {
       const data = await client('events')
         .select('*')
         .where('title', '=', title);
-        console.log(data)
+      console.log(data);
       if (data[0]?.id === id && data) {
         return false;
       }

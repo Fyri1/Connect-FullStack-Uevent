@@ -9,4 +9,4 @@ export const up = (knex) =>
     table.string('payment_intent');
   });
 
-export const down = (knex) => knex.schema.dropTable('ticket');
+export const down = (knex) => knex.schema.dropTable('tickets');
