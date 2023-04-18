@@ -14,7 +14,7 @@ const MainPage = () => {
   console.log(events);
 
   return isLoading ? <Spinner /> : (
-    <div className="main-content dark:bg-dark-bg-900">
+    <div className="main-content dark:bg-dark-bg-900 ">
       <div className="col-sm-9 padding-right">
         <div className="features_items">
           <h2 className="box-border my-8 text-2xl font-black leading-tight 

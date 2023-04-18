@@ -29,20 +29,10 @@ const ProfileHead = ({ userData }) => {
             </svg>
           </span>
         </div>
-        <p className="text-gray-700 dark:text-dark-text-400">Senior Software Engineer at Tailwind CSS</p>
-        <p className="text-sm text-gray-500 dark:text-dark-text-500">New York, USA</p>
+
       </div>
 
-      <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
-        <div className="flex items-center space-x-4 mt-2">
-          <button className="flex items-center bg-blue-600 hover:bg-blue-700 text-gray-100 px-4 py-2 rounded text-sm space-x-2 transition duration-100">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 448 512" fill="currentColor">
-              <path d="M240 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H176V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H240V80z"/>
-            </svg>
-            <span>Subscribe</span>
-          </button>
-        </div>
-      </div>
+
     </div>
   )
 }

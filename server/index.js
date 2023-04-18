@@ -35,8 +35,8 @@ export default () => {
   app.use(morgan('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
-  app.use('/api/avatars', Express.static(`${path.resolve()}/avatars`));
-  app.use('/api/event-pic', Express.static(`${path.resolve()}/events`));
+  app.use('/api/avatars', Express.static(`${path.resolve()}/assets/avatars`));
+  app.use('/api/event-pic', Express.static(`${path.resolve()}/assets/events`));
   // app.use('/picture-post', Express.static(`${path.resolve()}/picture-post`));
   app.use('/api/auth', authRouter);
   app.use('/api/event', eventRouter);

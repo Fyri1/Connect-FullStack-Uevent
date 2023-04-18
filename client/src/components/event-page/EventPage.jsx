@@ -37,21 +37,7 @@ const EventPage = () => {
           <div className=" px-6 md:flex md:space-x-6 xl:px-0">
             <div className="rounded-lg md:w-2/3">
               <EventDetailsHead edit={edit} setEdit={setEdit} eventData={event} />
-              <div className="Map">
-                <div className="flex flex-row items-center">
-                  <div className='flex flex-col justify-center items-center'>
-                    <div className='bg-[#8e5f27] h-4 w-8 rounded-t-md'></div>
-                    <div className='w-12 h-60 bg-[#0c2e41] rounded-t-md'></div>
-                    <div className='w-12 h-2 bg-yellow-600 rounded-t-full -mt-2'></div>
-                    <div className='bg-[#8e5f27] h-4 w-8 rounded-t-md'></div>
-                  </div>
-                  <div
-                    className=' box-content relative h-52 w-[500px] relative border-[#0c2e41] border-8 slide-ltr sliding-ltr flex flex-row ease'> 
-                    <img className='h-full object-fit'src="https://i.ibb.co/xHVTzh7/2-VM4-JQb-Z4j-E.jpg"></img>
-                    <img className='h-full object-fit'src="https://i.ibb.co/CwdZZzv/chrome-EBWLj-WZm-RO.png"></img>
-                  </div>
-                </div>
-              </div>
+
             </div>
             <div className="md:mt-0 md:w-1/4 ">
               <Aside edit={edit} setEdit={setEdit} eventData={{...organizator.user, ...event}} ticketLeft={eventTickets.tickets}/>

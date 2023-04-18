@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import encrypt from './encrypt.js';
 import process from 'process';
 
+const cities = ['Kyiv', 'Kharkiv', 'Ivano-Frankivsk', 'Donetsk'];
+
 const users = [
   {
     login: 'Admin1',
@@ -71,72 +73,76 @@ const users = [
 ];
 const events= [
   {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    title: 'OLEG SKRIPKA AND ORCHESTRONI',
     description: 'abobus abobus',
-    city: 'Kyiv',
-    address: 'Amogus1',
-    event_start: Date.parse('2023-01-22T18:00'),
-    event_end: Date.parse('2023-01-23T18:00'),
-    poster: '1.png',
-  },
-  {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
-    description: 'abobus abobus',
-    city: 'Kyiv',
-    address: 'Amogus1',
+    city: cities[0],
+    address: 'Vorovskaya 12',
     event_start: Date.parse('2023-01-22T18:00'),
     event_end: Date.parse('2023-01-23T18:00'),
     poster: '2.png',
   },
   {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    title: 'UNDERGROUND STANDUP FOR THREE',
     description: 'abobus abobus',
-    city: 'Kyiv',
-    address: 'Amogus1',
-    event_start: Date.parse('2023-01-22T18:00'),
-    event_end: Date.parse('2023-01-23T18:00'),
+    city: cities[1],
+    address: 'Vorovskaya 12',
+    event_start: Date.parse('2023-03-12T18:00'),
+    event_end: Date.parse('2023-03-14T18:00'),
     poster: '3.png',
   },
   {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    title: 'YURIY THE VELIKY "Soulfully AT HOME"',
     description: 'abobus abobus',
-    city: 'Kyiv',
-    address: 'Amogus1',
-    event_start: Date.parse('2023-01-22T18:00'),
-    event_end: Date.parse('2023-01-23T18:00'),
+    city: cities[3],
+    address: 'Vorovskaya 12',
+    event_start: Date.parse('2023-03-01T18:00'),
+    event_end: Date.parse('2023-03-03T18:00'),
     poster: '4.png',
   },
   {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    title: 'STANDUP EVENING',
     description: 'abobus abobus',
-    city: 'Kyiv',
-    address: 'Amogus1',
-    event_start: Date.parse('2023-01-22T18:00'),
-    event_end: Date.parse('2023-01-23T18:00'),
+    city: cities[0],
+    address: 'Vorovskaya 12',
+    event_start: Date.parse('2023-09-10T10:00'),
+    event_end: Date.parse('2023-09-11T18:00'),
+    poster: '5.jpg',
   },
   {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    title: 'STANDUP FOR THREE',
     description: 'abobus abobus',
-    city: 'Kyiv',
-    address: 'Amogus1',
-    event_start: Date.parse('2023-01-22T18:00'),
-    event_end: Date.parse('2023-01-23T18:00'),
+    city: cities[1],
+    address: 'Vorovskaya 12',
+    event_start: Date.parse('2023-09-30T09:00'),
+    event_end: Date.parse('2023-10-01T19:00'),
+    poster: '6.jpg',
   },
   {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    title: 'SPRING CONCERT',
     description: 'abobus abobus',
-    city: 'Kyiv',
-    address: 'Amogus1',
-    event_start: Date.parse('2023-01-22T18:00'),
-    event_end: Date.parse('2023-01-23T18:00'),
+    city: cities[2],
+    address: 'Vorovskaya 12',
+    event_start: Date.parse('2023-12-15T13:00'),
+    event_end: Date.parse('2023-12-16T16:00'),
+    poster: '7.jpg',
   },
   {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    title: '10 STANDUP COMIKES',
     description: 'abobus abobus',
-    city: 'Kyiv',
-    address: 'Amogus1',
-    event_start: Date.parse('2023-01-22T18:00'),
-    event_end: Date.parse('2023-01-23T18:00'),
+    city: cities[3],
+    address: 'Vorovskaya 12',
+    event_start: Date.parse('2023-12-31T10:00'),
+    event_end: Date.parse('2024-01-01T14:00'),
+    poster: '8.jpg',
+  },
+  {
+    title: 'MED',
+    description: 'abobus abobus',
+    city: cities[0],
+    address: 'Vorovskaya 12',
+    event_start: Date.parse('2031-01-22T11:00'),
+    event_end: Date.parse('2031-01-23T18:00'),
+    poster: '9.jpg',
   }
 
 
@@ -220,13 +226,13 @@ const createEventAndComment = async (id, user_id) => {
   await client('events').insert({
     id,
     user_id,
-    title: 'OLEG SKRIPKA AND ORCHESTRONI. ROCK AND FOLK',
+    title: 'OLEG SKRIPKA AND ORCHESTRONI.',
     description: 'abobus abobus',
     city: cities[0],
     address: 'Amogus1',
-    event_start: Date.parse('2023-01-22T18:00'),
-    event_end: Date.parse('2023-01-23T18:00'),
-    
+    event_start: Date.parse('2023-02-20T18:00'),
+    event_end: Date.parse('2023-03-21T18:00'),
+    poster: '1.png',
   });
   const categories = await client('categories').select('categories.id');
   categories.map(async (category, count) => {
@@ -242,8 +248,6 @@ const createEventAndComment = async (id, user_id) => {
   }
   return id;
 };
-
-const cities = ['Kyiv', 'Kharkiv', 'Ivano-Frankivsk', 'Donetsk'];
 
 const createEvent = async (user_id, count, data) => {
   const id = uuidv4();

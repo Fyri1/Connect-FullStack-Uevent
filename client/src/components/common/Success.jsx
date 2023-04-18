@@ -101,7 +101,7 @@ const Success = () => {
                 </>
               ) : (
                 <span className="font-medium subpixel-antialiased">
-                  Выйти НАХУЙ
+                  Go back
                 </span>
               )}
             </button>
