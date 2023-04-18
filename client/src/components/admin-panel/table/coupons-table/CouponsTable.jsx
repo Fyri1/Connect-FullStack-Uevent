@@ -34,8 +34,8 @@ const CouponsTable = ({ data }) => {
       {/* Controls and table itself */}
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <CouponsTableHead data={tableHeadColumnNames} dataCategory={"events"} setPopupContent={setPopupContent} setPopupActive={setDataReviewPopupActive} />
-          <PromocodesTableRows data={data} dataCategory={"events"} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
+          <CouponsTableHead data={tableHeadColumnNames} dataCategory={"coupons"} setPopupContent={setPopupContent} setPopupActive={setDataReviewPopupActive} />
+          <PromocodesTableRows data={data} dataCategory={"coupons"} setPopupActive={setDataReviewPopupActive} setPopupContent={setPopupContent} />
         </table>
       </div>
     </div>

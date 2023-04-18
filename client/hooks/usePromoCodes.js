@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { PayService } from '../services/pay.service';
 
-const usePromoCodes = () => {
+const usePromoCodes = ({ id }) => {
   const { isLoading, data: promoCodes } = useQuery(['get promo codes', id], () => PayService.getPromoCodes(id), {
     onError: (error) => {
       console.log(error);

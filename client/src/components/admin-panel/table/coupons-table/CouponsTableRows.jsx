@@ -1,4 +1,5 @@
 import React from 'react';
+import { Menu, Transition } from '@headlessui/react';
 
 import ActionsButtons from '../common/ActionsButtons.jsx';
 import editForms from '../../../../../utils/editForms.jsx';
@@ -9,7 +10,7 @@ const CouponsTableRows = ({ data, setPopupActive, setPopupContent }) => {
 
   const editButtonClick = (couponData) => {
     console.log("edit " + couponData.id);
-    setPopupContent(editForms(couponData)["events"]);
+    setPopupContent(editForms(couponData)["coupons"]);
     setPopupActive(true);
   }
 
@@ -28,7 +29,7 @@ const CouponsTableRows = ({ data, setPopupActive, setPopupContent }) => {
         </td>
 
         <td className="px-6 py-4">{couponData.id}</td>
-        <td className="px-6 py-4">{couponData.percent_off}</td>
+        <td className="px-6 py-4">{couponData.percent_off}%</td>
         <td className="px-6 py-4">{couponData.duration_in_months} month</td>
         <td className="px-6 py-4">{couponData.times_redeemed}</td>
         <td className="px-6 py-4">
