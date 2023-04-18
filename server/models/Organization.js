@@ -107,6 +107,7 @@ class Organization {
 
   async saveOrganizationStep2({ user_id, orgData }) {
     await PayService.checkValidKey(orgData.secretKey);
+    console.log(user_id);
     const org = await this.findOrganizationByUserId(user_id);
     await client('organization')
       .update({

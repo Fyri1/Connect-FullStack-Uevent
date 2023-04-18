@@ -38,13 +38,13 @@ const Sidebar = ({ setData, setLoading }) => {
         }
     }
       const response = await $api.get(url.toString());
-      setData(response.data.values);
+      setData(response);
     } catch (err) {
       console.error(err);
     } finally {
-      setTimeout(() => {
+      // setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      // }, 1000);
     }
   };
 

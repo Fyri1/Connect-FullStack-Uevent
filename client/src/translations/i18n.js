@@ -39,7 +39,7 @@ i18n
   .use(initReactI18next)
   .init({
     interpolation: { escapeValue: false },
-    lng: 'en',
+    // lng: 'en',
     resources: {
       en: {
         header: header_en,

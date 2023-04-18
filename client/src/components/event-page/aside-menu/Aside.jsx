@@ -33,13 +33,13 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
           </div>
         </div>
       </div>
-      <div className=" ml-4 mt-3 ">
-        <div className="mb-2 justify-between ">
-          <div className="flex items-center pb-1 text-indigo-600 flex items-center dark:text-indigo-400 ">
+      <div className=" ml-4 mt-2 ">
+        <div className="justify-between ">
+          <div className="flex items-center pb-2 text-indigo-600 flex items-center dark:text-indigo-400 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 24 24"
+              viewBox="0 0 27 28"
               strokeWidth={1.5}
               stroke="currentColor"
               className="h-8 w-8 "
@@ -56,7 +56,7 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
               ></path>
             </svg>
             <p className="pl-2 text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:text-dark-text-300">
-              {city[currentLang]}, {address}
+                Kyiv, {address}
             </p>
           </div>
         </div>
@@ -68,10 +68,10 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 24 24"
+              viewBox="0 0 26 26"
               strokeWidth={1.5}
               stroke="currentColor"
-              className=" -mt-6 h-8 w-8 "
+              className=" -mt-2 h-8 w-8 "
             >
               <path
                 strokeLinecap="round"
@@ -79,7 +79,7 @@ const Aside = ({ edit, setEdit, eventData, ticketLeft }) => {
                 d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
               ></path>
             </svg>
-            <p className="pl-2 text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:text-dark-text-300">
+            <p className="  pl-2 text-lg font-semibold text-white sm:text-slate-900 md:text-1xl dark:text-dark-text-300">
               ФОП {`${first_name} ${second_name} ${last_name}`}
             </p>
           </div>

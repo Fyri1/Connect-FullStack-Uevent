@@ -82,7 +82,6 @@ const StapperProgress = ({
         >
           {stepper.iter <= 3 ? 'next' : 'finish'}
         </button>
-
       </div>
     </>
   );

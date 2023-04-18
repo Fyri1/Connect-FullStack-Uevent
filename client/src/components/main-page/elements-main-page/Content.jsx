@@ -7,6 +7,7 @@ import Spinner from '../../common/Spinner.jsx';
 const Content = ({ data }) => {
   const [events, setEvents] = React.useState(data);
   const [isLoading, setLoading] = React.useState(false);
+  console.log(data);
 
     return (
     <>

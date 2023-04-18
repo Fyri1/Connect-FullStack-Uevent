@@ -3,7 +3,7 @@ import React from 'react';
 import ToastWarning from '../toast/ToastWarning.jsx';
 
 
-const InputField = ({ id, name, type, min, data, setData, errors, setErrors, children }) => {  
+const InputField = ({ id, name, type, min, data, setData, errors, setErrors, setType, children }) => {  
   React.useEffect(() => {
     const errorElement = document.getElementById("error-" + id);
     const classList = errorElement.classList;

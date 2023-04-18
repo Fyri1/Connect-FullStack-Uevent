@@ -5,13 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import InputField from '../common/form/InputField.jsx';
 import EditForm from '../common/form/EditForm.jsx';
 import SocialNetworkIcons from './SocialNetworkIcons.jsx';
+import { useTranslation } from 'react-i18next';
 
 import clientRoutes from '../../routes/client/clientRoutes.js';
 import apiRoutes from '../../routes/api/apiClientRoutes.js';
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const [t, i18n] = useTranslation('auth');
   const [userData, setUserData] = React.useState({
     login: '',
     password: '',
@@ -58,10 +59,10 @@ const Login = () => {
   return (
     <form onSubmit={handleLoginSubmit}>
       <section className="bg-gray-50 dark:bg-dark-bg-900">
-        <EditForm formMessage="Sign in">
+        <EditForm formMessage={t('signIn.title')}>
           <InputField
             id="login"
-            name="Your login"
+            name={t('signIn.fild-login')}
             type="text"
             placeholder="my_login123"
             data={userData}
@@ -85,8 +86,8 @@ const Login = () => {
 
           <InputField
             id="password"
-            name="Password"
-            type="text"
+            name={t('signIn.fild-password')}
+            type="password"
             placeholder="my_login123"
             data={userData}
             setData={setUserData}
@@ -126,7 +127,7 @@ const Login = () => {
                   htmlFor="remember"
                   className="text-gray-500 dark:text-gray-300"
                 >
-                  Remember me
+                  {t('signIn.checkbox-remember')}
                 </label>
               </div>
             </div>
@@ -134,7 +135,7 @@ const Login = () => {
               href={clientRoutes.fullPassResetPagePath()}
               className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
             >
-              Forgot password?
+              {t('signIn.forgot-password')}
             </a>
           </div>
 
@@ -142,23 +143,23 @@ const Login = () => {
             type="submit"
             className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
-            Sign in
+            {t('signIn.button-login')}
           </button>
 
           <p className="text-sm font-light text-gray-500 dark:text-dark-text-400">
-            Don't have an account yet?{' '}
+          {t('signIn.text-regestration')}
             <a
               href={clientRoutes.fullRegisterPagePath()}
               className="font-medium text-primary-600 hover:underline dark:text-primary-500"
             >
-              Sign up
+              {t('signIn.link-regestration')}
             </a>
           </p>
 
           <div className="inline-flex items-center justify-center w-full">
             <hr className="w-96 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
             <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-dark-text-400 dark:bg-dark-bg-800">
-              Or continue using
+            {t('signIn.or-other-acc')}
             </span>
           </div>
           <SocialNetworkIcons />

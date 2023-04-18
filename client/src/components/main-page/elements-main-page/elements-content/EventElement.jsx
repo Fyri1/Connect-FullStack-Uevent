@@ -17,7 +17,7 @@ const EventElement = ({ event }) => {
         <div className="first-elem-div col-sm-4 flex-col rounded-[20px]  overflow-hidden bg-white-700 relative  group relative w-full ">
         <div className="h-full w-full">
           <div className="w-full">
-            <img className="rounded-[20px] w-full h-[350px]" src={event.poster?`http://localhost:8080/api/event-pic/${event.poster}`:`https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg`} alt="" />
+            <img className="rounded-[20px] w-full h-[350px]" src={event.poster?`http://localhost:8080/api/event-pic/${event.poster}`:`data:image/jpeg;base64,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`} alt="" />
           </div>
 
           <div className="mb-3 flex items-center justify-between px-0 md:items-start">
@@ -40,7 +40,7 @@ const EventElement = ({ event }) => {
                 </div>
 
                 <div className="start flex px-1">
-                  <p className="text-lg font-semibold text-xs sm:text-slate-900 md:text-1xl dark:text-dark-text-400">{t('eventCard.from')} { event.priceTicket }</p>
+                  <p className="text-lg font-semibold text-xs sm:text-slate-900 md:text-2xl dark:text-dark-text-400">{t('eventCard.from')} { event.priceTicket } ₴</p>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@ const EventElement = ({ event }) => {
           </div>
 
           <div className="scale-10 text-white outline-none">
-            <p className="name text-wight-700 font-bold text-4xl mb-3 text-wight-900  dark:text-dark-text-200">{ event.title }</p>
+            <p className="name text-wight-700 font-bold text-4xl mb-3 text-wight-900  dark:text-dark-text-200">{ event.title } </p>
           </div>
 
           <div className="mb-10 scale-10 text-white outline-none ">

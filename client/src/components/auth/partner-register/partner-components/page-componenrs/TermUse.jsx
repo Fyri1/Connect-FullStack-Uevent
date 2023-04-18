@@ -4,6 +4,7 @@ import textTermUse from '../../../../../other/text-term-use.js';
 import $api from '../../../../../../utils/api.js';
 import apiClientRoutes from '../../../../../routes/api/apiClientRoutes.js';
 import { AccordionBody } from '@material-tailwind/react';
+import { useTranslation } from 'react-i18next';
 
 const RenderItemAccordion = ({
   setReading,
@@ -14,6 +15,7 @@ const RenderItemAccordion = ({
   open,
   handleOpen,
 }) => {
+  const [t, i18n] = useTranslation('term-use');
   const [read, setRead] = React.useState(
     false || completeStep.step1.isComplete
   );
@@ -40,6 +42,7 @@ const RenderItemAccordion = ({
               setRead(!read);
               setReading((prev) => [...prev, head]);
             }}
+            type='submit'
             disabled={read}
             className={`transition px-4 py-2 text-white 
                           ${
@@ -51,7 +54,7 @@ const RenderItemAccordion = ({
                           text-sm text-center 
                           dark:focus:ring-primary-800 `}
           >
-            {read ? 'Complete!' : 'I read'}
+            {read ? t('step1.button-complete') : t('step1.button-read')}
           </button>
         </div>
       </AccordionComponent>
@@ -60,14 +63,18 @@ const RenderItemAccordion = ({
 };
 
 const TermUse = ({ setCompleteStep, completeStep }) => {
+  const [t, i18n] = useTranslation('term-use');
   const [open, setOpen] = React.useState(0);
   const [reading, setReading] = React.useState([]);
+  console.log(reading)
 
-  const handleForm = async (e) => {
-    e.preventDefault();
-    if (reading.length === 6) {
+  const handleOpen = async (value) => {
+    setOpen(open === value ? 0 : value);
+    console.log('1')
+    if (reading.length === 5) {
       try {
         const response = await $api.post(apiClientRoutes.createOrganization(1));
+        console.log(response)
         setCompleteStep((prev) => ({
           ...prev,
           step1: {
@@ -81,25 +88,20 @@ const TermUse = ({ setCompleteStep, completeStep }) => {
     }
   };
 
-  const handleOpen = (value) => {
-    setOpen(open === value ? 0 : value);
-  };
-
   return (
     <div className="animate-active-page min-h-full  ">
       <section className="text-gray-700">
         <div className="container px-5 pt-16 mx-auto">
           <div className="text-center mb-14">
             <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4  dark:text-gray-200">
-              Frequently Asked Question
+            {t('step1.title')}
             </h1>
             <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto dark:text-gray-400">
-              The most common questions about how our business works and what
-              can do for you.
+            {t('step1.text')}
             </p>
           </div>
           <form
-            onSubmit={handleForm}
+            onSubmit={(e) => {e.preventDefault()}}
             className="flex flex-wrap sm:mx-auto -mx-2 "
           >
             {textTermUse().map((item, i) => (

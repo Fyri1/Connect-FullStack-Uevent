@@ -2,9 +2,11 @@ import axios from 'axios';
 import React from 'react';
 import $api from '../../../../../../utils/api';
 import apiClientRoutes from '../../../../../routes/api/apiClientRoutes';
+import { useTranslation } from 'react-i18next';
 
 const FormPay = ({ completeStep, setCompleteStep }) => {
   const [key, setKey] = React.useState('');
+  const [t, i18n] = useTranslation('term-use');
 
   const handeleForm = async (e) => {
     try {
@@ -31,12 +33,11 @@ const FormPay = ({ completeStep, setCompleteStep }) => {
           <div class="mx-auto flex w-full max-w-md flex-col space-y-16 ">
             <div class="flex flex-col items-center justify-center text-center space-y-2 ">
               <div class="font-semibold text-3xl">
-                <p> Get your free account now.</p>
+                <p>{t('step2.title')}</p>
               </div>
               <div class="flex flex-row text-sm font-medium text-gray-400">
                 <p className="mt-4 text-center text-gray-500 dark:text-gray-400 ">
-                  Let’s get you all set up so you can verify your personal
-                  account and begin setting up your profile.
+                {t('step2.text')}
                 </p>
               </div>
             </div>
@@ -47,7 +48,7 @@ const FormPay = ({ completeStep, setCompleteStep }) => {
                   <div class="  items-center justify-between ">
                     <input
                       type="text"
-                      placeholder="Your Code"
+                      placeholder={t('step2.placeholder')}
                       onChange={(e) => setKey(e.target.value)}
                       disabled={completeStep.step2.isComplete}
                       class="flex  items-center        
@@ -64,20 +65,8 @@ const FormPay = ({ completeStep, setCompleteStep }) => {
                         class="flex flex-row items-center disabled:opacity-80
                        justify-center text-center w-full border rounded-xl outline-none py-5 bg-blue-700 border-none text-white text-sm shadow-sm"
                       >
-                        Verify Account
+                        {t('step2.button')}
                       </button>
-                    </div>
-
-                    <div class="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
-                      <p>Didn't recieve code?</p>{' '}
-                      <a
-                        class="flex flex-row items-center text-blue-600"
-                        href="http://"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Resend
-                      </a>
                     </div>
                   </div>
                 </div>

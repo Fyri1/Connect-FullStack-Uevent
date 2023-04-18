@@ -7,7 +7,7 @@
     },
     "userDropdownMenu" : {
         "welcome" : "Хай, ",
-        "unauthorizedUser" : "Гість о/",
+        "unauthorizedUser" : "Гість",
         "authorizeSuggestion" : "Хочете придбати квитки?",
         "profile" : "Профіль",
         "eventCreate" : "Панель управління",

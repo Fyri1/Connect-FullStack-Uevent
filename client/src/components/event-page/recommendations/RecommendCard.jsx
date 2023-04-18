@@ -10,15 +10,15 @@ const RecommendCard = ({ data }) => {
 
   const date = moment(data.event_start).locale(currentLang === 'ua' ? 'uk' : currentLang).format('D MMMM,HH:mm ddd').split(' ').map((i) => i[0].toUpperCase() + i.slice(1)).join(' ')
   const date2 = moment(data.event_start).locale(currentLang === 'ua' ? 'uk' : currentLang).format('D MMMM').split(' ').map((i) => i[0].toUpperCase() + i.slice(1)).join(' ')
-  const city = data.city[currentLang];
+  const city = data.city[currentLang]||data.city;
+  console.log(city);
 
   return (
-    <div className="px-3 py-5 gap-8 snap-x  overflow-hidden  ">
-    <div className="first-elem-div col-sm-4 flex-col rounded-[20px] overflow-hidden bg-white-700 relative p-2 group relative w-full ">
-
-    <div className="h-full w-full">
-      <div className="w-full h-full ">
-        <img className="rounded-[10px] " src="https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg" alt="" />
+    <div className="px-2 py-5 gap-8 snap-x  overflow-hidden  ">
+        <div className="first-elem-div col-sm-4 flex-col rounded-[20px]  overflow-hidden bg-white-700 relative  group relative w-full ">
+        <div className="h-full w-full">
+      <div className="w-full">
+        <img className="rounded-[20px] w-full h-[350px]" src={data.poster?`http://localhost:8080/api/event-pic/${data.poster}`:`https://i1.sndcdn.com/avatars-000630927555-iux64b-t500x500.jpg`} alt="" />
       </div>
 
       <div className="mb-3 flex items-center justify-between px-0 md:items-start">
@@ -27,7 +27,10 @@ const RecommendCard = ({ data }) => {
             <p className="text-lg pl-3 font-semibold text-gray-700 md:text-1xl dark:text-dark-text-400"> {date}</p>
           </div>
 
-          <p className="name text-gray-700 mb-20 font-bold text-2xl   hover:text-gray-900 hover: dark:text-dark-text-100">{ data.title }</p>
+          <p style={{
+            fontSize: data.title.length > 18 ? '15px' : "1.5rem"
+          }}
+          className={`name text-gray-700 mb-20 font-bold    hover:text-gray-900 hover: dark:text-dark-text-100`}>{ data.title }</p>
 
           <div className="nav nav-pills nav-justified px-2">
             <div className="location start flex">
@@ -39,7 +42,7 @@ const RecommendCard = ({ data }) => {
             </div>
 
             <div className="start flex px-1">
-              <p className="text-lg font-semibold text-xs sm:text-slate-900 md:text-1xl dark:text-dark-text-400">{t('eventCard.from')} { data.priceTicket }</p>
+              <p className="text-lg font-semibold text-xs sm:text-slate-900 md:text-2xl dark:text-dark-text-400">{t('eventCard.from')} { data.priceTicket }₴</p>
             </div>
           </div>
         </div>

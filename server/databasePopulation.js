@@ -26,12 +26,12 @@ const users = [
     email: 'organization@gmail.com',
     phone_number: '+380409318433',
     role: 'organization',
-    first_name: "Amogus",
-    second_name: "Abobus",
-    last_name: "Nigers",
+    first_name: "Степан",
+    second_name: "Бандера",
+    last_name: "Андреевич",
   },
   {
-    login: 'user1',
+    login: 'Andrew',
     password: await encrypt('1234'),
     email: 'user1@gmail.com',
     role: 'user',
@@ -39,7 +39,7 @@ const users = [
     content: "I think it's excellent!",
   },
   {
-    login: 'user2',
+    login: 'Olega',
     password: await encrypt('1234'),
     email: 'user3@gmail.com',
     role: 'user',
@@ -47,7 +47,7 @@ const users = [
     content: 'I am a macaque :)',
   },
   {
-    login: 'user3',
+    login: 'I_love_uk',
     password: await encrypt('1234'),
     email: 'user4@gmail.com',
     role: 'user',
@@ -55,7 +55,7 @@ const users = [
     content: 'I peed yesterday XD',
   },
   {
-    login: 'user4',
+    login: 'Vasil',
     password: await encrypt('1234'),
     email: 'user4@gmail.com',
     role: 'user',
@@ -63,7 +63,7 @@ const users = [
     content: 'If you read this text, the pipe will fall off)))))',
   },
   {
-    login: 'user5',
+    login: 'Dady',
     password: await encrypt('1234'),
     email: 'user5@gmail.com',
     role: 'user',
@@ -73,13 +73,13 @@ const users = [
 ];
 const events= [
   {
-    title: 'OLEG SKRIPKA AND ORCHESTRONI',
+    title: 'WHAT MEN ARE SILENT ABOUT',
     description: 'abobus abobus',
     city: cities[0],
     address: 'Vorovskaya 12',
     event_start: Date.parse('2023-01-22T18:00'),
     event_end: Date.parse('2023-01-23T18:00'),
-    poster: '2.png',
+    poster: 'pro.png',
   },
   {
     title: 'UNDERGROUND STANDUP FOR THREE',
@@ -135,38 +135,29 @@ const events= [
     event_end: Date.parse('2024-01-01T14:00'),
     poster: '8.jpg',
   },
-  {
-    title: 'MED',
-    description: 'abobus abobus',
-    city: cities[0],
-    address: 'Vorovskaya 12',
-    event_start: Date.parse('2031-01-22T11:00'),
-    event_end: Date.parse('2031-01-23T18:00'),
-    poster: '9.jpg',
-  }
 
 
   
 ]
 const categories = [
   {
-    title: 'amogus 1',
+    title: 'Standup',
     description: 'create amogus 1',
   },
   {
-    title: 'amogus 2',
+    title: 'Concert',
     description: 'create amogus 2',
   },
   {
-    title: 'amogus 3',
+    title: 'Rock & Folk',
     description: 'create amogus 3',
   },
   {
-    title: 'amogus 4',
+    title: 'Comedy',
     description: 'create amogus 4',
   },
   {
-    title: 'amogus 5',
+    title: 'Ukraine',
     description: 'create amogus 5',
   },
 ];

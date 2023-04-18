@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import moment from 'moment/min/moment-with-locales';
 
 import ReactionComment from './ReactionComment.jsx'
 
@@ -12,13 +12,15 @@ import UserContext from '../../../context/UserContext.js';
 import default_avatar from '../../../temp/avatar.png';
 
 const Comment = ({ data }) => {
-  const datePublish = moment(new Date(data.created_at), "YYYYMMDD").fromNow();
+  const currentLang = localStorage.getItem('i18nextLng')
+  const datePublish = moment(new Date(data.created_at)).locale(currentLang === 'ua' ? 'uk' : currentLang).format('D MMMM,HH:mm');
   const { isLoading, user } = useUser(data.user_id);
   const [show, setShow] = React.useState(false);
   const [content, setContent] = React.useState(data.content);
   const [currentContent, setCurrentContent] = React.useState(data.content);
   const [isDelete, setDelete] = React.useState(false);
   const { currentUser } = React.useContext(UserContext);
+
 
   const reaction = useCommentsReaction(data.id);
 
